@@ -56,12 +56,13 @@ gem 'whenever', '~> 0.9.7', require: false
 source 'https://rails-assets.org' do
   gem 'rails-assets-leaflet'
 end
+gem "faker", '~> 1.7.3'
+
 
 group :development, :test do
   gem "bullet", '~> 5.5.1'
   gem 'byebug', '~> 9.1.0'
   gem 'factory_girl_rails', '~> 4.8.0'
-  gem "faker", '~> 1.7.3'
   gem 'i18n-tasks', '~> 0.9.15'
   gem 'knapsack', '~> 1.13.3'
   gem 'launchy', '~> 2.4.3'
@@ -71,6 +72,8 @@ group :development, :test do
   gem 'spring', '~> 2.0.1'
   gem 'spring-commands-rspec', '~> 1.0.4'
 end
+
+gem 'database_cleaner', '~> 1.5.3'
 
 group :test do
   gem 'capybara', '~> 2.14.0'
