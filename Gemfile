@@ -78,7 +78,7 @@ gem 'database_cleaner', '~> 1.5.3'
 group :test do
   gem 'capybara', '~> 2.14.0'
   gem 'coveralls', '~> 0.8.21', require: false
-  gem 'database_cleaner', '~> 1.6.1'
+  gem 'database_cleaner', '~> 1.5.3'
   gem 'email_spec', '~> 2.1.0'
   gem 'poltergeist', '~> 1.15.0'
   gem 'rspec-rails', '~> 3.6'
