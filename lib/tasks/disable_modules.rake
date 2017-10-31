@@ -13,6 +13,6 @@ namespace :disable_modules do
     Setting['feature.polls'] = false
     Setting['feature.public_stats'] = false
     Setting['feature.budgets'] = false
-    Setting['feature.legislation'] = false
+    Setting['feature.legislation'] = true
   end
 end
