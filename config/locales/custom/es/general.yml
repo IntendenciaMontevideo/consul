@@ -1,0 +1,22 @@
+
+es:
+  layouts:
+    header:
+      proposals: Ideas
+      collaborative_legislation: Consulta ciudadana
+      budgets: Presupuesto participativo
+      open_city_title: La ciudad que quieres será la ciudad que tu decidas
+  welcome:
+    decide:
+      description: Sumarse a los espacios abiertos de participación que ofrece Montevideo.
+      title: Participas
+    do:
+      description: Aprovecha los espacios de decisión que tiene tu ciudad. La ciudad que quieres será la que tu decidas !!.
+      title: Decides
+    proposal:
+      description: Espacio abierto para que los ciudadanos aporten sus ideas para la ciudad en la que quieren vivir.
+      title: Propones
+  debates:
+    index:
+      section_header:
+        help: ¿ Para que iniciar un debate ?
