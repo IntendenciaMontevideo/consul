@@ -7,16 +7,78 @@ es:
       budgets: Presupuesto participativo
       open_city_title: La ciudad que quieres será la ciudad que tu decidas
   welcome:
-    decide:
-      description: Sumarse a los espacios abiertos de participación que ofrece Montevideo.
-      title: Participas
-    do:
-      description: Aprovecha los espacios de decisión que tiene tu ciudad. La ciudad que quieres será la que tu decidas !!.
-      title: Decides
-    proposal:
       description: Espacio abierto para que los ciudadanos aporten sus ideas para la ciudad en la que quieren vivir.
       title: Propones
   debates:
     index:
       section_header:
-        help: ¿ Para que iniciar un debate ?
+        help: Ayuda sobre los debates
+      section_footer:
+        proposals_link: idea
+  proposals:
+    create:
+      form:
+        submit_button: Crear idea
+    edit:
+      editing: Editar idea
+      show_link: Ver idea
+    retire_form:
+      title: Retirar idea
+      warning: "Si sigues adelante tu idea podrá seguir recibiendo apoyos, pero dejará de ser listada en la lista principal, y aparecerá un mensaje para todos los usuarios avisándoles de que el autor considera que esta idea no debe seguir recogiendo apoyos."
+      retired_reason_label: Razón por la que se retira la idea
+      retired_explanation_placeholder: Explica brevemente por que consideras que esta idea no debe recoger más apoyos
+      submit_button: Retirar idea
+    form:
+      proposal_question: Pregunta de la idea
+      proposal_responsible_name: Nombre y apellidos de la persona que hace esta idea
+      proposal_summary: Resumen de la idea
+      proposal_text: Texto desarrollado de la idea
+      proposal_title: Título de la idea
+      tags_instructions: "Etiqueta esta idea. Puedes elegir entre las categorías ideas o introducir las que desees"
+    index:
+      recommendations:
+        without_results: No existen ideas relacionadas con tus intereses
+        without_interests: Sigue ideas para que podamos darte recomendaciones
+      retired_proposals: ideas retiradas
+      retired_proposals_link: "ideas retiradas por sus autores"
+      search_form:
+        placeholder: Buscar ideas...
+      select_order_long: Estas viendo las ideas
+      start_proposal: Crea una idea
+      title: ideas ciudadanas
+      top_link_proposals: ideas más apoyadas por categoría
+      section_header:
+        icon_alt: Icono de ideas
+        title: ideas
+        help: Ayuda sobre las ideas
+      section_footer:
+        title: Ayuda sobre las ideas
+        description: Haz una idea ciudadana. Si obtiene los apoyos suficientes y pasa a votación, puedes conseguir que todos los habitantes decidan cómo quieren que sea nuestra ciudad.
+        help_text_1: "Las ideas ciudadanas son una oportunidad para que los vecinos y colectivos decidan directamente cómo quieren que sea su ciudad. Cualquier persona puede hacer una idea sobre un tema que le interese o preocupe para que el ayuntamiento la lleve a cabo, después de conseguir los apoyos suficientes y de someterse a votación ciudadana."
+        help_text_2: "Para crear una idea hay que registrarse en %{org}. Las ideas que consigan el apoyo del 1% de la gente en la web, pasan a votación. Para apoyar ideas es necesario tener una cuenta verificada."
+        help_text_3: "Se convoca una votación ciudadana cuando las ideas consiguen los apoyos necesarios. Una vez celebrada, si hay más gente a favor que en contra, el Consistorio asume la idea y la lleva a cabo."
+    new:
+      form:
+        submit_button: Crear idea
+      more_info: "¿Cómo funcionan las ideas ciudadanas?"
+      recommendation_one: No escribas el título de la idea o frases enteras en mayúsculas. En internet eso se considera gritar. Y a nadie le gusta que le griten.
+      recommendation_two: Cualquier idea o comentario que implique una acción ilegal será eliminada, también las que tengan la intención de sabotear los espacios de idea, todo lo demás está permitido.
+      recommendations_title: Recomendaciones para crear una idea
+      start_new: Crear una idea
+    notice:
+      retired: idea retirada
+    proposal:
+      created: "¡Has creado una idea!"
+      share:
+        view_proposal: "Ahora no, ir a mi idea"
+      already_supported: "¡Ya has apoyado esta idea, compártela!"
+      support_title: Apoyar esta idea
+      archived: "Esta idea ha sido archivada y ya no puede recoger apoyos."
+      successful: "Esta idea ha alcanzado los apoyos necesarios y pasará a la %{voting}."
+    show:
+      code: 'Código de la idea:'
+      edit_proposal_link: Editar idea
+      flag: Esta idea ha sido marcada como inapropiada por varios usuarios.
+      retired_warning: "El autor de esta idea considera que ya no debe seguir recogiendo apoyos."
+      retired: Idea retirada por el autor
+      no_notifications: "Esta idea no tiene notificaciones."
