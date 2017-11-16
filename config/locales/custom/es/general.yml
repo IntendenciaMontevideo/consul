@@ -6,9 +6,6 @@ es:
       collaborative_legislation: Consulta ciudadana
       budgets: Presupuesto participativo
       open_city_title: La ciudad que quieres será la ciudad que tu decidas
-  welcome:
-      description: Espacio abierto para que los ciudadanos aporten sus ideas para la ciudad en la que quieren vivir.
-      title: Propones
   debates:
     index:
       section_header:
@@ -82,3 +79,13 @@ es:
       retired_warning: "El autor de esta idea considera que ya no debe seguir recogiendo apoyos."
       retired: Idea retirada por el autor
       no_notifications: "Esta idea no tiene notificaciones."
+  welcome:
+    decide:
+      description: Sumarse a los espacios abiertos de participación que ofrece la ciudad.
+      title: Participas
+    do:
+      description: Aprovecha los espacios de decisión que tiene tu ciudad.
+      title: Decides
+    proposal:
+      description: Espacio abierto para que los ciudadanos puedan aportar sus ideas de la ciudad en la que quieren vivir.
+      title: Propones
