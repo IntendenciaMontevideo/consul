@@ -10,6 +10,7 @@ es:
     index:
       section_header:
         help: Ayuda sobre los debates
+        init_line: ""
       section_footer:
         proposals_link: idea
   proposals:
@@ -48,6 +49,7 @@ es:
         icon_alt: Icono de ideas
         title: ideas
         help: Ayuda sobre las ideas
+        init_line: ""
       section_footer:
         title: Ayuda sobre las ideas
         description: Haz una idea ciudadana. Si obtiene los apoyos suficientes y pasa a votación, puedes conseguir que todos los habitantes decidan cómo quieren que sea nuestra ciudad.
