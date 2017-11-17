@@ -283,6 +283,10 @@ es:
       sign_in: Entra con Facebook
       sign_up: Regístrate con Facebook
       name: Facebook
+    saml:
+      sign_in: Entra con SAML
+      sign_up: Regístrate con SAML
+      name: SAML
     finish_signup:
       title: Añade tu email
     google_oauth2:
