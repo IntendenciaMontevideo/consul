@@ -66,11 +66,9 @@
           <p class="lead">
             <strong><%= t("debates.index.section_footer.title") %></strong>
           </p>
-          <p><%= t("debates.index.section_footer.description") %></p>
-          <p><%= t("debates.index.section_footer.help_text_1") %></p>
-          <p><%= t("debates.index.section_footer.help_text_2",
+          <p><%= t("debates.index.section_footer.description",
                     org: link_to(setting['org_name'], new_user_registration_path)).html_safe %></p>
-          <p><%= t("debates.index.section_footer.help_text_3",
+          <p><%= t("debates.index.section_footer.help_text_1",
                     proposal: link_to(t("debates.index.section_footer.proposals_link"), proposals_path),
                     budget: link_to(t("debates.index.section_footer.budget_link"), "http://presupuestoparticipativo.montevideo.gub.uy")).html_safe %>
           </p>

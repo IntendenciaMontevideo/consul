@@ -5,14 +5,18 @@ es:
       proposals: Ideas
       collaborative_legislation: Consulta ciudadana
       budgets: Presupuesto participativo
-      open_city_title: La ciudad que quieres será la ciudad que tu decidas
+      open_city_title: Construí la ciudad en la que querés vivir
+      open_city_slogan_html: Montevideo necesita tu aporte para crecer. Por eso te invitamos a que te sumes a los  debates sobre los temas que te preocupan, propongas ideas para mejorar la calidad de vida de todos y todas, y decidamos en conjunto cuáles se llevan a cabo. 
   debates:
     index:
       section_header:
         help: Ayuda sobre los debates
-        init_line: ""
+        init_line: El espacio de debates ciudadanos está dirigido a cualquier persona que quiera poner en discusión temas referidos a la ciudad que le preocupan y sobre los que quiera compartir puntos de vista con otras personas.
       section_footer:
         proposals_link: idea
+        description: 'Para abrir un debate es necesario registrarse en %{org} en Montevideo Participa. Si ya tenés una cuenta, podés comentar los debates abiertos y valorarlos con los botones "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos.'
+        help_text_1: 'Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto. Si querés hacer una %{proposal} para la ciudad o plantear un proyecto de %{budget}, entrá a los links marcados anteriormente e ingresalo cuando la convocatoria esté abierta.'
+        
   proposals:
     create:
       form:
@@ -82,12 +86,15 @@ es:
       retired: Idea retirada por el autor
       no_notifications: "Esta idea no tiene notificaciones."
   welcome:
+    debates:
+      description: Encontrarnos, debatir y compartir lo que nos parece importante en nuestra ciudad.
+      title: Debatís
     decide:
       description: Sumarse a los espacios abiertos de participación que ofrece la ciudad.
       title: Participas
     do:
-      description: Aprovecha los espacios de decisión que tiene tu ciudad.
-      title: Decides
+      description: La ciudadanía decide si acepta o rechaza las propuestas más apoyadas.
+      title: Decidís
     proposal:
-      description: Espacio abierto para que los ciudadanos puedan aportar sus ideas de la ciudad en la que quieren vivir.
-      title: Propones
+      description: Espacio abierto para propuestas ciudadanas sobre el tipo de ciudad en el que queremos vivir.
+      title: Proponés
