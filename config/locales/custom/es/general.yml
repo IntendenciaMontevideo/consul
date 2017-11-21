@@ -87,13 +87,13 @@ es:
       no_notifications: "Esta idea no tiene notificaciones."
   welcome:
     debates:
-      description: Encontrarnos, debatir y compartir lo que nos parece importante en nuestra ciudad.
+      description: Encontrarnos, debatir y compartir lo que nos parece importante para la ciudad.
       title: Debatís
     decide:
       description: Sumarse a los espacios abiertos de participación que ofrece la ciudad.
       title: Participas
     do:
-      description: La ciudadanía decide si acepta o rechaza las propuestas más apoyadas.
+      description: Entre todos y todas aceptamos o rechazamos las propuestas realizadas.
       title: Decidís
     proposal:
       description: Espacio abierto para propuestas ciudadanas sobre el tipo de ciudad en el que queremos vivir.
