@@ -23,10 +23,7 @@
             </p>
           <% elsif @tag_filter %>
             <h2><%= t("shared.search_results") %></h2>
-            <p>
-              <%= page_entries_info @debates %>
-              <%= t("debates.index.filter_topic", count: @debates.size, topic: @tag_filter) %>
-            </p>
+            
           <% end %>
         </div>
       </div>
