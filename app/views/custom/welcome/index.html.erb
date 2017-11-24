@@ -3,11 +3,7 @@
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: root_url %>
 <% end %>
-<style type="text/css">
-  .orbit{
-    margin: 0;
-  }
-</style>
+
 
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
  <div class="orbit-wrapper">
@@ -18,22 +14,38 @@
   <ul class="orbit-container">
     <li class="is-active orbit-slide">
       <figure class="orbit-figure">
-        <%= image_tag(image_path_for('slade1.jpg'), class: 'orbit-image', size: '1000x500', alt:'Space') %>
+        <div style="height:500px;">
+          <%= image_tag(image_path_for('slade1.jpg'), class: 'orbit-image', size: '1000x500', alt:'Space') %>
+        </div>
       </figure>
     </li>
     <li class="orbit-slide">
-      <figure class="orbit-figure">
-        <%= image_tag(image_path_for('slade2.jpg'), class: 'orbit-image', size: '1000x500', alt:'Space') %>
-      </figure>
+        <div class="jumbo highlight" style="height:500px;">
+          <div class="row">
+            <div class="small-12 medium-9 small-centered column text-center">
+              <h1><%= t("layouts.header.open_city_title") %></h1>
+              <p class="lead">
+                <%= t("layouts.header.open_city_slogan_html") %>
+              </p>
+              <div class="small-12 medium-6 large-4 small-centered">
+                <%= link_to t("layouts.header.more_info"), more_info_path, class: "button expanded large" %>
+              </div>
+            </div>
+          </div>
+        </div>
     </li>
     <li class="orbit-slide">
       <figure class="orbit-figure">
+        <div style="height:500px;">
         <%= image_tag(image_path_for('slade3.jpg'), class: 'orbit-image', size: '1000x500', alt:'Space') %>
+        </div>
       </figure>
     </li>
     <li class="orbit-slide">
       <figure class="orbit-figure">
+        <div style="height:500px;">
         <%= image_tag(image_path_for('slade4.jpg'), class: 'orbit-image', size: '1000x500', alt:'Space') %>
+        </div>
       </figure>
     </li>
   </ul>
