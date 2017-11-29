@@ -5,10 +5,71 @@ Rails.application.config.middleware.use OmniAuth::Builder do
            idp_entity_id:                       "ihdesa.imm.gub.uy",
            idp_sso_target_url:                  "https://ihdesa.imm.gub.uy:9443/samlsso",
            idp_slo_target_url:                  "https://ihdesa.imm.gub.uy:9443/samlsso",
-           idp_cert:                            "-----BEGIN CERTIFICATE-----\nMIICNTCCAZ6gAwIBAgIES343gjANBgkqhkiG9w0BAQUFADBVMQswCQYDVQQGEwJVUzELMAkGA1UE'\nCAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDTALBgNVBAoMBFdTTzIxEjAQBgNVBAMMCWxv\nY2FsaG9zdDAeFw0xMDAyMTkwNzAyMjZaFw0zNTAyMTMwNzAyMjZaMFUxCzAJBgNVBAYTAlVTMQsw\nCQYDVQQIDAJDQTEWMBQGA1UEBwwNTW91bnRhaW4gVmlldzENMAsGA1UECgwEV1NPMjESMBAGA1UE\nAwwJbG9jYWxob3N0MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCUp/oV1vWc8/TkQSiAvTou\nsMzOM4asB2iltr2QKozni5aVFu818MpOLZIr8LMnTzWllJvvaA5RAAdpbECb+48FjbBe0hseUdN5\nHpwvnH/DW8ZccGvk53I6Orq7hLCv1ZHtuOCokghz/ATrhyPq+QktMfXnRS4HrKGJTzxaCcU7OQID\nAQABoxIwEDAOBgNVHQ8BAf8EBAMCBPAwDQYJKoZIhvcNAQEFBQADgYEAW5wPR7cr1LAdq+IrR44i\nQlRG5ITCZXY9hI0PygLP2rHANh+PYfTmxbuOnykNGyhM6FjFLbW2uZHQTY1jMrPprjOrmyK5sjJR\nO4d1DeGHT/YnIjs9JogRKv4XHECwLtIVdAbIdWHEtVZJyMSktcyysFcvuhPQK8Qc/E/Wq8uHSCo=\n-----END CERTIFICATE------",
+           idp_cert:                            "-----BEGIN CERTIFICATE-----
+MIICNTCCAZ6gAwIBAgIES343gjANBgkqhkiG9w0BAQUFADBVMQswCQYDVQQGEwJVUzELMAkGA1UE
+CAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDTALBgNVBAoMBFdTTzIxEjAQBgNVBAMMCWxv
+Y2FsaG9zdDAeFw0xMDAyMTkwNzAyMjZaFw0zNTAyMTMwNzAyMjZaMFUxCzAJBgNVBAYTAlVTMQsw
+CQYDVQQIDAJDQTEWMBQGA1UEBwwNTW91bnRhaW4gVmlldzENMAsGA1UECgwEV1NPMjESMBAGA1UE
+AwwJbG9jYWxob3N0MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCUp/oV1vWc8/TkQSiAvTou
+sMzOM4asB2iltr2QKozni5aVFu818MpOLZIr8LMnTzWllJvvaA5RAAdpbECb+48FjbBe0hseUdN5
+HpwvnH/DW8ZccGvk53I6Orq7hLCv1ZHtuOCokghz/ATrhyPq+QktMfXnRS4HrKGJTzxaCcU7OQID
+AQABoxIwEDAOBgNVHQ8BAf8EBAMCBPAwDQYJKoZIhvcNAQEFBQADgYEAW5wPR7cr1LAdq+IrR44i
+QlRG5ITCZXY9hI0PygLP2rHANh+PYfTmxbuOnykNGyhM6FjFLbW2uZHQTY1jMrPprjOrmyK5sjJR
+O4d1DeGHT/YnIjs9JogRKv4XHECwLtIVdAbIdWHEtVZJyMSktcyysFcvuhPQK8Qc/E/Wq8uHSCo=
+-----END CERTIFICATE-----",
            name_identifier_format:              "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-           private_key:                         "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAwExOiuIA1Jmjsr4nzAAgix708hlTayvBSz41cIMwz3F162AM\nkNxZYFdCUraZ7a1tj5/tEj1tXEH+uqTxXhoPsPKOVVc+/4QseKF81pv/jhNojvjI\n9WTfaaFjo6C7GLx1nMxGSESWI6Z6rbCY8u8vs3U+zgUsW/PFPwleZqMZE7lZ+5Xs\nQEcEQ4Vica4rzOmFVXM0qs+vXyMNIQ05XSZ8pjCJBR9B9Rd/UzojzTr352D9y3+T\nRUZvbHUP9jT+QtrmJh83xQDNBCpZqmWurCcLkFWwngXTYP7v+qasza88D3mcjPps\nW6fLalKytl1KX6/KUCKHD15HvScCC2KwJjQCiwIDAQABAoIBACBbtsvABAvCXr1x\nKhk13EQMzYL/p/3cuwYCTdPE/62olgMpgnPN4GxJwqtQds575HfKnYX4ODLSGB8o\nKkV/dSx9ZF4P9FXi0+joo60pSvOJaIrGamqAsud/dNjP7yvWaqQb66e1gt404Wfg\n05vti8VS8WKRlElU19gnp271+v5KYu0R0d6/lplRmxRHnpBO42xVQrSS7h3I78nZ\nHahcXE8s2fV2c/A9d8iNAkEs4Ff3eQlH7pbINMIpsW1Ke7GGVtPs4DMEizypyjlV\n0LnngYYt5cOnYP3C4/CmQKA/Zw3EsGH+njM4xvyqhPQItvfAWhKVw+UJN0AwLXdl\nY33Eu+ECgYEA/pNrxXdKq3BlHHxmRgMKwTa6kMSwxZhg5HX6VoVZOKJHvz7/ajNy\nk8ZrKJIgl0GkJdGyWP2wvFwOkmQhBm/cvjLAC7NX2hUmJ4RN47j6BLf7kNZ+FW4V\ntYryQrejnudFN92ZAtOPdjZsrzBj5PAUK8FY7ylMdRwufQ39M4Q8KDUCgYEAwV+y\nlFccuNC1BFvqU7rjCyv7y+BrLVugUsJzvrAy7QV1/l5lc4D8HCixY3Sxaqf4btjQ\n2hy2xC/p+2mArYpVVpqcFPNfQ1FTVXQuxdlzJStgoBGCP6PlAqQ1o2mFXMgbLgY5\nBBd8eLuGJnhg88Vr2YuKlJVyMvquedtwMOIIV78CgYAjtLmg8KJgeVs1K52MpFCV\n2P9B3tSMYlr0sDd0ey+QafJ2OHfKhXzEjUfqYNSBYouLYmYJZUusn5zLm4+mP3pO\nkv+spHLl+6FmWYAzOHaYwtVd8zer+czBscNY6DjiyL1EoKgdZV7xzaBg0gCw05uA\np5W5takro9BBafzhhOKLIQKBgAvchuO6hDSB+NiPmswQBqVEyWk0Ft7tY+QvsVHd\nFQKc9yPnPmnbW5uOk3L6UXetXfvOqOD4Ke3W0o9tZUs/1QQ+75wJYaqLboUrX0Mb\nl4iMJJ0s9cRZlU6YLAIeEuQiEii8kPrDRgtR1WS+tZO+ZGMvwAxlLmAaKGGpKDSX\naNOZAoGBAJLNwgSDtUbjakZA5sBOPRKhuEYK57Fm5XO7xg5oO5iCLsPTKtEH8h1A\nVtylQwWDF9J0WsU2Ifeizz+tCIrGP7PS6t/rzIS71PhPrJFbRwEADhL0Puhp/78E\ngP5B4Vl3VsWKA+CEn8Xl93woIOZkHAd3szFQ12oQRUVylY8csTmZ\n-----END RSA PRIVATE KEY-----",
-           certificate:                         "-----BEGIN CERTIFICATE-----\nMIIEVDCCAzygAwIBAgIJAKHue+gh0desMA0GCSqGSIb3DQEBBQUAMHkxCzAJBgNV\nBAYTAlVZMRMwEQYDVQQIEwpNb250ZXZpZGVvMRMwEQYDVQQHEwpNb250ZXZpZGVv\nMQwwCgYDVQQKEwNJTU0xDDAKBgNVBAsTA0dUSTEkMCIGA1UEAxMbcGFydGljaXBh\nLm1vbnRldmlkZW8uZ3ViLnV5MB4XDTE3MTEyMTE4MTU0MVoXDTI3MTEyMTE4MTU0\nMVoweTELMAkGA1UEBhMCVVkxEzARBgNVBAgTCk1vbnRldmlkZW8xEzARBgNVBAcT\nCk1vbnRldmlkZW8xDDAKBgNVBAoTA0lNTTEMMAoGA1UECxMDR1RJMSQwIgYDVQQD\nExtwYXJ0aWNpcGEubW9udGV2aWRlby5ndWIudXkwggEiMA0GCSqGSIb3DQEBAQUA\nA4IBDwAwggEKAoIBAQDATE6K4gDUmaOyvifMACCLHvTyGVNrK8FLPjVwgzDPcXXr\nYAyQ3FlgV0JStpntrW2Pn+0SPW1cQf66pPFeGg+w8o5VVz7/hCx4oXzWm/+OE2iO\n+Mj1ZN9poWOjoLsYvHWczEZIRJYjpnqtsJjy7y+zdT7OBSxb88U/CV5moxkTuVn7\nlexARwRDhWJxrivM6YVVczSqz69fIw0hDTldJnymMIkFH0H1F39TOiPNOvfnYP3L\nf5NFRm9sdQ/2NP5C2uYmHzfFAM0EKlmqZa6sJwuQVbCeBdNg/u/6pqzNrzwPeZyM\n+mxbp8tqUrK2XUpfr8pQIocPXke9JwILYrAmNAKLAgMBAAGjgd4wgdswHQYDVR0O\nBBYEFJtJmhNY6QJiDtN5gMpD5qdU04ybMIGrBgNVHSMEgaMwgaCAFJtJmhNY6QJi\nDtN5gMpD5qdU04yboX2kezB5MQswCQYDVQQGEwJVWTETMBEGA1UECBMKTW9udGV2\naWRlbzETMBEGA1UEBxMKTW9udGV2aWRlbzEMMAoGA1UEChMDSU1NMQwwCgYDVQQL\nEwNHVEkxJDAiBgNVBAMTG3BhcnRpY2lwYS5tb250ZXZpZGVvLmd1Yi51eYIJAKHu\ne+gh0desMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAGV47yAJCQJP\nZCmM3KP8A8cIX9sIzwrfjyeZpkt4sphbLVleyd6yZ3F1dRckgxIAlaHZtu52kFPW\n/Ytwj34x5AFzGM12TQU/G7WAgZpPGwKaP7v2NEDWm9Jb2AQcv540Zvipy4NrA/PX\na8u7GSICH+VCuHGKERa7kadV/rXwWiTa1SxVkss5rSSllz9UNH07LJaiYDCSdUdw\niN8eSVDmP1lc+07b/XMuq2ysojsp33T58cAu1Sm7RK1axadSu3LaDjuZmjQu2GYo\nw5I0dhtWIyX6gLlATi/PbZElnpKAf6fTXdbw9mV4Ure/wUj9i9Ea0krGSaFpndfH\nkTuYu8sCGTs=\n-----END CERTIFICATE-----",
+           private_key:                         "-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA98nVb2tUJaW8FgX36pTB0PD3ipvfoHhqSaI2+RytgcOzduxm
+BUYIzeowi5RkG/ox7pRU1WwY4HHvJ9pCzNmcR2kECCyV+TYLOgjqp1zYx3igQ4sj
+9NsaDw+suUH2hwjTFnhABdCgHWb2SsCwQMMA5p3mq7l2PV9jcCnOkCUletB4Jjxu
+jSRLxXQlJqzHmLYwV5VJQUiJGIALjU8TZgMXcM1sXb8tHGLG/4RCILVphU64b7hC
+9fF/FvHovZmikl80bBn/TbD+2tLaWL0eTG1HJkkO993xPwHQfNgySNGnfzdUKzl4
+e4Zobrlhurhf6b8uf31a6T22AIIN49WPOJ+ZeQIDAQABAoIBAGf2lgeGh6q4C99N
+p8QTn/IzeBj+52fjveyhE+GXR7EfVCf8bZ2e0cjbjnyxyQL4CYUpVSKqlRFunEIj
+UE20q95GUHvBgTcrlrBF13Za/VVL5ioQsghk+V0CXZzo8S+c4zwVPf9ylgtgDMw2
+Znz1lGYuL/8y9EoxwH3p/JH8E+qfw8Bjo2GJOnSgVdaja2EBi0FdTLTofKjZGe/i
+S14VNs+6yzibvJiPFPfnhkb6QJ/EGL85hyI10Rj4NWh48gaXXJ9HerYJWkVOS2DQ
+kX072ZxngO4zlEmjXTRax+pqRlR9hT0tHlmfbezjRse1wQH6L0zmCbXm3cZNtgev
+Gn3F/QECgYEA/LTpCz2xx0e7nwT0zWhW0CDePRe0TqPGJqPwVYBtaBrI818LgKDn
+Bsftv1R3llbB9n3EIRH0zWhmWwcWCfXrUmOGmF6Wg5WtOKZW3ecGTuBh7zq2vmX4
+mkzS/Ey1vkjLvTgwMXCSsg2bTvwKfrEsCtL02cJCSGijMNbpn6pmvZkCgYEA+wSD
+z9rxvX+MKpEq5EwD1iCIfw53V9Xl4IuYtqZpBBiCX6iL6Ixkv/5rVpka/+El8PoP
+aFx4Oh02JgBXA8P2Dguz+m3g6g3i4ZAtDCPrzG3tCGRSFfJ71tOnqRCxIF4qoFFy
+WxSeMaktAn1ROmxy6hvZ3B8z7MInDQpXa1gIZuECgYAhFX49HoKb2GRT2U5DZhmX
+ffYagXP1p7NVc7kPOJUaQAd29UaIPIiCdsJFfkV5xTn3j1eSDMvD6Jsd57uW6j84
+thb08804xOu8supEeu50fSPVMhairq7xZIVqypAwrU8fIrAMiPRroyRmHtEw7Pkb
+Ias0px4OZMSYrEpBwQlaYQKBgQCmxuYo+Og6pn7jXVYpHtRBtZXbDSp/4m78VOOf
+H0uQ3BPrKJnkZTsfURPSEqGctuO1iv8nsKB0xCnQ79LgfpeB14a58b1I5PcENP2p
+Hkixp6ugMr9TM6vSHQg9TQjSX55krBiVqUo95pAwIkEQ1zM2llCWbujZ+lll0aQp
+fvD+IQKBgQCub7k79dpeFFypT4Zwnh0IRbj+nO/9YEH9lJYCSmRAaC3OVmQw52OO
+dKq8tCfAzDpaOU0Upvh4tYfCBF2IV9JsXeS8TOMILwTULfre200W4dluKDWUzVnX
+oKbh7m6fh1SRa7xtYiVAgadrFvXp6DgVgu1vmHTYxmGLx9p9vRfmLQ==
+-----END RSA PRIVATE KEY-----",
+           certificate:                         "-----BEGIN CERTIFICATE-----
+MIIERTCCAy2gAwIBAgIJAMxQZsoCRpfQMA0GCSqGSIb3DQEBBQUAMHQxCzAJBgNV
+BAYTAlVZMRMwEQYDVQQIEwpNb250ZXZpZGVvMRMwEQYDVQQHEwpNb250ZXZpZGVv
+MQwwCgYDVQQKEwNJTU0xDDAKBgNVBAsTA0lOVjEfMB0GA1UEAxMWdGVzdGRydXBh
+bDIuaW1tLmd1Yi51eTAeFw0xNzAxMjMxNzQ0MTZaFw0yNzAxMjMxNzQ0MTZaMHQx
+CzAJBgNVBAYTAlVZMRMwEQYDVQQIEwpNb250ZXZpZGVvMRMwEQYDVQQHEwpNb250
+ZXZpZGVvMQwwCgYDVQQKEwNJTU0xDDAKBgNVBAsTA0lOVjEfMB0GA1UEAxMWdGVz
+dGRydXBhbDIuaW1tLmd1Yi51eTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+ggEBAPfJ1W9rVCWlvBYF9+qUwdDw94qb36B4akmiNvkcrYHDs3bsZgVGCM3qMIuU
+ZBv6Me6UVNVsGOBx7yfaQszZnEdpBAgslfk2CzoI6qdc2Md4oEOLI/TbGg8PrLlB
+9ocI0xZ4QAXQoB1m9krAsEDDAOad5qu5dj1fY3ApzpAlJXrQeCY8bo0kS8V0JSas
+x5i2MFeVSUFIiRiAC41PE2YDF3DNbF2/LRxixv+EQiC1aYVOuG+4QvXxfxbx6L2Z
+opJfNGwZ/02w/trS2li9HkxtRyZJDvfd8T8B0HzYMkjRp383VCs5eHuGaG65Ybq4
+X+m/Ln99Wuk9tgCCDePVjzifmXkCAwEAAaOB2TCB1jAdBgNVHQ4EFgQUbGr/4eEg
+4xeywYUfmiDjUrIdA20wgaYGA1UdIwSBnjCBm4AUbGr/4eEg4xeywYUfmiDjUrId
+A22heKR2MHQxCzAJBgNVBAYTAlVZMRMwEQYDVQQIEwpNb250ZXZpZGVvMRMwEQYD
+VQQHEwpNb250ZXZpZGVvMQwwCgYDVQQKEwNJTU0xDDAKBgNVBAsTA0lOVjEfMB0G
+A1UEAxMWdGVzdGRydXBhbDIuaW1tLmd1Yi51eYIJAMxQZsoCRpfQMAwGA1UdEwQF
+MAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAMKpakIduNJdoBp4eTciVue4b9RSd/GL
+I5MPVOSc2zQUjPFYtwp33syPsYo3/JLUBVNnO/8k0iQuN+iVrRTGqqrg6j4gkOZ1
+XZQt8LCOAEqOPNt0fIo819wvrfx/S9+ZcGXU81zfS+UdlZ9QcRsQKtCO8ZniaQL6
+bo4KFiZ4fv/1xOWKLl3Omxh5j5R69xRWUKbJqOUS5UvzMgybbs01CXTBRvryYXta
+WSzm8vqvqWh020fQfKHg8sba/wuKJS3LT9lL8xUboin0SnTl/UR7BYs1/IuzGKSJ
+Hiw+Y0UUMIr1pAlYdnrlv2fL7XW2XBKOIca1LVxQRhrJifDj5+dQqV8=
+-----END CERTIFICATE-----",
            security:                            {
                                                   :authn_requests_signed      => true,
                                                   :logout_requests_signed     => false,
@@ -18,7 +79,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
                                                   :want_name_id               => false,
                                                   :metadata_signed            => false,
                                                   :embed_sign                 => true,
-                                                  :digest_method              => XMLSecurity::Document::SHA1,
-                                                  :signature_method           => XMLSecurity::Document::RSA_SHA1
+                                                  :digest_method              => XMLSecurity::Document::SHA256,
+                                                  :signature_method           => XMLSecurity::Document::RSA_SHA256
                                                 }
 end
