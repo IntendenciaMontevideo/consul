@@ -25,11 +25,11 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def after_sign_out_path_for(resource)
-    if session['saml_uid'] && SAML_SETTINGS.idp_slo_target_url
-      user_saml_omniauth_authorize_path + "/spslo"
-    else
+    #if session['saml_uid'] && SAML_SETTINGS.idp_slo_target_url
+    #  user_saml_omniauth_authorize_path + "/spslo"
+    #else
       super
-    end
+    #end
   end
 
 end

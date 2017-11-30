@@ -81,5 +81,18 @@ Hiw+Y0UUMIr1pAlYdnrlv2fL7XW2XBKOIca1LVxQRhrJifDj5+dQqV8=
                                                   :embed_sign                 => true,
                                                   :digest_method              => XMLSecurity::Document::SHA256,
                                                   :signature_method           => XMLSecurity::Document::RSA_SHA256
-                                                }
+                                                },
+           attribute_statements:                {
+             email: ['http://wso2.org/claims/emailaddress'],
+             name: ['http://wso2.org/claims/username'],
+             first_name: ['http://wso2.org/claims/givenname'],
+             last_name: ['http://wso2.org/claims/lastname'],
+             role: ['http://wso2.org/claims/role'],
+             userCertified: ['http://wso2.org/claims/userCertified'],
+             country: ['http://wso2.org/claims/country'],
+             document: ['http://wso2.org/claims/document'],
+             docuemntType: ['http://wso2.org/claims/docuemntType'],
+             userVerified: ['http://wso2.org/claims/userVerified'],
+             middleName: ['http://wso2.org/claims/middleName'],
+           }
 end
