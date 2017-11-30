@@ -1,4 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  skip_before_filter :verify_authenticity_token
 
   def twitter
     sign_in_with :twitter_login, :twitter
