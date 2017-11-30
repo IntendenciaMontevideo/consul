@@ -29,7 +29,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def sign_in_with(feature, provider)
     raise ActionController::RoutingError.new('Not Found') unless Setting["feature.#{feature}"]
-
     auth = env["omniauth.auth"]
 
     identity = Identity.first_or_create_from_oauth(auth)
