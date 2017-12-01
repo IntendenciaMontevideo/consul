@@ -16,6 +16,18 @@ es:
         proposals_link: idea
         description: 'Para abrir un debate es necesario registrarse en %{org} en Montevideo Participa. Si ya tenés una cuenta, podés comentar los debates abiertos y valorarlos con los botones "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos.'
         help_text_1: 'Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto. Si querés hacer una %{proposal} para la ciudad o plantear un proyecto de %{budget}, entrá a los links marcados anteriormente e ingresalo cuando la convocatoria esté abierta.'
+    new:
+      form:
+        submit_button: Empieza un debate
+      info: Si lo que quieres es plantear una idea para la ciudad, esta es la sección incorrecta, entra en %{info_link}.
+      info_link: ideas
+      more_info: Más información
+      recommendation_four: Disfruta de este espacio, de las voces que lo llenan, también es tuyo.
+      recommendation_one: No escribas el título del debate o frases enteras en mayúsculas. En internet eso se considera gritar. Y a nadie le gusta que le griten.
+      recommendation_three: Las críticas despiadadas son muy bienvenidas. Este es un espacio de pensamiento. Pero te recomendamos conservar la elegancia y la inteligencia. El mundo es mejor con ellas presentes.
+      recommendation_two: Cualquier debate o comentario que implique una acción ilegal será eliminado, también los que tengan la intención de sabotear los espacios de debate, todo lo demás está permitido.
+      recommendations_title: Recomendaciones para crear un debate
+      start_new: Empezar un debate
   proposals:
     create:
       form:
@@ -89,7 +101,7 @@ es:
       description: Encontrarnos, debatir y compartir lo que nos parece importante para la ciudad.
       title: Debatís
     decide:
-      description: Sumarse a los espacios abiertos de participación que ofrece la ciudad.
+      description: Sumarse a los espacios abiertos de participación.
       title: Participas
     do:
       description: Entre todos y todas aceptamos o rechazamos las propuestas realizadas.
