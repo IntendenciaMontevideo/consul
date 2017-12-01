@@ -74,13 +74,23 @@ class User < ActiveRecord::Base
     oauth_email_confirmed = oauth_email.present? #&& (auth.info.verified || auth.info.verified_email)
     oauth_user            = User.find_by(email: oauth_email) if oauth_email_confirmed
 
+    user_attributes = auth.extra.raw_info.attributes
     oauth_user || User.new(
       username:  auth.info.name || auth.uid,
       email: oauth_email,
       oauth_email: oauth_email,
       password: Devise.friendly_token[0, 20],
       terms_of_service: '1',
-      confirmed_at: oauth_email_confirmed ? DateTime.current : nil
+      confirmed_at: oauth_email_confirmed ? DateTime.current : nil,
+      first_name: user_attributes['http://wso2.org/claims/givenname'].first,
+      last_name: user_attributes['http://wso2.org/claims/lastname2'].first,
+      role: user_attributes['http://wso2.org/claims/role'].first,
+      user_certified: user_attributes['http://wso2.org/claims/userCertified'].first == 'true' ? true : false,
+      country: user_attributes['http://wso2.org/claims/country'].first,
+      document: user_attributes['http://wso2.org/claims/document'].first,
+      document_type: user_attributes['http://wso2.org/claims/documentType'].first,
+      user_verified: user_attributes['http://wso2.org/claims/userVerified'].first == 'true' ? true : false,
+      middle_name: user_attributes['http://wso2.org/claims/middleName'].first,
     )
   end
 
