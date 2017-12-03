@@ -32,7 +32,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     auth = env["omniauth.auth"]
 
     identity = Identity.first_or_create_from_oauth(auth)
-    @user = current_user || identity.user || User.first_or_initialize_for_oauth(auth)
+
+    if auth.provider == Identity::SAML_PROVIDER
+      @user = current_user || identity.user || User.first_or_initialize_for_oauth_saml(auth)
+    else
+      @user = current_user || identity.user || User.first_or_initialize_for_oauth(auth)
+    end
 
     if save_user
       identity.update(user: @user)
