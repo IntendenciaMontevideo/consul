@@ -4,3 +4,112 @@ es:
       sign_in: Autenticarse
       sign_up: Crea una cuenta aquí
       name: Acceda aquí
+  layouts:
+    header:
+      proposals: Ideas
+      collaborative_legislation: Consulta ciudadana
+      budgets: Presupuesto participativo
+      open_city_title: Construí la ciudad en la que querés vivir
+      open_city_slogan_html: Montevideo necesita tu aporte para crecer. Por eso te invitamos a que te sumes a los  debates sobre los temas que te preocupan, propongas ideas para mejorar la calidad de vida de todos y todas, y decidamos en conjunto cuáles se llevan a cabo. 
+  debates:
+    index:
+      section_header:
+        help: Ayuda sobre los debates
+        init_line: El espacio de debates ciudadanos está dirigido a cualquier persona que quiera poner en discusión temas referidos a la ciudad que le preocupan y sobre los que quiera compartir puntos de vista con otras personas.
+      section_footer:
+        proposals_link: idea
+        description: 'Para abrir un debate es necesario registrarse en %{org} en Montevideo Participa. Si ya tenés una cuenta, podés comentar los debates abiertos y valorarlos con los botones "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos.'
+        help_text_1: 'Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto. Si querés hacer una %{proposal} para la ciudad o plantear un proyecto de %{budget}, entrá a los links marcados anteriormente e ingresalo cuando la convocatoria esté abierta.'
+    new:
+      form:
+        submit_button: Empieza un debate
+      info: Si lo que quieres es plantear una idea para la ciudad, esta es la sección incorrecta, entra en %{info_link}.
+      info_link: ideas
+      more_info: Más información
+      recommendation_four: Disfruta de este espacio, de las voces que lo llenan, también es tuyo.
+      recommendation_one: No escribas el título del debate o frases enteras en mayúsculas. En internet eso se considera gritar. Y a nadie le gusta que le griten.
+      recommendation_three: Las críticas despiadadas son muy bienvenidas. Este es un espacio de pensamiento. Pero te recomendamos conservar la elegancia y la inteligencia. El mundo es mejor con ellas presentes.
+      recommendation_two: Cualquier debate o comentario que implique una acción ilegal será eliminado, también los que tengan la intención de sabotear los espacios de debate, todo lo demás está permitido.
+      recommendations_title: Recomendaciones para crear un debate
+      start_new: Empezar un debate
+  proposals:
+    create:
+      form:
+        submit_button: Crear idea
+    edit:
+      editing: Editar idea
+      show_link: Ver idea
+    retire_form:
+      title: Retirar idea
+      warning: "Si sigues adelante tu idea podrá seguir recibiendo apoyos, pero dejará de ser listada en la lista principal, y aparecerá un mensaje para todos los usuarios avisándoles de que el autor considera que esta idea no debe seguir recogiendo apoyos."
+      retired_reason_label: Razón por la que se retira la idea
+      retired_explanation_placeholder: Explica brevemente por que consideras que esta idea no debe recoger más apoyos
+      submit_button: Retirar idea
+    form:
+      proposal_question: Pregunta de la idea
+      proposal_responsible_name: Nombre y apellidos de la persona que hace esta idea
+      proposal_summary: Resumen de la idea
+      proposal_text: Texto desarrollado de la idea
+      proposal_title: Título de la idea
+      tags_instructions: "Etiqueta esta idea. Puedes elegir entre las categorías ideas o introducir las que desees"
+    index:
+      recommendations:
+        without_results: No existen ideas relacionadas con tus intereses
+        without_interests: Sigue ideas para que podamos darte recomendaciones
+      retired_proposals: ideas retiradas
+      retired_proposals_link: "ideas retiradas por sus autores"
+      search_form:
+        placeholder: Buscar ideas...
+      select_order_long: Estas viendo las ideas
+      start_proposal: Crea una idea
+      title: ideas ciudadanas
+      top_link_proposals: ideas más apoyadas por categoría
+      section_header:
+        icon_alt: Icono de ideas
+        title: ideas
+        help: Ayuda sobre las ideas
+        init_line: ""
+      section_footer:
+        title: Ayuda sobre las ideas
+        description: La ciudad necesita de los aportes ciudadanos para crecer. Si tenés una idea para mejorar Montevideo podés plantearla para que la Intendencia la lleve a cabo.
+        help_text_1: Las propuestas que consigan el apoyo requerido en la web, pasan a un estudio de viabilidad que se realiza en conjunto con la IM. Una vez llegado a un acuerdo en cuanto a la forma de llevarlo adelante, el proyecto es sometido a una votación ciudadana cuyo resultado definirá por mayoría de votos su realización. 
+        help_text_2: Para ingresar una propuesta, y para darle apoyo,  basta con ser usuario de Montevideo Decide. Sin embargo, para la instancia de votación final de los proyectos es necesario contar con una cuenta verificada en el portal.
+        help_text_3: Antes de proponer tus ideas en Montevideo Decide, lee estas %{keys}.
+    new:
+      form:
+        submit_button: Crear idea
+      more_info: "¿Cómo funcionan las ideas ciudadanas?"
+      recommendation_one: No escribas el título de la idea o frases enteras en mayúsculas. En internet eso se considera gritar. Y a nadie le gusta que le griten.
+      recommendation_two: Cualquier idea o comentario que implique una acción ilegal será eliminada, también las que tengan la intención de sabotear los espacios de idea, todo lo demás está permitido.
+      recommendations_title: Recomendaciones para crear una idea
+      start_new: Crear una idea
+    notice:
+      retired: idea retirada
+    proposal:
+      created: "¡Has creado una idea!"
+      share:
+        view_proposal: "Ahora no, ir a mi idea"
+      already_supported: "¡Ya has apoyado esta idea, compártela!"
+      support_title: Apoyar esta idea
+      archived: "Esta idea ha sido archivada y ya no puede recoger apoyos."
+      successful: "Esta idea ha alcanzado los apoyos necesarios y pasará a la %{voting}."
+    show:
+      code: 'Código de la idea:'
+      edit_proposal_link: Editar idea
+      flag: Esta idea ha sido marcada como inapropiada por varios usuarios.
+      retired_warning: "El autor de esta idea considera que ya no debe seguir recogiendo apoyos."
+      retired: Idea retirada por el autor
+      no_notifications: "Esta idea no tiene notificaciones."
+  welcome:
+    debates:
+      description: Encontrarnos, debatir y compartir lo que nos parece importante para la ciudad.
+      title: Debatís
+    decide:
+      description: Sumarse a los espacios abiertos de participación.
+      title: Participas
+    do:
+      description: Entre todos y todas aceptamos o rechazamos las propuestas realizadas.
+      title: Decidís
+    proposal:
+      description: Espacio abierto para propuestas ciudadanas sobre el tipo de ciudad en el que queremos vivir.
+      title: Proponés
