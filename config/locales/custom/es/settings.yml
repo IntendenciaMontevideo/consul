@@ -1,0 +1,4 @@
+es:
+  settings:
+    feature:
+      saml_login: Registro con SAML

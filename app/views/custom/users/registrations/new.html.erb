@@ -1,0 +1,5 @@
+<% provide :title do %><%= t("devise_views.users.registrations.new.title") %><% end %>
+<h2><%= t("devise_views.users.registrations.new.title") %></h2>
+<p><%= t("devise_views.users.registrations.new.sub_title", name: Setting["org_name"]) %> </p>
+<%= render 'devise/omniauth_form' %>
+

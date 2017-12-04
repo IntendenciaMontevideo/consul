@@ -31,7 +31,6 @@ es:
       budgets: Presupuestos participativos
       twitter_login: Registro con Twitter
       facebook_login: Registro con Facebook
-      saml_login: Registro con SAML
       google_login: Registro con Google
       proposals: Propuestas
       debates: Debates
