@@ -1,0 +1,30 @@
+<% if feature?(:saml_login) %>
+
+  <% if current_page?(new_user_session_path) %>
+    <div class="row">
+
+      <% if feature? :saml_login %>
+        <div class="small-12 medium-6 large-4 column end">
+          <%= link_to t("omniauth.saml.name"), user_omniauth_authorize_path(:saml),
+                      title: t("omniauth.saml.sign_in"),
+                      class: "button expanded" %>
+        </div>
+      <% end %>
+
+    </div>
+
+  <% elsif current_page?(new_user_registration_path) %>
+    <div class="row">
+
+      <% if feature? :saml_login %>
+        <div class="small-12 medium-6 large-4 column end">
+          <%= link_to t("omniauth.saml.sign_up"), user_omniauth_authorize_path(:saml),
+                      title: t("omniauth.saml.sign_up"),
+                      class: "button expanded" %>
+        </div>
+      <% end %>
+
+    </div>
+  <% end %>
+
+<% end %>

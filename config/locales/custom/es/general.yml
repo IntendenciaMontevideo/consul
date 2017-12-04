@@ -1,5 +1,9 @@
-
 es:
+  omniauth:
+    saml:
+      sign_in: Autenticarse
+      sign_up: Crea una cuenta aquí
+      name: Acceda aquí
   layouts:
     header:
       proposals: Ideas

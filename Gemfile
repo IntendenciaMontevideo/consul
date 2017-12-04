@@ -57,6 +57,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-leaflet'
 end
 gem "faker", '~> 1.7.3'
+gem 'omniauth-saml', '~> 1.8.1'
 
 
 group :development, :test do
