@@ -93,7 +93,7 @@ class User < ActiveRecord::Base
       oauth_user = user
     end
     user_attributes = auth.extra.raw_info.attributes
-    debugger
+
     if oauth_user.blank?
       User.new(
         username:  auth.info.name || auth.uid,
