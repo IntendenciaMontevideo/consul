@@ -288,6 +288,9 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    omniauth-saml (1.8.1)
+      omniauth (~> 1.3)
+      ruby-saml (~> 1.4, >= 1.4.3)
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
@@ -387,6 +390,8 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
+    ruby-saml (1.5.0)
+      nokogiri (>= 1.5.10)
     rubyzip (1.2.1)
     rvm1-capistrano3 (1.4.0)
       capistrano (~> 3.0)
@@ -535,6 +540,7 @@ DEPENDENCIES
   omniauth (~> 1.6.1)
   omniauth-facebook (~> 4.0.0)
   omniauth-google-oauth2 (~> 0.4.0)
+  omniauth-saml (~> 1.8.1)
   omniauth-twitter (~> 1.4.0)
   paperclip (~> 5.1.0)
   paranoia (~> 2.3.1)
@@ -569,4 +575,4 @@ DEPENDENCIES
   whenever (~> 0.9.7)
 
 BUNDLED WITH
-   1.15.3
+   1.16.0

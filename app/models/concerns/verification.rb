@@ -23,7 +23,7 @@ module Verification
   end
 
   def residence_verified?
-    residence_verified_at.present?
+    residence_verified_at.present? || user_certified || user_verified
   end
 
   def sms_verified?
@@ -31,7 +31,7 @@ module Verification
   end
 
   def level_two_verified?
-    level_two_verified_at.present? || (residence_verified? && sms_verified?)
+    level_two_verified_at.present? || (residence_verified? || sms_verified?)
   end
 
   def level_three_verified?

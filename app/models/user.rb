@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  devise :omniauthable, :omniauth_providers => [:saml]
 
   include Verification
 
@@ -81,6 +82,52 @@ class User < ActiveRecord::Base
       terms_of_service: '1',
       confirmed_at: oauth_email_confirmed ? DateTime.current : nil
     )
+  end
+
+  def self.first_or_initialize_for_oauth_saml(auth, user=nil)
+    unless user
+      oauth_email           = [auth.uid, '@consul.imm.gub.uy'].join
+      oauth_email_confirmed = oauth_email.present?
+      oauth_user            = User.find_by(email: oauth_email) if oauth_email_confirmed
+    else
+      oauth_user = user
+    end
+    user_attributes = auth.extra.raw_info.attributes
+    debugger
+    if oauth_user.blank?
+      User.new(
+        username:  auth.info.name || auth.uid,
+        email: oauth_email,
+        oauth_email: oauth_email,
+        password: Devise.friendly_token[0, 20],
+        terms_of_service: '1',
+        confirmed_at: oauth_email_confirmed ? DateTime.current : nil,
+        first_name: user_attributes['http://wso2.org/claims/givenname'].first,
+        last_name: user_attributes['http://wso2.org/claims/lastname2'].first,
+        role: user_attributes['http://wso2.org/claims/role'].first,
+        user_certified: user_attributes['http://wso2.org/claims/userCertified'].first == 'true' ? true : false,
+        country: user_attributes['http://wso2.org/claims/country'].first,
+        document: user_attributes['http://wso2.org/claims/document'].first,
+        document_number: user_attributes['http://wso2.org/claims/document'].first,
+        document_type: user_attributes['http://wso2.org/claims/documentType'].first,
+        user_verified: user_attributes['http://wso2.org/claims/userVerified'].first == 'true' ? true : false,
+        middle_name: user_attributes['http://wso2.org/claims/middleName'].first
+      )
+    else
+      if auth.extra.raw_info.attributes
+        oauth_user.first_name = user_attributes['http://wso2.org/claims/givenname'].first
+        oauth_user.last_name = user_attributes['http://wso2.org/claims/lastname2'].first
+        oauth_user.role = user_attributes['http://wso2.org/claims/role'].first
+        oauth_user.user_certified = user_attributes['http://wso2.org/claims/userCertified'].first == 'true' ? true : false
+        oauth_user.country = user_attributes['http://wso2.org/claims/country'].first
+        oauth_user.document = user_attributes['http://wso2.org/claims/document'].first
+        oauth_user.document_number = user_attributes['http://wso2.org/claims/document'].first
+        oauth_user.document_type = user_attributes['http://wso2.org/claims/documentType'].first
+        oauth_user.user_verified = user_attributes['http://wso2.org/claims/userVerified'].first == 'true' ? true : false
+        oauth_user.middle_name = user_attributes['http://wso2.org/claims/middleName'].first
+      end
+      oauth_user
+    end
   end
 
   def name

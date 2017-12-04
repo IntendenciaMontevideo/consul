@@ -1,0 +1,9 @@
+es:
+  devise_views:
+    users:
+      registrations:
+        new:
+          sub_title: "%{name} se autentica contra usuarios con el usuario único del Estado"
+    sessions:
+      new:
+        sub_title: "Para autenticarse a %{name} debe autenticarse con el usuario único del Estado"
