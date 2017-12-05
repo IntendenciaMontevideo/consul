@@ -3,8 +3,10 @@ class Users::SessionsController < Devise::SessionsController
   def destroy
     # Preserve the saml_uid in the session
     saml_uid = session["saml_uid"]
+    saml_session_index = session["saml_session_index"]
     super do
       session["saml_uid"] = saml_uid
+      session["saml_session_index"] = saml_session_index
     end
   end
 
