@@ -131,6 +131,7 @@ class User < ActiveRecord::Base
         oauth_user.document_type = user_attributes['http://wso2.org/claims/documentType'].first
         oauth_user.user_verified = user_attributes['http://wso2.org/claims/userVerified'].first == 'true' ? true : false
         oauth_user.middle_name = user_attributes['http://wso2.org/claims/middleName'].first
+        oauth_user.uid = auth.uid
       end
     end
 
