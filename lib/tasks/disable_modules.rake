@@ -13,7 +13,7 @@ namespace :disable_modules do
     Setting['feature.debates'] = true
     Setting['feature.polls'] = false
     Setting['feature.public_stats'] = false
-    Setting['feature.budgets'] = false
+    Setting['feature.budgets'] = true
     Setting['feature.legislation'] = true
   end
 end
