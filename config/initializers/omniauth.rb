@@ -17,7 +17,7 @@ AQABoxIwEDAOBgNVHQ8BAf8EBAMCBPAwDQYJKoZIhvcNAQEFBQADgYEAW5wPR7cr1LAdq+IrR44i
 QlRG5ITCZXY9hI0PygLP2rHANh+PYfTmxbuOnykNGyhM6FjFLbW2uZHQTY1jMrPprjOrmyK5sjJR
 O4d1DeGHT/YnIjs9JogRKv4XHECwLtIVdAbIdWHEtVZJyMSktcyysFcvuhPQK8Qc/E/Wq8uHSCo=
 -----END CERTIFICATE-----",
-           name_identifier_format:              "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
+           name_identifier_format:              "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
            private_key:                         "-----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEA98nVb2tUJaW8FgX36pTB0PD3ipvfoHhqSaI2+RytgcOzduxm
 BUYIzeowi5RkG/ox7pRU1WwY4HHvJ9pCzNmcR2kECCyV+TYLOgjqp1zYx3igQ4sj

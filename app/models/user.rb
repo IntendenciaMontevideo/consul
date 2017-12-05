@@ -95,15 +95,19 @@ class User < ActiveRecord::Base
     user_attributes = auth.extra.raw_info.attributes
 
     if oauth_user.blank?
-      User.new(
-        username:  auth.info.name || auth.uid,
+      username = [user_attributes['http://wso2.org/claims/givenname'].first, user_attributes['http://wso2.org/claims/lastname'].first].join(' ')
+      user_count = User.where("username like '%#{username}'").count
+      username = [username, user_count.to_s].join('_') if user_count > 0
+      oauth_user = User.new(
+        username:  username,
         email: oauth_email,
         oauth_email: oauth_email,
         password: Devise.friendly_token[0, 20],
         terms_of_service: '1',
         confirmed_at: oauth_email_confirmed ? DateTime.current : nil,
         first_name: user_attributes['http://wso2.org/claims/givenname'].first,
-        last_name: user_attributes['http://wso2.org/claims/lastname2'].first,
+        last_name: user_attributes['http://wso2.org/claims/lastname'].first,
+        last_name_2: user_attributes['http://wso2.org/claims/lastname2'].first,
         role: user_attributes['http://wso2.org/claims/role'].first,
         user_certified: user_attributes['http://wso2.org/claims/userCertified'].first == 'true' ? true : false,
         country: user_attributes['http://wso2.org/claims/country'].first,
@@ -111,12 +115,14 @@ class User < ActiveRecord::Base
         document_number: user_attributes['http://wso2.org/claims/document'].first,
         document_type: user_attributes['http://wso2.org/claims/documentType'].first,
         user_verified: user_attributes['http://wso2.org/claims/userVerified'].first == 'true' ? true : false,
-        middle_name: user_attributes['http://wso2.org/claims/middleName'].first
+        middle_name: user_attributes['http://wso2.org/claims/middleName'].first,
+        uid: auth.uid
       )
     else
       if auth.extra.raw_info.attributes
         oauth_user.first_name = user_attributes['http://wso2.org/claims/givenname'].first
-        oauth_user.last_name = user_attributes['http://wso2.org/claims/lastname2'].first
+        oauth_user.last_name = user_attributes['http://wso2.org/claims/lastname'].first
+        oauth_user.last_name_2 = user_attributes['http://wso2.org/claims/lastname2'].first
         oauth_user.role = user_attributes['http://wso2.org/claims/role'].first
         oauth_user.user_certified = user_attributes['http://wso2.org/claims/userCertified'].first == 'true' ? true : false
         oauth_user.country = user_attributes['http://wso2.org/claims/country'].first
@@ -126,8 +132,17 @@ class User < ActiveRecord::Base
         oauth_user.user_verified = user_attributes['http://wso2.org/claims/userVerified'].first == 'true' ? true : false
         oauth_user.middle_name = user_attributes['http://wso2.org/claims/middleName'].first
       end
-      oauth_user
     end
+
+    if (oauth_user.username.include?('uy-ci') || oauth_user.username.include?('uy-dni')) && oauth_user.residence_verified_at.blank?
+      oauth_user.residence_verified_at = Date.today
+      oauth_user.level_two_verified_at = Date.today
+    end
+    if (oauth_user.username.include?('uy-ci') || oauth_user.username.include?('uy-dni')) && (oauth_user.user_certified || oauth_user.user_verified) && oauth_user.verified_at.blank?
+      oauth_user.verified_at = Date.today
+    end
+
+    oauth_user
   end
 
   def name
