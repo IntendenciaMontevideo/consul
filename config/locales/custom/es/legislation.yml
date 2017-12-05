@@ -1,0 +1,81 @@
+---
+es:
+  legislation:
+    processes:
+      header:
+        view_process_information: Ver información de la consulta
+      proposals:
+        empty_proposals: No hay propuestas
+      debate:
+        empty_questions: No hay preguntas
+        participate: Realiza tus aportaciones al debate previo participando en los siguientes temas.
+      header_full:
+        description: En qué consiste
+        more_info: Más información y contexto
+      index:
+        filters:
+          open: Consultas activas
+          next: Próximamente
+          past: Terminados
+        no_open_processes: No hay consultas activas
+        no_next_processes: No hay consultas planeadas
+        no_past_processes: No hay consultas terminadas
+        section_header:
+          icon_alt: Icono de Consulta ciudadana
+          title: Consulta Ciudadana
+          help: ¿ Que es un consulta ciudadana ?
+          init_line: Participá en los debates y procesos previos a la aprobación de una norma o de un reglamento.
+        section_footer:
+          title: ¿ Que es un consulta ciudadana ?
+          description: "A través de los procesos participativos, la Intendencia de Montevideo te ofrece la oportunidad de ser parte de la elaboración y modificación de normativas que afectan a la ciudad, así como también dar tu opinión sobre ciertas actuaciones que tiene previsto llevar a cabo."
+          help_text_1: "Si te registraste en %{signup} podés hacer tus aportes en la consulta pública de nuevas ordenanzas, reglamentos y directrices, entre otros. Tus comentarios serán analizados por el área correspondiente y tenidos en cuenta de cara a la redacción final de las normas."
+      phase_not_open:
+        not_open: Esta fase de la consulta todavía no está abierta
+      phase_empty:
+          empty: No hay nada publicado todavía
+      process:
+        see_latest_comments: Ver últimas aportaciones
+        see_latest_comments_title: Aportar a esta consulta
+      shared:
+        key_dates: Fechas clave
+        debate_dates: Debate previo
+        draft_publication_date: Publicación borrador
+        allegations_dates: Alegaciones
+        result_publication_date: Publicación resultados
+        proposals_dates: Propuestas
+    questions:
+      comments:
+        comment_button: Publicar respuesta
+        comments_title: Respuestas abiertas
+        comments_closed: Fase cerrada
+        form:
+          leave_comment: Deja tu respuesta
+      question:
+        comments:
+          zero: Sin comentarios
+          one: "%{count} comentario"
+          other: "%{count} comentarios"
+        debate: Debate
+      show:
+        answer_question: Enviar respuesta
+        next_question: Siguiente pregunta
+        first_question: Primera pregunta
+        share: Compartir
+        title: Consulta ciudadana colaborativa
+      participation:
+        phase_not_open: Esta fase no está abierta
+        organizations: Las organizaciones no pueden participar en el debate
+        signin: iniciar sesión
+        signup: registrarte
+        unauthenticated: Necesitas %{signin} o %{signup} para participar en el debate.
+        verified_only: Solo los usuarios verificados pueden participar en el debate, %{verify_account}.
+        verify_account: verifica tu cuenta
+        debate_phase_not_open: La fase de debate previo ya ha finalizado y en este momento no se aceptan respuestas
+    shared:
+      share: Compartir
+      share_comment: Comentario sobre la %{version_name} del borrador de la consulta %{process_name}
+    proposals:
+      form:
+        tags_label: "Categorías"
+      not_verified: Para votar propuestas %{verify_account}.
+      closed: "Esta consulta se ha cerrado y ya no puede recoger votos."

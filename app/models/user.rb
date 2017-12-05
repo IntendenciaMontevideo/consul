@@ -96,7 +96,7 @@ class User < ActiveRecord::Base
 
     if oauth_user.blank?
       username = [user_attributes['http://wso2.org/claims/givenname'].first, user_attributes['http://wso2.org/claims/lastname'].first].join(' ')
-      user_count = User.where("username like '%#{username}'").count
+      user_count = User.where("username like '#{username}%'").count
       username = [username, user_count.to_s].join('_') if user_count > 0
       oauth_user = User.new(
         username:  username,
