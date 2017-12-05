@@ -30,3 +30,77 @@
 .banner-style-three {
   background-color: #66ba8d;
 }
+
+@font-face {
+  font-family: 'Ciudadela Pro Regular';
+  src: url(font-path('CiudadelaProRegular.otf'));
+}
+
+@font-face {
+  font-family: 'Ciudadela Pro Black';
+  src: url(font-path('CiudadelaProBlack.otf'));
+}
+
+@font-face {
+  font-family: 'Ciudadela Pro Black Italic';
+  src: url(font-path('CiudadelaProBlackItalic.otf'));
+}
+
+@font-face {
+  font-family: 'Ciudadela Pro Bold';
+  src: url(font-path('CiudadelaProBold.otf'));
+}
+
+@font-face {
+  font-family: 'Ciudadela Pro Bold Italic';
+  src: url(font-path('CiudadelaProBoldItalic.otf'));
+}
+
+@font-face {
+  font-family: 'Ciudadela Pro Italic';
+  src: url(font-path('CiudadelaProItalic.otf'));
+}
+
+@font-face {
+  font-family: 'Ciudadela Pro Light';
+  src: url(font-path('CiudadelaProLight.otf'));
+}
+
+@font-face {
+  font-family: 'Ciudadela Pro Light italic';
+  src: url(font-path('CiudadelaProLightItalic.otf'));
+}
+
+@font-face {
+  font-family: 'Ciudadela Pro Medium';
+  src: url(font-path('CiudadelaProMedium.otf'));
+}
+
+@font-face {
+  font-family: 'Ciudadela Pro Medium Italic';
+  src: url(font-path('CiudadelaProMediumItalic.otf'));
+}
+
+html {
+  font-family: Ciudadela Pro Regular !important;
+}
+
+body {
+  font-family: Ciudadela Pro Regular !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Ciudadela Pro Regular !important;
+}
+
+a {
+  font-family: Ciudadela Pro Regular !important;
+}
+
+p {
+  font-family: Ciudadela Pro Regular !important;
+}
+
+div {
+  font-family: Ciudadela Pro Regular !important;
+}
