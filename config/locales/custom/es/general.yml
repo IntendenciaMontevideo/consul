@@ -2,8 +2,8 @@ es:
   omniauth:
     saml:
       sign_in: Autenticarse
-      sign_up: Crea una cuenta aquí
-      name: Acceda aquí
+      sign_up: Entrar
+      name: Entrar
   layouts:
     header:
       ideas: Ideas
