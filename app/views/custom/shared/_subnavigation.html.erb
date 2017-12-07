@@ -10,7 +10,7 @@
       </li>
     <% end %>
     <li>
-      <%= layout_menu_link_to 'Ideas',
+      <%= layout_menu_link_to t("layouts.header.ideas"),
                               Link::IDEAS,
                               controller_name == 'spending_proposals',
                               accesskey: "s" %>
@@ -24,7 +24,7 @@
       </li>
     <% end %>
     <li>
-      <%= layout_menu_link_to 'Espacios de colaboración',
+      <%= layout_menu_link_to t("layouts.header.colaboration_space"),
                               '/espacio-de-particiapacion',
                               controller_name == 'spending_proposals',
                               accesskey: "s" %>
