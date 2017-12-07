@@ -1,7 +1,7 @@
-<div class="small-12 medium-9 column">
-  <ul>
+<div class="small-12 medium-12 column">
+  <ul id="nav-bar-flex">
     <% if feature?(:debates) %>
-      <li>
+      <li class="flex-1">
         <%= layout_menu_link_to t("layouts.header.debates"),
                                 debates_path,
                                 controller_name == 'debates',
@@ -9,28 +9,28 @@
                                 title: t("shared.go_to_page") + t("layouts.header.debates") %>
       </li>
     <% end %>
-    <li>
+    <li class="flex-1">
       <%= layout_menu_link_to t("layouts.header.ideas"),
                               Link::IDEAS,
                               controller_name == 'spending_proposals',
                               accesskey: "s" %>
     </li>
     <% if feature?(:legislation) %>
-      <li>
+      <li class="flex-3">
         <%= layout_menu_link_to t("layouts.header.collaborative_legislation"),
                                 legislation_processes_path,
                                 controller.class.parent == Legislation,
                                 accesskey: "l" %>
       </li>
     <% end %>
-    <li>
+    <li class="flex-4">
       <%= layout_menu_link_to t("layouts.header.colaboration_space"),
                               Link::COLABORATION_SPACES,
                               controller_name == 'spending_proposals',
                               accesskey: "s" %>
     </li>
     <% if feature?(:polls) %>
-      <li>
+      <li class="flex-1">
         <%= layout_menu_link_to t("layouts.header.poll_questions"),
                                   polls_path,
                                   controller_name == "polls" || (controller_name == "questions" && controller.class.parent == Polls),
@@ -40,7 +40,7 @@
     <% end %>
 
     <% if feature?(:proposals) %>
-      <li>
+      <li class="flex-1">
         <%= layout_menu_link_to t("layouts.header.proposals"),
                                 proposals_path,
                                 controller_name == 'proposals' && !controller.class.parent == Legislation,
@@ -49,7 +49,7 @@
       </li>
     <% end %>
     <% if feature?(:spending_proposals) %>
-      <li>
+      <li class="flex-1">
         <%= layout_menu_link_to t("layouts.header.spending_proposals"),
                                   spending_proposals_path,
                                   controller_name == 'spending_proposals',
@@ -58,12 +58,13 @@
     <% end %>
 
 
-    <li>
+    <li class="flex-4">
       <%= layout_menu_link_to t("layouts.header.budgets"),
                                 "http://presupuestoparticipativo.montevideo.gub.uy",
                                 controller_name == "budgets" || controller_name == "investments",
                                 accesskey: "4",
                                 title: t("shared.go_to_page") + t("layouts.header.budgets") %>
     </li>
+      <%= yield :header_addon %>
   </ul>
 </div>
