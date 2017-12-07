@@ -26,9 +26,10 @@ es:
           help: ¿ Que es un consulta ciudadana ?
           init_line: Participá en los debates y procesos previos a la aprobación de una norma o de un reglamento.
         section_footer:
-          title: ¿ Que es un consulta ciudadana ?
-          description: "A través de los procesos participativos, la Intendencia de Montevideo te ofrece la oportunidad de ser parte de la elaboración y modificación de normativas que afectan a la ciudad, así como también dar tu opinión sobre ciertas actuaciones que tiene previsto llevar a cabo."
-          help_text_1: "Si te registraste en %{signup} podés hacer tus aportes en la consulta pública de nuevas ordenanzas, reglamentos y directrices, entre otros. Tus comentarios serán analizados por el área correspondiente y tenidos en cuenta de cara a la redacción final de las normas."
+          title: ¿ Ayuda sobre las consultas ciudadanas?
+          description: "A través de la Consulta ciudadana, la Intendencia de Montevideo te ofrece la oportunidad de ser parte de la elaboración y modificación de normativas y reglamentos que afectan a la ciudad, así como también dar tu opinión y elegir sobre ciertas acciones que tiene previsto llevar a cabo."
+          help_text_1: "SI te %{register} en Montevideo Decide, podés hacer tus aportes, y apoyar distintas propuestas. Tus comentarios y elecciones serán analizados por el área correspondiente y tenidos en cuenta al momento de tomar decisiones."
+          register_link: registraste
       phase_not_open:
         not_open: Esta fase de la consulta todavía no está abierta
       phase_empty:

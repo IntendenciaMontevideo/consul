@@ -14,6 +14,7 @@ namespace :disable_modules do
     Setting['feature.polls'] = false
     Setting['feature.public_stats'] = false
     Setting['feature.budgets'] = true
-    Setting['feature.legislation'] = true
+    Setting['feature.legislation'] = false
+    Setting['feature.proposals'] = false
   end
 end
