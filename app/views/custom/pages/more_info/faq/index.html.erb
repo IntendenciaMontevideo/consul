@@ -1,0 +1,37 @@
+<% content_for :canonical do %>
+  <%= render "shared/canonical", href: faq_url %>
+<% end %>
+
+<div class="row margin-top">
+  <div class="menu small-12 medium-3 column">
+    <%= back_link_to %>
+
+    <ul class="menu vertical margin-top">
+      <li><a href="#1"><strong><%= t("pages.more_info.faq.page.faq_1_title") %></strong></a></li>
+      <li><a href="#2"><strong><%= t("pages.more_info.faq.page.faq_2_title") %></strong></a></li>
+      <li><a href="#3"><strong><%= t("pages.more_info.faq.page.faq_3_title") %></strong></a></li>
+    </ul>
+  </div>
+
+  <div class="text small-12 medium-9 column">
+    <h1 class="clear"><%= t("pages.more_info.faq.page.title") %></h1>
+    <h3><%= t("pages.more_info.faq.page.sub_title") %></h3>
+    <p><%= t("pages.more_info.faq.page.description") %></p>
+    <p><%= t("pages.more_info.faq.page.description_1") %></p>
+
+    <h2 id="1"><%= t("pages.more_info.faq.page.faq_1_title") %></h2>
+    <p><%= t("pages.more_info.faq.page.faq_1_description") %></p>
+    <h2 id="2"><%= t("pages.more_info.faq.page.faq_2_title") %></h2>
+    <p><%= t("pages.more_info.faq.page.faq_2_description") %></p>
+    <h2 id="3"><%= t("pages.more_info.faq.page.faq_3_title") %></h2>
+    <p><%= t("pages.more_info.faq.page.faq_3_description_1") %></p>
+    <p><%= t("pages.more_info.faq.page.faq_3_description_2") %></p>
+    <p><%= t("pages.more_info.faq.page.faq_3_description_3") %></p>
+    <p><%= t("pages.more_info.faq.page.faq_3_description_4") %></p>
+    <p><%= t("pages.more_info.faq.page.faq_3_description_5") %></p>
+  </div>
+  <div class="text small-12 medium-9 column">
+    <br>
+    <p><%= t("pages.more_info.faq.page.footer") %></p>
+  </div>
+</div>
