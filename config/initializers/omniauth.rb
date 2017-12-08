@@ -5,6 +5,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
            idp_entity_id:                       "ihdesa.imm.gub.uy",
            idp_sso_target_url:                  "https://ihdesa.imm.gub.uy:9443/samlsso",
            idp_slo_target_url:                  "https://ihdesa.imm.gub.uy:9443/samlsso",
+           allowed_clock_drift:                 2.seconds,
            idp_cert:                            "-----BEGIN CERTIFICATE-----
 MIICNTCCAZ6gAwIBAgIES343gjANBgkqhkiG9w0BAQUFADBVMQswCQYDVQQGEwJVUzELMAkGA1UE
 CAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDTALBgNVBAoMBFdTTzIxEjAQBgNVBAMMCWxv
