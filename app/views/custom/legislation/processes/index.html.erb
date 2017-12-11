@@ -8,7 +8,7 @@
   <div id="legislation" class="legislation-list small-12 medium-9 column">
 
     <%= render 'shared/filter_subnav', i18n_namespace: "legislation.processes.index" %>
-
+      <hr>
     <div id="legislation-list">
       <% if @processes.any? %>
         <%= render @processes %>
@@ -18,14 +18,14 @@
           <%= t(".no_#{@current_filter}_processes") %>
         </div>
       <% end %>
-
-      <div id="section_help" class="margin" data-magellan-target="section_help">
-        <p class="lead">
-          <strong><%= t("legislation.processes.index.section_footer.title") %></strong>
-        </p>
-        <p><%= t("legislation.processes.index.section_footer.description") %></p>
-        <p><%= t("legislation.processes.index.section_footer.help_text_1", register: link_to(t("legislation.processes.index.section_footer.register_link"), new_user_registration_path)).html_safe  %></p>
-      </div>
+      <hr>
     </div>
+  </div>
+  <div id="section_help" class="medium-3 column" data-magellan-target="section_help">
+    <p class="lead">
+      <strong><%= t("legislation.processes.index.section_footer.title") %></strong>
+    </p>
+    <p><%= t("legislation.processes.index.section_footer.description") %></p>
+    <p><%= t("legislation.processes.index.section_footer.help_text_1", register: link_to(t("legislation.processes.index.section_footer.register_link"), new_user_registration_path)).html_safe  %></p>
   </div>
 </div>

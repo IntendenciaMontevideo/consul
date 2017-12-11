@@ -1,0 +1,83 @@
+<% content_for :body_class, "home-page" %>
+
+<% content_for :canonical do %>
+  <%= render "shared/canonical", href: root_url %>
+<% end %>
+  <div class="small-12 column text-center">
+    <div class="row margin padding">
+      <div class="small-12 medium-3 column">
+        <%= image_tag(image_path_for('w-banner1.png'), class: 'float-center banner-img  ', size: '300x100', alt: t("layouts.header.logo")) %>
+          <p class="banner-text"> <%= image_tag(image_path_for('debate_1.png'), class: 'float-center', size: '100x100', alt: t("layouts.header.logo")) %> </p>
+          <h2 class="banner-text"><%= t("welcome.debates.title") %></h2>
+          <p class="banner-text"><%= t("welcome.debates.description") %></p>
+      </div>
+      <div class="small-12 medium-3 column">
+        <%= image_tag(image_path_for('w-banner2.png'), class: 'float-center banner-img  ', size: '300x100', alt: t("layouts.header.logo")) %>
+        <p> <%= image_tag(image_path_for('propones_1.png'), class: 'float-center', size: '100x100', alt: t("layouts.header.logo")) %> </p>
+        <h2><%= t("welcome.proposal.title") %></h2>
+        <p><%= t("welcome.proposal.description") %></p>
+      </div>
+      <div class="small-12 medium-3 column">
+        <%= image_tag(image_path_for('w-banner3.png'), class: 'float-center banner-img ', size: '300x100', alt: t("layouts.header.logo")) %>
+        <p> <%= image_tag(image_path_for('decides_1.png'), class: 'float-center', size: '100x100', alt: t("layouts.header.logo")) %> </p>
+        <h2><%= t("welcome.decide.title") %></h2>
+        <p><%= t("welcome.decide.description") %></p>
+      </div>
+      <div class="small-12 medium-3 column">
+        <%= image_tag(image_path_for('w-banner4.png'), class: 'float-center banner-img ', size: '300x100', alt: t("layouts.header.logo")) %>
+        <p> <%= image_tag(image_path_for('se_hace_1.png'), class: 'float-center', size: '100x100', alt: t("layouts.header.logo")) %> </p>
+        <h2><%= t("welcome.do.title") %></h2>
+        <p><%= t("welcome.do.description") %></p>
+      </div>
+    </div>
+  </div>
+
+<% if feature?("user.recommendations") && (@recommended_debates.present? || @recommended_proposals.present?) %>
+  <%= render "recommended",
+              recommended_debates: @recommended_debates,
+              recommended_proposals: @recommended_proposals %>
+  <hr>
+<% end %>
+
+<% cache [locale_and_user_status, @featured_debates, @featured_proposals, 'featured'] do %>
+  <main>
+    <div class="jumbo">
+      <div class="row medium-10 small-centered">
+        <div class="small-12 medium-6 column text-center">
+          <h1><%= t("layouts.header.open_city_title") %></h1>
+          <p class="black-color">
+            <%= t("layouts.header.open_city_slogan_html") %>
+          </p>
+          <div class="small-12 medium-8 large-7 small-centered">
+            <%= link_to t("layouts.header.more_info"), more_info_path, class: "button expanded large" %>
+          </div>
+        </div>
+        <div class="small-12 medium-5 column text-center">
+        <p> <%= image_tag(image_path_for('Picto_convive_gde.png'), class: 'float-center', alt: t("welcome")) %> </p>
+        </div>
+      </div>
+    </div>
+    <div class="jumbo base-bg">
+      <div class="row medium-10 small-centered">
+        <div class="small-12 medium-3 column">
+          <p> <%= image_tag(image_path_for('Globo_conversa.png'), class: 'float-center', alt: t("Globo_conversa")) %> </p>
+        </div>
+        <div class="small-12 medium-3 column">
+          <p> <%= image_tag(image_path_for('picto_user_gde.png'), class: 'float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
+          <h2>1. Registrate</h2>
+          <p>Hacé click en Ingresar,  completá el formulario y  sé parte de Montevideo Decide</p>
+        </div>
+        <div class="small-12 medium-3 column">
+          <p> <%= image_tag(image_path_for('picto_Sobre.png'), class: 'float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
+          <h2>2. Votá</h2>
+          <p>Opiná, proponé y  decidí cómo querés  que sea la ciudad</p>
+        </div>
+        <div class="small-12 medium-3 column">
+          <p> <%= image_tag(image_path_for('picto_comparte.png'), class: 'float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
+          <h2>3. Compartí</h2>
+          <p>Compartí en redes  sociales para que  más rosarinos puedan  aportar sus opiniones</p>
+        </div>
+      </div>
+    </div>
+  </main>
+<% end %>

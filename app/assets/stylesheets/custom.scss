@@ -99,6 +99,11 @@ div .debate-content ul li a{
   color: #fff;
 }
 
+div .debate-content ul li a:hover{
+  background: #9e9e9e;
+  color: #fff;
+}
+
 div #tag-cloud ul li a{
   border-radius: 0;
   background: #9e9e9e;
@@ -174,6 +179,11 @@ header {
   background-color: #face7a !important;
 }
 
+.subnavigation a.active {
+    border-bottom: 0px solid #00b4d2;
+    color: #000;
+}
+
 
 .footer-bg {
   background-color: #929497;
@@ -184,10 +194,64 @@ header {
   background-color: #929497;
 }
 
+.base-bg {
+  background-color: #f9bd41;
+  color: #fff;
+}
+.black-color {
+  color: #000;
+  font-size: 1.5rem;
+}
+
+.button.hollow:hover {
+    background: #f9bd41;
+    color: #fff !important;
+    border: 0px solid;
+}
+
 .button {
   background: #f9bd41;
   font-size: 1.0625rem;
   border-radius: 0rem;
+}
+
+.legislation-calendar{
+  background: #f9bd41;
+  color: #fff !important;
+}
+
+div.legislation-calendar div h5,
+div.legislation-calendar div p {
+  color: #fff !important;
+}
+
+.legislation-text h3 a{
+  color: #f9bd41;
+}
+
+.legislation-calendar-info p{
+  color: #f9bd41;
+}
+
+.banner-img {
+  padding: 2px;
+  position: relative;
+}
+
+.banner-text {
+  position: absolute;
+
+}
+
+.legislation {
+    border: 0px solid;
+    box-shadow: 0 0px 0px 0 #dee0e3;
+}
+
+.button.hollow {
+  background: #f9bd41;
+  color: #fff !important;
+  border: 0px solid;
 }
 
 .button:hover {
@@ -199,6 +263,11 @@ header {
 }
 
 .submenu .active {
+  color: #f9bd41;
+  border-bottom: 2px solid #f9bd41;
+}
+
+#filter-subnav li.active{
   color: #f9bd41;
   border-bottom: 2px solid #f9bd41;
 }
@@ -292,8 +361,12 @@ footer a {
   flex: 4;
 }
 
+.flex-5{
+  flex: 5;
+}
+
 .search-nav{
-  margin-right: -1rem !important;
+  margin-right: -8.6rem !important;
   border-color: #fff !important;
 }
 
@@ -307,16 +380,25 @@ footer a {
   box-shadow: none;
 }
 
-// Media
-
 .search-form-header [type=text]::placeholder{
   color: #f9bd41 !important;
   text-decoration: underline !important;
 }
 
-
 // media
+@media (min-width: 1026px) and (max-width: 1325px) {
+  .search-nav{
+    margin-right: -3.6rem !important;
+    border-color: #fff !important;
+  }
+}
 
+@media (min-width: 100px) and (max-width: 1025px) {
+  .search-nav{
+    margin-right: -0.91rem !important;
+    border-color: #fff !important;
+  }
+}
 @media (min-width: 841px) and (max-width: 860px) {
 
   #nav-bar-flex{
