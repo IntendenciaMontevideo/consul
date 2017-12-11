@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :omniauthable, :omniauth_providers => [:saml]
+  devise :omniauthable, :omniauth_providers => [:saml, :facebook]
 
   include Verification
 
@@ -76,6 +76,7 @@ class User < ActiveRecord::Base
 
     oauth_user || User.new(
       username:  auth.info.name || auth.uid,
+      first_name: auth.info.name,
       email: oauth_email,
       oauth_email: oauth_email,
       password: Devise.friendly_token[0, 20],

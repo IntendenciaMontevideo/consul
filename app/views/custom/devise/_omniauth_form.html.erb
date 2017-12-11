@@ -1,4 +1,4 @@
-<% if feature?(:saml_login) %>
+<% if feature?(:saml_login) || feature?(:facebook_login) %>
 
   <% if current_page?(new_user_session_path) %>
     <div class="row">
@@ -8,6 +8,14 @@
           <%= link_to t("omniauth.saml.name"), user_omniauth_authorize_path(:saml),
                       title: t("omniauth.saml.sign_in"),
                       class: "button expanded" %>
+        </div>
+      <% end %>
+
+      <% if feature? :facebook_login %>
+        <div class="small-12 medium-6 large-4 column end">
+          <%= link_to t("omniauth.facebook.name"), user_omniauth_authorize_path(:facebook),
+                      title: t("omniauth.facebook.sign_in"),
+                      class: "button-facebook button expanded" %>
         </div>
       <% end %>
 
@@ -21,6 +29,14 @@
           <%= link_to t("omniauth.saml.sign_up"), user_omniauth_authorize_path(:saml),
                       title: t("omniauth.saml.sign_up"),
                       class: "button expanded" %>
+        </div>
+      <% end %>
+
+      <% if feature? :facebook_login %>
+        <div class="small-12 medium-6 large-4 column end">
+          <%= link_to t("omniauth.facebook.name"), user_omniauth_authorize_path(:facebook),
+                      title: t("omniauth.facebook.sign_in"),
+                      class: "button-facebook button expanded" %>
         </div>
       <% end %>
 
