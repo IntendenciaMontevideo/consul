@@ -49,6 +49,7 @@
       <%= render "shared/advanced_search", search_path: debates_path(page: 1) %>
 
       <%= render 'shared/order_links', i18n_namespace: "debates.index" %>
+      <hr class="padding-10">
 
       <div class="show-for-small-only">
         <%= link_to t("debates.index.start_debate"), new_debate_path, class: 'button expanded' %>
@@ -61,6 +62,13 @@
       <% end %>
       <%= paginate @debates %>
 
+    </div>
+
+    <div class="small-12 medium-3 column">
+
+      <aside class="margin-bottom">
+        <%= link_to t("debates.index.start_debate"), new_debate_path, class: 'button expanded' %>
+        <%= render "shared/tag_cloud", taggable: 'debate' %>
       <% unless @search_terms || @advanced_search_terms || @tag_filter %>
         <div id="section_help" class="margin" data-magellan-target="section_help">
           <p class="lead">
@@ -73,13 +81,6 @@
           </p>
         </div>
       <% end %>
-    </div>
-
-    <div class="small-12 medium-3 column">
-
-      <aside class="margin-bottom">
-        <%= link_to t("debates.index.start_debate"), new_debate_path, class: 'button expanded' %>
-        <%= render "shared/tag_cloud", taggable: 'debate' %>
       </aside>
     </div>
 

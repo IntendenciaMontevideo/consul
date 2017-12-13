@@ -1,0 +1,61 @@
+<header>
+
+  <div class="top-links">
+    <div class="row">
+      <%= render "shared/locale_switcher" %>
+      <div class="hide-for-small-only">
+        <%= render "shared/top_links" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="top-bar">
+      <%= link_to root_path, class: "hide-for-large-only", accesskey: "0" do %>
+        <%= image_tag(image_path_for('logo_header.png'), class: 'hide-for-large-only float-left', size: '40x40', alt: t("layouts.header.logo")) %>
+        <%= image_tag(image_path_for('logo_header-secondary.png'), class: 'hide-for-large-only float-left', size: '40x40', alt: t("layouts.header.logo")) %>
+        <%= link_to setting['org_name'], root_path, class: "logo hide-for-large-only" %>
+      <% end %>
+      <span data-responsive-toggle="responsive_menu" data-hide-for="large" class="float-right">
+        <span class="menu-icon dark" data-toggle></span>
+      </span>
+
+      <div id="responsive_menu">
+        <div class="top-bar-title">
+          <%= link_to root_path, class: "show-for-large-only", accesskey: "0" do %>
+            <%= image_tag(image_path_for('logo_header.png'), class: 'show-for-large-only float-left', size: '80x80', alt: t("layouts.header.logo")) %>
+            <%= image_tag(image_path_for('logo_header-secondary.png'), class: 'show-for-large-only float-left', size: '80x80', alt: t("layouts.header.logo")) %>
+            <%= setting['org_name'] %>
+          <% end %>
+        </div>
+
+        <div class="top-bar-right">
+          <ul class="menu" data-responsive-menu="medium-dropdown">
+            <%= render "shared/admin_login_items" %>
+            <%= render "devise/menu/login_items" %>
+          </ul>
+
+          <div class="hide-for-large-only">
+            <div class="subnavigation row">
+              <%= render "shared/subnavigation" %>
+              <div class="small-12 column">
+                <%= render "shared/top_links" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subnavigation expanded">
+    <div class="row">
+      <div class="show-for-large-only">
+        <%= render "shared/subnavigation" %>
+      </div>
+    </div>
+  </div>
+  <div class="hide-for-large-only small-search">
+    <%= yield :header_addon %>
+  </div>
+</header>

@@ -1,0 +1,27 @@
+
+<footer>
+  <div class="footer">
+    <div class="footer-bg">
+      <div class="small-8 medium-footer-img large-4 column">
+        <%= image_tag(image_path_for('logo_footer.png'), class: 'float-left medium-center', size: '300x160', alt: t("layouts.footer.logo")) %>
+        <div id="barra_vertical" class="hide-for-small-only hide-for-medium-only"></div>
+      </div>
+      <div class="footer-sections small-12 medium-footer-div large-8 column gray-bg">
+        <div class="small-12 medium-3 column">
+          <%= link_to t("layouts.footer.participation_title"), root_path, class: "title" %>
+          <p><%= t("layouts.footer.participation_text") %></p>
+        </div>
+          <div id="barra_vertical-r" class="hide-for-small-only"></div>
+        <div class="small-12 medium-footer column">
+          <%= link_to t("layouts.footer.transparency_title"), setting['transparency_url'].presence || t("layouts.footer.transparency_url"), class: "title", rel: "nofollow" %>
+          <p><%= t("layouts.footer.transparency_text") %></p>
+        </div>
+        <div id="barra_vertical-r" class="hide-for-small-only"></div>
+        <div class="small-12 medium-footer column float-left">
+          <%= link_to t("layouts.footer.open_data_title"), setting['opendata_url'].presence || t("layouts.header.external_link_opendata_url"), class: "title", rel: "nofollow" %>
+          <p><%= t("layouts.footer.open_data_text") %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
