@@ -204,9 +204,9 @@ header {
 }
 
 .button.hollow:hover {
-    background: #f9bd41;
-    color: #fff !important;
-    border: 0px solid;
+  background: #f9bd41;
+  color: #fff !important;
+  border: 0px solid;
 }
 
 .button {
@@ -233,19 +233,41 @@ div.legislation-calendar div p {
   color: #f9bd41;
 }
 
-.banner-img {
-  padding: 2px;
-  position: relative;
+.box {
+  position:relative;
+  padding-bottom: 1rem;
 }
 
-.banner-text {
-  position: absolute;
+.box-text {
+  position:absolute;
+  top: 45%;
+  width: 90%;
+  color: #fff;
+  text-align: left;
+}
+.text-left{
+  text-align: left;
+}
 
+.padding {
+  padding-bottom: 2.5rem;
+  padding-top: 0rem;
+}
+
+.margin {
+  margin-bottom: 2.5rem;
+  margin-top: 0rem;
+}
+
+.btn-grey{
+  background: #fff;
+  color: #777;
+  border: 1px solid #515151;
 }
 
 .legislation {
-    border: 0px solid;
-    box-shadow: 0 0px 0px 0 #dee0e3;
+  border: 0px solid;
+  box-shadow: 0 0px 0px 0 #dee0e3;
 }
 
 .button.hollow {
@@ -287,13 +309,13 @@ a {
 
 .footer, .push {
   clear: both;
-  min-height: 12rem;
+  min-height: 4rem;
 }
 
 .footer {
   clear: both;
   min-height: 7rem !important;
-  margin-top: 8rem !important;
+  margin-top: 1rem !important;
 }
 
 .footer-sections {
@@ -365,6 +387,15 @@ footer a {
   flex: 5;
 }
 
+.banner-font{
+  font-size: 16px;
+  line-height: 1.625rem;
+}
+
+.banner-title{
+  font-size: 34px;
+}
+
 .search-nav{
   margin-right: -8.6rem !important;
   border-color: #fff !important;
@@ -385,6 +416,38 @@ footer a {
   text-decoration: underline !important;
 }
 
+.h1-wellcome{
+  font-size: 44px;
+}
+
+.p-wellcome{
+  font-size: 24px;
+  line-height: 2.225rem;
+  text-align : justify;
+}
+
+.top-bar .top-bar-right {
+  width: auto;
+}
+
+.size-resp{
+  min-height: 465px;
+  position: relative;
+}
+
+.go-bot{
+  position: absolute;
+  bottom: 1px;
+}
+
+a:focus {
+  outline: 0px solid #ffbf47;
+}
+
+.subnavigation a:hover {
+     color: #000;
+}
+
 // media
 @media (min-width: 1026px) and (max-width: 1325px) {
   .search-nav{
@@ -397,6 +460,36 @@ footer a {
   .search-nav{
     margin-right: -0.91rem !important;
     border-color: #fff !important;
+  }
+
+  .banner-font{
+    font-size: 13px;
+    line-height: 1.125rem;
+  }
+
+  .banner-title{
+    font-size: 25px;
+  }
+
+  .banner-title{
+    font-size: 34px;
+  }
+
+  .size-resp{
+    min-height: 65px;
+  }
+
+  .go-bot{
+    position: relative;
+  }
+
+  .h1-wellcome{
+    font-size: 30px;
+  }
+
+  .p-wellcome{
+    font-size: 18px;
+    line-height: 1.625rem;
   }
 }
 @media (min-width: 841px) and (max-width: 860px) {
@@ -420,6 +513,35 @@ footer a {
 }
 
 @media (min-width: 100px) and (max-width: 840px) {
+
+  .input-group {
+    display: block;
+  }
+
+  .small-search{
+    width: 100%;
+    height: 43px;
+  }
+
+  .search-nav {
+    margin-right: 0rem !important;
+  }
+
+  .search-form-header [type=text] {
+    padding-top: 19px !important;
+  }
+
+  .debate .votes{
+    border-top: 1px solid #dee0e3;
+  }
+
+  .total-votes{
+    margin-top: 4%;
+    margin-right: 10%;
+    float: right !important;
+    padding: 5px 25px;
+    line-height: 2rem !important;
+  }
 
   .subnavigation a.active {
     border-bottom: 2px solid #00b4d2;
@@ -445,6 +567,49 @@ footer a {
   .medium-center {
     margin-left: 28%;
   }
+
+
+  .banner-font{
+    font-size: 15px;
+    line-height: 1.625rem;
+  }
+  .h1-wellcome{
+    font-size: 30px;
+  }
+
+  .p-wellcome{
+    font-size: 18px;
+    line-height: 1.325rem;
+  }
+  .box-text {
+    width: 80%;
+    margin-left: 15px;
+  }
+  .top-bar .top-bar-right {
+    width: 100%;
+  }
+  .top-bar .menu > li .button {
+    background: #f9bd41;
+    color: #fff;
+    text-align: left;
+  }
+
+  .top-bar .menu > li a{
+    padding-left: 0px;
+  }
+
+  .top-bar .menu > li{
+    display: initial;
+  }
+
+  .size-resp{
+    min-height: 65px;
+  }
+
+  .go-bot{
+    position: relative;
+    bottom: 1px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 639px) {
@@ -456,11 +621,50 @@ footer a {
   .medium-center {
     margin-left: 10%;
   }
+
+  .box-text {
+    width: 80%;
+    margin-left: 35px;
+  }
+
+  .small-search{
+    width: 100vw;
+    height: 43px;
+  }
 }
+
+@media (min-width: 100px) and (max-width: 375px) {
+
+  .box-text {
+    width: 80%;
+    margin-left: 15px;
+  }
+
+  .total-votes {
+    margin-right: 0%;
+  }
+}
+
 
 @media (min-width: 100px) and (max-width: 342px) {
 
+  .total-votes {
+    float: right !important;
+    padding: 0px 19px;
+  }
+
   .medium-center {
     margin-left: 0%;
+  }
+
+  .debate .votes .icon-like, .debate .votes
+  .icon-unlike, .debate-show .votes .icon-like,
+  .debate-show .votes .icon-unlike,
+  .proposal-show .votes .icon-like,
+  .proposal-show .votes .icon-unlike,
+  .legislation-proposals .votes .icon-like,
+  .legislation-proposals .votes .icon-unlike{
+    border-radius: 25rem;
+    font-size: 1.9rem;
   }
 }
