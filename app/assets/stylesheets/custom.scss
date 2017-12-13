@@ -387,6 +387,9 @@ footer a {
   flex: 5;
 }
 
+h2 {
+  clear: right;
+}
 .banner-font{
   font-size: 16px;
   line-height: 1.625rem;
@@ -446,6 +449,27 @@ a:focus {
 
 .subnavigation a:hover {
      color: #000;
+}
+
+.callout.primary {
+  background-color: #f9bd41;
+  border-color: #facf79;
+  color: #222;
+}
+
+.callout{
+  border-radius: 0px;
+  padding: 0.6rem;
+}
+
+.bell{
+  margin-right: 0.6rem;
+}
+
+.noti-container{
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 35vh;
 }
 
 // media
