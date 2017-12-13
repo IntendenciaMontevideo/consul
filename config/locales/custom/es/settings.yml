@@ -1,5 +1,4 @@
 es:
   settings:
-    org_name: FEDE
     feature:
       saml_login: Registro con SAML

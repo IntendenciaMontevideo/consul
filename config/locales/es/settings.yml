@@ -25,7 +25,7 @@ es:
     transparency_url: "URL de transparencia"
     opendata_url: "URL de open data"
     url: "URL general de la web"
-    org_name: "FEDERICO"
+    org_name: "Nombre de la organización"
     place_name: "Nombre del lugar"
     feature:
       budgets: Presupuestos participativos

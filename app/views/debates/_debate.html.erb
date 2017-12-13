@@ -3,7 +3,7 @@
     <div class="panel">
       <div class="row">
 
-        <div class="small-12 medium-12 large-9 column">
+        <div class="small-12 medium-9 column">
           <div class="debate-content">
             <h3><%= link_to debate.title, debate %></h3>
             <p class="debate-info">
@@ -46,7 +46,7 @@
           </div>
         </div>
 
-        <div id="<%= dom_id(debate) %>_votes" class="small-12 medium-12 large-3 column">
+        <div id="<%= dom_id(debate) %>_votes" class="small-12 medium-3 column">
             <%= render 'debates/votes', debate: debate %>
         </div>
 
