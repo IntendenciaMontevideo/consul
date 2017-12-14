@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :omniauthable, :omniauth_providers => [:saml, :facebook]
+  devise :omniauthable, :omniauth_providers => [:saml, :facebook, :twitter, :google_oauth2]
 
   include Verification
 
