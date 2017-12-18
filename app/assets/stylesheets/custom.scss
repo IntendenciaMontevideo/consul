@@ -56,12 +56,17 @@
   src: url(font-path('CiudadelaProMediumItalic.otf'));
 }
 
+@font-face {
+  font-family: 'Palanquin-Regular';
+  src: url(font-path('Palanquin-Regular.otf'));
+}
+
 html {
-  font-family: Ciudadela Pro Regular !important;
+  font-family: Palanquin-Regular !important;
 }
 
 body {
-  font-family: Ciudadela Pro Regular !important;
+  font-family: Palanquin-Regular !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -69,15 +74,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  font-family: Ciudadela Pro Regular !important;
+  font-family: Palanquin-Regular !important;
 }
 
 p {
-  font-family: Ciudadela Pro Regular !important;
+  font-family: Palanquin-Regular !important;
 }
 
 div {
-  font-family: Ciudadela Pro Regular !important;
+  font-family: Palanquin-Regular !important;
 }
 
 // General
@@ -91,6 +96,14 @@ div {
 .legislation-proposals .votes .icon-unlike{
   border-radius: 25rem;
   font-size: 2.9rem;
+  padding: 0.555rem 0.555rem;
+}
+
+.base-color{
+  color: #f9bd41;
+}
+.menu.simple li.active {
+border-bottom: 2px solid #f9bd41;
 }
 
 div .debate-content ul li a{
@@ -168,6 +181,29 @@ div #tag-cloud ul li a{
 
 header {
   background-color: #f9bd41;
+}
+
+.more-info-content h3, .communities-show h3 {
+  color: #f9bd41;
+}
+
+.radius{
+  border-radius: 45px;
+}
+.banner-15{
+  margin-top: -15px;
+}
+
+.thin{
+  padding: 0.35em 1em;
+}
+
+.padding-70{
+  padding: 0.35em 90px;
+}
+
+.padding-60{
+  padding: 0.35em 80px;
 }
 
 .top-bar {
@@ -399,6 +435,14 @@ h2 {
   font-size: 34px;
 }
 
+.avatar-title{
+  font-size: 44px;
+  background: #f9bd41;
+  color: white;
+  padding: 5px 35px;
+  border-radius: 65px;
+}
+
 .search-nav{
   margin-right: -8.6rem !important;
   border-color: #fff !important;
@@ -457,9 +501,20 @@ a:focus {
   color: #222;
 }
 
+.bg-avatar {
+  background: #f9bd41;
+  color: white;
+  padding: 15px 23px;
+  border-radius: 35px;
+}
+
 .callout{
   border-radius: 0px;
   padding: 0.6rem;
+}
+
+.debates-profile a{
+  color: #000;
 }
 
 .bell{
@@ -637,6 +692,18 @@ a:focus {
     position: relative;
     bottom: 1px;
   }
+
+  .menu-icon{
+    margin-right: 15px;
+  }
+
+  div #section_help p{
+    font-size: 14px;
+  }
+
+  div #section_help p.lead{
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 639px) {
@@ -670,6 +737,18 @@ a:focus {
   .total-votes {
     margin-right: 0%;
   }
+  .debate .votes .icon-like, .debate .votes
+  .icon-unlike, .debate-show .votes .icon-like,
+  .debate-show .votes .icon-unlike,
+  .proposal-show .votes .icon-like,
+  .proposal-show .votes .icon-unlike,
+  .legislation-proposals .votes .icon-like,
+  .legislation-proposals .votes .icon-unlike{
+    border-radius: 25rem;
+    font-size: 1.9rem;
+    padding: 0.455rem 0.455rem;
+  }
+
 }
 
 
@@ -677,7 +756,7 @@ a:focus {
 
   .total-votes {
     float: right !important;
-    padding: 0px 19px;
+    padding: 0px 15px;
   }
 
   .medium-center {
@@ -693,5 +772,6 @@ a:focus {
   .legislation-proposals .votes .icon-unlike{
     border-radius: 25rem;
     font-size: 1.9rem;
+    padding: 0.355rem 0.355rem;
   }
 }

@@ -1,0 +1,55 @@
+<% provide :title do %><%= t("pages.titles.more_info", org_name: setting['org_name']) %><% end %>
+<% content_for :canonical do %>
+  <%= render "shared/canonical", href: more_info_url %>
+<% end %>
+<div class="box ">
+  <%= image_tag(image_path_for('banner-MF.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+  <div class="column box-text">
+    <p class=""> <%= image_tag(image_path_for('hand-2.png'), class: ' float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
+    <h2 class="banner-title banner-15">Descubre Montevideo Participa</h2>
+    <p class="banner-font medium-9">Aprende todo lo que puede hacer esta web. Esta guia explica cada una de las secciones de Montevideo Participa. Puedes ampliar informacion en los enlaces de "Informacion Detallada"</p>
+    <div class="medium-12 column">
+      <div class="medium-3 column float-left">
+        <%= link_to t("Debates"), new_debate_path, class: 'button thin padding-70' %>
+      </div>
+      <div class="medium-3 column float-left">
+        <%= link_to t("Propuestas"), new_debate_path, class: 'button thin padding-60' %>
+      </div>
+      <div class="medium-3 column float-left">
+        <%= link_to t("otra informacion de interes"), new_debate_path, class: 'button thin' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="more-info" class="more-info-content">
+  <div class="row">
+    <div class="small-12 medium-7 large-8 column">
+      <% if feature?(:debates) %>
+        <%= render "pages/more_info/debates" %>
+      <% end %>
+
+      <% if feature?(:proposals) %>
+        <%= render "pages/more_info/proposals" %>
+      <% end %>
+
+      <% if feature?(:budgets) %>
+        <%= render "pages/more_info/budgets" %>
+      <% end %>
+
+      <% if feature?(:polls) %>
+        <%= render "pages/more_info/polls" %>
+      <% end %>
+    </div>
+    <div class="small-12 medium-4 large-3 column more-info-sidebar">
+      <%= render "pages/more_info/sidebar" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <hr>
+    <div class="small-12 column">
+      <%= render "pages/more_info/other" %>
+    </div>
+  </div>
+</div>

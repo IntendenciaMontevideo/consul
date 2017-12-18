@@ -5,7 +5,7 @@
   <tbody>
     <% @debates.each do |debate| %>
       <tr id="debate_<%= debate.id %>">
-        <td>
+        <td class="debates-profile">
           <%= link_to debate.title, debate %>
         </td>
       </tr>

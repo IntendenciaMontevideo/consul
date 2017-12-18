@@ -7,7 +7,14 @@
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: debates_url %>
 <% end %>
-
+<div class="box ">
+   <%= image_tag(image_path_for('banner-debates.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+   <div class="column box-text">
+      <p> <%= image_tag(image_path_for('hand-4.png'), class: ' float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
+      <h2 class="banner-title"><%= t("welcome.debates.title") %></h2>
+      <p class="banner-font medium-9">El espacio de debates ciudadanos está dirigido a cualquier persona que quiera  poner en discusión temas referidos a la ciudad que le preocupan y sobre los que quiera compartir puntos de vista con otras personas.</p>
+    </div>
+</div>
 <main>
   <% if @search_terms || @advanced_search_terms || @tag_filter %>
     <div class="highlight no-margin-top padding margin-bottom">

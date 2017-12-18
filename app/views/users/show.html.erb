@@ -15,7 +15,7 @@
       <% end %>
 
       <h2 class="inline-block">
-        <%= avatar_image(@user, seed: @user.id, size: 60) %>
+        <%= avatar_image() %>
         <%= @user.name %>
         <% if current_administrator? %>
           <small><%= @user.email %></small>
