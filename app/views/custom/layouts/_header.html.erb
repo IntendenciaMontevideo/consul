@@ -12,20 +12,16 @@
   <div class="row">
     <div class="top-bar">
       <%= link_to root_path, class: "hide-for-large-only", accesskey: "0" do %>
-        <%= image_tag(image_path_for('logo_header.png'), class: 'hide-for-large-only float-left', size: '40x40', alt: t("layouts.header.logo")) %>
-        <%= image_tag(image_path_for('logo_header-secondary.png'), class: 'hide-for-large-only float-left', size: '40x40', alt: t("layouts.header.logo")) %>
-        <%= link_to setting['org_name'], root_path, class: "logo hide-for-large-only" %>
+        <%= image_tag(image_path_for('logo-MvdDecide.png'), class: 'hide-for-large-only float-left', size: '120x40', alt: t("layouts.header.logo")) %>
       <% end %>
       <span data-responsive-toggle="responsive_menu" data-hide-for="large" class="float-right">
         <span class="menu-icon dark" data-toggle></span>
       </span>
 
       <div id="responsive_menu">
-        <div class="top-bar-title">
+        <div>
           <%= link_to root_path, class: "show-for-large-only", accesskey: "0" do %>
-            <%= image_tag(image_path_for('logo_header.png'), class: 'show-for-large-only float-left', size: '80x80', alt: t("layouts.header.logo")) %>
-            <%= image_tag(image_path_for('logo_header-secondary.png'), class: 'show-for-large-only float-left', size: '80x80', alt: t("layouts.header.logo")) %>
-            <%= setting['org_name'] %>
+            <%= image_tag(image_path_for('logo-MvdDecide.png'), class: 'show-for-large-only float-left', size: '180x80', alt: t("layouts.header.logo")) %>
           <% end %>
         </div>
 

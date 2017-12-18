@@ -3,7 +3,33 @@
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: root_url %>
 <% end %>
-  <div class="small-12 column text-center">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <%= image_tag(image_path_for('Cbzl_slide-A.jpg'), alt: t("layouts.header.logo")) %>
+    </div>
+
+    <div class="item">
+      <%= image_tag(image_path_for('Cbzl_slide-B.jpg'), alt: t("layouts.header.logo")) %>
+    </div>
+
+    <div class="item">
+      <%= image_tag(image_path_for('Cbzl_slide-C.jpg'), alt: t("layouts.header.logo")) %>
+    </div>
+  </div>
+</div>
+
+
+
+<!--   <div class="small-12 column text-center">
     <div class="row margin padding">
       <div class="small-12 medium-6 large-3 column box ">
         <%= image_tag(image_path_for('w-banner1.png'), class: 'float-center banner-img  ', size: '300x100', alt: t("layouts.header.logo")) %>
@@ -38,7 +64,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 <% if feature?("user.recommendations") && (@recommended_debates.present? || @recommended_proposals.present?) %>
   <%= render "recommended",

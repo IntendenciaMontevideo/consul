@@ -3,6 +3,7 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+@import 'custom_carousel';
 
 // Fonts
 
@@ -331,6 +332,10 @@ div.legislation-calendar div p {
 }
 
 a {
+  color: #f9bd41;
+}
+
+.base-color {
   color: #f9bd41;
 }
 
@@ -723,7 +728,6 @@ a:focus {
 
   .small-search{
     width: 100vw;
-    height: 43px;
   }
 }
 
