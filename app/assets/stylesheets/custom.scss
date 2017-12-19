@@ -532,6 +532,56 @@ a:focus {
   height: 35vh;
 }
 
+.controls-stacked{
+  display: inline-grid;
+}
+
+.debate-questions .debate-questions .control {
+  background: #fff;
+  border: 0px solid;
+  border-radius: 0.25rem;
+  color: #555;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  margin-left: 1.5rem;
+  padding: 0rem 0rem;
+  position: relative;
+}
+
+.debate-questions .debate-questions .control-indicator {
+  position: relative;
+  top: 0.5rem;
+  left: 0.95rem;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 65%;
+  text-align: center;
+  border: 2px solid #000;
+  pointer-events: none;
+  float: right;
+  user-select: none;
+}
+
+.debate-questions .debate-questions .control input {
+  position: relative;
+  opacity: 100;
+  z-index: 0;
+  float: right;
+  margin-left: 40px;
+}
+
+.debate-questions .debate-questions .active > .control-indicator {
+  background: #44b6d3;
+  border: 0px;
+}
+
+label > [type='checkbox'], label > [type='radio'] {
+  margin-right: 0.5rem;
+}
+
 // media
 @media (min-width: 1026px) and (max-width: 1325px) {
   .search-nav{

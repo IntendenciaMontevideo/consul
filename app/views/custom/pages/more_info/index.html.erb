@@ -4,22 +4,6 @@
 <% end %>
 <div class="box ">
   <%= image_tag(image_path_for('banner-MF.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
-  <div class="column box-text">
-    <p class=""> <%= image_tag(image_path_for('hand-2.png'), class: ' float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-    <h2 class="banner-title banner-15">Descubre Montevideo Participa</h2>
-    <p class="banner-font medium-9">Aprende todo lo que puede hacer esta web. Esta guia explica cada una de las secciones de Montevideo Participa. Puedes ampliar informacion en los enlaces de "Informacion Detallada"</p>
-    <div class="medium-12 column">
-      <div class="medium-3 column float-left">
-        <%= link_to t("Debates"), new_debate_path, class: 'button thin padding-70' %>
-      </div>
-      <div class="medium-3 column float-left">
-        <%= link_to t("Propuestas"), new_debate_path, class: 'button thin padding-60' %>
-      </div>
-      <div class="medium-3 column float-left">
-        <%= link_to t("otra informacion de interes"), new_debate_path, class: 'button thin' %>
-      </div>
-    </div>
-  </div>
 </div>
 <div id="more-info" class="more-info-content">
   <div class="row">

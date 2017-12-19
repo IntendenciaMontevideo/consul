@@ -5,6 +5,7 @@
     <%= t("devise_views.shared.links.signup",
         signup_link: link_to(t("devise_views.shared.links.signup_link"), 'https://gestionusuarios.portal.gub.uy/registro', target: '_blank')).html_safe %>
   </p>
+  <%= render 'devise/omniauth_form' %>
   <% if params[:login_admin] %>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="row">
