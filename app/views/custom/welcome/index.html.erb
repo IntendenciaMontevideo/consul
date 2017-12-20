@@ -27,45 +27,6 @@
   </div>
 </div>
 
-
-
-<!--   <div class="small-12 column text-center">
-    <div class="row margin padding">
-      <div class="small-12 medium-6 large-3 column box ">
-        <%= image_tag(image_path_for('w-banner1.png'), class: 'float-center banner-img  ', size: '300x100', alt: t("layouts.header.logo")) %>
-        <div class="column box-text">
-          <p class="column"> <%= image_tag(image_path_for('hand-4.png'), class: ' float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-          <h2 class="banner-title"><%= t("welcome.debates.title") %></h2>
-          <p class="banner-font"><%= t("welcome.debates.description") %></p>
-        </div>
-      </div>
-      <div class="small-12 medium-6 large-3 column box">
-        <%= image_tag(image_path_for('w-banner2.png'), class: 'float-center banner-img  ', size: '300x100', alt: t("layouts.header.logo")) %>
-        <div class="column box-text">
-          <p class="column"> <%= image_tag(image_path_for('hand-3.png'), class: ' float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-          <h2 class="banner-title"><%= t("welcome.proposal.title") %></h2>
-          <p class="banner-font"><%= t("welcome.proposal.description") %></p>
-        </div>
-      </div>
-      <div class="small-12 medium-6 large-3 column box">
-        <%= image_tag(image_path_for('w-banner3.png'), class: 'float-center banner-img ', size: '300x100', alt: t("layouts.header.logo")) %>
-        <div class="column box-text">
-          <p class="column"> <%= image_tag(image_path_for('hand-2.png'), class: ' float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-          <h2 class="banner-title"><%= t("welcome.decide.title") %></h2>
-          <p class="banner-font"><%= t("welcome.decide.description") %></p>
-        </div>
-      </div>
-      <div class="small-12 medium-6 large-3 column box">
-          <%= image_tag(image_path_for('w-banner4.png'), class: 'float-center banner-img ', size: '300x100', alt: t("layouts.header.logo")) %>
-        <div class="column box-text">
-          <p class="column"> <%= image_tag(image_path_for('hand-1.png'), class: ' float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-          <h2 class="banner-title"><%= t("welcome.do.title") %></h2>
-          <p class="banner-font"><%= t("welcome.do.description") %></p>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
 <% if feature?("user.recommendations") && (@recommended_debates.present? || @recommended_proposals.present?) %>
   <%= render "recommended",
               recommended_debates: @recommended_debates,
@@ -83,7 +44,7 @@
             <%= t("layouts.header.open_city_slogan_html") %>
           </p>
           <div class="small-12 medium-8 large-7 text-left go-bot hide-for-small-only">
-            <%= link_to t("layouts.header.more_info"), more_info_path, class: "button btn-grey expanded large" %>
+            <%= link_to t("¿Qué es Montevideo Decide?"), more_info_path, class: "button btn-grey expanded large" %>
           </div>
         </div>
         <div class="small-12 medium-6 column text-center">
@@ -106,7 +67,7 @@
         </div>
         <div class="small-12 medium-4 large-3 column">
           <p> <%= image_tag(image_path_for('picto_Sobre.png'), class: 'float-center', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-          <h2>2. Votá</h2>
+          <h2>2. Decidí</h2>
           <p>Opiná, proponé y  decidí cómo querés  que sea la ciudad</p>
         </div>
         <div class="small-12 medium-4 large-3 column">

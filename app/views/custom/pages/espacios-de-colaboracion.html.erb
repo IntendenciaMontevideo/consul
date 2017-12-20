@@ -1,22 +1,27 @@
 <div class="box ">
-   <%= image_tag(image_path_for('banner-EC.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+   <%= image_tag(image_path_for('banner-EC.jpg'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+    <div class="column box-text">
+      <p> <%= image_tag(image_path_for('hand-4.png'), class: ' float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
+      <h2 class="banner-title">Espacios de Colaboración</h2>
+      <p class="banner-font medium-9">Sumate a los espacios que ofrece la Intendencia de Montevideo para participar de forma presencial.</p>
+    </div>
 </div>
 <div class="column">
   <div class="column medium-12 margin">
     <div class="column medium-4 color-base">
-      <h3>Enlaces</h3>
+      <h3><%= link_to 'Enlace', "http://www.montevideo.gub.uy/node/41513", target: :_blank %></h3>
       <hr>
-      <%= image_tag(image_path_for('enlace.png'), class: 'float-center', width: '100%', alt: t("layouts.header.logo")) %>
+      <%= link_to image_tag(image_path_for('enlace.png'), class: 'float-center', width: '100%', alt: t("layouts.header.logo")), "http://www.montevideo.gub.uy/node/37591", target: :_blank %>
     </div>
     <div class="column medium-4 color-base">
-      <h3>Voluntariado</h3>
+      <h3><%= link_to 'Voluntariado', "http://www.montevideo.gub.uy/node/41513", target: :_blank %></h3>
       <hr>
-      <%= image_tag(image_path_for('voluntariado.png'), class: 'float-center', width: '100%', alt: t("layouts.header.logo")) %>
+      <%= link_to image_tag(image_path_for('voluntariado.png'), class: 'float-center', width: '100%', alt: t("layouts.header.logo")), "http://www.montevideo.gub.uy/node/42284", target: :_blank %>
     </div>
     <div class="column medium-4 color-base">
-      <h3>Montevideo Lab</h3>
+      <h3><%= link_to 'Montevideo Lab', "http://www.montevideo.gub.uy/node/41513", target: :_blank %></h3>
       <hr>
-      <%= image_tag(image_path_for('mont-lab.png'), class: 'float-center', width: '100%', alt: t("layouts.header.logo")) %>
+      <%= link_to image_tag(image_path_for('mont-lab.png'), class: 'float-center', width: '100%', alt: t("layouts.header.logo")), "http://www.montevideo.gub.uy/node/41513", target: :_blank %>
     </div>
   </div>
 </div>

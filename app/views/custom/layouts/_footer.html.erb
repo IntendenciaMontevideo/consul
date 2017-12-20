@@ -3,7 +3,8 @@
   <div class="footer">
     <div class="footer-bg">
       <div class="small-8 medium-footer-img large-4 column">
-        <%= image_tag(image_path_for('logo_footer.png'), class: 'float-left medium-center', size: '300x160', alt: t("layouts.footer.logo")) %>
+        <%= link_to (image_tag(image_path_for('logo_footer.png'), class: 'float-left medium-center', size: '300x160', alt: t("layouts.footer.logo"))), 'http://montevideo.gub.uy', target: :_blank %>
+
         <div id="barra_vertical" class="hide-for-small-only hide-for-medium-only"></div>
       </div>
       <div class="footer-sections small-12 medium-footer-div large-8 column gray-bg">
