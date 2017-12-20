@@ -18,31 +18,10 @@
 <div id="more-info" class="more-info-content">
   <div class="row">
     <div class="small-12 medium-7 large-8 column">
-      <% if feature?(:debates) %>
-        <%= render "pages/more_info/debates" %>
-      <% end %>
-
-      <% if feature?(:proposals) %>
-        <%= render "pages/more_info/proposals" %>
-      <% end %>
-
-      <% if feature?(:budgets) %>
-        <%= render "pages/more_info/budgets" %>
-      <% end %>
-
-      <% if feature?(:polls) %>
-        <%= render "pages/more_info/polls" %>
-      <% end %>
+      <p>Montevideo Decide es la plataforma digital que permite a las y los montevideanos opinar, proponer e incidir en acciones que lleve a cabo la Intendencia de Montevideo. De acuerdo a sus distintos niveles de registro, la ciudadanía podrá participar de debates, generar y presentar iniciativas de proyectos que busquen mejorar su vida en la ciudad, así como participar de encuestas, entrevistar al Intendente y a su equipo de Gobierno, participar en la co-creación de documentos. Montevideo Decide busca promover y crear una cultura de participación ciudadana directa a través de medios digitales, que permita a cualquier persona interesada en generar un cambio, tener la posibilidad de hacerlo. Ahora, desde la palma de tu mano, tu computadora personal o cualquier herramienta que te permita conectarte a internet, podrás participar en la construcción de la ciudad que querés.</p>
     </div>
     <div class="small-12 medium-4 large-3 column more-info-sidebar">
       <%= render "pages/more_info/sidebar" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <hr>
-    <div class="small-12 column">
-      <%= render "pages/more_info/other" %>
     </div>
   </div>
 </div>

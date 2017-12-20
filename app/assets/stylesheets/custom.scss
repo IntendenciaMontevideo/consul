@@ -3,6 +3,7 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+@import 'custom_carousel';
 
 // Fonts
 
@@ -56,12 +57,17 @@
   src: url(font-path('CiudadelaProMediumItalic.otf'));
 }
 
+@font-face {
+  font-family: 'Palanquin-Regular';
+  src: url(font-path('Palanquin-Regular.otf'));
+}
+
 html {
-  font-family: Ciudadela Pro Regular !important;
+  font-family: Palanquin-Regular !important;
 }
 
 body {
-  font-family: Ciudadela Pro Regular !important;
+  font-family: Palanquin-Regular !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -69,15 +75,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  font-family: Ciudadela Pro Regular !important;
+  font-family: Palanquin-Regular !important;
 }
 
 p {
-  font-family: Ciudadela Pro Regular !important;
+  font-family: Palanquin-Regular !important;
 }
 
 div {
-  font-family: Ciudadela Pro Regular !important;
+  font-family: Palanquin-Regular !important;
 }
 
 // General
@@ -91,6 +97,14 @@ div {
 .legislation-proposals .votes .icon-unlike{
   border-radius: 25rem;
   font-size: 2.9rem;
+  padding: 0.555rem 0.555rem;
+}
+
+.base-color{
+  color: #f9bd41;
+}
+.menu.simple li.active {
+border-bottom: 2px solid #f9bd41;
 }
 
 div .debate-content ul li a{
@@ -170,6 +184,29 @@ header {
   background-color: #f9bd41;
 }
 
+.more-info-content h3, .communities-show h3 {
+  color: #f9bd41;
+}
+
+.radius{
+  border-radius: 45px;
+}
+.banner-15{
+  margin-top: -15px;
+}
+
+.thin{
+  padding: 0.35em 1em;
+}
+
+.padding-70{
+  padding: 0.35em 90px;
+}
+
+.padding-60{
+  padding: 0.35em 80px;
+}
+
 .top-bar {
   background-color: #f9bd41 !important;
   padding: 0.5rem;
@@ -198,6 +235,11 @@ header {
   background-color: #f9bd41;
   color: #fff;
 }
+
+.color-base {
+  color: #f9bd41;
+}
+
 .black-color {
   color: #000;
   font-size: 1.5rem;
@@ -298,6 +340,10 @@ a {
   color: #f9bd41;
 }
 
+.base-color {
+  color: #f9bd41;
+}
+
 .padding-10{
   padding-top: 10px;
 }
@@ -387,6 +433,9 @@ footer a {
   flex: 5;
 }
 
+h2 {
+  clear: right;
+}
 .banner-font{
   font-size: 16px;
   line-height: 1.625rem;
@@ -394,6 +443,14 @@ footer a {
 
 .banner-title{
   font-size: 34px;
+}
+
+.avatar-title{
+  font-size: 44px;
+  background: #f9bd41;
+  color: white;
+  padding: 5px 35px;
+  border-radius: 65px;
 }
 
 .search-nav{
@@ -446,6 +503,88 @@ a:focus {
 
 .subnavigation a:hover {
      color: #000;
+}
+
+.callout.primary {
+  background-color: #f9bd41;
+  border-color: #facf79;
+  color: #222;
+}
+
+.bg-avatar {
+  background: #f9bd41;
+  color: white;
+  padding: 15px 23px;
+  border-radius: 35px;
+}
+
+.callout{
+  border-radius: 0px;
+  padding: 0.6rem;
+}
+
+.debates-profile a{
+  color: #000;
+}
+
+.bell{
+  margin-right: 0.6rem;
+}
+
+.noti-container{
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 35vh;
+}
+
+.controls-stacked{
+  display: inline-grid;
+}
+
+.debate-questions .debate-questions .control {
+  background: #fff;
+  border: 0px solid;
+  border-radius: 0.25rem;
+  color: #555;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  margin-left: 1.5rem;
+  padding: 0rem 0rem;
+  position: relative;
+}
+
+.debate-questions .debate-questions .control-indicator {
+  position: relative;
+  top: 0.5rem;
+  left: 0.95rem;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 65%;
+  text-align: center;
+  border: 2px solid #000;
+  pointer-events: none;
+  float: right;
+  user-select: none;
+}
+
+.debate-questions .debate-questions .control input {
+  position: relative;
+  opacity: 100;
+  z-index: 0;
+  float: right;
+  margin-left: 40px;
+}
+
+.debate-questions .debate-questions .active > .control-indicator {
+  background: #44b6d3;
+  border: 0px;
+}
+
+label > [type='checkbox'], label > [type='radio'] {
+  margin-right: 0.5rem;
 }
 
 // media
@@ -613,6 +752,18 @@ a:focus {
     position: relative;
     bottom: 1px;
   }
+
+  .menu-icon{
+    margin-right: 15px;
+  }
+
+  div #section_help p{
+    font-size: 14px;
+  }
+
+  div #section_help p.lead{
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 639px) {
@@ -632,7 +783,6 @@ a:focus {
 
   .small-search{
     width: 100vw;
-    height: 43px;
   }
 }
 
@@ -646,6 +796,18 @@ a:focus {
   .total-votes {
     margin-right: 0%;
   }
+  .debate .votes .icon-like, .debate .votes
+  .icon-unlike, .debate-show .votes .icon-like,
+  .debate-show .votes .icon-unlike,
+  .proposal-show .votes .icon-like,
+  .proposal-show .votes .icon-unlike,
+  .legislation-proposals .votes .icon-like,
+  .legislation-proposals .votes .icon-unlike{
+    border-radius: 25rem;
+    font-size: 1.9rem;
+    padding: 0.455rem 0.455rem;
+  }
+
 }
 
 
@@ -653,7 +815,7 @@ a:focus {
 
   .total-votes {
     float: right !important;
-    padding: 0px 19px;
+    padding: 0px 15px;
   }
 
   .medium-center {
@@ -669,5 +831,6 @@ a:focus {
   .legislation-proposals .votes .icon-unlike{
     border-radius: 25rem;
     font-size: 1.9rem;
+    padding: 0.355rem 0.355rem;
   }
 }
