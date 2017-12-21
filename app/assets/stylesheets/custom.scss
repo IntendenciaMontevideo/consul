@@ -118,6 +118,10 @@ div .debate-content ul li a:hover{
   color: #fff;
 }
 
+h3 a:hover{
+  color: #f9bd41;
+}
+
 div #tag-cloud ul li a{
   border-radius: 0;
   background: #9e9e9e;
@@ -340,6 +344,42 @@ a {
   color: #f9bd41;
 }
 
+.debate-questions .quiz-header h4 a {
+  color: #f9bd41;
+}
+
+.debate-questions .quiz-header .quiz-next {
+  color: #f9bd41;
+}
+
+.is-author {
+  background: #f9bd41;
+  color: #fff;
+  border-radius: 0rem;
+}
+
+a.back, .icon-angle-left {
+  clear: both;
+  color: #515151;
+  float: none;
+}
+
+.grey-heading {
+  background: #fff;
+}
+
+.debate-chooser .debate-block .debate-title a {
+  color: #f9bd41;
+}
+
+.debate-chooser .debate-block .debate-type {
+  color: #f9bd41;
+}
+
+.debate-chooser .debate-block .debate-type .icon-debates {
+  color: #fff;
+}
+
 .base-color {
   color: #f9bd41;
 }
@@ -433,6 +473,10 @@ footer a {
   flex: 5;
 }
 
+.callout.primary a {
+  color: #222;
+}
+
 h2 {
   clear: right;
 }
@@ -511,8 +555,15 @@ a:focus {
   color: #222;
 }
 
-.bg-avatar {
+.bg-avatar-1 {
   background: #f9bd41;
+  color: white;
+  padding: 15px 23px;
+  border-radius: 35px;
+}
+
+.bg-avatar-2 {
+  background: red;
   color: white;
   padding: 15px 23px;
   border-radius: 35px;
@@ -578,6 +629,11 @@ a:focus {
   margin-left: 40px;
 }
 
+.menu{
+  float: none;
+  padding-right: 0px;
+}
+
 .debate-questions .debate-questions .active > .control-indicator {
   background: #44b6d3;
   border: 0px;
@@ -604,6 +660,10 @@ label > [type='checkbox'], label > [type='radio'] {
   .banner-font{
     font-size: 13px;
     line-height: 1.125rem;
+  }
+
+  p .banner-font {
+    margin-bottom: 0rem;
   }
 
   .banner-title{
@@ -634,7 +694,7 @@ label > [type='checkbox'], label > [type='radio'] {
 @media (min-width: 841px) and (max-width: 860px) {
 
   #nav-bar-flex{
-    display: inline-grid;
+    display: grid;
   }
 
   #barra_vertical-r {
@@ -652,6 +712,10 @@ label > [type='checkbox'], label > [type='radio'] {
 }
 
 @media (min-width: 100px) and (max-width: 840px) {
+
+  .menu{
+    padding-right: 0px;
+  }
 
   .input-group {
     display: block;
@@ -695,7 +759,7 @@ label > [type='checkbox'], label > [type='radio'] {
   }
 
   #nav-bar-flex{
-    display: inline-grid;
+    display: grid;
   }
 
   .medium-footer-div {

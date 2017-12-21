@@ -14,7 +14,7 @@
         <% end %>
       <% end %>
       <h2 class="inline-block">
-       <span class="bg-avatar"> <%=  @user.name[0].try(:upcase) %></span>
+       <span class="bg-avatar-1" style="background: <%=  set_class %>"> <%=  @user.name[0].try(:upcase) %></span>
         <%= @user.name %>
         <% if current_administrator? %>
           <small><%= @user.email %></small>
