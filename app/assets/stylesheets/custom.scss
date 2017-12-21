@@ -473,6 +473,10 @@ footer a {
   flex: 5;
 }
 
+.callout.primary a {
+  color: #222;
+}
+
 h2 {
   clear: right;
 }
@@ -656,6 +660,10 @@ label > [type='checkbox'], label > [type='radio'] {
   .banner-font{
     font-size: 13px;
     line-height: 1.125rem;
+  }
+
+  p .banner-font {
+    margin-bottom: 0rem;
   }
 
   .banner-title{

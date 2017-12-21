@@ -157,6 +157,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/consulta-ciudadna', to: 'legislation/processes#index'
+
   resources :users, only: [:show] do
     resources :direct_messages, only: [:new, :create, :show]
   end
@@ -471,9 +473,12 @@ Rails.application.routes.draw do
   get 'que-es-montevideo-decide',                     to: 'pages#show', id: 'more_info/index',                as: 'more_info'
   get 'que-es-montevideo-decide/how-to-use',          to: 'pages#show', id: 'more_info/how_to_use/index',     as: 'how_to_use'
   get 'que-es-montevideo-decide/faq',                 to: 'pages#show', id: 'more_info/faq/index',            as: 'faq'
-  get '/ideas',                               to: 'pages#show', id: 'ideas',                          as: 'ideas'
-  get '/espacios-de-colaboracion',            to: 'pages#show', id: 'espacios-de-colaboracion',       as: 'espacios-de-colaboracion'
+  get '/ideas',                                       to: 'pages#show', id: 'ideas',                          as: 'ideas'
+  get '/presupuesto-participativo',                   to: 'pages#show', id: 'presupuesto-participativo',      as: 'presupuesto-participativo'
+  get '/espacios-de-colaboracion',                    to: 'pages#show', id: 'espacios-de-colaboracion',       as: 'espacios-de-colaboracion'
   # static pages
   get '/blog' => redirect("http://blog.consul/")
   resources :pages, path: '/', only: [:show]
+
+
 end
