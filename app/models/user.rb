@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :omniauthable, :omniauth_providers => [:saml]
+  devise :omniauthable, :omniauth_providers => [:saml, :facebook, :twitter, :google_oauth2]
 
   include Verification
 
@@ -70,12 +70,13 @@ class User < ActiveRecord::Base
 
   # Get the existing user by email if the provider gives us a verified email.
   def self.first_or_initialize_for_oauth(auth)
-    oauth_email           = auth.info.email
-    oauth_email_confirmed = oauth_email.present? && (auth.info.verified || auth.info.verified_email)
+    oauth_email           = auth.info.email || [auth.uid, '@consul.imm.gub.uy'].join
+    oauth_email_confirmed = oauth_email.present? && (auth.info.verified || auth.info.verified_email || ["twitter", "google_oauth2"].include?(auth.provider))
     oauth_user            = User.find_by(email: oauth_email) if oauth_email_confirmed
 
     oauth_user || User.new(
       username:  auth.info.name || auth.uid,
+      first_name: auth.info.name,
       email: oauth_email,
       oauth_email: oauth_email,
       password: Devise.friendly_token[0, 20],
