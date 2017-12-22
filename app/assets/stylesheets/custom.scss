@@ -629,6 +629,11 @@ a:focus {
   margin-left: 40px;
 }
 
+ .button:focus {
+  background-color: #f9bd41;
+  color: #fff;
+}
+
 .menu{
   float: none;
   padding-right: 0px;
