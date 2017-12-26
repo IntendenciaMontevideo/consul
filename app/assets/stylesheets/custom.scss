@@ -451,6 +451,10 @@ footer a {
   padding-right: 15px;
 }
 
+.margin-left-30{
+  margin-left: 75px;
+}
+
 .margin-left-20{
   margin-left: 55px;
 }
@@ -713,9 +717,18 @@ label > [type='checkbox'], label > [type='radio'] {
     margin-right: -3.6rem !important;
     border-color: #fff !important;
   }
+
+  .margin-left-30{
+    margin-left: 55px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 1025px) {
+
+  .margin-left-30{
+    margin-left: 35px;
+  }
+
   .search-nav{
     margin-right: -0.91rem !important;
     border-color: #fff !important;
@@ -776,6 +789,10 @@ label > [type='checkbox'], label > [type='radio'] {
 }
 
 @media (min-width: 100px) and (max-width: 840px) {
+
+  .margin-left-30{
+    margin-left: 25px;
+  }
 
   .menu{
     padding-right: 0px;
@@ -916,9 +933,17 @@ label > [type='checkbox'], label > [type='radio'] {
   .small-search{
     width: 100vw;
   }
+
+  .margin-left-30{
+    margin-left: 0px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 375px) {
+
+  .margin-left-30{
+    margin-left: 5px;
+  }
 
   .box-text {
     width: 80%;

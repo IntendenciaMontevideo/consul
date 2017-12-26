@@ -1,13 +1,13 @@
 <div class="box ">
    <%= image_tag(image_path_for('banner-EC.jpg'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
     <div class="column box-text">
-      <p> <%= image_tag(image_path_for('hand-4.png'), class: ' float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-      <h2 class="banner-title">Espacios de Colaboración</h2>
-      <p class="banner-font medium-9">Sumate a los espacios que ofrece la Intendencia de Montevideo para participar de forma presencial.</p>
+      <p> <%= image_tag(image_path_for('hand-4.png'), class: ' float-left hide-for-small-only', size: '100x100', alt: t("layouts.header.logo")) %> </p>
+      <h2 class="banner-title hide-for-small-only">Espacios de Colaboración</h2>
+      <p class="banner-font medium-9 show-for-large-only">Sumate a los espacios que ofrece la Intendencia de Montevideo para participar de forma presencial.</p>
     </div>
 </div>
 <div class="column">
-  <div class="column medium-12 margin">
+  <div class="column small-11 medium-11 margin-left-30">
     <div class="column medium-4 color-base">
       <h3><%= link_to 'Enlace', "http://www.montevideo.gub.uy/node/37591", target: :_blank %></h3>
       <hr>
