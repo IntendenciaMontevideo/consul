@@ -9,11 +9,7 @@
 <% end %>
 <div class="box ">
    <%= image_tag(image_path_for('banner-debates.jpg'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
-   <div class="column box-text">
-      <p> <%= image_tag(image_path_for('hand-4.png'), class: ' float-left hide-for-small-only', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-      <h2 class="banner-title hide-for-small-only"><%= t("welcome.debates.title") %></h2>
-      <p class="banner-font medium-9 show-for-large-only">El espacio de debates ciudadanos está dirigido a cualquier persona que quiera  poner en discusión temas referidos a la ciudad que le preocupan y sobre los que quiera compartir puntos de vista con otras personas.</p>
-    </div>
+
 </div>
 <main>
   <% if @search_terms || @advanced_search_terms || @tag_filter %>
@@ -80,8 +76,8 @@
           <p class="lead">
             <strong><%= t("debates.index.section_footer.title") %></strong>
           </p>
-          <p>Para abrir un debate es necesario que estés registrado en Montevideo Decide <%= link_to t("registrado en Montevideo Decide"), new_user_session_path %> con niveles de usuario 1 y 2, si ya tenés una <%= link_to t("cuenta"), new_user_session_path %> podes comentar los debates abiertos y validarlo con los botones "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos.</p>
-          <p>Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto. Si querés plantear una <%= link_to t("idea"), new_user_session_path %> para la ciudad o realizar una propuesta para el <%= link_to t("presupuesto participativo"), 'http://presupuestoparticipativo.montevideo.gub.uy', target: :_blank %>, entrá a los links marcados anteriormente e ingrésalo cuando la convocatoria esté abierta.</p>
+          <p>Para abrir un debate es necesario que estés registrado en <%= link_to "Montevideo Decide", new_user_session_path %> con niveles de usuario 1 y 2, si ya tenés una <%= link_to "cuenta", account_path %> podes comentar los debates abiertos y validarlo con los botones "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos.</p>
+          <p>Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto. Si querés plantear una <%= link_to "idea", ideas_path %> para la ciudad o realizar una propuesta para el <%= link_to "presupuesto participativo", presupuesto_participativo_path %>, entrá a los links marcados anteriormente e ingrésalo cuando la convocatoria esté abierta.</p>
           </p>
         </div>
       <% end %>

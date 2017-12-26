@@ -128,8 +128,17 @@ div #tag-cloud ul li a{
   color: #fff;
 }
 
+.policy:hover{
+  color: #fff;
+}
+
 .lead {
   color: #f9bd41;
+}
+
+.bg-policy{
+  background-color: black;
+  color: #fff;
 }
 
 .sidebar-title {
@@ -365,7 +374,7 @@ a.back, .icon-angle-left {
 }
 
 .grey-heading {
-  background: #fff;
+  background: #fabd401f;
 }
 
 .debate-chooser .debate-block .debate-title a {
@@ -409,6 +418,19 @@ a.back, .icon-angle-left {
   color: #fff;
 }
 
+.p-small {
+    font-size: 0.8625rem;
+    font-weight: 400;
+    line-height: 1rem;
+    margin-bottom: 0rem;
+    width: 88%;
+    float: right;
+}
+
+.negativ-margin{
+  margin-left: -0.9rem;
+}
+
 .footer {
   background: #fff;
   border-top: 0px;
@@ -418,6 +440,33 @@ a.back, .icon-angle-left {
 
 footer a {
   color: #fff;
+}
+
+.icon-check{
+  margin-right: 0px;
+}
+
+.margin-top-20{
+  margin-top: 20px;
+  padding-right: 15px;
+}
+
+.margin-left-30{
+  margin-left: 75px;
+}
+
+.margin-left-20{
+  margin-left: 55px;
+}
+
+.margin-left-10{
+  margin-left: 0px;
+}
+
+.group-title div p {
+  width: 89%;
+  float: right;
+  margin-top: -10px;
 }
 
 #barra_vertical {
@@ -629,6 +678,11 @@ a:focus {
   margin-left: 40px;
 }
 
+ .button:focus {
+  background-color: #f9bd41;
+  color: #fff;
+}
+
 .menu{
   float: none;
   padding-right: 0px;
@@ -643,15 +697,38 @@ label > [type='checkbox'], label > [type='radio'] {
   margin-right: 0.5rem;
 }
 
+.debate-questions .quiz-header .quiz-title {
+  background: #fabd4059;
+}
+
+.debate-questions .quiz-header .quiz-next {
+  background: #fabd401f;
+}
+
+.debate-questions .quiz-header .quiz-next:active, .debate-questions .quiz-header .quiz-next:hover  {
+  background: #fabd401f;
+  color: #f9bd41;
+  cursor: pointer;
+}
+
 // media
 @media (min-width: 1026px) and (max-width: 1325px) {
   .search-nav{
     margin-right: -3.6rem !important;
     border-color: #fff !important;
   }
+
+  .margin-left-30{
+    margin-left: 55px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 1025px) {
+
+  .margin-left-30{
+    margin-left: 35px;
+  }
+
   .search-nav{
     margin-right: -0.91rem !important;
     border-color: #fff !important;
@@ -712,6 +789,10 @@ label > [type='checkbox'], label > [type='radio'] {
 }
 
 @media (min-width: 100px) and (max-width: 840px) {
+
+  .margin-left-30{
+    margin-left: 25px;
+  }
 
   .menu{
     padding-right: 0px;
@@ -828,6 +909,10 @@ label > [type='checkbox'], label > [type='radio'] {
   div #section_help p.lead{
     font-size: 20px;
   }
+
+  .margin-left-10{
+    margin-left: 25px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 639px) {
@@ -848,9 +933,17 @@ label > [type='checkbox'], label > [type='radio'] {
   .small-search{
     width: 100vw;
   }
+
+  .margin-left-30{
+    margin-left: 0px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 375px) {
+
+  .margin-left-30{
+    margin-left: 5px;
+  }
 
   .box-text {
     width: 80%;
@@ -870,6 +963,10 @@ label > [type='checkbox'], label > [type='radio'] {
     border-radius: 25rem;
     font-size: 1.9rem;
     padding: 0.455rem 0.455rem;
+  }
+
+  .margin-left-20{
+    margin-left: 25px;
   }
 
 }

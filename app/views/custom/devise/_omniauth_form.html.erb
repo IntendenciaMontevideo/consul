@@ -1,40 +1,40 @@
 <% if feature?(:saml_login) || feature?(:facebook_login) || feature?(:twitter_login) || feature?(:google_login) %>
 
   <% if current_page?(new_user_session_path) %>
-    <div class="row">
+    <div class="row margin-left-20">
+      <div class="column margin-top-20">
+        <div>
+          <h2><%= t("login_view.sign_in_with") %></h2>
+        </div>
+        <% if feature? :facebook_login %>
+        <p><%= t("login_view.sign_in_user_one") %>:</p>
+          <div class="small-4 medium-3 large-3 column end">
+            <%= link_to (image_tag(image_path_for('facebook.png'), class: '', width: '70x70', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:facebook) %>
+          </div>
+        <% end %>
 
+        <% if feature? :twitter_login %>
+          <div class="small-4 medium-3 large-3 column end">
+            <%= link_to (image_tag(image_path_for('twitter.png'), class: '', width: '70x70', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:twitter) %>
+          </div>
+        <% end %>
+
+        <% if feature? :google_login %>
+          <div class="small-4 medium-3 large-3 column end">
+            <%= link_to (image_tag(image_path_for('google.png'), class: '', width: '70x70', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:google_oauth2) %>
+          </div>
+        <% end %>
+      </div>
+      <div class="column margin-top-20">
+        <div><p><%= t("login_view.sign_in_user_two") %>:</p></div>
       <% if feature? :saml_login %>
-        <div class="small-12 medium-6 large-4 column end">
-          <%= link_to t("omniauth.saml.name"), user_omniauth_authorize_path(:saml),
+        <div class="small-12 medium-12 large-12 column end">
+          <h3><strong><%= link_to t("omniauth.saml.name"), user_omniauth_authorize_path(:saml),
                       title: t("omniauth.saml.sign_in"),
-                      class: "button expanded" %>
+                      class: "" %></strong></h3>
         </div>
       <% end %>
-
-      <% if feature? :facebook_login %>
-        <div class="small-12 medium-6 large-4 column end">
-          <%= link_to t("omniauth.facebook.name"), user_omniauth_authorize_path(:facebook),
-                      title: t("omniauth.facebook.sign_in"),
-                      class: "button-facebook button expanded" %>
-        </div>
-      <% end %>
-
-      <% if feature? :twitter_login %>
-        <div class="small-12 medium-6 large-4 column end">
-          <%= link_to t("omniauth.twitter.name"), user_omniauth_authorize_path(:twitter),
-                      title: t("omniauth.twitter.sign_up"),
-                      class: "button-twitter button expanded" %>
-        </div>
-      <% end %>
-
-      <% if feature? :google_login %>
-        <div class="small-12 medium-6 large-4 column end">
-          <%= link_to t("omniauth.google_oauth2.name"), user_omniauth_authorize_path(:google_oauth2),
-                      title: t("omniauth.google_oauth2.sign_in"),
-                      class: "button-google button expanded" %>
-        </div>
-      <% end %>
-
+      </div>
     </div>
 
   <% elsif current_page?(new_user_registration_path) %>
@@ -74,5 +74,4 @@
 
     </div>
   <% end %>
-
 <% end %>

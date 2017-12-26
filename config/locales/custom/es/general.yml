@@ -1,9 +1,50 @@
 es:
+  footer:
+    policy: Politicas de privacidad
+    and: y
+    conditions: condiciones de uso
   omniauth:
     saml:
       sign_in: Autenticarse
       sign_up: Entrar
-      name: Entrar
+      other_login: O ingresa con tu
+      name: IDUruguay
+    facebook:
+      sign_in: Entra con Facebook
+      sign_up: Regístrate con Facebook
+      name: Facebook
+    google_oauth2:
+      sign_in: Entra con Google
+      sign_up: Regístrate con Google
+      name: Google
+    twitter:
+      sign_in: Entra con Twitter
+      sign_up: Regístrate con Twitter
+      name: Twitter
+  login_view:
+    sign_in_with: Entrar Con
+    sign_in_user_one: Usuario Nivel 1
+    sign_in_user_two: Usuario Nivel 2
+    know_your_user_lvl: Conocé tus niveles de usuario
+    user_one_description: Pueden acceder a Montevideo, si cuentan con una cuenta de Twitter, Facebook o Google +.
+    user_two_description: Acceden a Montevideo Decide, realizando el registro de usuario del Estado, para lo cual deben complementar el formulario de AGESIC que se despliega en la correspondiente zona de registro.
+    user_one_acces: Los usuarios registrados en este nivel tendrán acceso a lo siguiente
+    title_debates: DEBATES
+    content_debates_one: Crear un debate
+    content_debates_two: Comentar los debates
+    content_debates_Three: Apoyar debates
+    title_ideas: IDEAS
+    content_ideas_one: Proponer una idea
+    content_ideas_two: Comentar una idea
+    content_ideas_Three: Apoyar una idea
+    content_ideas_four: Votar una idea
+    title_presupuesto: PRESUPUESTO PARTICIPATIVO
+    content_presupuesto: Acceder a enlace de la URL del Presupuesto Participativo
+    title_espacio: ESPACIO DE COLABORACION
+    content_espacio_one: Accedera los enlaces a las URL de los espacios de colaboracion que ofrece la IM para participar en manera precencial
+    title_consultas: CONSULTAS
+    content_consultas_one: Comentar las consultas realizadas por la IM
+    content_consultas_two: Decidir sobre consultas
   layouts:
     header:
       ideas: Ideas
