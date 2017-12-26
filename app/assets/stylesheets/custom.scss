@@ -365,7 +365,7 @@ a.back, .icon-angle-left {
 }
 
 .grey-heading {
-  background: #fff;
+  background: #fabd401f;
 }
 
 .debate-chooser .debate-block .debate-title a {
@@ -682,6 +682,20 @@ a:focus {
 
 label > [type='checkbox'], label > [type='radio'] {
   margin-right: 0.5rem;
+}
+
+.debate-questions .quiz-header .quiz-title {
+  background: #fabd4059;
+}
+
+.debate-questions .quiz-header .quiz-next {
+  background: #fabd401f;
+}
+
+.debate-questions .quiz-header .quiz-next:active, .debate-questions .quiz-header .quiz-next:hover  {
+  background: #fabd401f;
+  color: #f9bd41;
+  cursor: pointer;
 }
 
 // media

@@ -5,7 +5,7 @@
 
     <h1><%= t("debates.new.start_new") %></h1>
     <div data-alert class="callout primary">
-     <p> Próximamente podrás plantear tus ideas.</p>
+     <p> Próximamente podrás plantear tus <%= link_to "ideas", ideas_path %>.</p>
     </div>
     <%= render "form" %>
   </div>

@@ -76,8 +76,8 @@
           <p class="lead">
             <strong><%= t("debates.index.section_footer.title") %></strong>
           </p>
-          <p>Para abrir un debate es necesario que estés registrado en Montevideo Decide <%= link_to t("registrado en Montevideo Decide"), new_user_session_path %> con niveles de usuario 1 y 2, si ya tenés una <%= link_to t("cuenta"), new_user_session_path %> podes comentar los debates abiertos y validarlo con los botones "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos.</p>
-          <p>Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto. Si querés plantear una <%= link_to t("idea"), new_user_session_path %> para la ciudad o realizar una propuesta para el <%= link_to t("presupuesto participativo"), 'http://presupuestoparticipativo.montevideo.gub.uy', target: :_blank %>, entrá a los links marcados anteriormente e ingrésalo cuando la convocatoria esté abierta.</p>
+          <p>Para abrir un debate es necesario que estés registrado en <%= link_to "Montevideo Decide", new_user_session_path %> con niveles de usuario 1 y 2, si ya tenés una <%= link_to "cuenta", account_path %> podes comentar los debates abiertos y validarlo con los botones "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos.</p>
+          <p>Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto. Si querés plantear una <%= link_to "idea", ideas_path %> para la ciudad o realizar una propuesta para el <%= link_to "presupuesto participativo", presupuesto_participativo_path %>, entrá a los links marcados anteriormente e ingrésalo cuando la convocatoria esté abierta.</p>
           </p>
         </div>
       <% end %>
