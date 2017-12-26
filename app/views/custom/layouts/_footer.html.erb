@@ -9,7 +9,7 @@
       </div>
       <div class="footer-sections small-12 medium-footer-div large-8 column gray-bg">
         <div class="small-12 medium-3 column">
-          <%= link_to t("layouts.footer.participation_title"), root_path, class: "title" %>
+          <%= link_to t("layouts.footer.participation_title"), faq_path, class: "title" %>
           <p><%= t("layouts.footer.participation_text") %></p>
         </div>
           <div id="barra_vertical-r" class="hide-for-small-only"></div>
@@ -25,4 +25,7 @@
       </div>
     </div>
   </div>
+    <div class="bg-policy medium-12 text-center">
+      <%= link_to t("footer.policy"), '../privacy', rel: "nofollow" %>
+    </div>
 </footer>

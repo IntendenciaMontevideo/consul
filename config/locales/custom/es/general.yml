@@ -1,4 +1,6 @@
 es:
+  footer:
+    policy: Politicas y condiciones de uso
   omniauth:
     saml:
       sign_in: Autenticarse
