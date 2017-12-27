@@ -113,6 +113,19 @@ div .debate-content ul li a{
   color: #fff;
 }
 
+.comment-body .comment-user.is-author,
+.comment-body .comment-user.is-admin,
+.comment-body .comment-user.is-moderator {
+  background: #fabd4059 !important;
+  color: black !important;
+}
+
+ul.no-bullet.tags li a{
+  border-radius: 0;
+  background: #9e9e9e;
+  color: #fff;
+}
+
 div .debate-content ul li a:hover{
   background: #9e9e9e;
   color: #fff;
@@ -120,6 +133,10 @@ div .debate-content ul li a:hover{
 
 h3 a:hover{
   color: #f9bd41;
+}
+
+.disable{
+  background: #f9bd41;
 }
 
 div #tag-cloud ul li a{
@@ -132,6 +149,10 @@ div #tag-cloud ul li a{
   color: #fff;
 }
 
+.highlight{
+  background: #fff;
+}
+
 .lead {
   color: #f9bd41;
 }
@@ -139,6 +160,7 @@ div #tag-cloud ul li a{
 .bg-policy{
   background-color: black;
   color: #fff;
+  padding: 8px 0px;
 }
 
 .sidebar-title {
@@ -168,6 +190,10 @@ div #tag-cloud ul li a{
 }
 .wrapper {
   background: #fff;
+}
+
+.min-height{
+  min-height: 250px;
 }
 
 .legislation-calendar {
@@ -264,6 +290,10 @@ header {
   border: 0px solid;
 }
 
+.button:hover {
+  background: #f9bd41 !important;
+}
+
 .button {
   background: #f9bd41;
   font-size: 1.0625rem;
@@ -286,6 +316,11 @@ div.legislation-calendar div p {
 
 .legislation-calendar-info p{
   color: #f9bd41;
+}
+
+p.base-color {
+  margin-bottom: 0rem;
+  margin-top: 1rem;
 }
 
 .box {
@@ -459,6 +494,10 @@ footer a {
   margin-left: 55px;
 }
 
+.margin-left-20px{
+  margin-left: 20px;
+}
+
 .margin-left-10{
   margin-left: 0px;
 }
@@ -543,6 +582,13 @@ h2 {
   background: #f9bd41;
   color: white;
   padding: 5px 35px;
+  border-radius: 65px;
+}
+
+.avatar-mini{
+  font-size: 18px;
+  color: white;
+  padding: 5px 16px;
   border-radius: 65px;
 }
 
@@ -709,6 +755,10 @@ label > [type='checkbox'], label > [type='radio'] {
   background: #fabd401f;
   color: #f9bd41;
   cursor: pointer;
+}
+input.button.expanded.disabled {
+  background-color: #f9bd41;
+  opacity: 1;
 }
 
 // media
