@@ -5,7 +5,8 @@
       <div class="White-bg float-right">
       <%= image_tag(image_path_for('search.png'), class: 'float-right search-glass', size: '38x38') %>
       </div>
-      <input type="text" name="search" placeholder='<%= t("#{i18n_namespace}.placeholder") %>' class=" float-left search-nav input-group-field" value="<%= params[:search] %>" id="search_text">
+
+      <input type="text" name="search" placeholder='<%= t("#{i18n_namespace}.placeholder") %>' class=" float-left search-nav input-group-field <%= params[:search].blank? ? 'search-nav-background': '' %>" value="<%= params[:search] %>" id="search_text">
     </div>
   <% end %>
 </div>
