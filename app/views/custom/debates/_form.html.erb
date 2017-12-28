@@ -32,8 +32,8 @@
           <%= f.check_box :terms_of_service, title: t('form.accept_terms_title'), label: false %>
           <span class="checkbox">
             <%= t("form.accept_terms",
-                policy: link_to(t("form.policy"), "/privacy", target: "blank"),
-                conditions: link_to(t("form.conditions"), "/conditions", target: "blank")).html_safe %>
+                policy: link_to(t("form.policy"), privacy_path, target: "blank"),
+                conditions: link_to(t("form.conditions"), conditions_path, target: "blank")).html_safe %>
           </span>
         <% end %>
       <% end %>

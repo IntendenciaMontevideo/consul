@@ -476,6 +476,9 @@ Rails.application.routes.draw do
   get '/ideas',                                       to: 'pages#show', id: 'ideas',                          as: 'ideas'
   get '/presupuesto-participativo',                   to: 'pages#show', id: 'presupuesto-participativo',      as: 'presupuesto-participativo'
   get '/espacios-de-colaboracion',                    to: 'pages#show', id: 'espacios-de-colaboracion',       as: 'espacios-de-colaboracion'
+  get '/condiciones-de-uso',                          to: 'pages#show', id: 'conditions',                     as: 'conditions'
+  get '/policias-de-privacidad',                      to: 'pages#show', id: 'privacy',                        as: 'privacy'
+
   # static pages
   get '/blog' => redirect("http://blog.consul/")
   resources :pages, path: '/', only: [:show]
