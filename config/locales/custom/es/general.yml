@@ -72,6 +72,7 @@ es:
       open_city_title: Construí la ciudad en la que querés vivir
       open_city_slogan_html: Montevideo necesita tu aporte para crecer. Por eso te invitamos a que te sumes a los  debates sobre los temas que te preocupan, propongas ideas para mejorar la calidad de vida de todos y todas, y decidamos en conjunto cuáles se llevan a cabo.
   debates:
+    banner-text: El espacio de debates ciudadanos está dirigido a cualquier persona que quiera poner en discusión temas referidos a la ciudad que le preocupan y sobre los que quiera compartir puntos de vista con otras personas.
     index:
       start_debate: Empezar un debate
       section_header:
