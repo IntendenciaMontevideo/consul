@@ -3,6 +3,24 @@ es:
     policy: Politicas de privacidad
     and: y
     conditions: condiciones de uso
+    accessibility: Accesibilidad
+    conditions: Condiciones de uso
+    consul: aplicación CONSUL
+    consul_url: https://github.com/consul/consul
+    contact_us: Para asistencia técnica entra en
+    copyright: CONSUL, %{year}
+    description: Este portal usa la %{consul} que es %{open_source}.
+    faq: Asistencia técnica
+    open_data_text: Todos los datos del Ayuntamiento son tuyos.
+    open_data_title: Datos Abiertos
+    open_source: software libre
+    open_source_url: http://www.gnu.org/licenses/agpl-3.0.html
+    participation_text: Decide cómo debe ser la ciudad que quieres.
+    participation_title: Preguntas Frecuentes
+    privacy: Política de privacidad
+    transparency_text: Obtén cualquier información sobre la ciudad.
+    transparency_title: Transparencia
+    transparency_url: https://transparency.consul
   omniauth:
     saml:
       sign_in: Autenticarse
@@ -22,7 +40,7 @@ es:
       sign_up: Regístrate con Twitter
       name: Twitter
   login_view:
-    sign_in_with: Entrar Con
+    sign_in_with: Entrar con
     sign_in_user_one: Usuario Nivel 1
     sign_in_user_two: Usuario Nivel 2
     know_your_user_lvl: Conocé tus niveles de usuario
@@ -32,11 +50,11 @@ es:
     title_debates: DEBATES
     content_debates_one: Crear un debate
     content_debates_two: Comentar los debates
-    content_debates_Three: Apoyar debates
+    content_debates_three: Apoyar debates
     title_ideas: IDEAS
     content_ideas_one: Proponer una idea
     content_ideas_two: Comentar una idea
-    content_ideas_Three: Apoyar una idea
+    content_ideas_three: Apoyar una idea
     content_ideas_four: Votar una idea
     title_presupuesto: PRESUPUESTO PARTICIPATIVO
     content_presupuesto: Acceder a enlace de la URL del Presupuesto Participativo
@@ -54,6 +72,7 @@ es:
       open_city_title: Construí la ciudad en la que querés vivir
       open_city_slogan_html: Montevideo necesita tu aporte para crecer. Por eso te invitamos a que te sumes a los  debates sobre los temas que te preocupan, propongas ideas para mejorar la calidad de vida de todos y todas, y decidamos en conjunto cuáles se llevan a cabo.
   debates:
+    banner-text: El espacio de debates ciudadanos está dirigido a cualquier persona que quiera poner en discusión temas referidos a la ciudad que le preocupan y sobre los que quiera compartir puntos de vista con otras personas.
     index:
       start_debate: Empezar un debate
       section_header:
@@ -146,7 +165,7 @@ es:
   welcome:
     debates:
       description: Encontrarnos, debatir y compartir lo que nos parece importante para la ciudad.
-      title: Debatís
+      title: Debates
     decide:
       description: Sumarse a los espacios abiertos de participación.
       title: Participas

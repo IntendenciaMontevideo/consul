@@ -9,23 +9,23 @@
       </div>
       <div class="footer-sections small-12 medium-footer-div large-8 column gray-bg">
         <div class="small-12 medium-3 column">
-          <%= link_to t("layouts.footer.participation_title"), faq_path, class: "title" %>
-          <p><%= t("layouts.footer.participation_text") %></p>
+          <%= link_to t("footer.participation_title"), faq_path, class: "title" %>
+          <p><%= t("footer.participation_text") %></p>
         </div>
           <div id="barra_vertical-r" class="hide-for-small-only"></div>
         <div class="small-12 medium-footer column">
-          <%= link_to t("layouts.footer.transparency_title"), 'http://www.montevideo.gub.uy/institucional/transparencia', class: "title", target: :_blank, rel: "nofollow" %>
-          <p><%= t("layouts.footer.transparency_text") %></p>
+          <%= link_to t("footer.transparency_title"), 'http://www.montevideo.gub.uy/institucional/transparencia', class: "title", target: :_blank, rel: "nofollow" %>
+          <p><%= t("footer.transparency_text") %></p>
         </div>
         <div id="barra_vertical-r" class="hide-for-small-only"></div>
         <div class="small-12 medium-footer column float-left">
-          <%= link_to t("layouts.footer.open_data_title"), 'https://catalogodatos.gub.uy/organization/intendencia-montevideo', class: "title", target: :_blank, rel: "nofollow" %>
-          <p><%= t("layouts.footer.open_data_text") %></p>
+          <%= link_to t("footer.open_data_title"), 'https://catalogodatos.gub.uy/organization/intendencia-montevideo', class: "title", target: :_blank, rel: "nofollow" %>
+          <p><%= t("footer.open_data_text") %></p>
         </div>
       </div>
     </div>
   </div>
     <div class="bg-policy medium-12 text-center">
-      <%= link_to t("footer.policy"), '../privacy', class: "policy", rel: "nofollow" %> <%= t("footer.and") %> <%= link_to t("footer.conditions"), '../conditions', class: "policy", rel: "nofollow" %>
+      <%= link_to t("footer.policy"), privacy_path, class: "policy", rel: "nofollow" %> <%= t("footer.and") %> <%= link_to t("footer.conditions"), conditions_path, class: "policy", rel: "nofollow" %>
     </div>
 </footer>
