@@ -2,13 +2,16 @@
 
 @media (min-width: 1026px) and (max-width: 1325px) {
   .search-nav{
-    margin-right: -3.6rem !important;
-    border-color: #fff !important;
   }
 
   .margin-left-30{
     margin-left: 55px;
   }
+
+  .search-glass{
+    margin-left: 0px;
+  }
+
 }
 
 @media (min-width: 100px) and (max-width: 1025px) {
@@ -18,8 +21,6 @@
   }
 
   .search-nav{
-    margin-right: -0.91rem !important;
-    border-color: #fff !important;
   }
 
   .banner-font{
@@ -78,6 +79,16 @@
 
 @media (min-width: 100px) and (max-width: 840px) {
 
+
+  header {
+    background: #f9bd41;
+    border-bottom: 1px solid #ffffff;
+    margin-bottom: 0rem;
+  }
+  .search-glass{
+    margin-top: 5px;
+  }
+
   .margin-left-30{
     margin-left: 25px;
   }
@@ -91,7 +102,7 @@
   }
 
   .small-search{
-    width: 100%;
+    width: 95%;
   }
 
   .nav-fix{
@@ -100,6 +111,7 @@
 
   .search-nav {
     margin-right: 0rem !important;
+    margin-bottom: 0rem !important;
   }
 
   .search-form-header [type=text] {
@@ -219,7 +231,7 @@
   }
 
   .small-search{
-    width: 100vw;
+    width: 90vw;
   }
 
   .margin-left-30{
@@ -261,6 +273,10 @@
 
 
 @media (min-width: 100px) and (max-width: 342px) {
+
+  .search-glass{
+    right: 0px;
+  }
 
   .total-votes {
     float: right !important;
