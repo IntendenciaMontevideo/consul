@@ -12,9 +12,18 @@
     margin-left: 0px;
   }
 
+.subnavigation ul li {
+  margin-right: 1.45rem;
+}
+
 }
 
 @media (min-width: 100px) and (max-width: 1025px) {
+
+  .subnavigation ul li {
+    display: inline-block;
+    margin-right: 1.25rem;
+  }
 
   .margin-left-30{
     margin-left: 35px;

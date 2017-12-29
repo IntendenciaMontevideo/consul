@@ -1,4 +1,6 @@
 es:
+  ideas:
+    content: La ciudad necesita de los aportes ciudadanos para crecer. Si tenés una idea para mejorar Montevideo próximamente podrás plantearla para que la Intendencia la lleve a cabo.
   footer:
     policy: Politicas de privacidad
     and: y
@@ -175,3 +177,63 @@ es:
     proposal:
       description: Espacio abierto para propuestas ciudadanas sobre el tipo de ciudad en el que queremos vivir.
       title: Proponés
+  reconditions:
+    advise: AVISO LEGAL SOBRE LAS CONDICIONES DE USO, PRIVACIDAD Y PROTECCIÓN DE DATOS PERSONALES DE LA PLATAFORMA MONTEVIDEO DECIDE
+    one_title: 1. Ámbito de aplicación de las condiciones de uso
+    one_content_one: La participación (entendiéndola como participación activa más allá de la lectura del contenido presente) en Montevideo Decide se regula por las presentes condiciones de uso que vinculan a todas las personas que participen en este sitio web. Por ello, cualquier persona que desee participar deberá registrarse, a cuyo fin se solicitará la aceptación de estas condiciones de uso.
+    one_content_two: La Intendencia de Montevideo se reserva la facultad de modificar las presentes condiciones de uso para la participación en Montevideo Decide, cuya última versión se publicará en este sitio web.
+    two_title: 2. Objetivo de la iniciativa
+    two_content_one: A través de la plataforma Montevideo Decide, la Intendencia de Montevideo quiere fomentar la participación de los ciudadanos en la gestión de la ciudad, involucrándolos en la generación de ideas y propuestas novedosas y viables, con el objetivo de mejorar la calidad de vida en la ciudad. Es una apuesta a acercar la gestión a las y los ciudadanos de Montevideo, que permitirá recibir sus propuestas, así como crear canales directos de comunicación con el gobierno departamental, contribuyendo a tomar las decisiones más acertadas para el interés general.
+    three_title: 3. Cuestiones generales sobre la participación en la plataforma Montevideo Decide
+    three_content_one: Podrá participar cualquier persona física a partir de los 16 años que se haya registrado previamente. Mediante la aceptación de estas condiciones de uso se declara tener 16 años o más. Los mayores de edad a cuyo cargo se encuentran los menores, son los plenos responsables de la actuación que tengan éstos en Montevideo Decide. No existe limitación en cuanto al número de debates, comentarios o ideas propuestas por los participantes.
+    three_content_two: Al introducir el título de las ideas propuestas, se recomienda escribir una descripción breve y precisa con un máximo de 2000 caracteres. Para completar la argumentación se podrán asociar documentos adjuntos o de las Redes Sociales Vimeo, Youtube, Slideshare, Flickr o SoundCloud.
+    four_title: 4. Obligaciones de los usuarios de Montevideo Decide
+    four_content_one: Al ser Montevideo Decide un punto de encuentro cuyo objetivo es debatir, y compartir y valorar propuestas relacionadas con la mejora de la ciudad, los usuarios están obligados a hacer un uso diligente y acorde a dicho objetivo.
+    four_content_two: La Intendencia de Montevideo no es responsable del uso incorrecto de Montevideo Decide por los usuarios o de los contenidos localizados en el mismo, siendo cada usuario responsable de su uso correcto y de la legalidad de los contenidos y opiniones que haya compartido.
+    four_content_three: La Intendencia de Montevideo se reserva, por lo tanto, el derecho a limitar el acceso a la plataforma Montevideo Decide de opiniones, informaciones, comentarios o documentos que los usuarios quieran incorporar, pudiendo instalar filtros a tal efecto. Todo ello se realizará únicamente mientras tenga el fin de preservar el objetivo fundamental de Montevideo Decide.
+    four_content_four: "De acuerdo a la normativa legal vigente queda prohibida la utilización de esta plataforma con fines distintos a los de debatir, compartir y valorar propuestas, y específicamente:"
+    four_content_five: Compartir cualquier contenido que pueda ser considerado como una vulneración en cualquier forma de los derechos fundamentales al honor, imagen e intimidad personal y familiar de terceros o contra la dignidad de las personas.
+    four_content_six: Compartir imágenes o fotografías que recojan imágenes o datos personales de terceros sin haber obtenido el oportuno consentimiento de sus titulares.
+    four_content_seven: Compartir cualquier contenido que vulnere el secreto en las comunicaciones, la infracción de derechos de propiedad industrial e intelectual o de las normas reguladoras de la protección de datos de carácter personal.
+    four_content_eight: Reproducir, distribuir, compartir contenidos, informaciones o imágenes que hayan sido puestas a disposición por otros usuarios sin la autorización expresa de estos.
+    four_content_nine: Su utilización con fines de publicidad.
+    four_content_ten: La realización de cualquiera de los anteriores comportamientos permitirá a la Intendencia de Montevideo suspender temporalmente la actividad de un participante, inhabilitar su cuenta o borrar su contenido, sin perjuicio de otras responsabilidades que puedan ser reclamadas.
+    four_content_eleven: En caso de que el contenido introducido por los usuarios incorpore un enlace a otro sitio web, la Intendencia de Montevideo no será responsable por los daños o perjuicios derivados del acceso al enlace o a sus contenidos.
+    four_content_end: En caso de litigio de cualquier clase o por cualquier motivo entre los participantes en el sitio web y/o un tercero, la Intendencia de Montevideo quedará exenta de cualquier responsabilidad por reclamos, demandas o daños de cualquier naturaleza relacionados o derivados del litigio.
+    five_title: 5. Uso de la Plataforma Montevideo Decide
+    five_content_one: Los participantes podrán acceder y navegar por la plataforma libremente y de forma anónima. Sólo cuando quieran realizar alguna acción que implique la creación, apoyo o comentario de una idea, o a la participación en un debate, se le solicitará que introduzca sus credenciales, para cuya obtención será necesario registrarse previamente. El registro que permitirá participar comentando en cualquiera de las secciones, creando debates o propuestas, se realizará completando el nivel de usuario Nº2 (IDUruguay) , que requiere tener el usuario único del Estado (AGESIC) o completar el formulario requerido para generar dicho usuario. Será necesario marcar la aceptación de las condiciones de uso de Montevideo Decide.
+    five_content_two: Montevideo Decide también permite la identificación mediante el nivel de usuario Nº1, que permite el acceso mediante Facebook, Twitter y Google+. Los usuarios con este primer nivel de registro podrán acceder al módulo de debates, y a presentar un idea.
+    five_content_three: Para participar apoyando las ideas, al usuario se le requerirá el nivel Nº2 de registro, para lo cual se le guiará a través de una serie de pasos donde se le solicitarán sus datos personales y una dirección de correo electrónico a través de la cual poder facilitarle uno o dos códigos seguros para completar la verificación de su cuenta.
+    five_microtitel: "El usuario podrá interactuar con la herramienta interviniendo, al menos, de las siguientes formas:"
+    five_sub_one_title: A). DEBATES
+    five_microtitel_one: "En el módulo de debates el usuario podrá participar:"
+    five_sub_one_content_one: Creando un debate. Cada usuario podrá abrir uno o más debates. Los debates     serán publicados automáticamente.    
+    five_sub_one_content_two: Votando de manera positiva o negativa a los debates creadas por los usuarios. Los debates aparecerán con los votos positivos y negativos recibidos. Cada usuario podrá exclusivamente votar positivo o negativo, y una única vez a un mismo debate.    
+    five_sub_one_content_three: Comentando los debates del resto de los usuarios. Cada debate podrá ser     comentado por el resto de los usuarios.    
+    five_sub_two_title: B). IDEAS
+    five_microtitel_two: "En el módulo de Ideas el usuario podrá participar:"
+    five_sub_two_content_one: Creando una idea. Cada usuario podrá dar de alta una o más ideas. Las     ideas serán publicadas automáticamente.    
+    five_sub_two_content_two: Apoyando las ideas creadas por los usuarios. Las ideas aparecerán con el     número de apoyos recibidos. Cada usuario podrá exclusivamente     apoyar una vez a una misma idea. Comentando las ideas del resto de usuarios. Cada idea podrá ser comentada por el resto de usuarios,     pudiendo argumentar las razones del apoyo o introducir mejoras a la misma.    
+    five_sub_three_title: C). CONSULTAS CIUDADANAS
+    five_microtitel_three: "En el módulo de consultas ciudadanas el usuario podrá participar:"
+    five_sub_three_content_one: Opinando y decidiendo acerca de los temas y actividades que pone a consulta la Intendencia de Montevideo.
+    six_title: 6. Condiciones para el tratamiento de los contenidos proporcionados por los usuarios
+    six_content_one: "A. No Confidencialidad: Todo el contenido remitido por el usuario a la Intendencia de Montevideo deberá ser susceptible de ser conocido     por el público en general. Por lo tanto, la Intendencia de Montevideo tratará el citado contenido como información no confidencial."
+    six_content_two: "B. Procedimiento: En el caso de que la Intendencia de Montevideo esté interesada en el contenido remitido por el usuario, se pondrá en contacto con él para solicitarle información adicional. Dicha información tendrá asimismo carácter de no confidencial, sin perjuicio de que en el caso de que las partes consideren la necesidad de intercambiarse información de carácter confidencial se firme el correspondiente Acuerdo de Confidencialidad."
+    six_content_two_one: La Intendencia de Montevideo se reserva el derecho de no contactar con los usuarios que le hubieran remitido el contenido. Todo ello sin     perjuicio de lo establecido en el apartado relativo a "Derechos de Propiedad Intelectual e industrial".
+    six_content_two_two: En el supuesto que la Intendencia de Montevideo, a su entera discreción, decidiera contactar con determinados usuarios, éstos conocen y aceptan que por ello la Intendencia de Montevideo no adquiere compromiso alguno.         
+    six_content_three: "C. Publicidad o difusión de los contenidos presentados: Los participantes en Montevideo Decide de la Intendencia de Montevideo     declaran conocer y aceptar el hecho de que la información aportada podrá ser publicada en la web www.montevideo.gub.uy así como a través de otros medios que la organización considere oportunos para dar a conocer esta iniciativa.    "
+    six_content_four: "D. No devolución material: La Intendencia de Montevideo carece de obligación alguna de devolver el Contenido remitido por los     usuarios.    "
+    six_content_five: "E. Procedimiento de aviso y retirada: La Intendencia de Montevideo procesará las peticiones de eliminación o retirada de contenidos que incumplan las condiciones de uso que hayan añadido los participantes. Asimismo, cualquier persona, con motivos razonados si existe incumplimiento de las presentes condiciones de uso, podrá solicitar la retirada de contenidos a la Intendencia de Montevideo. La Intendencia de Montevideo se reserva el derecho de hacer las comprobaciones o verificaciones oportunas con carácter previo a la retirada de cualquier contenido.    "
+    seven_title: 7. Política de protección de datos
+    seven_content_one: "Protección de datos: Los datos personales de los usuarios, quedan amparados  a lo previsto en la Ley 18.331 de protección de datos personales, y la Ley 18.381 de Acceso a la Información Pública."
+    seven_content_two: Como principio general, los datos personales no serán comunicados a terceros,    excepto cuando la comunicación haya sido autorizada por el mismo usuario.
+    eight_title: 8. Revisión de las condiciones de uso
+    eight_content_one: La Intendencia de Montevideo se reserva el derecho de revisar las presentes condiciones de uso y la política de privacidad en cualquier momento y por cualquier razón. En dicho caso, los usuarios registrados serán avisados a través de este espacio en línea y, si continúan utilizando Montevideo Decide, se entenderán aceptadas las modificaciones introducidas.
+  privacy:
+    advise: AVISO DE PROTECCIÓN DE DATOS
+    one: 1. La navegación por la información disponible en Montevideo Decide es anónima.
+    two: 2. Para utilizar los servicios contenidos en Montevideo Decide deberá darse de alta y proporcionar previamente los datos de carácter personal según la información específica que consta en cada tipo de nivel.
+    three: 3. Los interesados acceden a participar en la plataforma, mediante el uso de las redes sociales así como a través de registro previo como usuario único del Estado (AGESIC). Los datos personales aportados, serán tratados por la Intendencia de Montevideo de acuerdo a lo previsto por la Ley 18.331 de protección de datos personales, y la Ley 18.381 de Acceso a la Información Pública.
+    four: 4. Como principio general, este sitio web no comparte ni revela información obtenida, excepto cuando haya sido autorizada por el usuario.
+
