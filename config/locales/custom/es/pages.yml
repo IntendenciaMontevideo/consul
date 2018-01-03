@@ -6,16 +6,15 @@ es:
         page:
           title: "Preguntas Frecuentes"
           sub_title: "Bienvenidos a decide.montevideo.gub.uy"
-          description: "El sitio donde los montevideanos podrán proponer, debatir y valorar el tipo de ciudad que desean tener."
-          description_1: "Una plataforma digital puesto en marcha por la Intendencia de Montevideo  en la que se pretende facilitar información y participación en los procesos de deliberación participativa e impulsar espacios para construir, pensar y debatir actuaciones y prioridades para lograr una ciudad mejor, más justa y democrática."
+          description: Montevideo Decide es la plataforma digital que permite a las y los montevideanos opinar, proponer e incidir en las acciones que lleve a cabo la Intendencia de Montevideo. De acuerdo a sus distintos niveles de registro, la ciudadanía podrá participar de debates, presentar iniciativas de proyectos que busquen mejorar su vida en la ciudad, así como participar de encuestas, entrevistar al Intendente y a su equipo de Gobierno y participar en la co-creación de documentos.
+          description_1: Esta plataforma busca promover una cultura de participación ciudadana directa a través de medios digitales, que permita a cualquier persona interesada en generar un cambio, tener la posibilidad de hacerlo. Ahora, desde tu celular, tu computadora personal o cualquier herramienta que te permita conectarte a internet, podrás participar en la construcción de la ciudad que querés.
           faq_1_title: "¿Quién puede acceder a este portal de participación ciudadana?"
-          faq_1_description: "El acceso es libre para todos los ciudadanos. No establece limitaciones. Simplemente se requiere darse de alta en la sección de registro."
+          faq_1_description: El acceso es libre para toda la ciudadanía. No establece limitaciones. Simplemente se requiere darse de alta en la sección de registro, teniendo en cuenta los distintos niveles de usuarios según el grado de participación que se quiera tener.
           faq_2_title: "¿Quién puede participar en debates y crear iniciativas ciudadanas?"
           faq_2_description: "Podrán crear iniciativas ciudadanas y participar en debates todos los usuarios de la plataforma. Podrán votar y apoyar las ideas propuestas los ciudadanos y ciudadanas de Montevideo mayores de 16 años que estén registrados en la plataforma."
           faq_3_title: "¿Cómo darse de alta?"
           faq_3_description_1: "1. Entra en la sección de Registro"
           faq_3_description_2: "2. Crea tu cuenta"
           faq_3_description_3: "3. También puedes acceder a través de tus cuentas de Facebook, Twitter o Google+."
-          faq_3_description_4: "4. NO olvides marcar la casilla de aceptación de las condiciones de uso."
-          faq_3_description_5: "5. Una vez creada la nueva cuenta, te llegará un correo electrónico a la dirección que hayas especificado, y tendrás que hacer clic en el enlace que contiene (el enlace que pone “confirmar mi cuenta”) para finalizar la creación de la cuenta."
+          faq_3_description_4: "Una vez registrada la nueva cuenta, te llegará un correo electrónico a la dirección que hayas especificado y tendrás que hacer clic en el enlace que pone “confirmar mi cuenta” para finalizar su creación."
           footer: "¡Desde este momento ya puedes estar al día sobre todos los procesos participativos de tu ciudad, puedes crear iniciativas ciudadanas y realizar  comentarios sobre las existentes!"
