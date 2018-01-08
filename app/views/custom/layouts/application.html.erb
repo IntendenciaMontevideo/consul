@@ -4,6 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta property="og:title" content="Montevideo decide"/>
+    <meta property="og:type" content="debate"/>
+    <meta id="ogurl" property="og:url" content="consul01desav.imm.gub.uy"/>
+    <meta id="ogimage" property="og:image" content="<%= image_url image_path_for('logo_decide.png') %>"/>
+    <meta property="og:site_name" content="<%= setting['org_name'] %>"/>
+    <meta id="ogdescription" property="og:description" content="Montevideo decide"/>
     <%= render "layouts/tracking_data" %>
     <%= render "layouts/meta_tags" %>
     <title><%= content_for?(:title) ? yield(:title) : setting['org_name'] %></title>

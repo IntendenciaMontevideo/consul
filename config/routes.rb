@@ -157,7 +157,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/consulta-ciudadna', to: 'legislation/processes#index'
+  get '/consulta-ciudadana', to: 'legislation/processes#index'
 
   resources :users, only: [:show] do
     resources :direct_messages, only: [:new, :create, :show]
@@ -472,12 +472,12 @@ Rails.application.routes.draw do
   # more info pages
   get 'que-es-montevideo-decide',                     to: 'pages#show', id: 'more_info/index',                as: 'more_info'
   get 'que-es-montevideo-decide/how-to-use',          to: 'pages#show', id: 'more_info/how_to_use/index',     as: 'how_to_use'
-  get 'que-es-montevideo-decide/faq',                 to: 'pages#show', id: 'more_info/faq/index',            as: 'faq'
+  get '/preguntas-frecuentes',                        to: 'pages#show', id: 'more_info/faq/index',            as: 'faq'
   get '/ideas',                                       to: 'pages#show', id: 'ideas',                          as: 'ideas'
   get '/presupuesto-participativo',                   to: 'pages#show', id: 'presupuesto-participativo',      as: 'presupuesto-participativo'
   get '/espacios-de-colaboracion',                    to: 'pages#show', id: 'espacios-de-colaboracion',       as: 'espacios-de-colaboracion'
   get '/condiciones-de-uso',                          to: 'pages#show', id: 'conditions',                     as: 'conditions'
-  get '/politicas-de-privacidad',                      to: 'pages#show', id: 'privacy',                        as: 'privacy'
+  get '/politicas-de-privacidad',                     to: 'pages#show', id: 'privacy',                        as: 'privacy'
 
   # static pages
   get '/blog' => redirect("http://blog.consul/")
