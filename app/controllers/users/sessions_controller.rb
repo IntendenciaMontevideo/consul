@@ -29,8 +29,8 @@ class Users::SessionsController < Devise::SessionsController
 
   def after_sign_out_path_for(resource)
     if session['saml_uid']
-      user_omniauth_authorize_path(:saml) + "/spslo"
       session.delete(:saml_uid)
+      user_omniauth_authorize_path(:saml) + "/spslo"
     else
       super
     end
