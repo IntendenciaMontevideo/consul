@@ -175,6 +175,7 @@ es:
       retired: Idea retirada por el autor
       no_notifications: "Esta idea no tiene notificaciones."
   welcome:
+    welcome_button: ¿Qué es Montevideo Decide?
     debates:
       description: Encontrarnos, debatir y compartir lo que nos parece importante para la ciudad.
       title: Debates
