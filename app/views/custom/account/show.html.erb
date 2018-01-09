@@ -87,9 +87,9 @@
     </div>
    </div>
       <div class="row">
-          <h2 class="margin-top-20"><%= t("account.show.personal")%></h2>
+          <h2 class="margin-top-20 margin-left-small"><%= t("account.show.personal")%></h2>
         <div class="small-12 medium-12 large-4 margin-top-20 column float-right">
-          <div >
+          <div class="margin-left-small">
             <%= f.label :public_activity do %>
               <%= f.check_box :public_activity, title: t('account.show.public_activity_label'), label: false %>
               <span class="checkbox">
@@ -98,7 +98,7 @@
             <% end %>
           </div>
 
-          <div>
+          <div class="margin-left-small">
             <%= f.label :public_interests do %>
               <%= f.check_box :public_interests, title: t('account.show.public_interests_label'), label: false %>
               <span class="checkbox">
