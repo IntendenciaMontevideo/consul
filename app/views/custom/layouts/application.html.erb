@@ -18,7 +18,7 @@
                      rel: "icon apple-touch-icon",
                      sizes: "110x132",
                      type: "image/png" %>
-    <%= content_for :social_media_meta_tags %>
+    <%= yield :social_media_meta_tags %>
 
     <%= setting['per_page_code_head'].try(:html_safe) %>
   </head>

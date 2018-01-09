@@ -1,4 +1,7 @@
 <% provide :title do %><%= @debate.title %><% end %>
+<% content_for :social_media_meta_tags do %>
+  <% render "/shared/social_media_meta_tags", social_title: @debate.title, social_description: t("debates.banner-text")  %>
+<% end %>
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: debate_url(@debate) %>
 <% end %>

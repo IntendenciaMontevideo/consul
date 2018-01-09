@@ -1,3 +1,6 @@
+<% content_for :social_media_meta_tags do %>
+  <% render "/shared/social_media_meta_tags", social_title: t("devise_views.sessions.new.title"), social_description: t("plogin_view.know_your_user_lvl")  %>
+<% end %>
 <div class=" small-12 medium-8 large-4 float-left margin-top-20">
   <% provide :title do %><%= t("devise_views.sessions.new.title") %><% end %>
   <div class="column">
