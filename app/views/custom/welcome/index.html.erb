@@ -1,5 +1,7 @@
 <% content_for :body_class, "home-page" %>
-
+<% content_for :social_media_meta_tags do %>
+  <% render "/shared/social_media_meta_tags", social_title: setting['org_name'], social_description: t("layouts.header.open_city_slogan_html")  %>
+<% end %>
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: root_url %>
 <% end %>

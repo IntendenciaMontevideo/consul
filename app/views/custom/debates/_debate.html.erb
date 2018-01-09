@@ -1,3 +1,6 @@
+<% content_for :social_media_meta_tags do %>
+  <% render "/shared/social_media_meta_tags", social_title: t("welcome.debates.title"), social_description: t("debates.banner-text")  %>
+<% end %>
 <% cache [locale_and_user_status, debate, @debate_votes[debate.id]] do %>
   <div id="<%= dom_id(debate) %>" class="debate clear" data-type="debate">
     <div class="panel">

@@ -1,4 +1,7 @@
 <% provide :title do %><%= t('pages.titles.privacy') %><% end %>
+<% content_for :social_media_meta_tags do %>
+  <% render "/shared/social_media_meta_tags", social_title: t("pages.privacy"), social_description: t("privacy.advise")  %>
+<% end %>
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: page_url("privacy") %>
 <% end %>
