@@ -1,4 +1,23 @@
 // media
+@media (min-width: 1700px) and (max-width: 10025px) {
+
+  .row-for-banners{
+    max-width: 1350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .column:last-child:not(:first-child), .columns:last-child:not(:first-child) {
+      float: left;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 1550px) {
+
+ .row-for-banners{
+   width: 100%;
+ }
+
+}
 
 @media (min-width: 1026px) and (max-width: 1325px) {
   .search-nav{

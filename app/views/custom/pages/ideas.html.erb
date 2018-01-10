@@ -1,14 +1,16 @@
 <% content_for :social_media_meta_tags do %>
   <% render "/shared/social_media_meta_tags", social_title: t("ideas.title"), social_description: t("ideas.content_banner")  %>
 <% end %>
-<div class="box">
-   <%= image_tag(image_path_for('banner-ideas.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
-  <div class="column box-text">
-    <p class=""> <%= image_tag(image_path_for('hand-1.png'), class: ' float-left hide-for-small-only', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-    <h2 class="banner-title hide-for-small-only"><%= t("ideas.title") %></h2>
-    <p class="banner-font medium-9 show-for-large-only"><%= t("ideas.content_banner") %></p>
+<div class="row-for-banners">
+  <div class="box">
+     <%= image_tag(image_path_for('banner-ideas.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+    <div class="column box-text">
+      <p class=""> <%= image_tag(image_path_for('hand-1.png'), class: ' float-left hide-for-small-only', size: '100x100', alt: t("layouts.header.logo")) %> </p>
+      <h2 class="banner-title hide-for-small-only"><%= t("ideas.title") %></h2>
+      <p class="banner-font medium-9 show-for-large-only"><%= t("ideas.content_banner") %></p>
+    </div>
   </div>
-</div>
-<div class="medium-8 column  margin-left-30">
-   <p><%= t("ideas.content") %></p>
+  <div class="medium-8 column  margin-left-30">
+     <p><%= t("ideas.content") %></p>
+  </div>
 </div>
