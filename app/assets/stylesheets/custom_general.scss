@@ -15,8 +15,13 @@
 .base-color{
   color: #f9bd41;
 }
+
 .menu.simple li.active {
-border-bottom: 2px solid #f9bd41;
+  border-bottom: 2px solid #f9bd41;
+}
+
+.no-bullet{
+  margin-top: 0px;
 }
 
 div .debate-content ul li a{
@@ -402,6 +407,14 @@ footer a {
 .margin-top-20{
   margin-top: 20px;
   padding-right: 15px;
+}
+
+.footer-links{
+  text-align: center;
+}
+
+.footer-last{
+  margin-bottom: 25px;
 }
 
 .margin-left-30{

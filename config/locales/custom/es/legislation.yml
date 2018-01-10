@@ -46,11 +46,11 @@ es:
         proposals_dates: Propuestas
     questions:
       comments:
-        comment_button: Publicar respuesta
-        comments_title: Respuestas abiertas
+        comment_button: Publicar comentario
+        comments_title: Comentarios
         comments_closed: Fase cerrada
         form:
-          leave_comment: Deja tu respuesta
+          leave_comment: Deja tu comentario
       question:
         comments:
           zero: Sin comentarios
@@ -64,6 +64,7 @@ es:
         share: Compartir
         title: Consulta ciudadana colaborativa
       participation:
+        account: Cuenta
         phase_not_open: Esta fase no está abierta
         organizations: Las organizaciones no pueden participar en el debate
         signin: iniciar sesión

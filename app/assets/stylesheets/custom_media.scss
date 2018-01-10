@@ -88,6 +88,9 @@
 
 @media (min-width: 100px) and (max-width: 840px) {
 
+  .no-bullet{
+    margin-top: 45px;
+  }
 
   header {
     background: #f9bd41;
@@ -95,7 +98,7 @@
     margin-bottom: 0rem;
   }
   .search-glass{
-    margin-top: 5px;
+    margin-top: 0px;
   }
 
   .notice-container {
@@ -233,6 +236,22 @@
 
 @media (min-width: 100px) and (max-width: 639px) {
 
+  .no-bullet{
+    margin-top: 0px;
+  }
+
+  .margin-left-small {
+    margin-left: 10%;
+  }
+
+  .margin-bot-small{
+    margin-bottom: 20px;
+  }
+
+  .margin-top-small{
+    margin-top: 30px;
+  }
+
   .medium-footer {
     width: 100%;
   }
@@ -253,6 +272,15 @@
   .margin-left-30{
     margin-left: 0px;
   }
+
+  .total-votes {
+    margin-right: 0%;
+    padding: 3px 15px;
+  }
+
+  form .checkbox, form .radio {
+    width: 80%;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 375px) {
@@ -268,6 +296,7 @@
 
   .total-votes {
     margin-right: 0%;
+    padding: 0px 12px;
   }
   .debate .votes .icon-like, .debate .votes
   .icon-unlike, .debate-show .votes .icon-like,
@@ -296,7 +325,7 @@
 
   .total-votes {
     float: right !important;
-    padding: 0px 15px;
+    padding: 0px 8px;
   }
 
   .medium-center {
