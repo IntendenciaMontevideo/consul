@@ -30,7 +30,7 @@ class Legislation::Question < ActiveRecord::Base
   end
 
   def comments_for_verified_residents_only?
-    true
+    false
   end
 
   def comments_closed?
