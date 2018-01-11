@@ -147,7 +147,7 @@ es:
         title: Ayuda sobre las ideas
         description: La ciudad necesita de los aportes ciudadanos para crecer. Si tenés una idea para mejorar Montevideo podés plantearla para que la Intendencia la lleve a cabo.
         help_text_1: Las propuestas que consigan el apoyo requerido en la web, pasan a un estudio de viabilidad que se realiza en conjunto con la IM. Una vez llegado a un acuerdo en cuanto a la forma de llevarlo adelante, el proyecto es sometido a una votación ciudadana cuyo resultado definirá por mayoría de votos su realización.
-        help_text_2: Para ingresar una propuesta, y para darle apoyo,  basta con ser usuario de Montevideo Decide. Sin embargo, para la instancia de votación final de los proyectos es necesario contar con una cuenta verificada en el portal.
+        help_text_2: Para ingresar una propuesta, y para darle apoyo, basta con ser usuario de Montevideo Decide. Sin embargo, para la instancia de votación final de los proyectos es necesario contar con una cuenta verificada en el portal.
         help_text_3: Antes de proponer tus ideas en Montevideo Decide, lee estas %{keys}.
     new:
       form:
@@ -218,27 +218,27 @@ es:
     five_microtitel: "El usuario podrá interactuar con la herramienta interviniendo, al menos, de las siguientes formas:"
     five_sub_one_title: A). DEBATES
     five_microtitel_one: "En el módulo de debates el usuario podrá participar:"
-    five_sub_one_content_one: Creando un debate. Cada usuario podrá abrir uno o más debates. Los debates     serán publicados automáticamente.    
+    five_sub_one_content_one: Creando un debate. Cada usuario podrá abrir uno o más debates. Los debates serán publicados automáticamente.    
     five_sub_one_content_two: Votando de manera positiva o negativa a los debates creadas por los usuarios. Los debates aparecerán con los votos positivos y negativos recibidos. Cada usuario podrá exclusivamente votar positivo o negativo, y una única vez a un mismo debate.    
-    five_sub_one_content_three: Comentando los debates del resto de los usuarios. Cada debate podrá ser     comentado por el resto de los usuarios.    
+    five_sub_one_content_three: Comentando los debates del resto de los usuarios. Cada debate podrá ser comentado por el resto de los usuarios.    
     five_sub_two_title: B). IDEAS
     five_microtitel_two: "En el módulo de Ideas el usuario podrá participar:"
-    five_sub_two_content_one: Creando una idea. Cada usuario podrá dar de alta una o más ideas. Las     ideas serán publicadas automáticamente.    
-    five_sub_two_content_two: Apoyando las ideas creadas por los usuarios. Las ideas aparecerán con el     número de apoyos recibidos. Cada usuario podrá exclusivamente     apoyar una vez a una misma idea. Comentando las ideas del resto de usuarios. Cada idea podrá ser comentada por el resto de usuarios,     pudiendo argumentar las razones del apoyo o introducir mejoras a la misma.    
+    five_sub_two_content_one: Creando una idea. Cada usuario podrá dar de alta una o más ideas. Las ideas serán publicadas automáticamente.    
+    five_sub_two_content_two: Apoyando las ideas creadas por los usuarios. Las ideas aparecerán con el número de apoyos recibidos. Cada usuario podrá exclusivamente  apoyar una vez a una misma idea. Comentando las ideas del resto de usuarios. Cada idea podrá ser comentada por el resto de usuarios, pudiendo argumentar las razones del apoyo o introducir mejoras a la misma.    
     five_sub_three_title: C). CONSULTAS CIUDADANAS
     five_microtitel_three: "En el módulo de consultas ciudadanas el usuario podrá participar:"
     five_sub_three_content_one: Opinando y decidiendo acerca de los temas y actividades que pone a consulta la Intendencia de Montevideo.
     six_title: 6. Condiciones para el tratamiento de los contenidos proporcionados por los usuarios
-    six_content_one: "A. No Confidencialidad: Todo el contenido remitido por el usuario a la Intendencia de Montevideo deberá ser susceptible de ser conocido     por el público en general. Por lo tanto, la Intendencia de Montevideo tratará el citado contenido como información no confidencial."
+    six_content_one: "A. No Confidencialidad: Todo el contenido remitido por el usuario a la Intendencia de Montevideo deberá ser susceptible de ser conocido  por el público en general. Por lo tanto, la Intendencia de Montevideo tratará el citado contenido como información no confidencial."
     six_content_two: "B. Procedimiento: En el caso de que la Intendencia de Montevideo esté interesada en el contenido remitido por el usuario, se pondrá en contacto con él para solicitarle información adicional. Dicha información tendrá asimismo carácter de no confidencial, sin perjuicio de que en el caso de que las partes consideren la necesidad de intercambiarse información de carácter confidencial se firme el correspondiente Acuerdo de Confidencialidad."
-    six_content_two_one: La Intendencia de Montevideo se reserva el derecho de no contactar con los usuarios que le hubieran remitido el contenido. Todo ello sin     perjuicio de lo establecido en el apartado relativo a "Derechos de Propiedad Intelectual e industrial".
+    six_content_two_one: La Intendencia de Montevideo se reserva el derecho de no contactar con los usuarios que le hubieran remitido el contenido. Todo ello sin  perjuicio de lo establecido en el apartado relativo a "Derechos de Propiedad Intelectual e industrial".
     six_content_two_two: En el supuesto que la Intendencia de Montevideo, a su entera discreción, decidiera contactar con determinados usuarios, éstos conocen y aceptan que por ello la Intendencia de Montevideo no adquiere compromiso alguno.         
-    six_content_three: "C. Publicidad o difusión de los contenidos presentados: Los participantes en Montevideo Decide de la Intendencia de Montevideo     declaran conocer y aceptar el hecho de que la información aportada podrá ser publicada en la web www.montevideo.gub.uy así como a través de otros medios que la organización considere oportunos para dar a conocer esta iniciativa.    "
-    six_content_four: "D. No devolución material: La Intendencia de Montevideo carece de obligación alguna de devolver el Contenido remitido por los     usuarios.    "
-    six_content_five: "E. Procedimiento de aviso y retirada: La Intendencia de Montevideo procesará las peticiones de eliminación o retirada de contenidos que incumplan las condiciones de uso que hayan añadido los participantes. Asimismo, cualquier persona, con motivos razonados si existe incumplimiento de las presentes condiciones de uso, podrá solicitar la retirada de contenidos a la Intendencia de Montevideo. La Intendencia de Montevideo se reserva el derecho de hacer las comprobaciones o verificaciones oportunas con carácter previo a la retirada de cualquier contenido.    "
+    six_content_three: "C. Publicidad o difusión de los contenidos presentados: Los participantes en Montevideo Decide de la Intendencia de Montevideo  declaran conocer y aceptar el hecho de que la información aportada podrá ser publicada en la web www.montevideo.gub.uy así como a través de otros medios que la organización considere oportunos para dar a conocer esta iniciativa."
+    six_content_four: "D. No devolución material: La Intendencia de Montevideo carece de obligación alguna de devolver el Contenido remitido por los  usuarios.    "
+    six_content_five: "E. Procedimiento de aviso y retirada: La Intendencia de Montevideo procesará las peticiones de eliminación o retirada de contenidos que incumplan las condiciones de uso que hayan añadido los participantes. Asimismo, cualquier persona, con motivos razonados si existe incumplimiento de las presentes condiciones de uso, podrá solicitar la retirada de contenidos a la Intendencia de Montevideo. La Intendencia de Montevideo se reserva el derecho de hacer las comprobaciones o verificaciones oportunas con carácter previo a la retirada de cualquier contenido. "
     seven_title: 7. Política de protección de datos
     seven_content_one: "Protección de datos: Los datos personales de los usuarios, quedan amparados  a lo previsto en la Ley 18.331 de protección de datos personales, y la Ley 18.381 de Acceso a la Información Pública."
-    seven_content_two: Como principio general, los datos personales no serán comunicados a terceros,    excepto cuando la comunicación haya sido autorizada por el mismo usuario.
+    seven_content_two: Como principio general, los datos personales no serán comunicados a terceros, excepto cuando la comunicación haya sido autorizada por el mismo usuario.
     eight_title: 8. Revisión de las condiciones de uso
     eight_content_one: La Intendencia de Montevideo se reserva el derecho de revisar las presentes condiciones de uso y la política de privacidad en cualquier momento y por cualquier razón. En dicho caso, los usuarios registrados serán avisados a través de este espacio en línea y, si continúan utilizando Montevideo Decide, se entenderán aceptadas las modificaciones introducidas.
   privacy:
