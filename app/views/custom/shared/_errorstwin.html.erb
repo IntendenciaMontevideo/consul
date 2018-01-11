@@ -1,0 +1,13 @@
+<% if resource.errors.any? %>
+  <div id="error_explanation" data-alert class="callout alert" data-closable>
+    <strong>
+      <%= pluralize resource.errors.count, t("form.error"), t("form.errors") %>
+
+      <% if local_assigns[:message].present? %>
+        <%= message %>
+      <% else %>
+        <%= t("form.not_saved", resource: t("form.#{resource.class.to_s.underscore}")) %>
+      <% end %>
+    </strong>
+  </div>
+<% end %>
