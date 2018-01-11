@@ -1,28 +1,31 @@
 
 <footer>
-  <div class="footer">
-    <div class="footer-bg">
-      <div class="small-8 medium-footer-img large-4 column">
-        <%= link_to (image_tag(image_path_for('logo_footer.png'), class: 'float-left medium-center', size: '300x160', alt: t("layouts.footer.logo"))), 'http://montevideo.gub.uy', target: :_blank %>
+  <div class="footer-bg">
+    <div class="row margin-top-20">
+        <div class="footer-bg">
+          <div class="small-8 medium-footer-img large-4 column">
+            <%= link_to (image_tag(image_path_for('logo_footer.png'), class: 'float-left medium-center', size: '300x160', alt: t("layouts.footer.logo"))), 'http://montevideo.gub.uy', target: :_blank %>
 
-        <div id="barra_vertical" class="hide-for-small-only hide-for-medium-only"></div>
+            <div id="barra_vertical" class="hide-for-small-only hide-for-medium-only"></div>
+          </div>
+          <div class="footer-sections small-12 medium-footer-div large-8 column footer-links gray-bg">
+            <div class="small-12 medium-3 margin-top-20 column">
+              <%= link_to t("footer.participation_title"), faq_path, class: "title" %>
+            </div>
+              <div id="barra_vertical-r" class="hide-for-small-only"></div>
+            <div class="small-12 medium-footer margin-top-20 column footer-links">
+              <%= link_to t("footer.transparency_title"), 'http://www.montevideo.gub.uy/institucional/transparencia', class: "title", target: :_blank, rel: "nofollow" %>
+            </div>
+            <div id="barra_vertical-r" class="hide-for-small-only"></div>
+            <div class="small-12 medium-footer margin-top-20 column float-left footer-links footer-last">
+              <%= link_to t("footer.open_data_title"), 'https://catalogodatos.gub.uy/organization/intendencia-montevideo', class: "title", target: :_blank, rel: "nofollow" %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="footer-sections small-12 medium-footer-div large-8 column footer-links gray-bg">
-        <div class="small-12 medium-3 margin-top-20 column">
-          <%= link_to t("footer.participation_title"), faq_path, class: "title" %>
-        </div>
-          <div id="barra_vertical-r" class="hide-for-small-only"></div>
-        <div class="small-12 medium-footer margin-top-20 column footer-links">
-          <%= link_to t("footer.transparency_title"), 'http://www.montevideo.gub.uy/institucional/transparencia', class: "title", target: :_blank, rel: "nofollow" %>
-        </div>
-        <div id="barra_vertical-r" class="hide-for-small-only"></div>
-        <div class="small-12 medium-footer margin-top-20 column float-left footer-links footer-last">
-          <%= link_to t("footer.open_data_title"), 'https://catalogodatos.gub.uy/organization/intendencia-montevideo', class: "title", target: :_blank, rel: "nofollow" %>
-        </div>
+      <div class="bg-policy medium-12 text-center">
+        <%= link_to t("footer.policy"), privacy_path, class: "policy", rel: "nofollow" %> <%= t("footer.and") %> <%= link_to t("footer.conditions"), conditions_path, class: "policy", rel: "nofollow" %>
       </div>
     </div>
   </div>
-    <div class="bg-policy medium-12 text-center">
-      <%= link_to t("footer.policy"), privacy_path, class: "policy", rel: "nofollow" %> <%= t("footer.and") %> <%= link_to t("footer.conditions"), conditions_path, class: "policy", rel: "nofollow" %>
-    </div>
 </footer>
