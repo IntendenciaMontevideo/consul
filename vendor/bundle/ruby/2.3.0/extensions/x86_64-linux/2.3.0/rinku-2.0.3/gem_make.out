@@ -1,0 +1,19 @@
+current directory: /home/rodrigo/consul/vendor/bundle/ruby/2.3.0/gems/rinku-2.0.3/ext/rinku
+/home/rodrigo/.rvm/rubies/ruby-2.3.4/bin/ruby -r ./siteconf20171213-7225-1apkyp.rb extconf.rb
+creating Makefile
+
+current directory: /home/rodrigo/consul/vendor/bundle/ruby/2.3.0/gems/rinku-2.0.3/ext/rinku
+make "DESTDIR=" clean
+
+current directory: /home/rodrigo/consul/vendor/bundle/ruby/2.3.0/gems/rinku-2.0.3/ext/rinku
+make "DESTDIR="
+compiling rinku_rb.c
+compiling rinku.c
+compiling utf8.c
+compiling buffer.c
+compiling autolink.c
+linking shared-object rinku.so
+
+current directory: /home/rodrigo/consul/vendor/bundle/ruby/2.3.0/gems/rinku-2.0.3/ext/rinku
+make "DESTDIR=" install
+/usr/bin/install -m 0755 rinku.so ./.gem.20171213-7225-16av7qb

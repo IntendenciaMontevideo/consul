@@ -1,0 +1,43 @@
+gemfile <<-RB
+  gem 'rack'
+  gem 'rake', '~> 12.0'
+RB
+
+gemfile <<-RB
+  gem 'rack'
+  gem 'rake', '~> 11.1'
+RB
+
+gemfile <<-RB
+  gem 'rack'
+  gem 'rake', '~> 10.4'
+RB
+
+# No single Rails version works everywhere, so split it up
+if RUBY_VERSION < '2.4.0'
+  gemfile <<-RB
+    gem 'rack'
+    gem 'rake', '~> 10.4'
+    gem 'rails', '~> 4.2.1'
+    gem 'minitest', '5.2.3'
+    gem 'nokogiri', '< 1.7' if RUBY_VERSION < '2.1.0' # nokogiri 1.7.0 only supports >= 2.1.0
+  RB
+end
+
+gemfile <<-RB
+  gem 'rack'
+  gem 'rake', '10.0.0' # Oldest supported version
+RB
+
+gemfile <<-RB
+  gem 'rack'
+  gem 'rake', '0.9.6' # Newest unsupported version
+RB
+
+gemfile <<-RB
+  gem 'rack'
+  gem 'rake', '~> 10.4'
+  gem 'newrelic-rake', :require => false # Can't coexist with third-party instrumentation
+RB
+
+# vim: ft=ruby

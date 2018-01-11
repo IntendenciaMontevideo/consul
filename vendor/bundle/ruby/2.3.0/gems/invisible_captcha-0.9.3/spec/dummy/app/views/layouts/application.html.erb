@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dummy</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= link_to "Default", new_topic_path %> |
+<%= link_to "With visual honeypots", new_topic_path(context: "visual_honeypots") %>
+
+<% flash.each do |key, value| %>
+  <ul>
+    <li>
+      <%= "[#{key.upcase}] #{value}" %>
+    </li>
+  </ul>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+current directory: /home/rodrigo/consul/vendor/bundle/ruby/2.3.0/gems/unicorn-5.3.0/ext/unicorn_http
+/home/rodrigo/.rvm/rubies/ruby-2.3.4/bin/ruby -r ./siteconf20171213-7225-oc83gb.rb extconf.rb
+checking for SIZEOF_OFF_T in ruby.h... yes
+checking for SIZEOF_SIZE_T in ruby.h... yes
+checking for SIZEOF_LONG in ruby.h... yes
+checking for rb_str_set_len() in ruby.h... yes
+checking for rb_hash_clear() in ruby.h... yes
+checking for gmtime_r() in time.h... yes
+creating Makefile
+
+current directory: /home/rodrigo/consul/vendor/bundle/ruby/2.3.0/gems/unicorn-5.3.0/ext/unicorn_http
+make "DESTDIR=" clean
+
+current directory: /home/rodrigo/consul/vendor/bundle/ruby/2.3.0/gems/unicorn-5.3.0/ext/unicorn_http
+make "DESTDIR="
+compiling unicorn_http.c
+compiling httpdate.c
+linking shared-object unicorn_http.so
+
+current directory: /home/rodrigo/consul/vendor/bundle/ruby/2.3.0/gems/unicorn-5.3.0/ext/unicorn_http
+make "DESTDIR=" install
+/usr/bin/install -m 0755 unicorn_http.so ./.gem.20171213-7225-1itnwjl

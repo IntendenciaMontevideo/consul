@@ -1,0 +1,20 @@
+mysql: &mysql
+  adapter: <%=
+    if defined?(JRuby)
+      'jdbcmysql'
+    else
+      'mysql2'
+    end %>
+  socket: <%= (`uname -s` =~ /Linux/ ) ? "" :"/tmp/mysql.sock" %>
+  username: root
+  host: localhost
+  database: <%= db = "#{ENV['DATABASE_NAME']}"; db.empty? ? "rails_blog" : db %>
+
+development:
+  <<: *mysql
+
+test:
+  <<: *mysql
+
+production:
+  <<: *mysql

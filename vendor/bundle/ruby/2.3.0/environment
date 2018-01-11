@@ -1,0 +1,3 @@
+export PATH="/home/rodrigo/.rvm/gems/ruby-2.3.4/bin:/home/rodrigo/.rvm/gems/ruby-2.3.4@global/bin:$PATH"
+export GEM_PATH="/home/rodrigo/consul/vendor/bundle/ruby/2.3.0"
+export GEM_HOME="/home/rodrigo/consul/vendor/bundle/ruby/2.3.0"

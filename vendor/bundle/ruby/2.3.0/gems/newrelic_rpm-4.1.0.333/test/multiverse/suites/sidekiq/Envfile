@@ -1,0 +1,43 @@
+gemfile <<-RB
+  gem 'json'
+  gem 'sidekiq', '~> 3.4.2'
+  gem 'rack'
+
+  gem 'newrelic_rpm', :require => false, :path => File.expand_path('../../../../')
+RB
+
+gemfile <<-RB
+  gem 'json'
+  gem 'sidekiq', '~> 4.0.0'
+  gem 'rack'
+  gem 'newrelic_rpm', :require => false, :path => File.expand_path('../../../../')
+RB
+
+if RUBY_VERSION < '2.4.0' && RUBY_PLATFORM != 'java'
+  # We skip testing Sidekiq 3.5.3 on JRuby due to an error in Sidekiq's shutdown:
+  # https://github.com/mperham/sidekiq/issues/2703
+  gemfile <<-RB
+    gem 'json'
+    gem 'sidekiq', '~> 3.5.3'
+    gem 'rack'
+    gem 'newrelic_rpm', :require => false, :path => File.expand_path('../../../../')
+  RB
+end
+
+gemfile <<-RB
+  gem 'json'
+  gem 'sidekiq', '~> 2.17.8'
+  gem 'rack'
+  gem 'newrelic_rpm', :require => false, :path => File.expand_path('../../../../')
+RB
+
+gemfile <<-RB
+  # Almost oldest supported version
+  gem 'json'
+  gem 'sidekiq', '~> 2.9.0'
+  gem 'timers', '~> 1.1.0'
+  gem 'rack'
+  gem 'newrelic_rpm', :require => false, :path => File.expand_path('../../../../')
+RB
+
+# vim: ft=ruby

@@ -1,0 +1,23 @@
+suite_condition("Capistrano 3 flaky on JRuby") do
+  RUBY_PLATFORM != 'java'
+end
+
+boilerplate = <<-BOILERPLATE
+  gem 'sshkit', '~> 1.8.1'
+  gem 'rack'
+BOILERPLATE
+
+gemfile <<-RB
+  gem 'capistrano', '~>3.2.1'
+  #{boilerplate}
+RB
+
+gemfile <<-RB
+  gem 'capistrano', '~>3.1.0'
+  #{boilerplate}
+RB
+
+gemfile <<-RB
+  gem 'capistrano', '~>3.0.1'
+  #{boilerplate}
+RB

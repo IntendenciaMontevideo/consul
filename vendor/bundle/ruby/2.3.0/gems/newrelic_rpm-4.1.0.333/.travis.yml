@@ -1,0 +1,149 @@
+services:
+  - mysql
+  - redis-server
+  - memcached
+
+language: ruby
+
+sudo: required
+
+before_install:
+  - gem --version
+  - ./test/script/before_install/gemstash_mirror.sh
+  - bundle --version
+
+install: bundle install
+
+before_script: ./test/script/before_script/install_mongodb.sh
+
+script: ./test/script/ci.sh
+
+branches:
+  only:
+    - master
+    - dev
+    - release
+
+notifications:
+  webhooks: http://notifitron.herokuapp.com/
+  on_success: always
+  on_failure: always
+
+rvm:
+  # Run slowest builds first to try and optimize overall cycle time.
+  - jruby-9.1.2.0
+  - 2.4.0
+  - 2.3.3
+  - 2.2.6
+  - 2.1.10
+  - 2.0.0-p648
+
+env:
+  global:
+    - BUNDLE_PATH=/home/travis/bundle
+    - MONGODB=2.6.11
+    - JAVA_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xmx640m"
+    - JRUBY_OPTS="-Xcompile.invokedynamic=false -J-Djruby.compile.mode=OFF"
+    - RBXOPT="-Xcompiler.no_rbc -Xint"
+    - SERIALIZE=1
+    - TESTOPTS="-v"
+    - VERBOSE = 1
+  matrix:
+    # RUBY-1668 rails21, rails22, and rails23 are all excluded below
+    - TYPE=UNIT ENVIRONMENT=rails21
+    - TYPE=UNIT ENVIRONMENT=rails22
+    - TYPE=UNIT ENVIRONMENT=rails23
+
+    - TYPE=UNIT ENVIRONMENT=rails30
+    - TYPE=UNIT ENVIRONMENT=rails31
+    - TYPE=UNIT ENVIRONMENT=rails32
+    - TYPE=UNIT ENVIRONMENT=rails40
+    - TYPE=UNIT ENVIRONMENT=rails41
+    - TYPE=UNIT ENVIRONMENT=rails42
+    - TYPE=UNIT ENVIRONMENT=rails50
+    - TYPE=UNIT ENVIRONMENT=norails
+    - TYPE=FUNCTIONAL GROUP=agent
+    - TYPE=FUNCTIONAL GROUP=api
+    - TYPE=FUNCTIONAL GROUP=background
+    - TYPE=FUNCTIONAL GROUP=database
+    - TYPE=FUNCTIONAL GROUP=httpclients
+    - TYPE=FUNCTIONAL GROUP=rails
+    - TYPE=FUNCTIONAL GROUP=serialization
+    - TYPE=FUNCTIONAL GROUP=sinatra
+    - TYPE=FUNCTIONAL GROUP=rest
+    - TYPE=FUNCTIONAL GROUP=background_2
+    - TYPE=NULLVERSE
+
+matrix:
+  fast_finish: true
+  exclude:
+    # Unsupported Rails/Ruby combinations
+    # 2.4
+    - rvm: 2.4.0
+      env: TYPE=UNIT ENVIRONMENT=rails21
+    - rvm: 2.4.0
+      env: TYPE=UNIT ENVIRONMENT=rails22
+    - rvm: 2.4.0
+      env: TYPE=UNIT ENVIRONMENT=rails23
+    - rvm: 2.4.0
+      env: TYPE=UNIT ENVIRONMENT=rails30
+    - rvm: 2.4.0
+      env: TYPE=UNIT ENVIRONMENT=rails31
+    - rvm: 2.4.0
+      env: TYPE=UNIT ENVIRONMENT=rails32
+    - rvm: 2.4.0
+      env: TYPE=UNIT ENVIRONMENT=rails40
+    - rvm: 2.4.0
+      env: TYPE=UNIT ENVIRONMENT=rails41
+    - rvm: 2.4.0
+      env: TYPE=UNIT ENVIRONMENT=rails42
+
+    # 2.3
+    - rvm: 2.3.3
+      env: TYPE=UNIT ENVIRONMENT=rails21
+    - rvm: 2.3.3
+      env: TYPE=UNIT ENVIRONMENT=rails22
+    - rvm: 2.3.3
+      env: TYPE=UNIT ENVIRONMENT=rails23
+
+    # 2.2
+    - rvm: 2.2.6
+      env: TYPE=UNIT ENVIRONMENT=rails21
+    - rvm: 2.2.6
+      env: TYPE=UNIT ENVIRONMENT=rails22
+    - rvm: 2.2.6
+      env: TYPE=UNIT ENVIRONMENT=rails23
+
+    # 2.1
+    - rvm: 2.1.10
+      env: TYPE=UNIT ENVIRONMENT=rails21
+    - rvm: 2.1.10
+      env: TYPE=UNIT ENVIRONMENT=rails22
+    - rvm: 2.1.10
+      env: TYPE=UNIT ENVIRONMENT=rails23
+    - rvm: 2.1.10
+      env: TYPE=UNIT ENVIRONMENT=rails50
+
+    # 2.0
+    - rvm: 2.0.0-p648
+      env: TYPE=UNIT ENVIRONMENT=rails21
+    - rvm: 2.0.0-p648
+      env: TYPE=UNIT ENVIRONMENT=rails22
+    - rvm: 2.0.0-p648
+      env: TYPE=UNIT ENVIRONMENT=rails23
+    - rvm: 2.0.0-p648
+      env: TYPE=UNIT ENVIRONMENT=rails50
+
+    # jruby 9.0
+    - rvm: jruby-9.1.2.0
+      env: TYPE=UNIT ENVIRONMENT=rails21
+    - rvm: jruby-9.1.2.0
+      env: TYPE=UNIT ENVIRONMENT=rails22
+    - rvm: jruby-9.1.2.0
+      env: TYPE=UNIT ENVIRONMENT=rails23
+    - rvm: jruby-9.1.2.0
+      env: TYPE=UNIT ENVIRONMENT=rails30
+    - rvm: jruby-9.1.2.0
+      env: TYPE=UNIT ENVIRONMENT=rails31
+    - rvm: jruby-9.1.2.0
+      env: TYPE=UNIT ENVIRONMENT=rails32

@@ -1,0 +1,13 @@
+current directory: /home/rodrigo/consul/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
+/home/rodrigo/.rvm/rubies/ruby-2.3.4/bin/ruby -r ./siteconf20171213-7225-b48bpn.rb extconf.rb
+creating Makefile
+
+current directory: /home/rodrigo/consul/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/rodrigo/consul/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
+make "DESTDIR="
+make: No se hace nada para «all».
+
+current directory: /home/rodrigo/consul/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
+make "DESTDIR=" install

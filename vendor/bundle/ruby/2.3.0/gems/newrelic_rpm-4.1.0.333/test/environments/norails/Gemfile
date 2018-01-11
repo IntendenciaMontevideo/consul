@@ -1,0 +1,19 @@
+source 'https://rubygems.org'
+
+gem 'rake', '~>10.1.1'
+
+gem 'minitest', '~>4.7.5'
+gem 'mocha', :require => false
+
+if RUBY_VERSION < '2.2.2'
+  gem 'rack', '< 2.0.0'
+else
+  gem 'rack'
+end
+
+gem 'rack-test'
+
+gem "newrelic_rpm", :path => "../../.."
+
+gem 'pry', '~> 0.9.12'
+gem 'hometown', '~> 0.2.5'

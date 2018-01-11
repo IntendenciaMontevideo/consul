@@ -1,0 +1,56 @@
+# Should just disable for 'lib/capistrano/tasks/delayed_job.rake'
+
+Metrics/AbcSize:
+  Max: 16
+
+Metrics/MethodLength:
+  Max: 10
+
+Metrics/CyclomaticComplexity:
+  Max: 7
+
+Metrics/PerceivedComplexity:
+  Max: 7
+
+Metrics/LineLength:
+  Max: 120
+
+Style/FileName:
+  Exclude:
+    - 'lib/capistrano3-delayed-job.rb'
+    - 'lib/capistrano/delayed-job.rb'
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%':  '{}'
+    '%i': '[]'
+    '%q': '{}'
+    '%Q': '{}'
+    '%r': '{}'
+    '%s': ()
+    '%w': '[]'
+    '%W': '[]'
+    '%x': ()
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/SpaceAfterComma:          # really want a way to allow Array(something)[-1,1]
+  Enabled: false
+
+Style/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+Style/SpaceAroundOperators:
+  AllowForAlignment: true
+  Enabled: false
+
+Style/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+  # Space between { and |. Overrides EnforcedStyle if there is a conflict.
+  SpaceBeforeBlockParameters: false
+
+Style/UnneededPercentQ:
+  Exclude:
+    - 'capistrano3-delayed-job.gemspec'

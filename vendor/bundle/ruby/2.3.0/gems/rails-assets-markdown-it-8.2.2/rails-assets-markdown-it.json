@@ -1,0 +1,32 @@
+{
+  "name": "rails-assets-markdown-it",
+  "downloads": null,
+  "version": "8.2.2",
+  "version_downloads": null,
+  "platform": "ruby",
+  "authors": "rails-assets.org",
+  "info": "Markdown parser, done right. Commonmark support, extensions, syntax plugins, high speed - all in one.",
+  
+  "licenses": "MIT",
+  
+  "metadata": {
+
+  },
+  "sha": null,
+  "project_uri": "https://github.com/markdown-it/markdown-it",
+  "gem_uri": null,
+  "homepage_uri": "https://github.com/markdown-it/markdown-it",
+  "wiki_uri": null,
+  "documentation_uri": null,
+  "mailing_list_uri": null,
+  "source_code_uri": "https://github.com/markdown-it/markdown-it",
+  "bug_tracker_uri": null,
+  "dependencies": {
+    "development": [
+    
+    ],
+    "runtime": [
+
+    ]
+  }
+}

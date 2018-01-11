@@ -1,0 +1,47 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - bin/**/*
+
+Style/StringLiterals:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - bin/**/*
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 21
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%w': '[]'
+    '%W': '[]'
+
+Style/GuardClause:
+  Enabled: false
+
+Style/VariableNumber:
+  EnforcedStyle: snake_case
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Bundler/DuplicatedGem:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
