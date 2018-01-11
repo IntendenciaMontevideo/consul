@@ -3,7 +3,7 @@ namespace :disable_modules do
   desc "Disable external login and register"
   task external_login: :environment do
     Setting['feature.twitter_login'] = false
-    Setting['feature.facebook_login'] = false
+    Setting['feature.facebook_login'] = true
     Setting['feature.google_login'] = false
     Setting['feature.saml_login'] = true
   end
