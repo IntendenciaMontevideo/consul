@@ -3,8 +3,8 @@
      <%= image_tag(image_path_for('banner-CC.jpg'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
      <div class="column box-text show-for-large-only">
         <p> <%= image_tag(image_path_for('hand-2.png'), class: ' float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-        <h2 class="banner-title">Consulta Ciudadana</h2>
-        <p class="banner-font small-12 medium-6">Participa de los procesos y debates previos a la la aprobación de una norma o un reglamento.</p>
+        <h2 class="banner-title"><%= t("legislation.banner-text") %></h2>
+        <p class="banner-font small-12 medium-6"><%= t("legislation.content_banner") %></p>
       </div>
   </div>
 </div>
@@ -30,9 +30,9 @@
   </div>
   <div id="section_help" class="medium-3 column" data-magellan-target="section_help">
     <p class="lead">
-      <strong>Ayuda sobre las consultas ciudadanas</strong>
+      <strong> <%= t("legislation.title") %></strong>
     </p>
-    <p>A través de la Consulta ciudadana, la Intendencia de Montevideo te ofrece la oportunidad de decidir acerca de proyectos y actividades que tiene previstas para la ciudad.</p>
-    <p>Podrás participar activamente de encuestas y sondeos, así como en los procesos y decisiones finales de determinados proyectos. Para participar de este módulo, deberás estar <%= link_to "registrado", account_path %> con nivel de usuario Nº 2.</p>
+    <p><%= t("legislation.description") %></p>
+    <p><%= t("legislation.description2") %> <%= link_to t("legislation.description_link"), account_path %> <%= t("legislation.description3") %></p>
   </div>
 </div>

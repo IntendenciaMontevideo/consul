@@ -64,18 +64,18 @@
         </div>
         <div class="small-12 medium-4 large-3 column">
           <p> <%= image_tag(image_path_for('picto_user_gde.png'), class: 'float-center', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-          <h2 class="text-center">1. Registrate</h2>
-          <p class="margin-left-20px">Hacé click en Ingresar,  completá el formulario y  sé parte de Montevideo Decide</p>
+          <h2 class="text-center">1. <%= t("welcome.step1") %></h2>
+          <p class="margin-left-20px"><%= t("welcome.step1_content") %></p>
         </div>
         <div class="small-12 medium-4 large-3 column">
           <p> <%= image_tag(image_path_for('picto_Sobre.png'), class: 'float-center', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-          <h2 class="text-center">2. Decidí</h2>
-          <p class="margin-left-20px">Opiná, proponé y  decidí cómo querés  que sea la ciudad</p>
+          <h2 class="text-center">2. <%= t("welcome.step2") %></h2>
+          <p class="margin-left-20px"><%= t("welcome.step2_content") %></p>
         </div>
         <div class="small-12 medium-4 large-3 column">
           <p> <%= image_tag(image_path_for('picto_comparte.png'), class: 'float-center', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-          <h2 class="text-center">3. Compartí</h2>
-          <p class="margin-left-20px">Compartí en redes sociales para que montevideanos y montevideanas puedan aportar sus opiniones</p>
+          <h2 class="text-center">3. <%= t("welcome.step3") %></h2>
+          <p class="margin-left-20px"><%= t("welcome.step3_content") %></p>
         </div>
       </div>
     </div>
