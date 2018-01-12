@@ -3,8 +3,8 @@
      <%= image_tag(image_path_for('banner-CC.jpg'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
      <div class="column box-text show-for-large-only">
         <p> <%= image_tag(image_path_for('hand-2.png'), class: ' float-left', size: '100x100', alt: t("layouts.header.logo")) %> </p>
-        <h2 class="banner-title">Consulta Ciudadana</h2>
-        <p class="banner-font small-12 medium-6">Participa de los procesos y debates previos a la la aprobación de una norma o un reglamento.</p>
+        <h2 class="banner-title"><%= t("legislation.banner-text") %></h2>
+        <p class="banner-font small-12 medium-6"><%= t("legislation.content_banner") %></p>
       </div>
   </div>
 </div>
