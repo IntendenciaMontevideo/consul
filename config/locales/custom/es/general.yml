@@ -190,6 +190,12 @@ es:
       retired: Idea retirada por el autor
       no_notifications: "Esta idea no tiene notificaciones."
   welcome:
+    step1: Registrate
+    step1_content: Hacé click en Ingresar,  completá el formulario y  sé parte de Montevideo Decide
+    step2: Decidí
+    step2_content: Opiná, proponé y  decidí cómo querés  que sea la ciudad
+    step3: Compartí
+    step3_content: Compartí en redes sociales para que montevideanos y montevideanas puedan aportar sus opiniones
     welcome_button: ¿Qué es Montevideo Decide?
     debates:
       description: Encontrarnos, debatir y compartir lo que nos parece importante para la ciudad.
