@@ -11,7 +11,6 @@ task :update_password, [:email, :update_password] => [:environment] do |t, args|
 	if u
 		u.password = args[:update_password]
 		u.password_confirmation = args[:update_password]
-		#print encript
 		ret = u.save!
 		puts ret
 	end
