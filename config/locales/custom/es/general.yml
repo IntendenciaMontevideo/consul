@@ -1,4 +1,10 @@
 es:
+  legislation:
+    title: Ayuda sobre las consultas ciudadanas
+    description: A través de la Consulta ciudadana, la Intendencia de Montevideo te ofrece la oportunidad de decidir acerca de proyectos y actividades que tiene previstas para la ciudad.
+    description2: Podrás participar activamente de encuestas y sondeos, así como en los procesos y decisiones finales de determinados proyectos. Para participar de este módulo, deberás estar
+    description3: con nivel de usuario Nº 2.
+    description_link: registrado
   space:
     title: Espacios de Colaboración
     content_banner: Sumate a los espacios que ofrece la Intendencia de Montevideo para participar de forma presencial.
@@ -91,9 +97,16 @@ es:
         help: Ayuda sobre los debates
         init_line: El espacio de debates ciudadanos está dirigido a cualquier persona que quiera poner en discusión temas referidos a la ciudad que le preocupan y sobre los que quiera compartir puntos de vista con otras personas.
       section_footer:
+        title: Ayuda sobre los debates
         proposals_link: idea
-        description: 'Para abrir un debate es necesario registrarse en %{org}. Si ya tenés una cuenta, podés comentar los debates abiertos y valorarlos con los botones "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos.'
-        help_text_1: 'Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto. Si querés plantear una %{proposal} para la ciudad o proponer un proyecto de %{budget}, entrá a los links marcados anteriormente e ingresalo cuando la convocatoria esté abierta.'
+        description: Para abrir un debate es necesario que estés registrado en
+        description_link:  Montevideo Decide
+        description_link2:  Cuenta
+        description2: con niveles de usuario 1 y 2, si ya tenés una
+        description3: podes comentar los debates abiertos y validarlo con los botones "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos.
+        help_text_1: 'Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto. Si querés plantear una'
+        help_text_2: para la ciudad o realizar una propuesta para el
+        help_text_3: ", entrá a los links marcados anteriormente e ingrésalo cuando la convocatoria esté abierta."
     new:
       form:
         submit_button: Empezar un debate
