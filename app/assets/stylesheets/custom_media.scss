@@ -43,6 +43,10 @@
 
 @media (min-width: 100px) and (max-width: 1025px) {
 
+  .center-access{
+    margin-left: 0px;
+  }
+
   .subnavigation ul li {
     display: inline-block;
     margin-right: 1.25rem;
@@ -110,6 +114,10 @@
 }
 
 @media (min-width: 100px) and (max-width: 840px) {
+
+  .center-access{
+    margin-left: 275px;
+  }
 
   .no-bullet{
     margin-top: 45px;
@@ -259,6 +267,10 @@
 
 @media (min-width: 100px) and (max-width: 639px) {
 
+  .center-access{
+    margin-left: 155px;
+  }
+
   .no-bullet{
     margin-top: 0px;
   }
@@ -308,6 +320,10 @@
 
 @media (min-width: 100px) and (max-width: 375px) {
 
+  .center-access{
+    margin-left: 125px;
+  }
+
   .margin-left-30{
     margin-left: 5px;
   }
@@ -341,6 +357,10 @@
 
 
 @media (min-width: 100px) and (max-width: 342px) {
+
+  .center-access{
+    margin-left: 100px;
+  }
 
   .search-glass{
     right: 0px;

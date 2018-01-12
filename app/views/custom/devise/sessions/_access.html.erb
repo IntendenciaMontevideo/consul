@@ -1,11 +1,13 @@
 <% content_for :social_media_meta_tags do %>
   <% render "/shared/social_media_meta_tags", social_title: t("devise_views.sessions.new.title"), social_description: t("layouts.header.open_city_slogan_html")  %>
 <% end %>
-<div class=" small-12 medium-8 large-4 float-left margin-top-20">
+<div class=" small-12 medium-12 large-4 float-left margin-top-20">
   <% provide :title do %><%= t("devise_views.sessions.new.title") %><% end %>
+  <div class="center-access">
+
   <div class="column">
     <div class="column">
-      <%= image_tag(image_path_for('picto_user_org.png'), class: 'margin-left-20', width: '70x70', alt: t("layouts.header.logo")) %>
+      <%= image_tag(image_path_for('picto_user_org.png'), class: '', width: '70x70', alt: t("layouts.header.logo")) %>
     </div>
   </div>
   <p class="column">
@@ -13,6 +15,7 @@
   </p>
 
   <%= render 'devise/omniauth_form' %>
+  </div>
 
 
   <% if params[:login_admin] %>

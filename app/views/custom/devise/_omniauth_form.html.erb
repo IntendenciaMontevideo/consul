@@ -1,7 +1,7 @@
 <% if feature?(:saml_login) || feature?(:facebook_login) || feature?(:twitter_login) || feature?(:google_login) %>
 
   <% if current_page?(new_user_session_path) %>
-    <div class="row margin-left-20">
+    <div class="row center-mid">
       <div class="column margin-top-20">
         <div>
           <h2><%= t("login_view.sign_in_with") %></h2>
@@ -38,7 +38,7 @@
     </div>
 
   <% elsif current_page?(new_user_registration_path) %>
-    <div class="row margin-left-20">
+    <div class="row center-mid">
       <div class="column margin-top-20">
         <div>
           <h2><%= t("login_view.sign_in_with") %></h2>
