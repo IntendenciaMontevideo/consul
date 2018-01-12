@@ -9,9 +9,17 @@
   .column:last-child:not(:first-child), .columns:last-child:not(:first-child) {
       float: left;
   }
+
+  .margin-left-40{
+    margin-left: 105px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 1550px) {
+
+  .margin-left-40{
+    margin-left: 105px;
+  }
 
  .row-for-banners{
    width: 100%;
@@ -42,6 +50,10 @@
 }
 
 @media (min-width: 100px) and (max-width: 1025px) {
+
+  .box-text {
+    top: 36%;
+  }
 
   .subnavigation ul li {
     display: inline-block;
@@ -110,6 +122,18 @@
 }
 
 @media (min-width: 100px) and (max-width: 840px) {
+
+  .margin-left-40{
+    margin-left:120px;
+  }
+
+  .box-text {
+    top: 30%;
+  }
+
+  .banner-title{
+    margin-top: 5%;
+  }
 
   .no-bullet{
     margin-top: 45px;
@@ -259,6 +283,20 @@
 
 @media (min-width: 100px) and (max-width: 639px) {
 
+  .margin-left-40{
+    margin-left:10px;
+  }
+
+  .box-text {
+    width: 90%;
+    top: 10%;
+  }
+
+  .banner-title{
+    margin-top: 10%;
+    font-size: 20px;
+  }
+
   .no-bullet{
     margin-top: 0px;
   }
@@ -313,8 +351,9 @@
   }
 
   .box-text {
-    width: 80%;
-    margin-left: 15px;
+    top: 1%;
+    width: 95%;
+    margin-left: 10px;
   }
 
   .total-votes {
