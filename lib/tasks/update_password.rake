@@ -1,4 +1,5 @@
-
+#How to run:
+# rake update_password[email,new_password]
 desc "Update password "
 task :update_password, [:email, :update_password] => [:environment] do |t, args|
 	

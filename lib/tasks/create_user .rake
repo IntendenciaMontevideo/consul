@@ -1,8 +1,10 @@
 
-#Create Moderador
+#Create Moderador:
+# rake create_user[username,mail,password]
+
+
 desc "Create user"
 task :create_user, [:username, :email, :password] => [:environment] do |t, args|
-	#puts args[:username]
 	exist_email = User.where(email: args[:email])
 	exist_name = User.where(username: args[:username])
 	if ((exist_email == []) and (exist_name == []))
