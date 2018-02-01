@@ -739,6 +739,7 @@ es:
           other: "%{count} Siguiendo"
       no_activity: Usuario sin actividad pública
       no_private_messages: "Este usuario no acepta mensajes privados."
+      no_private_messages_allowed: "Solo los usuarios registrados con Nivel 2 puden enviar un mensaje privado. Accede a tu Cuenta para ver mas información"
       private_activity: Este usuario ha decidido mantener en privado su lista de actividades.
       send_private_message: "Enviar un mensaje privado"
     proposals:

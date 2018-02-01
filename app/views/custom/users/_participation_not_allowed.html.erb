@@ -1,24 +1,13 @@
-<% if user_signed_in? && current_user.organization? %>
+<% if !current_user.level_two_or_three_verified? %>
   <div class="participation-not-allowed" style='display:none' aria-hidden="false">
     <p>
-      <%= t("legislation.questions.participation.organizations") %>
-    </p>
-  </div>
-<% elsif user_signed_in? && current_user.unverified? %>
-  <div class="participation-not-allowed" style='display:none' aria-hidden="false">
-    <p>
-      <%= t("legislation.questions.participation.verified_only",
-          account: link_to(t("legislation.questions.participation.account"), account_path )).html_safe %>
+      <%= t("users.show.no_private_messages_allowed") %>
     </p>
   </div>
 <% elsif !user_signed_in? %>
   <div class="participation-not-allowed" style='display:none' aria-hidden="false">
-    <%= t("legislation.questions.participation.unauthenticated",
-      signin: link_to(t("legislation.questions.participation.signin"), new_user_session_path),
-      signup: link_to(t("legislation.questions.participation.signup"), new_user_registration_path)).html_safe %>
-  </div>
-<% elsif !@process.debate_phase.open? %>
-  <div class="participation-not-allowed" style='display:none' aria-hidden="false">
-    <%= t("legislation.questions.participation.debate_phase_not_open") %>
+    <%= t("unauthorized.manage.all",
+          signin: link_to(t("users.direct_messages.new.signin"), new_user_session_path),
+          signup: link_to(t("users.direct_messages.new.signup"), new_user_registration_path)).html_safe %>
   </div>
 <% end %>
