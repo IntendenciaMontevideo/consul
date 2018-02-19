@@ -72,4 +72,11 @@ module UsersHelper
     end
   end
 
+  def can_send_private_message?
+   if Setting.exists?(key: "can_send_private_message")
+     return ["1","true"].include?(Setting[:can_send_private_message])
+   end
+   true
+ end
+
 end

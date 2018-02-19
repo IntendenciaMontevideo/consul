@@ -68,6 +68,8 @@ Setting["place_name"] = "CONSUL-land"
 Setting["meta_description"] = nil
 Setting["meta_keywords"] = nil
 
+Setting["can_send_private_message"] = "true"
+
 # Feature flags
 Setting['feature.debates'] = true
 Setting['feature.proposals'] = true

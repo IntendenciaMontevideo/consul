@@ -2,7 +2,7 @@
   <div class="activity row margin-top min-height">
     <div class="small-12 column">
       <div id="direct-messages" class="user-direct-message float-right">
-        <% if @user != current_user %>
+        <% if @user != current_user && can_send_private_message? %>
           <% if @user.email_on_direct_message? %>
             <%= link_to t("users.show.send_private_message"),
                         new_user_direct_message_path(@user),

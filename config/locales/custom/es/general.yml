@@ -270,3 +270,6 @@ es:
     three: 3. Los interesados acceden a participar en la plataforma, mediante el uso de las redes sociales así como a través de registro previo como usuario único del Estado (AGESIC). Los datos personales aportados, serán tratados por la Intendencia de Montevideo de acuerdo a lo previsto por la Ley 18.331 de protección de datos personales, y la Ley 18.381 de Acceso a la Información Pública.
     four: 4. Como principio general, este sitio web no comparte ni revela información obtenida, excepto cuando haya sido autorizada por el usuario.
     law: "Res: 2017 - 1009 - 98 - 000373"
+  users:
+    show:
+      no_private_messages_allowed: "Solo los usuarios registrados con Nivel 2 puden enviar un mensaje privado. Accede a tu Cuenta para ver mas información"
