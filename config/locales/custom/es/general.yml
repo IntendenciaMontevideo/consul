@@ -95,6 +95,7 @@ es:
   debates:
     banner-text: El espacio de debates ciudadanos está dirigido a cualquier persona que quiera poner en discusión temas referidos a la ciudad que le preocupan y sobre los que quiera compartir puntos de vista con otras personas.
     index:
+      help_link: Ayuda sobre debates
       start_debate: Empezar un debate
       section_header:
         help: Ayuda sobre los debates
