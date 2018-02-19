@@ -18,7 +18,7 @@
     <% if feature?(:legislation) %>
       <li class="flex-3">
         <%= layout_menu_link_to t("layouts.header.collaborative_legislation"),
-                                consulta_ciudadana_path,
+                                consultas_ciudadanas_path,
                                 controller.class.parent == Legislation,
                                 accesskey: "l" %>
       </li>

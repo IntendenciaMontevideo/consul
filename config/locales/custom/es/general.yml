@@ -1,11 +1,12 @@
 es:
   legislation:
-    banner-text: Consulta Ciudadana
-    content_banner: Participa de los procesos y debates previos a la la aprobación de una norma o un reglamento.
+    banner-text: Consultas Ciudadanas
+    content_banner: Participá de las definiciones que tome la Intendencia de Montevideo sobre algunas acciones, actividades o proyectos
     title: Ayuda sobre las consultas ciudadanas
-    description: A través de la Consulta ciudadana, la Intendencia de Montevideo te ofrece la oportunidad de decidir acerca de proyectos y actividades que tiene previstas para la ciudad.
+    description: A través de las consultas ciudadanas, la Intendencia de Montevideo te ofrece la oportunidad de decidir acerca de proyectos y actividades que tiene previstas para la ciudad.
     description2: Podrás participar activamente de encuestas y sondeos, así como en los procesos y decisiones finales de determinados proyectos. Para participar de este módulo, deberás estar
-    description3: con nivel de usuario Nº 2.
+    description3: con nivel de usuario Nº 2 (ID Uruguay).
+    description4: Las consultas ciudadanas estarán publicadas durante un determinado período de tiempo, luego del cual se darán a conocer públicamente los resultados.
     description_link: registrado
   space:
     title: Espacios de Colaboración
@@ -86,7 +87,7 @@ es:
   layouts:
     header:
       ideas: Ideas
-      collaborative_legislation: Consulta ciudadana
+      collaborative_legislation: Consultas ciudadanas
       colaboration_space: Espacios de colaboración
       budgets: Presupuesto participativo
       open_city_title: Construí la ciudad en la que querés vivir
@@ -101,13 +102,13 @@ es:
       section_footer:
         title: Ayuda sobre los debates
         proposals_link: idea
-        description: Para abrir un debate es necesario que estés registrado en
+        description: Inicia un debate para compartir puntos de vista con otras personas sobre los temas que te preocupan. El espacio de debates ciudadanos fue creado para que cualquier persona pueda exponer temas que le preocupan de Montevideo y compartir su punto de vista.
         description_link:  Montevideo Decide
         description_link2:  Cuenta
-        description2: con niveles de usuario 1 y 2, si ya tenés una
+        description2: Para abrir un debate alcanza con registrarse en Montevideo Decide, con el nivel de usuario No1 (Twitter, Facebook, Google +). Los usuarios ya registrados también pueden comentar los debates abiertos, valorarlos y apoyarlos con los botones de "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos. Los debates estarán abiertos por un periodo de tres meses
         description3: podes comentar los debates abiertos y validarlo con los botones "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos.
-        help_text_1: 'Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto. Si querés plantear una'
-        help_text_2: para la ciudad o realizar una propuesta para el
+        help_text_1: Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto. Próximamente podrás plantear una
+        help_text_2: para la ciudad.
         help_text_3: ", entrá a los links marcados anteriormente e ingrésalo cuando la convocatoria esté abierta."
     new:
       form:
