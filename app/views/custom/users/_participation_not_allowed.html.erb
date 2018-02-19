@@ -1,0 +1,13 @@
+<% if !current_user.level_two_or_three_verified? %>
+  <div class="participation-not-allowed" style='display:none' aria-hidden="false">
+    <p>
+      <%= t("users.show.no_private_messages_allowed") %>
+    </p>
+  </div>
+<% elsif !user_signed_in? %>
+  <div class="participation-not-allowed" style='display:none' aria-hidden="false">
+    <%= t("unauthorized.manage.all",
+          signin: link_to(t("users.direct_messages.new.signin"), new_user_session_path),
+          signup: link_to(t("users.direct_messages.new.signup"), new_user_registration_path)).html_safe %>
+  </div>
+<% end %>
