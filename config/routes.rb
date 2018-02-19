@@ -157,7 +157,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/consulta-ciudadana', to: 'legislation/processes#index'
+  get '/consultas-ciudadanas', to: 'legislation/processes#index'
 
   resources :users, only: [:show] do
     resources :direct_messages, only: [:new, :create, :show]

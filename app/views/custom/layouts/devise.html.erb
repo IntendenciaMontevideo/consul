@@ -14,6 +14,7 @@
     <![endif]-->
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <%= render "/layouts/tag_analytics" %>
     <%= favicon_link_tag image_path_for("apple-touch-icon-200.png"),
                      rel: "icon apple-touch-icon",
                      sizes: "110x132",

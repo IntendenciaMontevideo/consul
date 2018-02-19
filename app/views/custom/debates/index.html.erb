@@ -46,6 +46,9 @@
     </div>
   <% else %>
   <% end %>
+  <div class="relative show-for-small-only">
+    <%= link_to t("debates.index.help_link"), "#section_help", class: "advanced-search small" %>
+  </div>
 
   <div class="row">
     <div id="debates" class="debates-list small-12 medium-9 column">
@@ -86,8 +89,8 @@
           <p class="lead">
             <strong><%= t("debates.index.section_footer.title") %></strong>
           </p>
-          <p><%= t("debates.index.section_footer.description") %> <%= link_to "Montevideo Decide", new_user_session_path %> <%= t("debates.index.section_footer.description2") %> <%= link_to t("debates.index.section_footer.description_link2"), account_path %> <%= t("debates.index.section_footer.description3") %></p>
-          <p><%= t("debates.index.section_footer.help_text_1") %> <%= link_to "idea", ideas_path %> <%= t("debates.index.section_footer.help_text_2") %>l <%= link_to "presupuesto participativo", presupuesto_participativo_path %><%= t("debates.index.section_footer.help_text_3") %></p>
+          <p><%= t("debates.index.section_footer.description") %> <%= t("debates.index.section_footer.description2") %></p>
+          <p><%= t("debates.index.section_footer.help_text_1") %> <%= link_to "idea", ideas_path %> <%= t("debates.index.section_footer.help_text_2") %></p>
           </p>
         </div>
       <% end %>

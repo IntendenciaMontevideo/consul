@@ -20,6 +20,7 @@ es:
         no_open_processes: No hay consultas activas
         no_next_processes: No hay consultas planeadas
         no_past_processes: No hay consultas terminadas
+        help_link: Ayuda sobre consultas ciudadanas
         section_header:
           icon_alt: Icono de Consulta ciudadana
           title: Consulta Ciudadana
