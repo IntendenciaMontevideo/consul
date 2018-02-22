@@ -13,6 +13,11 @@
   .margin-left-40{
     margin-left: 105px;
   }
+
+  .inline-h-0{
+    line-height: 0 !important;
+  }
+
 }
 
 @media (min-width: 100px) and (max-width: 1550px) {
@@ -28,6 +33,11 @@
   .column:last-child:not(:first-child), .columns:last-child:not(:first-child) {
     float: left;
   }
+
+  .inline-h-0{
+    line-height: 0 !important;
+  }
+
 
 }
 
@@ -52,8 +62,13 @@
 @media (min-width: 100px) and (max-width: 1025px) {
 
   .box-text {
-    top: 36%;
+    top: 57%;
   }
+
+  .inline-h-0{
+    line-height: 0 !important;
+  }
+
 
   .subnavigation ul li {
     display: inline-block;
@@ -119,6 +134,10 @@
   .medium-footer {
     width: 33%;
   }
+
+  .inline-h-0{
+    line-height: 0 !important;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 840px) {
@@ -128,7 +147,11 @@
   }
 
   .box-text {
-    top: 30%;
+    top: 46%;
+  }
+
+  .inline-h-0{
+    line-height: 0.6 !important;
   }
 
   .banner-title{
@@ -289,7 +312,11 @@
 
   .box-text {
     width: 90%;
-    top: 10%;
+    top: 30%;
+  }
+
+  .margin-top-3{
+   margin-top: 7px;
   }
 
   .banner-title{
@@ -351,9 +378,13 @@
   }
 
   .box-text {
-    top: 1%;
+    top: 23%;
     width: 95%;
     margin-left: 10px;
+  }
+
+  .margin-top-3{
+   margin-top: 10px;
   }
 
   .total-votes {
@@ -392,6 +423,20 @@
 
   .medium-center {
     margin-left: 0%;
+  }
+
+  .box-text {
+    top: 23%;
+    width: 95%;
+    margin-left: 10px;
+  }
+
+  .margin-top-3{
+   margin-top: 2px;
+  }
+
+  .banner-title {
+    font-size: 15px;
   }
 
   .debate .votes .icon-like, .debate .votes

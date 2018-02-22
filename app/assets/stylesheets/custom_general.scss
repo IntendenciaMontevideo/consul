@@ -257,11 +257,13 @@ p.base-color {
 
 .box-text {
   position:absolute;
-  top: 45%;
+  top: 61%;
   width: 90%;
   color: #fff;
   text-align: left;
+  line-height: 0.6;
 }
+
 .text-left{
   text-align: left;
 }
@@ -521,6 +523,7 @@ h2 {
 
 .banner-title{
   font-size: 34px;
+  line-height: 0.6;
 }
 
 .avatar-title{
