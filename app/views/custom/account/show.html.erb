@@ -1,9 +1,11 @@
 <div class="row account margin-top-20">
   <div class="small-12 column">
-    <span class="avatar-title" style="background: <%=  set_class %>" > <%=  @account.name[0].try(:upcase) %></span>
+    <div class="small-12 column">
+          <span class="avatar-title" style="background: <%=  set_class %>" > <%=  @account.name[0].try(:upcase) %></span>
         <h1 class="inline-block"><%= t("account.show.title") %></h1>
-    <%= form_for @account, as: :account, url: account_path do |f| %>
-      <div class="large-8 float-left margin-bot-small">
+    </div>
+
+      <div class="large-12 float-left margin-bot-small">
 
         <%= render "shared/errors", resource: @account %>
         <div class="medium-5 large-6 float-left margin-left-10">
@@ -66,29 +68,5 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <h2 class="margin-top-10 margin-left-small"><%= t("account.show.personal")%></h2>
-        <div class="small-12 medium-12 large-4 margin-top-20 column float-right">
-          <div class="margin-left-small">
-            <%= f.label :public_activity do %>
-              <%= f.check_box :public_activity, title: t('account.show.public_activity_label'), label: false %>
-              <span class="checkbox">
-                <%= t("account.show.public_activity_label") %>
-              </span>
-            <% end %>
-          </div>
-
-          <div class="margin-left-small">
-            <%= f.label :public_interests do %>
-              <%= f.check_box :public_interests, title: t('account.show.public_interests_label'), label: false %>
-              <span class="checkbox">
-                <%= t("account.show.public_interests_label") %>
-              </span>
-            <% end %>
-          </div>
-          <%= f.submit t("account.show.save_changes_submit"), class: "button float-right" %>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>
