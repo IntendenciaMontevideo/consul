@@ -74,7 +74,8 @@ describe Verification::Residence do
       expect(user.document_type).to eq("1")
       expect(user.date_of_birth.year).to eq(1980)
       expect(user.date_of_birth.month).to eq(12)
-      expect(user.date_of_birth.day).to eq(31)
+      #expect(user.date_of_birth.day).to eq(31)#cambio zona horaria
+      expect(user.date_of_birth.day).to eq(30)
       expect(user.gender).to eq('male')
       expect(user.geozone).to eq(geozone)
     end
