@@ -7,7 +7,17 @@ class PagesController < ApplicationController
     if @custom_page.present?
       render action: :custom_page
     else
-      render action: params[:id]
+      if params[:id] == 'associate'
+        if current_user.blank?
+          redirect_to root_path, notice: "Debes iniciar sesión para realizar esta acción."
+        elsif current_user.is_level_login_more_one?
+          redirect_to root_path
+        else
+          render action: params[:id]
+        end
+      else
+        render action: params[:id]
+      end
     end
   rescue ActionView::MissingTemplate
     head 404

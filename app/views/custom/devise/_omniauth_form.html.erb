@@ -4,10 +4,10 @@
     <div class="row margin-left-20">
       <div class="column margin-top-20">
         <div>
-          <h2><%= t("login_view.sign_in_with") %></h2>
+          <h3 class='title-login-options'><%= t("login_view.sign_in_with") %></h3>
         </div>
         <% if feature? :facebook_login %>
-        <p><%= t("login_view.sign_in_user_one") %>:</p>
+
           <div class="small-4 medium-3 large-3 column end">
             <%= link_to (image_tag(image_path_for('facebook.png'), class: '', width: '70x70', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:facebook) %>
           </div>
@@ -26,10 +26,9 @@
         <% end %>
       </div>
       <div class="column margin-top-20">
-        <div><p><%= t("login_view.sign_in_user_two") %>:</p></div>
       <% if feature? :saml_login %>
-        <div class="small-12 medium-12 large-12 column end">
-          <h3><strong><%= link_to t("omniauth.saml.name"), user_omniauth_authorize_path(:saml),
+        <div class="small-12 medium-12 large-12 end">
+          <h3 class='title-login-options'>O Ingresa con tu <strong><%= link_to t("omniauth.saml.name"), user_omniauth_authorize_path(:saml),
                       title: t("omniauth.saml.sign_in"),
                       class: "" %></strong></h3>
         </div>

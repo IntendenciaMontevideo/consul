@@ -30,15 +30,21 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def sign_in_with(feature, provider)
     raise ActionController::RoutingError.new('Not Found') unless Setting["feature.#{feature}"]
     auth = env["omniauth.auth"]
-
     identity = Identity.first_or_create_from_oauth(auth)
-
-    if auth.provider == Identity::SAML_PROVIDER
-      @user = current_user || User.first_or_initialize_for_oauth_saml(auth, identity.try(:user))
+    if current_user && current_user.is_level_login_one? && auth.provider == Identity::SAML_PROVIDER
+      @user = User.associate_user_oatuh_saml(auth, identity, current_user)
     else
-      @user = current_user || identity.user || User.first_or_initialize_for_oauth(auth)
+      if auth.provider == Identity::SAML_PROVIDER
+        @user = current_user || User.first_or_initialize_for_oauth_saml(auth, identity.try(:user))
+      else
+        if identity.user
+          @user = identity.user
+          @user.set_level_one
+        else
+          @user = current_user || User.first_or_initialize_for_oauth(auth)
+        end
+      end
     end
-
     if save_user
       identity.update(user: @user)
       sign_in_and_redirect @user, event: :authentication

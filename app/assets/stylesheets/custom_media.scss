@@ -61,6 +61,10 @@
 
 @media (min-width: 100px) and (max-width: 1025px) {
 
+  .title-login-options {
+    padding-left: 10px;
+  }
+
   .box-text {
     top: 57%;
   }
@@ -118,6 +122,10 @@
 }
 @media (min-width: 841px) and (max-width: 860px) {
 
+  .title-login-options {
+    padding-left: 10px;
+  }
+
   #nav-bar-flex{
     display: grid;
   }
@@ -141,6 +149,9 @@
 }
 
 @media (min-width: 100px) and (max-width: 840px) {
+  .title-login-options {
+    padding-left: 10px;
+  }
 
   .margin-left-40{
     margin-left:120px;
@@ -453,7 +464,7 @@
   .banner-title {
     font-size: 15px;
   }
-  
+
   .margin-left-form {
     margin-left: 18%;
   }

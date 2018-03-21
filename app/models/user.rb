@@ -77,10 +77,7 @@ class User < ActiveRecord::Base
     oauth_user            = User.find_by(email: oauth_email) if oauth_email_confirmed
 
     if oauth_user
-      oauth_user.level_login = LEVEL_LOGIN[:level_1]
-      oauth_user.residence_verified_at = nil
-      oauth_user.level_two_verified_at = nil
-      oauth_user.verified_at = nil
+      oauth_user.set_level_one
     end
 
     oauth_user || User.new(
@@ -164,6 +161,57 @@ class User < ActiveRecord::Base
     end
 
     oauth_user
+  end
+
+  def self.associate_user_oatuh_saml(auth, identity, current_user)
+    user_attributes = auth.extra.raw_info.attributes
+    oauth_user = current_user
+    if auth.extra.raw_info.attributes
+      oauth_user.first_name = user_attributes['http://wso2.org/claims/givenname'].try(:first)
+      oauth_user.last_name = user_attributes['http://wso2.org/claims/lastname'].try(:first)
+      oauth_user.last_name_2 = user_attributes['http://wso2.org/claims/lastname2'].try(:first)
+      oauth_user.role = user_attributes['http://wso2.org/claims/role'].try(:first)
+      oauth_user.user_certified = user_attributes['http://wso2.org/claims/userCertified'].first == 'true' ? true : false
+      oauth_user.country = user_attributes['http://wso2.org/claims/country'].try(:first)
+      oauth_user.document = user_attributes['http://wso2.org/claims/document'].try(:first)
+      oauth_user.document_number = user_attributes['http://wso2.org/claims/document'].try(:first)
+      oauth_user.document_type = user_attributes['http://wso2.org/claims/documentType'].try(:first)
+      oauth_user.user_verified = user_attributes['http://wso2.org/claims/userVerified'].first == 'true' ? true : false
+      oauth_user.middle_name = user_attributes['http://wso2.org/claims/middleName'].try(:first)
+      oauth_user.uid = auth.uid
+    end
+
+    if (oauth_user.uid.include?('uy-ci') || oauth_user.uid.include?('uy-dni')) && oauth_user.residence_verified_at.blank?
+      oauth_user.residence_verified_at = Date.today
+      oauth_user.level_two_verified_at = Date.today
+    end
+
+    if (oauth_user.uid.include?('uy-ci') || oauth_user.uid.include?('uy-dni')) && (oauth_user.user_certified || oauth_user.user_verified) && oauth_user.verified_at.blank?
+      oauth_user.verified_at = Date.today
+    end
+
+    if oauth_user.user_certified || oauth_user.user_verified
+      oauth_user.level_login = LEVEL_LOGIN[:level_3]
+    else
+      oauth_user.level_login = LEVEL_LOGIN[:level_2]
+    end
+
+    oauth_user
+  end
+
+  def set_level_one
+    self.level_login = LEVEL_LOGIN[:level_1]
+    self.residence_verified_at = nil
+    self.level_two_verified_at = nil
+    self.verified_at = nil
+  end
+
+  def is_level_login_one?
+    level_login == 1
+  end
+
+  def is_level_login_more_one?
+    level_login == 2 || level_login == 3
   end
 
   def text_level_login

@@ -71,7 +71,7 @@ es:
         signin: iniciar sesión
         signup: registrarte
         unauthenticated: Necesitas %{signin} o %{signup} para participar en el debate.
-        verified_only: Solo los usuarios registrados con Nivel 2 puden participar en esta instancia. Accede a tu %{account} para ver mas información.
+        verified_only: Solo los usuarios registrados con Nivel 2 puden participar en esta instancia. Pudes pasarte a Nivel 2, accede %{associate} para ver mas información.
         verify_account: verifica tu cuenta
         debate_phase_not_open: La fase de debate previo ya ha finalizado y en este momento no se aceptan respuestas
     shared:
