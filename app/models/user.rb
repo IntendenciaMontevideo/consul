@@ -35,12 +35,14 @@ class User < ActiveRecord::Base
   has_many :follows
   belongs_to :geozone
 
+  LEVEL_LOGIN = {level_1: 1, level_2: 2, level_3: 3}
+
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
   validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
 
   validate :validate_username_length
-
+  validates :email, presence: true
   validates :official_level, inclusion: {in: 0..5}
   validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
 
@@ -74,6 +76,13 @@ class User < ActiveRecord::Base
     oauth_email_confirmed = oauth_email.present? && (auth.info.verified || auth.info.verified_email || ["twitter", "google_oauth2"].include?(auth.provider))
     oauth_user            = User.find_by(email: oauth_email) if oauth_email_confirmed
 
+    if oauth_user
+      oauth_user.level_login = LEVEL_LOGIN[:level_1]
+      oauth_user.residence_verified_at = nil
+      oauth_user.level_two_verified_at = nil
+      oauth_user.verified_at = nil
+    end
+
     oauth_user || User.new(
       username:  auth.info.name || auth.uid,
       first_name: auth.info.name,
@@ -81,15 +90,17 @@ class User < ActiveRecord::Base
       oauth_email: oauth_email,
       password: Devise.friendly_token[0, 20],
       terms_of_service: '1',
+      level_login: LEVEL_LOGIN[:level_1],
       confirmed_at: oauth_email_confirmed ? DateTime.current : nil
     )
+
   end
 
   def self.first_or_initialize_for_oauth_saml(auth, user=nil)
     unless user
-      oauth_email           = [auth.uid, '@consul.imm.gub.uy'].join
-      oauth_email_confirmed = oauth_email.present?
-      oauth_user            = User.find_by(email: oauth_email) if oauth_email_confirmed
+      oauth_email           = nil
+      oauth_email_confirmed = false
+      oauth_user            = nil
     else
       oauth_user = user
     end
@@ -105,7 +116,6 @@ class User < ActiveRecord::Base
         oauth_email: oauth_email,
         password: Devise.friendly_token[0, 20],
         terms_of_service: '1',
-        confirmed_at: oauth_email_confirmed ? DateTime.current : nil,
         first_name: user_attributes['http://wso2.org/claims/givenname'].try(:first) ,
         last_name: user_attributes['http://wso2.org/claims/lastname'].try(:first),
         last_name_2: user_attributes['http://wso2.org/claims/lastname2'].try(:first),
@@ -117,7 +127,9 @@ class User < ActiveRecord::Base
         document_type: user_attributes['http://wso2.org/claims/documentType'].try(:first),
         user_verified: user_attributes['http://wso2.org/claims/userVerified'].first == 'true' ? true : false,
         middle_name: user_attributes['http://wso2.org/claims/middleName'].try(:first),
-        uid: auth.uid
+        uid: auth.uid,
+        confirmed_at: nil,
+        verified_at: nil
       )
     else
       if auth.extra.raw_info.attributes
@@ -140,11 +152,32 @@ class User < ActiveRecord::Base
       oauth_user.residence_verified_at = Date.today
       oauth_user.level_two_verified_at = Date.today
     end
+
     if (oauth_user.uid.include?('uy-ci') || oauth_user.uid.include?('uy-dni')) && (oauth_user.user_certified || oauth_user.user_verified) && oauth_user.verified_at.blank?
       oauth_user.verified_at = Date.today
     end
 
+    if oauth_user.user_certified || oauth_user.user_verified
+      oauth_user.level_login = LEVEL_LOGIN[:level_3]
+    else
+      oauth_user.level_login = LEVEL_LOGIN[:level_2]
+    end
+
     oauth_user
+  end
+
+  def text_level_login
+    text = ''
+    if level_login
+      if level_login == 1
+        text = "Nivel 1"
+      elsif level_login == 2
+        text = "Nivel 2"
+      elsif level_login == 3
+        text = "Nivel 3"
+      end
+    end
+    text
   end
 
   def name
