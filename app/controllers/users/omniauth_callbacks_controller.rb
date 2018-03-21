@@ -32,7 +32,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     auth = env["omniauth.auth"]
     identity = Identity.first_or_create_from_oauth(auth)
     if current_user && current_user.is_level_login_one? && auth.provider == Identity::SAML_PROVIDER
-      @user = User.associate_user_oatuh_saml(auth, identity, current_user)
+      if identity.user.blank? || (identity.user && identity.user_id == current_user.id)
+        @user = User.associate_user_oatuh_saml(auth, identity, current_user)
+      else
+        redirect_to '/associate', notice: 'Usted ya tiene una cuenta de ID Uruguay asociada a esta plataforma, debe darse de baja y luego intente asociasar esta cuenta nuevamente.'
+        return
+      end
     else
       if auth.provider == Identity::SAML_PROVIDER
         @user = current_user || User.first_or_initialize_for_oauth_saml(auth, identity.try(:user))

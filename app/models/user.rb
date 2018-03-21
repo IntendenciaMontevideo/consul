@@ -336,6 +336,11 @@ class User < ActiveRecord::Base
       erase_reason: erase_reason,
       username: nil,
       email: nil,
+      first_name: nil,
+      last_name: nil,
+      last_name_2: nil,
+      middle_name: nil,
+      uid: nil,
       unconfirmed_email: nil,
       phone_number: nil,
       encrypted_password: "",
@@ -343,7 +348,9 @@ class User < ActiveRecord::Base
       reset_password_token: nil,
       email_verification_token: nil,
       confirmed_phone: nil,
-      unconfirmed_phone: nil
+      unconfirmed_phone: nil,
+      document: nil,
+      document_number: nil
     )
     identities.destroy_all
   end

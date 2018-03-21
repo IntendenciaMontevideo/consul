@@ -1,0 +1,5 @@
+es:
+  devise:
+    confirmations:
+      confirmed: "Tu cuenta ha sido confirmada. Por favor autentifícate con tu usuario de IDUruguay para acceder"
+
