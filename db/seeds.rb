@@ -119,4 +119,4 @@ Setting['proposal_improvement_path'] = nil
 Setting['map_latitude'] = 51.48
 Setting['map_longitude'] = 0.0
 Setting['map_zoom'] = 10
-Setting['show_in_production'] = "true"
+Setting['show_in_production'] = "false"
