@@ -9,6 +9,11 @@ feature 'Debates' do
     Setting['feature.debates'] = true
   end
 
+  context "Concerns" do
+    it_behaves_like 'notifiable in-app', Debate
+    it_behaves_like 'relationable', Debate
+  end
+
   scenario 'Index' do
     debates = [create(:debate), create(:debate), create(:debate)]
 
@@ -35,7 +40,7 @@ feature 'Debates' do
     within("ul.pagination") do
       expect(page).to have_content("1")
       expect(page).to have_content("2")
-      expect(page).to_not have_content("3")
+      expect(page).not_to have_content("3")
       click_link "Next", exact: false
     end
 
@@ -59,11 +64,15 @@ feature 'Debates' do
     end
   end
 
-  scenario 'Show: "Back" link directs to previous page', :js do
+  scenario 'Show: "Back" link directs to previous page' do
     debate = create(:debate, title: 'Test Debate 1')
 
     visit debates_path(order: :hot_score, page: 1)
-    first(:link, debate.title).click
+
+    within("#debate_#{debate.id}") do
+      click_link debate.title
+    end
+
     link_text = find_link('Go back')[:href]
 
     expect(link_text).to include(debates_path(order: :hot_score, page: 1))
@@ -76,7 +85,7 @@ feature 'Debates' do
       right_path = debate_path(debate)
       visit right_path
 
-      expect(current_path).to eq(right_path)
+      expect(page).to have_current_path(right_path)
     end
 
     scenario 'When path does not match the friendly url' do
@@ -86,8 +95,8 @@ feature 'Debates' do
       old_path = "#{debates_path}/#{debate.id}-something-else"
       visit old_path
 
-      expect(current_path).to_not eq(old_path)
-      expect(current_path).to eq(right_path)
+      expect(page).not_to have_current_path(old_path)
+      expect(page).to have_current_path(right_path)
     end
   end
 
@@ -123,7 +132,7 @@ feature 'Debates' do
 
     expect(page.status_code).to eq(200)
     expect(page.html).to be_empty
-    expect(current_path).to eq(debates_path)
+    expect(page).to have_current_path(debates_path)
   end
 
   scenario 'Create debate too fast' do
@@ -141,7 +150,7 @@ feature 'Debates' do
 
     expect(page).to have_content 'Sorry, that was too quick! Please resubmit'
 
-    expect(current_path).to eq(new_debate_path)
+    expect(page).to have_current_path(new_debate_path)
   end
 
   scenario 'Errors on create' do
@@ -167,8 +176,8 @@ feature 'Debates' do
     expect(page).to have_content 'Debate created successfully.'
     expect(page).to have_content 'Testing an attack'
     expect(page.html).to include '<p>This is alert("an attack");</p>'
-    expect(page.html).to_not include '<script>alert("an attack");</script>'
-    expect(page.html).to_not include '&lt;p&gt;This is'
+    expect(page.html).not_to include '<script>alert("an attack");</script>'
+    expect(page.html).not_to include '&lt;p&gt;This is'
   end
 
   scenario 'Autolinking is applied to description' do
@@ -203,13 +212,13 @@ feature 'Debates' do
     expect(page).to have_content 'Testing auto link'
     expect(page).to have_link('http://example.org', href: 'http://example.org')
     expect(page).not_to have_link('click me')
-    expect(page.html).to_not include "<script>alert('hey')</script>"
+    expect(page.html).not_to include "<script>alert('hey')</script>"
 
     click_link 'Edit'
 
-    expect(current_path).to eq edit_debate_path(Debate.last)
+    expect(page).to have_current_path(edit_debate_path(Debate.last))
     expect(page).not_to have_link('click me')
-    expect(page.html).to_not include "<script>alert('hey')</script>"
+    expect(page.html).not_to include "<script>alert('hey')</script>"
   end
 
   scenario 'Update should not be posible if logged user is not the author' do
@@ -218,8 +227,8 @@ feature 'Debates' do
     login_as(create(:user))
 
     visit edit_debate_path(debate)
-    expect(current_path).not_to eq(edit_debate_path(debate))
-    expect(current_path).to eq(root_path)
+    expect(page).not_to have_current_path(edit_debate_path(debate))
+    expect(page).to have_current_path(root_path)
     expect(page).to have_content "You do not have permission to carry out the action 'edit' on debate."
   end
 
@@ -228,13 +237,13 @@ feature 'Debates' do
     Setting["max_votes_for_debate_edit"] = 2
     3.times { create(:vote, votable: debate) }
 
-    expect(debate).to_not be_editable
+    expect(debate).not_to be_editable
     login_as(debate.author)
 
     visit edit_debate_path(debate)
 
-    expect(current_path).not_to eq(edit_debate_path(debate))
-    expect(current_path).to eq(root_path)
+    expect(page).not_to have_current_path(edit_debate_path(debate))
+    expect(page).to have_current_path(root_path)
     expect(page).to have_content 'You do not have permission to'
   end
 
@@ -243,7 +252,7 @@ feature 'Debates' do
     login_as(debate.author)
 
     visit edit_debate_path(debate)
-    expect(current_path).to eq(edit_debate_path(debate))
+    expect(page).to have_current_path(edit_debate_path(debate))
 
     fill_in 'debate_title', with: "End child poverty"
     fill_in 'debate_description', with: "Let's do something to end child poverty"
@@ -298,26 +307,32 @@ feature 'Debates' do
       expect(page).to have_css("#flag-expand-debate-#{debate.id}")
     end
 
-    expect(Flag.flagged?(user, debate)).to_not be
+    expect(Flag.flagged?(user, debate)).not_to be
   end
 
   feature 'Debate index order filters' do
 
     scenario 'Default order is hot_score', :js do
-      create(:debate, title: 'Best').update_column(:hot_score, 10)
-      create(:debate, title: 'Worst').update_column(:hot_score, 2)
-      create(:debate, title: 'Medium').update_column(:hot_score, 5)
+      best_debate = create(:debate, title: 'Best')
+      best_debate.update_column(:hot_score, 10)
+      worst_debate = create(:debate, title: 'Worst')
+      worst_debate.update_column(:hot_score, 2)
+      medium_debate = create(:debate, title: 'Medium')
+      medium_debate.update_column(:hot_score, 5)
 
       visit debates_path
 
-      expect('Best').to appear_before('Medium')
-      expect('Medium').to appear_before('Worst')
+      expect(best_debate.title).to appear_before(medium_debate.title)
+      expect(medium_debate.title).to appear_before(worst_debate.title)
     end
 
     scenario 'Debates are ordered by confidence_score', :js do
-      create(:debate, title: 'Best').update_column(:confidence_score, 10)
-      create(:debate, title: 'Worst').update_column(:confidence_score, 2)
-      create(:debate, title: 'Medium').update_column(:confidence_score, 5)
+      best_debate = create(:debate, title: 'Best')
+      best_debate.update_column(:confidence_score, 10)
+      worst_debate = create(:debate, title: 'Worst')
+      worst_debate.update_column(:confidence_score, 2)
+      medium_debate = create(:debate, title: 'Medium')
+      medium_debate.update_column(:confidence_score, 5)
 
       visit debates_path
       click_link 'highest rated'
@@ -325,8 +340,8 @@ feature 'Debates' do
       expect(page).to have_selector('a.active', text: 'highest rated')
 
       within '#debates' do
-        expect('Best').to appear_before('Medium')
-        expect('Medium').to appear_before('Worst')
+        expect(best_debate.title).to appear_before(medium_debate.title)
+        expect(medium_debate.title).to appear_before(worst_debate.title)
       end
 
       expect(current_url).to include('order=confidence_score')
@@ -334,9 +349,9 @@ feature 'Debates' do
     end
 
     scenario 'Debates are ordered by newest', :js do
-      create(:debate, title: 'Best',   created_at: Time.current)
-      create(:debate, title: 'Medium', created_at: Time.current - 1.hour)
-      create(:debate, title: 'Worst',  created_at: Time.current - 1.day)
+      best_debate = create(:debate, title: 'Best', created_at: Time.current)
+      medium_debate = create(:debate, title: 'Medium', created_at: Time.current - 1.hour)
+      worst_debate = create(:debate, title: 'Worst', created_at: Time.current - 1.day)
 
       visit debates_path
       click_link 'newest'
@@ -344,8 +359,8 @@ feature 'Debates' do
       expect(page).to have_selector('a.active', text: 'newest')
 
       within '#debates' do
-        expect('Best').to appear_before('Medium')
-        expect('Medium').to appear_before('Worst')
+        expect(best_debate.title).to appear_before(medium_debate.title)
+        expect(medium_debate.title).to appear_before(worst_debate.title)
       end
 
       expect(current_url).to include('order=created_at')
@@ -354,11 +369,12 @@ feature 'Debates' do
 
     context 'Recommendations' do
 
+      let!(:best_debate) { create(:debate, title: 'Best', cached_votes_total: 10, tag_list: "Sport") }
+      let!(:medium_debate) { create(:debate, title: 'Medium', cached_votes_total: 5, tag_list: "Sport") }
+      let!(:worst_debate) { create(:debate, title: 'Worst', cached_votes_total: 1, tag_list: "Sport") }
+
       background do
         Setting['feature.user.recommendations'] = true
-        create(:debate, title: 'Best',   cached_votes_total: 10, tag_list: "Sport")
-        create(:debate, title: 'Medium', cached_votes_total: 5,  tag_list: "Sport")
-        create(:debate, title: 'Worst',  cached_votes_total: 1,  tag_list: "Sport")
       end
 
       after do
@@ -406,8 +422,8 @@ feature 'Debates' do
         expect(page).to have_selector('a.active', text: 'recommendations')
 
         within '#debates' do
-          expect('Best').to appear_before('Medium')
-          expect('Medium').to appear_before('Worst')
+          expect(best_debate.title).to appear_before(medium_debate.title)
+          expect(medium_debate.title).to appear_before(worst_debate.title)
         end
 
         expect(current_url).to include('order=recommendations')
@@ -437,7 +453,7 @@ feature 'Debates' do
 
           expect(page).to have_content(debate1.title)
           expect(page).to have_content(debate2.title)
-          expect(page).to_not have_content(debate3.title)
+          expect(page).not_to have_content(debate3.title)
         end
       end
 
@@ -472,7 +488,7 @@ feature 'Debates' do
         within("#debates") do
           expect(page).to have_content(debate1.title)
           expect(page).to have_content(debate2.title)
-          expect(page).to_not have_content(debate3.title)
+          expect(page).not_to have_content(debate3.title)
         end
       end
 
@@ -497,7 +513,7 @@ feature 'Debates' do
           within("#debates") do
             expect(page).to have_content(debate1.title)
             expect(page).to have_content(debate2.title)
-            expect(page).to_not have_content(debate3.title)
+            expect(page).not_to have_content(debate3.title)
           end
         end
 
@@ -520,7 +536,7 @@ feature 'Debates' do
           within("#debates") do
             expect(page).to have_content(debate1.title)
             expect(page).to have_content(debate2.title)
-            expect(page).to_not have_content(debate3.title)
+            expect(page).not_to have_content(debate3.title)
           end
         end
 
@@ -543,7 +559,7 @@ feature 'Debates' do
           within("#debates") do
             expect(page).to have_content(debate1.title)
             expect(page).to have_content(debate2.title)
-            expect(page).to_not have_content(debate3.title)
+            expect(page).not_to have_content(debate3.title)
           end
         end
 
@@ -566,7 +582,7 @@ feature 'Debates' do
           within("#debates") do
             expect(page).to have_content(debate1.title)
             expect(page).to have_content(debate2.title)
-            expect(page).to_not have_content(debate3.title)
+            expect(page).not_to have_content(debate3.title)
           end
         end
 
@@ -589,7 +605,7 @@ feature 'Debates' do
           within("#debates") do
             expect(page).to have_content(debate1.title)
             expect(page).to have_content(debate2.title)
-            expect(page).to_not have_content(debate3.title)
+            expect(page).not_to have_content(debate3.title)
           end
         end
 
@@ -615,7 +631,7 @@ feature 'Debates' do
 
               expect(page).to have_content(debate1.title)
               expect(page).to have_content(debate2.title)
-              expect(page).to_not have_content(debate3.title)
+              expect(page).not_to have_content(debate3.title)
             end
           end
 
@@ -635,7 +651,7 @@ feature 'Debates' do
 
               expect(page).to have_content(debate1.title)
               expect(page).to have_content(debate2.title)
-              expect(page).to_not have_content(debate3.title)
+              expect(page).not_to have_content(debate3.title)
             end
           end
 
@@ -655,7 +671,7 @@ feature 'Debates' do
 
               expect(page).to have_content(debate1.title)
               expect(page).to have_content(debate2.title)
-              expect(page).to_not have_content(debate3.title)
+              expect(page).not_to have_content(debate3.title)
             end
           end
 
@@ -675,7 +691,7 @@ feature 'Debates' do
 
               expect(page).to have_content(debate1.title)
               expect(page).to have_content(debate2.title)
-              expect(page).to_not have_content(debate3.title)
+              expect(page).not_to have_content(debate3.title)
             end
           end
 
@@ -699,7 +715,7 @@ feature 'Debates' do
 
             expect(page).to have_content(debate1.title)
             expect(page).to have_content(debate2.title)
-            expect(page).to_not have_content(debate3.title)
+            expect(page).not_to have_content(debate3.title)
           end
         end
 
@@ -818,7 +834,7 @@ feature 'Debates' do
         expect(all(".debate")[0].text).to match "Show you got"
         expect(all(".debate")[1].text).to match "Show you got"
         expect(all(".debate")[2].text).to match "Show what you got"
-        expect(page).to_not have_content "Do not display"
+        expect(page).not_to have_content "Do not display"
       end
     end
 
@@ -842,8 +858,8 @@ feature 'Debates' do
       within("#debates") do
         expect(all(".debate")[0].text).to match "Show you got"
         expect(all(".debate")[1].text).to match "Show what you got"
-        expect(page).to_not have_content "Do not display with same tag"
-        expect(page).to_not have_content "Do not display"
+        expect(page).not_to have_content "Do not display with same tag"
+        expect(page).not_to have_content "Do not display"
       end
       Setting['feature.user.recommendations'] = nil
     end
@@ -858,8 +874,8 @@ feature 'Debates' do
         click_button "Search"
       end
 
-      expect(page).to_not have_selector('#debates .debate-featured')
-      expect(page).to_not have_selector('#featured-debates')
+      expect(page).not_to have_selector('#debates .debate-featured')
+      expect(page).not_to have_selector('#featured-debates')
     end
 
   end
@@ -872,7 +888,7 @@ feature 'Debates' do
     expect(page).to have_content "This debate has been flagged as inappropriate by several users."
 
     visit debate_path(good_debate)
-    expect(page).to_not have_content "This debate has been flagged as inappropriate by several users."
+    expect(page).not_to have_content "This debate has been flagged as inappropriate by several users."
   end
 
   scenario 'Erased author' do
@@ -913,7 +929,7 @@ feature 'Debates' do
           expect(page).to have_css('.debate', count: 2)
           expect(page).to have_content(@debate1.title)
           expect(page).to have_content(@debate2.title)
-          expect(page).to_not have_content(@debate3.title)
+          expect(page).not_to have_content(@debate3.title)
         end
       end
 
@@ -928,7 +944,7 @@ feature 'Debates' do
           expect(page).to have_css('.debate', count: 2)
           expect(page).to have_content(@debate1.title)
           expect(page).to have_content(@debate2.title)
-          expect(page).to_not have_content(@debate3.title)
+          expect(page).not_to have_content(@debate3.title)
         end
       end
 
@@ -943,7 +959,7 @@ feature 'Debates' do
           expect(page).to have_css('.debate', count: 2)
           expect(page).to have_content(@debate1.title)
           expect(page).to have_content(@debate2.title)
-          expect(page).to_not have_content(@debate3.title)
+          expect(page).not_to have_content(@debate3.title)
         end
       end
 
@@ -984,7 +1000,7 @@ feature 'Debates' do
       check "debate_terms_of_service"
 
       within('div#js-suggest') do
-        expect(page).to_not have_content 'You are seeing'
+        expect(page).not_to have_content 'You are seeing'
       end
     end
   end
@@ -997,7 +1013,7 @@ feature 'Debates' do
 
     visit debates_path
     within('#debates') do
-      expect(page).to_not have_content 'Featured'
+      expect(page).not_to have_content 'Featured'
     end
 
     click_link debate.title
@@ -1018,7 +1034,7 @@ feature 'Debates' do
     click_link 'Unmark featured'
 
     within('#debates') do
-      expect(page).to_not have_content 'Featured'
+      expect(page).not_to have_content 'Featured'
     end
   end
 
@@ -1044,7 +1060,8 @@ feature 'Debates' do
 
     visit debates_path
     within('#debates') do
-      expect(page).to_not have_content("Featured")
+      expect(page).not_to have_content("Featured")
     end
   end
+
 end
