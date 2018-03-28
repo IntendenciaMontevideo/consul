@@ -35,7 +35,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if identity.user.blank? || (identity.user && identity.user_id == current_user.id)
         @user = User.associate_user_oatuh_saml(auth, identity, current_user)
       else
-        redirect_to '/associate', notice: 'Usted ya tiene una cuenta de ID Uruguay asociada a esta plataforma, debe darse de baja y luego intente asociasar esta cuenta nuevamente.'
+        redirect_to '/associate', notice: 'Usted ya tiene una cuenta de ID Uruguay asociada a esta plataforma, debe darse de baja y luego intente asociar esta cuenta nuevamente.'
         return
       end
     else
