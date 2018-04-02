@@ -22,6 +22,8 @@ RSpec.configure do |config|
   config.after :each do
     Warden.test_reset!
   end
+  Capybara.javascript_driver = :webkit
+
 end
 
 Capybara.register_driver :poltergeist do |app|
@@ -34,7 +36,8 @@ Capybara.register_driver :poltergeist do |app|
   )
 end
 
-Capybara.javascript_driver = :poltergeist
+#Capybara.javascript_driver = :poltergeist
+#Capybara.javascript_driver = :webkit
 
 Capybara.exact = true
 

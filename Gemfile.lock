@@ -94,6 +94,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.15.0)
+      capybara (>= 2.3, < 4.0)
+      json
     chronic (0.10.2)
     ckeditor (4.2.4)
       cocaine
@@ -506,6 +509,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.2.3)
   capistrano3-delayed-job (~> 1.7.3)
   capybara (~> 2.14.0)
+  capybara-webkit (~> 1.15)
   ckeditor (~> 4.2.3)
   cocoon (~> 1.2.9)
   coffee-rails (~> 4.2.1)
@@ -575,4 +579,4 @@ DEPENDENCIES
   whenever (~> 0.9.7)
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
