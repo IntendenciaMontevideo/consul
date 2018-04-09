@@ -10,7 +10,8 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 
-I18n.default_locale = :en
+#I18n.default_locale = :en
+I18n.default_locale = :es
 
 include Warden::Test::Helpers
 Warden.test_mode!
@@ -36,9 +37,16 @@ Capybara.register_driver :poltergeist do |app|
   )
 end
 
-#Capybara.javascript_driver = :poltergeist
+Capybara.javascript_driver = :poltergeist
 #Capybara.javascript_driver = :webkit
 
 Capybara.exact = true
 
-OmniAuth.config.test_mode = true
+OmniAuth.config.test_mode = true 
+
+
+
+
+
+
+
