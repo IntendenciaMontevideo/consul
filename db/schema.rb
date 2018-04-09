@@ -119,10 +119,11 @@ ActiveRecord::Schema.define(version: 20180320003800) do
 
   create_table "budget_investment_milestones", force: :cascade do |t|
     t.integer  "investment_id"
-    t.string   "title",         limit: 80
+    t.string   "title",            limit: 80
     t.text     "description"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.datetime "publication_date"
   end
 
   create_table "budget_investments", force: :cascade do |t|
@@ -135,7 +136,6 @@ ActiveRecord::Schema.define(version: 20180320003800) do
     t.string   "feasibility",                limit: 15, default: "undecided"
     t.text     "price_explanation"
     t.text     "unfeasibility_explanation"
-    t.text     "internal_comments"
     t.boolean  "valuation_finished",                    default: false
     t.integer  "valuator_assignments_count",            default: 0
     t.integer  "price_first_year",           limit: 8
@@ -169,6 +169,22 @@ ActiveRecord::Schema.define(version: 20180320003800) do
   add_index "budget_investments", ["heading_id"], name: "index_budget_investments_on_heading_id", using: :btree
   add_index "budget_investments", ["tsv"], name: "index_budget_investments_on_tsv", using: :gin
 
+  create_table "budget_phases", force: :cascade do |t|
+    t.integer  "budget_id"
+    t.integer  "next_phase_id"
+    t.string   "kind",                         null: false
+    t.text     "summary"
+    t.text     "description"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "enabled",       default: true
+  end
+
+  add_index "budget_phases", ["ends_at"], name: "index_budget_phases_on_ends_at", using: :btree
+  add_index "budget_phases", ["kind"], name: "index_budget_phases_on_kind", using: :btree
+  add_index "budget_phases", ["next_phase_id"], name: "index_budget_phases_on_next_phase_id", using: :btree
+  add_index "budget_phases", ["starts_at"], name: "index_budget_phases_on_starts_at", using: :btree
+
   create_table "budget_reclassified_votes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "investment_id"
@@ -200,6 +216,9 @@ ActiveRecord::Schema.define(version: 20180320003800) do
     t.text     "description_reviewing_ballots"
     t.text     "description_finished"
     t.string   "slug"
+    t.text     "description_drafting"
+    t.text     "description_publishing_prices"
+    t.text     "description_informing"
   end
 
   create_table "campaigns", force: :cascade do |t|
@@ -214,7 +233,7 @@ ActiveRecord::Schema.define(version: 20180320003800) do
     t.string   "commentable_type"
     t.text     "body"
     t.string   "subject"
-    t.integer  "user_id",                        null: false
+    t.integer  "user_id",                            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "hidden_at"
@@ -227,7 +246,8 @@ ActiveRecord::Schema.define(version: 20180320003800) do
     t.integer  "cached_votes_down",  default: 0
     t.datetime "confirmed_hide_at"
     t.string   "ancestry"
-    t.integer  "confidence_score",   default: 0, null: false
+    t.integer  "confidence_score",   default: 0,     null: false
+    t.boolean  "valuation",          default: false
   end
 
   add_index "comments", ["ancestry"], name: "index_comments_on_ancestry", using: :btree
@@ -237,6 +257,7 @@ ActiveRecord::Schema.define(version: 20180320003800) do
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
   add_index "comments", ["hidden_at"], name: "index_comments_on_hidden_at", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+  add_index "comments", ["valuation"], name: "index_comments_on_valuation", using: :btree
 
   create_table "communities", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -572,7 +593,7 @@ ActiveRecord::Schema.define(version: 20180320003800) do
   create_table "locks", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "tries",        default: 0
-    t.datetime "locked_until", default: '2000-01-01 04:01:01', null: false
+    t.datetime "locked_until", default: '2000-01-01 01:01:01', null: false
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
   end
@@ -601,6 +622,16 @@ ActiveRecord::Schema.define(version: 20180320003800) do
   end
 
   add_index "moderators", ["user_id"], name: "index_moderators_on_user_id", using: :btree
+
+  create_table "newsletters", force: :cascade do |t|
+    t.string   "subject"
+    t.string   "segment_recipient", null: false
+    t.string   "from"
+    t.text     "body"
+    t.date     "sent_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
@@ -798,6 +829,8 @@ ActiveRecord::Schema.define(version: 20180320003800) do
     t.datetime "hidden_at"
     t.boolean  "results_enabled",    default: false
     t.boolean  "stats_enabled",      default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "polls", ["starts_at", "ends_at"], name: "index_polls_on_starts_at_and_ends_at", using: :btree
@@ -850,6 +883,35 @@ ActiveRecord::Schema.define(version: 20180320003800) do
   add_index "proposals", ["summary"], name: "index_proposals_on_summary", using: :btree
   add_index "proposals", ["title"], name: "index_proposals_on_title", using: :btree
   add_index "proposals", ["tsv"], name: "index_proposals_on_tsv", using: :gin
+
+  create_table "related_content_scores", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "related_content_id"
+    t.integer "value"
+  end
+
+  add_index "related_content_scores", ["related_content_id"], name: "index_related_content_scores_on_related_content_id", using: :btree
+  add_index "related_content_scores", ["user_id", "related_content_id"], name: "unique_user_related_content_scoring", unique: true, using: :btree
+  add_index "related_content_scores", ["user_id"], name: "index_related_content_scores_on_user_id", using: :btree
+
+  create_table "related_contents", force: :cascade do |t|
+    t.integer  "parent_relationable_id"
+    t.string   "parent_relationable_type"
+    t.integer  "child_relationable_id"
+    t.string   "child_relationable_type"
+    t.integer  "related_content_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "hidden_at"
+    t.integer  "related_content_scores_count", default: 0
+    t.integer  "author_id"
+  end
+
+  add_index "related_contents", ["child_relationable_type", "child_relationable_id"], name: "index_related_contents_on_child_relationable", using: :btree
+  add_index "related_contents", ["hidden_at"], name: "index_related_contents_on_hidden_at", using: :btree
+  add_index "related_contents", ["parent_relationable_id", "parent_relationable_type", "child_relationable_id", "child_relationable_type"], name: "unique_parent_child_related_content", unique: true, using: :btree
+  add_index "related_contents", ["parent_relationable_type", "parent_relationable_id"], name: "index_related_contents_on_parent_relationable", using: :btree
+  add_index "related_contents", ["related_content_id"], name: "opposite_related_content", using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string "key"
@@ -1042,7 +1104,7 @@ ActiveRecord::Schema.define(version: 20180320003800) do
     t.boolean  "email_digest",                              default: true
     t.boolean  "email_on_direct_message",                   default: true
     t.boolean  "official_position_badge",                   default: false
-    t.datetime "password_changed_at",                       default: '2015-01-01 04:01:01', null: false
+    t.datetime "password_changed_at",                       default: '2015-01-01 01:01:01', null: false
     t.boolean  "created_from_signature",                    default: false
     t.integer  "failed_email_digests_count",                default: 0
     t.text     "former_users_data_log",                     default: ""
@@ -1182,6 +1244,8 @@ ActiveRecord::Schema.define(version: 20180320003800) do
   add_foreign_key "poll_recounts", "poll_officer_assignments", column: "officer_assignment_id"
   add_foreign_key "poll_voters", "polls"
   add_foreign_key "proposals", "communities"
+  add_foreign_key "related_content_scores", "related_contents"
+  add_foreign_key "related_content_scores", "users"
   add_foreign_key "users", "geozones"
   add_foreign_key "valuators", "users"
 end
