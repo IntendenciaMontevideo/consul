@@ -48,4 +48,11 @@ module ProposalsHelper
     current_user && proposal.editable_by?(current_user) && proposal.open?
   end
 
+  def resaon_not_success(proposal)
+
+    unless proposal.link_not_success.blank?
+      link_to 'más información', proposal.link_not_success, target: '_blank'
+    end
+  end
+
 end

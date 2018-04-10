@@ -9,13 +9,15 @@
     <br>
     <%= form_tag approve_threshold_management_proposal_path(proposal) do %>
       <h5>Pre Aprobar Idea</h5>
-      <%= label_tag "Apoyos necesarios para aprobar idea:", "Apoyos necesario para aprobar idea:"%>
-      <%= text_field_tag :votes_for_success %>
+      <%= label_tag "Apoyos necesarios para aprobar idea", "Apoyos necesario para aprobar idea:"%>
+      <%= number_field_tag :votes_for_success %>
       <%= submit_tag 'Pre-Aprobar'%>
     <% end %>
     <br>
     <%= form_tag not_approve_management_proposal_path(proposal) do %>
       <h5>No aprobar idea</h5>
+      <%= label_tag "Motivo de no aprobación URL", "Motivo de no aprobación(URL):"%>
+      <%= text_field_tag :link_not_success %>
       <%= submit_tag 'No aprobar'%>
     <% end %>
     <br>
@@ -25,6 +27,10 @@
     <% end %>
   <% end %>
   <p>Estado actual: <%= proposal.state_text %></p>
+  <% if proposal.not_successful? && !proposal.link_not_success.blank?%>
+    <p>Motivo de no aprobación URL: <%= link_to proposal.link_not_success.to_s, proposal.link_not_success, target: '_blank'%></p>
+  <% end %>
   <p>Apoyos requeridos: <%= proposal.votes_for_success.to_s %></pr>
   <p>Apoyos recibidos: <%= proposal.total_votes.to_s %></pr>
+
 </div>

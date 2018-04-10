@@ -30,8 +30,12 @@ class Management::ProposalsController < Management::BaseController
   end
 
   def not_approve
-    @proposal.not_success!
-    redirect_to management_proposal_path(@proposal), notice: 'Actualizado correctamente'
+    unless params[:link_not_success].blank?
+      @proposal.not_success!(params[:link_not_success])
+      redirect_to management_proposal_path(@proposal), notice: 'Actualizado correctamente'
+    else
+      redirect_to management_proposal_path(@proposal), alert: 'El link del motivo de la no aprobación es obligatorio'
+    end
   end
 
   def pending

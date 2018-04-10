@@ -74,7 +74,7 @@ class Proposal < ActiveRecord::Base
   scope :unsuccessful,             -> { where.not("state = ?", Proposal::STATES[:success]) }
   scope :public_for_api,           -> { all }
   scope :not_supported_by_user,    ->(user) { where.not(id: user.find_voted_items(votable_type: "Proposal").compact.map(&:id)) }
-
+  scope :not_not_success,          -> { where.not("state = ?", Proposal::STATES[:not_success]) }
   def url
     proposal_path(self)
   end
@@ -258,8 +258,8 @@ class Proposal < ActiveRecord::Base
     update(state: STATES[:success])
   end
 
-  def not_success!
-    update(state: STATES[:not_success])
+  def not_success!(link)
+    update(state: STATES[:not_success], link_not_success: link)
   end
 
   def pending!
