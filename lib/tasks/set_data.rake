@@ -22,11 +22,14 @@ namespace :set_data do
   desc "Set data"
   task set_data: :environment do
     Setting["proposal_code_prefix"] = 'MVD'
+    Setting['proposals_start_day'] = 1
+    Setting['proposals_start_month'] = 4
+    Setting['proposals_end_day'] = 31
+    Setting['proposals_end_month'] = 10
     Setting['proposals_vote_start_day'] = 1
     Setting['proposals_vote_start_month'] = 4
     Setting['proposals_vote_end_day'] = 31
     Setting['proposals_vote_end_month'] = 3
     Setting['proposals_feasibility_threshold'] = 500
-    Setting['feature.allow_images'] = true
   end
 end
