@@ -393,6 +393,12 @@
   }
 }
 
+@media (max-width: 425px) {
+  .featured-proposals .proposal-featured {
+    min-height: 160px;
+  }
+}
+
 @media (min-width: 100px) and (max-width: 375px) {
 
   .margin-left-30{

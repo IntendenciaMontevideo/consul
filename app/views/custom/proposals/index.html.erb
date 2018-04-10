@@ -1,4 +1,8 @@
-<% provide :title do %><%= t('proposals.index.title') %><% end %>
+<% provide :title do %><%= t('debates.index.title') %><% end %>
+<% content_for :social_media_meta_tags do %>
+  <% render "/shared/social_media_meta_tags", social_title: t("welcome.proposal.title"), social_description: t("proposals.banner-text")  %>
+<% end %>
+
 <% content_for :header_addon do %>
   <%= render "shared/search_form",
              search_path: proposals_path(page: 1),
@@ -7,6 +11,18 @@
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: proposals_url %>
 <% end %>
+
+<div class="row-for-banners">
+  <div class="box">
+     <%= image_tag(image_path_for('banner-ideas.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+    <div class="column box-text">
+        <p> <%= image_tag(image_path_for('hand-1.png'), class: ' float-left show-for-large-only', size: '70x70', alt: t("layouts.header.logo")) %> </p>
+        <p> <%= image_tag(image_path_for('hand-1.png'), class: ' float-left show-for-medium-only', size: '55x55', alt: t("layouts.header.logo")) %> </p>
+      <h2 class="banner-title inline-h-0"><%= t("ideas.title") %></h2>
+      <p class="banner-font medium-9 show-for-large-only"><%= t("ideas.content_banner") %></p>
+    </div>
+  </div>
+</div>
 
 <main>
   <% if @search_terms || @advanced_search_terms || @tag_filter || params[:retired].present? %>
@@ -33,24 +49,18 @@
         </div>
       </div>
     </div>
-  <% else %>
-    <%= render "shared/section_header", i18n_namespace: "proposals.index.section_header", image: "proposals" %>
   <% end %>
 
   <div class="row">
     <div id="proposals" class="proposals-list small-12 medium-9 column">
-
-      <% if has_banners? %>
-        <%= render "shared/banner" %>
-      <% end %>
-
       <% if @featured_proposals.present? %>
+        <div class="small-12 column featured-title-proposal">
+          <h2>
+            <%= t("proposals.index.featured_proposals") %>
+          </h2>
+        </div>
         <div id="featured-proposals" class="row featured-proposals">
-          <div class="small-12 column">
-            <h2>
-              <%= t("proposals.index.featured_proposals") %>
-            </h2>
-          </div>
+
           <% @featured_proposals.each do |featured_proposal| %>
             <%= render "featured_proposal", proposal: featured_proposal %>
           <% end %>
@@ -78,16 +88,29 @@
         <%= paginate @proposals %>
 
         <% unless @search_terms || @advanced_search_terms || @tag_filter %>
-          <div id="section_help" class="margin" data-magellan-target="section_help">
+          <div id="section_help" class="margin help-proposal" data-magellan-target="section_help">
             <p class="lead">
               <strong><%= t("proposals.index.section_footer.title") %></strong>
             </p>
-            <p><%= t("proposals.index.section_footer.description") %></p>
-            <p><%= t("proposals.index.section_footer.help_text_1") %></p>
-            <p><%= t("proposals.index.section_footer.help_text_2",
-                      org: link_to(setting['org_name'], new_user_registration_path),
-                      supports: setting["votes_for_proposal_success"]).html_safe %></p>
-            <p><%= t("proposals.index.section_footer.help_text_3") %></p>
+            <p class='help-questions'><%= t("proposals.index.section_footer.title_1").html_safe %></p>
+            <p><%= t("proposals.index.section_footer.desc_1", link: link_to('darte de alta', new_user_session_url)).html_safe %></p>
+            <p class='help-questions'><%= t("proposals.index.section_footer.title_2").html_safe %></p>
+            <p><%= t("proposals.index.section_footer.desc_2").html_safe %></p>
+            <p class='help-questions'><%= t("proposals.index.section_footer.title_3").html_safe %></p>
+            <p><%= t("proposals.index.section_footer.desc_3").html_safe %></p>
+            <p class='help-questions'><%= t("proposals.index.section_footer.title_4").html_safe %></p>
+            <p><%= t("proposals.index.section_footer.desc_4").html_safe %></p>
+            <p class='help-questions'><%= t("proposals.index.section_footer.title_5").html_safe %></p>
+            <p><%= t("proposals.index.section_footer.desc_5").html_safe %></p>
+            <p class='help-questions'><%= t("proposals.index.section_footer.title_6").html_safe %></p>
+            <p><%= t("proposals.index.section_footer.desc_6").html_safe %></p>
+            <p class='help-questions'><%= t("proposals.index.section_footer.title_7").html_safe %></p>
+            <p><%= t("proposals.index.section_footer.desc_7").html_safe %></p>
+            <%= t("proposals.index.section_footer.desc_7_ul").html_safe %>
+            <p class='help-questions'><%= t("proposals.index.section_footer.title_8").html_safe %></p>
+            <p><%= t("proposals.index.section_footer.desc_8").html_safe %></p>
+            <p class='help-questions'><%= t("proposals.index.section_footer.title_9").html_safe %></p>
+            <p><%= t("proposals.index.section_footer.desc_9").html_safe %></p>
           </div>
         <% end %>
       </div>
@@ -95,9 +118,11 @@
 
     <div class="small-12 medium-3 column">
       <aside class="margin-bottom">
-        <%= link_to t("proposals.index.start_proposal"),
+        <% if Proposal.can_create? %>
+          <%= link_to t("proposals.index.start_proposal"),
                     new_proposal_guide,
                     class: 'button expanded' %>
+        <% end %>
         <% if params[:retired].blank? %>
           <%= render 'categories' %>
           <%= render "shared/tag_cloud", taggable: 'proposal' %>

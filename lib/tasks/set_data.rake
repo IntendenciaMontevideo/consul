@@ -1,4 +1,4 @@
-namespace :disable_modules do
+namespace :set_data do
 
   desc "Disable external login and register"
   task external_login: :environment do
@@ -15,6 +15,16 @@ namespace :disable_modules do
     Setting['feature.public_stats'] = false
     Setting['feature.budgets'] = false
     Setting['feature.legislation'] = true
-    Setting['feature.proposals'] = false
+    Setting['feature.proposals'] = true
+  end
+
+  desc "Set data"
+  task set_data: :environment do
+    Setting["proposal_code_prefix"] = 'MVD'
+    Setting['proposals_vote_start_day'] = 1
+    Setting['proposals_vote_start_month'] = 4
+    Setting['proposals_vote_end_day'] = 31
+    Setting['proposals_vote_end_month'] = 3
+    Setting['proposals_feasibility_threshold'] = 500
   end
 end

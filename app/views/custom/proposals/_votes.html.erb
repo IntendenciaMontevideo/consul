@@ -1,18 +1,29 @@
 <div class="supports text-center">
-  <div class="progress small-12 round">
-    <span class="meter" style="width: <%= progress_bar_percentage(proposal) %>%;"></span>
-    <span class="percentage">
-      <%= supports_percentage(proposal) %>&nbsp;/&nbsp;<%= t("proposals.proposal.total_percent") %>
-    </span>
-  </div>
+  <% if proposal.successful? || proposal.pre_successful? %>
+    <div class="progress small-12 round">
+      <span class="meter" style="width: <%= progress_bar_percentage(proposal) %>%;"></span>
+      <span class="percentage">
+        <%= supports_percentage(proposal) %>&nbsp;/&nbsp;<%= t("proposals.proposal.total_percent") %>
+      </span>
+    </div>
+  <% end %>
 
   <span class="total-supports">
     <%= t("proposals.proposal.supports", count: proposal.total_votes) %>&nbsp;
-    <span>
-      <abbr title="<%= t("proposals.proposal.reason_for_supports_necessary") %>">
-        <%= t("proposals.proposal.supports_necessary", number: number_with_delimiter(Proposal.votes_needed_for_success)) %>
-      </abbr>
-    </span>
+    <% unless proposal.successful? %>
+      <span>
+        <abbr title="<%= t("proposals.proposal.reason_for_supports_necessary") %>">
+          <% if proposal.pre_successful? %>
+            Esta idea ha superado el umbral de viabilidad y requiere <%= number_with_delimiter(proposal.votes_for_success) %> votos para pasar a fase de votación
+            <% t("proposals.proposal.supports_necessary", number: number_with_delimiter(Proposal.votes_needed_for_pre_success)) %>
+          <% elsif proposal.votes_pre_successful? %>
+            Esta propuesta ha superado el umbral de viabilidad y esta siendo evaluada para pasar a fase de votación
+          <% elsif proposal.open? %>
+            Esta idea debe alcanzar <%= number_with_delimiter(Proposal.votes_needed_for_pre_success)%> votos para ser analizada en el estudio de viabilidad
+          <% end %>
+        </abbr>
+      </span>
+    <% end %>
   </span>
 
   <div class="in-favor">

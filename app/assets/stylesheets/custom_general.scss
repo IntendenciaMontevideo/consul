@@ -109,6 +109,117 @@ div #tag-cloud ul li a{
 .proposal-show .votes, .legislation-proposals .votes {
   border-left: 0px;
 }
+
+.featured-title-proposal {
+
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.featured-proposals{
+  background-color: #fff;
+}
+
+.proposal-featured{
+  background-color: #f9bd41;
+  padding-top: 16px;
+  margin-bottom: 16px;
+}
+
+.featured-proposals .supports .button-support{
+  background: #fff;
+  font-weight: 900;
+}
+
+.featured-proposals .supports .button-support:hover {
+  background: #fff !important;
+  color: #ffdc5c;
+}
+
+.proposal .panel h3 a {
+  color: #f9bd41;
+}
+
+.featured-proposals h3 a:hover {
+  color: #222;
+}
+
+.proposal .panel .row {
+  margin-bottom: 10px;
+}
+
+.help-proposal {
+  padding-top: 30px;
+}
+
+p.help-questions {
+  color: #f9bd41;
+}
+
+.featured-proposals .proposal-featured {
+  min-height: 7.25rem;
+}
+
+.proposal-show h1{
+  color: #f9bd41;
+}
+
+.help-proposal ul {
+  margin-left: 30px;
+}
+
+.documents .document-link, .proposal-show .video-link, .proposal-show .document-link, .proposal-document{
+  background-color: #d7d7d7;
+  border: 1px solid #d7d7d7;
+  border-radius: 0;
+}
+
+.proposal-document {
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+}
+
+.proposal-document a, .video-link a{
+  color: #222;
+}
+
+.proposal-show .proposal-info .author a {
+  color: #515151 !important;
+  font-weight: 400;
+}
+
+.proposal-show aside h2 {
+  border-top: 2px solid #f9bd41;
+  color: #f9bd41;
+}
+
+.proposal-state-data {
+  background-color: #f2f2f2;
+  padding: 10px;
+
+  p {
+    margin-bottom: 1px;
+  }
+}
+
+.proposal-show {
+
+  figure {
+    margin: 0;
+  }
+
+  .image-preview{
+    padding-left: 0;
+  }
+}
+
+
+
+.tabs .tabs-title > a[aria-selected='true'], .tabs .tabs-title > a.is-active {
+  color: #515151;
+  border-bottom: 2px solid #f9bd41;
+}
+
 .debate .panel, .proposal .panel, .investment-project .panel, .budget-investment .panel, .legislation .panel, .communities-show .panel {
   background: #fff;
   border: 0;
@@ -747,4 +858,8 @@ input.button.disabled {
 
 .buttom-comments-debates {
   width: 100%;
+}
+
+.margin-top-25{
+  margin-top: 25px;
 }

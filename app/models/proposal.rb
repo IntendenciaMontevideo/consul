@@ -26,6 +26,7 @@ class Proposal < ActiveRecord::Base
   include ActsAsParanoidAliases
 
   RETIRE_OPTIONS = %w(duplicated started unfeasible done other)
+  STATES = { open: 1, pre_success: 2, success: 3, not_success: 4}
 
   belongs_to :author, -> { with_hidden }, class_name: 'User', foreign_key: 'author_id'
   belongs_to :geozone
@@ -51,6 +52,7 @@ class Proposal < ActiveRecord::Base
   before_validation :set_responsible_name
 
   before_save :calculate_hot_score, :calculate_confidence_score
+  before_create :set_votes_for_success
 
   scope :for_render,               -> { includes(:tags) }
   scope :sort_by_hot_score,        -> { reorder(hot_score: :desc) }
@@ -62,13 +64,14 @@ class Proposal < ActiveRecord::Base
   scope :sort_by_flags,            -> { order(flags_count: :desc, updated_at: :desc) }
   scope :sort_by_archival_date,    -> { archived.sort_by_confidence_score }
   scope :sort_by_recommendations,  -> { order(cached_votes_up: :desc) }
-  scope :archived,                 -> { where("proposals.created_at <= ?", Setting["months_to_archive_proposals"].to_i.months.ago) }
-  scope :not_archived,             -> { where("proposals.created_at > ?", Setting["months_to_archive_proposals"].to_i.months.ago) }
+  scope :archived,                 -> { where("proposals.created_at <= ?", [Setting['proposals_start_day'], '/', Setting['proposals_start_month'], '/', Time.zone.now.year].join.to_time) }
+  scope :not_archived,             -> { where("proposals.created_at > ?", [Setting['proposals_start_day'], '/', Setting['proposals_start_month'], '/', Time.zone.now.year].join.to_time) }
   scope :last_week,                -> { where("proposals.created_at >= ?", 7.days.ago)}
   scope :retired,                  -> { where.not(retired_at: nil) }
   scope :not_retired,              -> { where(retired_at: nil) }
-  scope :successful,               -> { where("cached_votes_up >= ?", Proposal.votes_needed_for_success) }
-  scope :unsuccessful,             -> { where("cached_votes_up < ?", Proposal.votes_needed_for_success) }
+  #scope :successful,               -> { where("cached_votes_up >= ?", Proposal.votes_needed_for_success) }
+  scope :successful,               -> { where("state = ?", Proposal::STATES[:success]) }
+  scope :unsuccessful,             -> { where.not("state = ?", Proposal::STATES[:success]) }
   scope :public_for_api,           -> { all }
   scope :not_supported_by_user,    ->(user) { where.not(id: user.find_voted_items(votable_type: "Proposal").compact.map(&:id)) }
 
@@ -140,7 +143,7 @@ class Proposal < ActiveRecord::Base
   end
 
   def editable?
-    total_votes <= Setting["max_votes_for_proposal_edit"].to_i
+    total_votes <= Setting["max_votes_for_proposal_edit"].to_i && !archived? && Proposal.can_create?
   end
 
   def editable_by?(user)
@@ -192,12 +195,33 @@ class Proposal < ActiveRecord::Base
     Setting['votes_for_proposal_success'].to_i
   end
 
+   def self.votes_needed_for_pre_success
+    Setting['proposals_feasibility_threshold'].to_i
+  end
+
   def successful?
-    total_votes >= Proposal.votes_needed_for_success
+    state == Proposal::STATES[:success] || (pre_successful? && total_votes >= self.votes_for_success)
+  end
+
+  def votes_pre_successful?
+    total_votes >= Setting['proposals_feasibility_threshold'].to_i
+  end
+
+  def open?
+    state == Proposal::STATES[:open]
+  end
+
+  def pre_successful?
+    state == Proposal::STATES[:pre_success]
+  end
+
+  def not_successful?
+    state == Proposal::STATES[:not_success]
   end
 
   def archived?
-    created_at <= Setting["months_to_archive_proposals"].to_i.months.ago
+    #created_at <= Setting["months_to_archive_proposals"].to_i.days.ago
+    Time.zone.now >= [Setting['proposals_start_day'], '/', Setting['proposals_start_month'], '/', created_at.year + 1].join.to_time.beginning_of_day
   end
 
   def notifications
@@ -214,12 +238,57 @@ class Proposal < ActiveRecord::Base
     orders
   end
 
+  def self.can_create?
+    start_time = [Setting['proposals_start_day'], '/', Setting['proposals_start_month'], '/', Date.today.year].join.to_time
+    end_time = [Setting['proposals_end_day'], '/', Setting['proposals_end_month'], '/', Date.today.year].join.to_time
+    Time.zone.now >= start_time.beginning_of_day && Time.zone.now <= end_time.end_of_day
+  end
+
+  def can_vote?
+    start_time = [Setting['proposals_vote_start_day'], '/', Setting['proposals_vote_start_month'], '/', created_at.year].join.to_time
+    end_time = [Setting['proposals_vote_end_day'], '/', Setting['proposals_vote_end_month'], '/', (created_at.year + 1)].join.to_time
+    Time.zone.now >= start_time.beginning_of_day && Time.zone.now <= end_time.end_of_day
+  end
+
+  def pre_success!(votes_for_success)
+    update(state: STATES[:pre_success], votes_for_success: votes_for_success)
+  end
+
+  def success!
+    update(state: STATES[:success])
+  end
+
+  def not_success!
+    update(state: STATES[:not_success])
+  end
+
+  def pending!
+    update(state: STATES[:open])
+  end
+
+  def state_text
+    case state
+    when STATES[:open]
+     'Pendiente'
+    when STATES[:pre_success]
+     'Pre-Aprobada'
+    when STATES[:success]
+     'Aprobada'
+    when STATES[:not_success]
+     'No Aprobada'
+    end
+  end
+
   protected
 
     def set_responsible_name
       if author && author.document_number?
         self.responsible_name = author.document_number
       end
+    end
+
+    def set_votes_for_success
+      self.votes_for_success = Setting['proposals_feasibility_threshold']
     end
 
 end

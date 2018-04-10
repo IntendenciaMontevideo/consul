@@ -8,6 +8,7 @@ class ProposalsController < ApplicationController
   before_action :load_geozones, only: [:edit, :map, :summary]
   before_action :authenticate_user!, except: [:index, :show, :map, :summary]
   before_action :destroy_map_location_association, only: :update
+  before_action :can_create_proposal, only: [:new, :create]
 
   feature_flag :proposals
 
@@ -18,7 +19,10 @@ class ProposalsController < ApplicationController
   has_orders ->(c) { Proposal.proposals_orders(c.current_user) }, only: :index
   has_orders %w{most_voted newest oldest}, only: :show
 
+  before_action :find_proposal, :only => :show
   load_and_authorize_resource
+  before_action :can_edit_proposal, only: [:edit, :update]
+
   helper_method :resource_model, :resource_name
   respond_to :html, :js
 
@@ -140,4 +144,25 @@ class ProposalsController < ApplicationController
       end
     end
 
+    def can_create_proposal
+      unless Proposal.can_create?
+        redirect_to proposals_path, alert: "El periodo de creación de propuestas ha finalizado."
+      end
+    end
+
+    def can_edit_proposal
+      unless @proposal.open?
+        redirect_to proposal_path(@proposal), alert: "Solo se pueden editar ideas que aún no han pasado por el estudio de viabilidad."
+      end
+    end
+
+    def find_proposal
+      @proposal = Proposal.find_by_id(params[:id])
+      unless @proposal
+        proposal = Proposal.unscoped.find_by_id(params[:id])
+        if proposal && !proposal.hidden_at.blank?
+          redirect_to proposals_path, alert: 'La idea que intenta acceder fue eliminada por un administrador.'
+        end
+      end
+    end
 end

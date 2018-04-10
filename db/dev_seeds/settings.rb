@@ -12,7 +12,7 @@ section "Creating Settings" do
   Setting.create(key: 'max_ratio_anon_votes_on_debates', value: '50')
   Setting.create(key: 'max_votes_for_debate_edit', value: '1000')
   Setting.create(key: 'max_votes_for_proposal_edit', value: '1000')
-  Setting.create(key: 'proposal_code_prefix', value: 'MAD')
+  Setting.create(key: 'proposal_code_prefix', value: 'MVD')
   Setting.create(key: 'votes_for_proposal_success', value: '100')
   Setting.create(key: 'months_to_archive_proposals', value: '12')
   Setting.create(key: 'comments_body_max_length', value: '1000')
@@ -62,4 +62,15 @@ section "Creating Settings" do
   Setting.create(key: 'map_zoom', value: 10)
   Setting.create(key: 'related_content_score_threshold', value: -0.3)
   Setting.create(key: 'show_in_production', value: "false")
+  # Period create proposal
+  Setting.create(key: 'proposals_start_day', value: 1)
+  Setting.create(key: 'proposals_start_month', value: 4)
+  Setting.create(key: 'proposals_end_day', value: 31)
+  Setting.create(key: 'proposals_end_month', value: 10)
+  #Period vote proposal
+  Setting.create(key: 'proposals_vote_start_day', value: 1)
+  Setting.create(key: 'proposals_vote_start_month', value: 4)
+  Setting.create(key: 'proposals_vote_end_day', value: 31)
+  Setting.create(key: 'proposals_vote_end_month', value: 3)
+  Setting.create(key: 'proposals_feasibility_threshold', value: 500)
 end

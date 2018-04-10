@@ -1,12 +1,7 @@
 <% provide :title do %><%= @proposal.title %><% end %>
 <% content_for :meta_description do %><%= @proposal.summary %><% end %>
 <% provide :social_media_meta_tags do %>
-<%= render "shared/social_media_meta_tags",
-            social_url: proposal_url(@proposal),
-            social_title: @proposal.title,
-            social_description: @proposal.summary,
-            twitter_image_url: (@proposal.image.present? ? @proposal.image_url(:thumb) : nil),
-            og_image_url: (@proposal.image.present? ? @proposal.image_url(:thumb) : nil) %>
+  <% render "/shared/social_media_meta_tags", social_title: @proposal.title, social_description: @proposal.summary  %>
 <% end %>
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: proposal_url(@proposal) %>
@@ -33,13 +28,12 @@
         <% end %>
 
         <div class="proposal-info">
-          <%= render '/shared/author_info', resource: @proposal %>
-
+          <span class="icon-comments"></span>&nbsp;
+          <%= link_to t("proposals.show.comments", count: @proposal.comments_count), "#comments" %>
           <span class="bullet">&nbsp;&bull;&nbsp;</span>
           <%= l @proposal.created_at.to_date %>
           <span class="bullet">&nbsp;&bull;&nbsp;</span>
-          <span class="icon-comments"></span>&nbsp;
-          <%= link_to t("proposals.show.comments", count: @proposal.comments_count), "#comments" %>
+          <%= render '/shared/author_info', resource: @proposal %>
 
           <% if current_user %>
             <span class="bullet">&nbsp;&bull;&nbsp;</span>
@@ -49,26 +43,23 @@
           <% end %>
 
         </div>
-
-        <%= render_image(@proposal.image, :large, true) if @proposal.image.present? %>
-
-        <br>
         <p>
           <%= t("proposals.show.code") %>
           <strong><%= @proposal.code %></strong>
         </p>
-
         <blockquote><%= @proposal.summary %></blockquote>
 
+        <%= render_image(@proposal.image, :large, true) if @proposal.image.present? %>
+
+        <%= safe_html_with_links @proposal.description %>
+
         <% if @proposal.video_url.present? %>
-          <div class="small-12 medium-7 small-centered">
+          <div class="small-12 medium-7">
             <div class="flex-video">
               <div id="js-embedded-video" data-video-code="<%= embedded_video_code %>"></div>
             </div>
           </div>
         <% end %>
-
-        <%= safe_html_with_links @proposal.description %>
 
         <% if feature?(:map) && map_location_available?(@proposal.map_location) %>
           <div class="margin">
@@ -77,24 +68,13 @@
         <% end %>
 
         <% if @proposal.external_url.present? %>
-          <div class="document-link">
+          <div class="document-link proposal-document">
             <p>
               <span class="icon-document"></span>&nbsp;
-              <strong><%= t('proposals.show.title_external_url') %></strong>
+              <%= link_to t('proposals.show.title_external_url'), @proposal.external_url, target: '_blank' %></
             </p>
-              <%= text_with_links @proposal.external_url %>
-          </div>
-        <% end %>
 
-        <% if @proposal.video_url.present? %>
-          <div class="video-link">
-            <p>
-              <span class="icon-video"></span>&nbsp;
-              <strong><%= t('proposals.show.title_video_url') %></strong>
-            </p>
-            <%= text_with_links @proposal.video_url %>
           </div>
-
         <% end %>
 
         <h4><%= @proposal.question %></h4>
@@ -129,7 +109,6 @@
 
             <% if current_editable?(@proposal) %>
               <%= link_to edit_proposal_path(@proposal), class: 'button hollow expanded' do %>
-                          <span class="icon-edit"></span>
                           <%= t("proposals.show.edit_proposal_link") %>
               <% end %>
             <% end %>
@@ -137,7 +116,6 @@
             <% if author_of_proposal?(@proposal) %>
               <%= link_to new_proposal_notification_path(proposal_id: @proposal.id),
                           class: 'button hollow expanded' do %>
-                          <span class="icon-no-notification"></span>
                           <%= t("proposals.show.send_notification") %>
               <% end %>
             <% end %>
@@ -147,7 +125,6 @@
                           method: :delete,
                           class: 'button hollow alert expanded',
                           data: { confirm: t('images.actions.destroy.confirm') } do %>
-                          <span class="icon-image"></span>
                           <%= t("images.remove_image") %>
               <% end %>
             <% end %>
@@ -158,12 +135,21 @@
         <div class="sidebar-divider"></div>
         <h2><%= t("votes.supports") %></h2>
         <div id="<%= dom_id(@proposal) %>_votes">
-
-          <% if @proposal.successful? %>
+          <% if !@proposal.can_vote? %>
+            <strong><%= t("proposals.proposal.supports", count: @proposal.total_votes) %></strong>
+            <p>El perido para apoyar esta idea a finalizado.</p>
+          <% elsif @proposal.not_successful? %>
+            <div class="padding text-center">
+              <strong><%= t("proposals.proposal.supports", count: @proposal.total_votes) %></strong>
+              <p>Esta propuesta no ha sido viable</p>
+            </div>
+          <% elsif @proposal.successful? %>
             <p>
               <%= t("proposals.proposal.successful",
                   voting: link_to(t("proposals.proposal.voting"), polls_path)).html_safe %>
             </p>
+            <%= render 'votes',
+                      { proposal: @proposal, vote_url: vote_proposal_path(@proposal, value: 'yes') } %>
             <% if can? :create, Poll::Question %>
               <p class="text-center">
                 <%= link_to t('poll_questions.create_question'),

@@ -4,10 +4,11 @@
       <%= t("shared.author_info.author_deleted") %>
   </span>
 <% else %>
-
-  <span class="avatar-mini" style="background: <%=  set_class %>" > <%=  resource.author.name[0].try(:upcase) %></span>
+  <% unless resource.class.to_s == Proposal.to_s %>
+    <span class="avatar-mini" style="background: <%=  set_class %>" > <%=  resource.author.name[0].try(:upcase) %></span>
+  <% end %>
   <span class="author">
-      <%= link_to resource.author.name, user_path(resource.author) %>
+    <%= link_to resource.author.name, user_path(resource.author) %>
   </span>
 
   <% if resource.respond_to?(:association_name) && resource.association_name.present? %>
