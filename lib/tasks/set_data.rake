@@ -16,6 +16,7 @@ namespace :set_data do
     Setting['feature.budgets'] = false
     Setting['feature.legislation'] = true
     Setting['feature.proposals'] = true
+    Setting['feature.allow_images'] = true
   end
 
   desc "Set data"
@@ -26,5 +27,6 @@ namespace :set_data do
     Setting['proposals_vote_end_day'] = 31
     Setting['proposals_vote_end_month'] = 3
     Setting['proposals_feasibility_threshold'] = 500
+    Setting['feature.allow_images'] = true
   end
 end
