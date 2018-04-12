@@ -74,7 +74,7 @@
       <% if @proposals.any? %>
         <div class="show-for-small-only">
           <%= link_to '¿Cómo funcionan las ideas?',
-                  '/como_funcionan_las_ideas',
+                  '/como-funcionan-las-ideas',
                   class: 'button expanded' %>
           <% if Proposal.can_create? %>
             <%= link_to t("proposals.index.start_proposal"),
