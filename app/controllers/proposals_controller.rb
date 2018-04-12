@@ -145,7 +145,7 @@ class ProposalsController < ApplicationController
     end
 
     def can_create_proposal
-      if !current_user.try(:level_two_or_three_verified?) || !Proposal.can_create?
+      unless Proposal.can_create?
         redirect_to proposals_path, alert: "El periodo de creación de propuestas ha finalizado."
       end
     end
