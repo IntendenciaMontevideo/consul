@@ -799,10 +799,24 @@
     margin-left: 25px;
   }
 
+  .margin-left-20-lg h4{
+    font-size: 14px;
+    padding-bottom: 14px;
+  }
+
 }
 
 
 @media (min-width: 100px) and (max-width: 342px) {
+
+  .margin-left-20-lg h4{
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+
+  .margin-vote-help h4{
+    margin-left: 4px;
+  }
 
   .search-glass{
     right: 0px;
@@ -848,43 +862,75 @@
   }
 
   .ball-green{
-    right: -8px;
+    right: 2px;
+    padding: 18px;
+    width: 100%
   }
 
   .ball-pink{
-    right: -8px;
+    right: 2px;
+    padding: 18px;
+    width: 100%
   }
 
   .ball-red{
-    right: -8px;
+    right: 2px;
+    padding: 18px;
+    width: 100%
   }
 
   .ball-yellow{
-    right: -8px;
+    right: 2px;
+    padding: 18px;
+    width: 100%
   }
 
   .border-yellow{
-    width: 55%;
+    width: 51%;
   }
 
   .border-red{
-    width: 55%;
+    width: 51%;
   }
 
   .border-pink{
-    width: 55%;
+    width: 51%;
   }
 
   .border-green{
-    width: 55%;
+    width: 51%;
   }
 
   .div-border{
-    border-right: 3px solid #000;height:300px;
+    border-right: 3px solid #000;height:280px;
     position: relative;
-    top: -387px;
+    top: -360px;
     z-index: 10;
     left: -24px;
+  }
+
+  .padding-votes{
+    padding-bottom: 8px;
+  }
+
+   .border-pink h4{
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+
+  .border-green h4{
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+
+  .border-yellow h4{
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+
+  .border-red h4{
+    margin-bottom: 0;
+    font-size: 14px;
   }
 
 }
