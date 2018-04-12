@@ -158,6 +158,105 @@
     font-size: 18px;
     line-height: 1.625rem;
   }
+
+    .border-green{
+    border: 2px solid #51cf91;
+    border-right: 0px;
+    color: #51cf91;
+    padding: 10px;
+    width: 28%;
+    position: absolute;
+  }
+
+  .ball-green{
+    border: 2px solid #51cf91;
+    background-color: #51cf91;
+    color: #51cf91;
+    padding: 27px;
+    border-radius: 45px;
+    top: 0px;
+    right: 38px;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .border-pink{
+    border: 2px solid #f88fc2;
+    border-right: 0px;
+    color: #f88fc2;
+    padding: 10px;
+    width: 28%;
+    position: absolute;
+    margin-bottom: 0px;
+  }
+
+  .ball-pink{
+    border: 2px solid #f88fc2;
+    background-color: #f88fc2;
+    color: #f88fc2;
+    padding: 27px;
+    border-radius: 45px;
+    top: 0px;
+    right: 38px;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .border-red{
+    border: 2px solid #f46a7a;
+    border-right: 0px;
+    color: #f46a7a;
+    padding: 10px;
+    width: 28%;
+    position: absolute;
+    margin-bottom: 20px;
+  }
+
+  .ball-red{
+    border: 2px solid #f46a7a;
+    background-color: #f46a7a;
+    color: #f46a7a;
+    padding: 27px;
+    border-radius: 45px;
+    top: 0px;
+    right: 38px;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .border-yellow{
+    border: 2px solid #fabf40;
+    border-right: 0px;
+    color: #fabf40;
+    padding: 10px;
+    width: 28%;
+    position: absolute;
+    margin-bottom: 20px;
+  }
+
+  .ball-yellow{
+    border: 2px solid #fabf40;
+    background-color: #fabf40;
+    color: #fabf40;
+    padding: 27px;
+    border-radius: 45px;
+    top: 0px;
+    right: 38px;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .div-border{
+    border-right: 3px solid #000;height:380px;
+    position: relative;
+    top: -430px;
+    z-index: 10;
+    left: -79px;
+  }
+
+  .margin-top-50{
+    margin-top: 20px;
+  }
 }
 @media (min-width: 841px) and (max-width: 860px) {
 
