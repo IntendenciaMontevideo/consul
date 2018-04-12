@@ -1,0 +1,24 @@
+<% provide :title do %><%= t("pages.titles.help", org: setting['org_name']) %><% end %>
+<% content_for :canonical do %>
+  <%= render "shared/canonical", href: help_url %>
+<% end %>
+
+<div class="jumbo light">
+  <div class="row">
+    <div class="small-12 medium-9 column">
+      <h2>9 pasos para crear una idea</h2>
+    </div>
+  </div>
+</div>
+
+<div id="more-info" class="more-info-content">
+  <div class="row">
+    <div class="column">
+      <div class="row section-content">
+        <div class="column">
+          <%= render '/pages/ideas_help'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

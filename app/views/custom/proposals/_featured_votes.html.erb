@@ -22,15 +22,12 @@
   <% elsif user_signed_in? && !proposal.votable_by?(current_user)%>
     <div class="participation-not-allowed" style='display:none' aria-hidden="false">
       <p>
-        <%= t("votes.verified_only",
-            verify_account: link_to(t("votes.verify_account"), verification_path )).html_safe %>
+        Para apoyar una idea tenés que estar registrado en el nivel 2. <%= link_to 'Salí de tu sesión actual', destroy_user_session_path, rel: "nofollow", method: :delete %> e ingresá con una cuenta de ID Uruguay
       </p>
     </div>
   <% elsif !user_signed_in? %>
     <div class="participation-not-allowed" style='display:none' aria-hidden="false">
-      <%= t("votes.unauthenticated",
-        signin: link_to(t("votes.signin"), new_user_session_path),
-        signup: link_to(t("votes.signup"), new_user_registration_path)).html_safe %>
+      Las ideas solo pueden ser apoyadas por usuarios con <%= link_to "nivel 2", user_omniauth_authorize_path(:saml),title: "nivel 2" %>
     </div>
   <% end %>
 

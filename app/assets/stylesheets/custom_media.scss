@@ -526,3 +526,24 @@
     padding: 0.355rem 0.355rem;
   }
 }
+
+@media (min-width: 641px) and (max-width: 783px) {
+  .featured-proposals .participation-not-allowed {
+    width: 250%;
+    margin-left: -150px;
+  }
+}
+
+@media (min-width: 784px) and (max-width: 1024px) {
+  .featured-proposals .participation-not-allowed {
+    width: 190%;
+    margin-left: -130px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 2560px) {
+  .featured-proposals .participation-not-allowed {
+    width: 160%;
+    margin-left: -100px;
+  }
+}

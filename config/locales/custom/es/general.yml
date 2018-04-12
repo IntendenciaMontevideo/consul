@@ -111,8 +111,7 @@ es:
         description_link2:  Cuenta
         description2: Para abrir un debate alcanza con registrarse en Montevideo Decide, con el nivel de usuario No1 (Twitter, Facebook, Google +). Los usuarios ya registrados también pueden comentar los debates abiertos, valorarlos y apoyarlos con los botones de "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos. Los debates estarán abiertos por un periodo de tres meses
         description3: podes comentar los debates abiertos y validarlo con los botones "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos.
-        help_text_1: Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto. Próximamente podrás plantear una
-        help_text_2: para la ciudad.
+        help_text_1: Tené en cuenta que un debate no activa ningún mecanismo de actuación concreto.
         help_text_3: ", entrá a los links marcados anteriormente e ingrésalo cuando la convocatoria esté abierta."
     new:
       form:
@@ -156,7 +155,7 @@ es:
       search_form:
         placeholder: Buscar ideas...
       select_order_long: Estas viendo las ideas
-      start_proposal: Crea una idea
+      start_proposal: Creá una idea
       title: ideas ciudadanas
       top_link_proposals: ideas más apoyadas por categoría
       section_header:

@@ -15,9 +15,8 @@
         <abbr title="<%= t("proposals.proposal.reason_for_supports_necessary") %>">
           <% if proposal.pre_successful? %>
             Esta idea ha superado el umbral de viabilidad y requiere <%= number_with_delimiter(proposal.votes_for_success) %> apoyos para pasar a fase de votación
-            <% t("proposals.proposal.supports_necessary", number: number_with_delimiter(Proposal.votes_needed_for_pre_success)) %>
           <% elsif proposal.votes_pre_successful? %>
-            Esta propuesta ha superado el umbral de viabilidad y esta siendo evaluada para pasar a fase de votación
+            Esta idea ha superado los <%= number_with_delimiter(Setting['proposals_feasibility_threshold'].to_i) %> apoyos y esta siendo evaluada su viabilidad.
           <% elsif proposal.open? %>
             Esta idea debe alcanzar <%= number_with_delimiter(Proposal.votes_needed_for_pre_success)%> apoyos para ser analizada en el estudio de viabilidad
           <% end %>
@@ -54,17 +53,14 @@
     <div tabindex="0">
       <div class="participation-not-allowed" style='display:none' aria-hidden="false">
         <p>
-          <%= t("votes.verified_only",
-              verify_account: link_to(t("votes.verify_account"), verification_path )).html_safe %>
+          Para apoyar una idea tenés que estar registrado en el nivel 2. <%= link_to 'Salí de tu sesión actual', destroy_user_session_path, rel: "nofollow", method: :delete %> e ingresá con una cuenta de ID Uruguay
         </p>
       </div>
     </div>
   <% elsif !user_signed_in? %>
     <div tabindex="0">
       <div class="participation-not-allowed" style='display:none' aria-hidden="false">
-        <%= t("votes.unauthenticated",
-          signin: link_to(t("votes.signin"), new_user_session_path),
-          signup: link_to(t("votes.signup"), new_user_registration_path)).html_safe %>
+        Las ideas solo pueden ser apoyadas por usuarios con <%= link_to "nivel 2", user_omniauth_authorize_path(:saml),title: "nivel 2" %>
       </div>
     </div>
   <% end %>
