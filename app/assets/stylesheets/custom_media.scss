@@ -57,6 +57,45 @@
   margin-right: 1.45rem;
 }
 
+  .border-green{
+    border: 2px solid #51cf91;
+    border-right: 0px;
+    color: #51cf91;
+    padding: 10px;
+    width: 26%;
+    position: absolute;
+  }
+
+  .border-pink{
+    border: 2px solid #f88fc2;
+    border-right: 0px;
+    color: #f88fc2;
+    padding: 10px;
+    width: 26%;
+    position: absolute;
+    margin-bottom: 0px;
+  }
+
+  .border-red{
+    border: 2px solid #f46a7a;
+    border-right: 0px;
+    color: #f46a7a;
+    padding: 10px;
+    width: 26%;
+    position: absolute;
+    margin-bottom: 20px;
+  }
+
+  .border-yellow{
+    border: 2px solid #fabf40;
+    border-right: 0px;
+    color: #fabf40;
+    padding: 10px;
+    width: 26%;
+    position: absolute;
+    margin-bottom: 20px;
+  }
+
 }
 
 @media (min-width: 100px) and (max-width: 1025px) {
