@@ -14,11 +14,11 @@
       <span>
         <abbr title="<%= t("proposals.proposal.reason_for_supports_necessary") %>">
           <% if proposal.pre_successful? %>
-            Esta idea ha superado el umbral de viabilidad y requiere <%= number_with_delimiter(proposal.votes_for_success) %> apoyos para pasar a fase de votación
+            Esta idea ha superado el estudio de viabilidad y requiere <%= number_with_delimiter(proposal.votes_for_success) %> apoyos para pasar a votación.
           <% elsif proposal.votes_pre_successful? %>
             Esta idea ha superado los <%= number_with_delimiter(Setting['proposals_feasibility_threshold'].to_i) %> apoyos y esta siendo evaluada su viabilidad.
           <% elsif proposal.open? %>
-            Esta idea debe alcanzar <%= number_with_delimiter(Proposal.votes_needed_for_pre_success)%> apoyos para ser analizada en el estudio de viabilidad
+            Esta idea debe alcanzar los <%= number_with_delimiter(Proposal.votes_needed_for_pre_success)%> apoyos para pasar a estudio de viabilidad.
           <% end %>
         </abbr>
       </span>

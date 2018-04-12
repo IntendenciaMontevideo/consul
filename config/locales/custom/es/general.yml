@@ -20,6 +20,9 @@ es:
     title: Ideas
     content_banner: Montevideo necesita tu aporte para crecer. Por eso te invitamos a que te sumes a los debates sobre los temas que más te preocupan, propongas ideas para mejorar la calidad de vida de todos y todas, y decidamos en conjunto cuáles se llevan a cabo.
     content: La ciudad necesita de los aportes ciudadanos para crecer. Si tenés una idea para mejorar Montevideo próximamente podrás plantearla para que la Intendencia la lleve a cabo.
+  proposal_notifications:
+    new:
+      info_about_receivers_html: "Este mensaje se enviará a <strong>%{count} usuarios</strong> y se publicará en %{proposal_page}."
   footer:
     contact_form: Formulario de contacto
     policy: Políticas de privacidad
