@@ -128,6 +128,11 @@ es:
       recommendation_two: Cualquier debate o comentario que implique una acción ilegal será eliminado, también los que tengan la intención de sabotear los espacios de debate, todo lo demás está permitido.
       recommendations_title: Recomendaciones para crear un debate
       start_new: Empezar un debate
+  related_content:
+    help: "Puedes introducir cualquier enlace a una Idea, Debate y Consulta ciudadana que esté dentro de Montevideo Decide."
+    content_title:
+      proposal: Idea
+      budget_investment: "Consulta ciudadana"
   proposals:
     banner-text: El espacio de debates ciudadanos está dirigido a cualquier persona que quiera poner en discusión temas referidos a la ciudad que le preocupan y sobre los que quiera compartir puntos de vista con otras personas.
     create:

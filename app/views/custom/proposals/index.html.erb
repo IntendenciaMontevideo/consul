@@ -76,7 +76,7 @@
           <%= link_to '¿Cómo funcionan las ideas?',
                   '/como-funcionan-las-ideas',
                   class: 'button expanded' %>
-          <% if Proposal.can_create? %>
+          <% if Proposal.can_create? && current_user.level_two_or_three_verified?  %>
             <%= link_to t("proposals.index.start_proposal"),
                     new_proposal_guide,
                     class: 'button expanded' %>
@@ -108,7 +108,7 @@
         <%= link_to '¿Cómo funcionan las ideas?',
                     '/como-funcionan-las-ideas',
                     class: 'button expanded' %>
-        <% if Proposal.can_create? %>
+        <% if Proposal.can_create? && current_user.level_two_or_three_verified? %>
           <%= link_to t("proposals.index.start_proposal"),
                     new_proposal_guide,
                     class: 'button expanded' %>
