@@ -26,7 +26,7 @@ Setting["max_votes_for_proposal_edit"] = 1000
 Setting['comments_body_max_length'] = 1000
 
 # Prefix for the Proposal codes
-Setting["proposal_code_prefix"] = 'MAD'
+Setting["proposal_code_prefix"] = 'MVD'
 
 # Number of votes needed for proposal success
 Setting["votes_for_proposal_success"] = 53726
@@ -125,3 +125,15 @@ Setting['map_zoom'] = 10
 Setting['show_in_production'] = "false"
 # Related content
 Setting['related_content_score_threshold'] = -0.3
+# Period create proposal
+Setting['proposals_start_day'] = 1
+Setting['proposals_start_month'] = 4
+Setting['proposals_end_day'] = 31
+Setting['proposals_end_month'] = 10
+#Period vote proposal
+Setting['proposals_vote_start_day'] = 1
+Setting['proposals_vote_start_month'] = 4
+Setting['proposals_vote_end_day'] = 31
+Setting['proposals_vote_end_month'] = 3
+Setting['proposals_feasibility_threshold'] = 500
+

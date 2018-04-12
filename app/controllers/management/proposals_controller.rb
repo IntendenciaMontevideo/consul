@@ -2,8 +2,8 @@ class Management::ProposalsController < Management::BaseController
   include HasOrders
   include CommentableActions
 
-  before_action :only_verified_users, except: :print
-  before_action :set_proposal, only: [:vote, :show]
+  before_action :only_verified_users, except: [:print, :index, :show, :not_approve, :approve_threshold, :approve, :pending]
+  before_action :set_proposal, only: [:vote, :show, :not_approve, :approve_threshold, :approve, :pending]
   before_action :parse_search_terms, only: :index
   before_action :load_categories, only: [:new, :edit]
   before_action :load_geozones, only: [:edit]
@@ -27,6 +27,34 @@ class Management::ProposalsController < Management::BaseController
   def print
     @proposals = Proposal.send("sort_by_#{@current_order}").for_render.limit(5)
     set_proposal_votes(@proposal)
+  end
+
+  def not_approve
+    unless params[:link_not_success].blank?
+      @proposal.not_success!(params[:link_not_success])
+      redirect_to management_proposal_path(@proposal), notice: 'Actualizado correctamente'
+    else
+      redirect_to management_proposal_path(@proposal), alert: 'El link del motivo de la no aprobación es obligatorio'
+    end
+  end
+
+  def pending
+    @proposal.pending!
+    redirect_to management_proposal_path(@proposal), notice: 'Actualizado correctamente'
+  end
+
+  def approve_threshold
+    unless params[:votes_for_success].blank?
+      @proposal.pre_success!(params[:votes_for_success])
+      redirect_to management_proposal_path(@proposal), notice: 'Actualizado correctamente'
+    else
+      redirect_to management_proposal_path(@proposal), alert: 'El valor de apoyos necesario es obligatorio'
+    end
+  end
+
+  def approve
+    @proposal.success!
+    redirect_to management_proposal_path(@proposal), notice: 'Actualizado correctamente'
   end
 
   private

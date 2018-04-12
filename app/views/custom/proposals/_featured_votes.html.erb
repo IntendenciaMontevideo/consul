@@ -1,0 +1,45 @@
+<div class="supports text-center">
+  <div class="in-favor">
+    <% if voted_for?(@featured_proposals_votes, proposal) %>
+      <div class="supported">
+        <%= t("proposals.proposal.already_supported") %>
+      </div>
+    <% else %>
+      <%= link_to vote_featured_proposal_path(proposal, value: 'yes'),
+          class: "button button-support small expanded",
+          title: t('proposals.proposal.support_title'), method: "post", remote: true do %>
+        <%= t("proposals.proposal.support") %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% if user_signed_in? && current_user.organization? %>
+    <div class="participation-not-allowed" style='display:none' aria-hidden="false">
+      <p>
+        <%= t("votes.organizations") %>
+      </p>
+    </div>
+  <% elsif user_signed_in? && !proposal.votable_by?(current_user)%>
+    <div class="participation-not-allowed" style='display:none' aria-hidden="false">
+      <p>
+        Para apoyar una idea tenés que estar registrado en el nivel 2. <%= link_to 'Salí de tu sesión actual', destroy_user_session_path, rel: "nofollow", method: :delete %> e ingresá con una cuenta de ID Uruguay
+      </p>
+    </div>
+  <% elsif !user_signed_in? %>
+    <div class="participation-not-allowed" style='display:none' aria-hidden="false">
+      Las ideas solo pueden ser apoyadas por usuarios con <%= link_to "nivel 2", user_omniauth_authorize_path(:saml),title: "nivel 2" %>
+    </div>
+  <% end %>
+
+  <% if voted_for?(@featured_proposals_votes, proposal) %>
+    <% if setting['twitter_handle'] %>
+      <div class="share-supported">
+        <%= render partial: 'shared/social_share', locals: {
+          title: proposal.title,
+          url: proposal_url(proposal),
+          description: proposal.summary
+        } %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

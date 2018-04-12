@@ -22,6 +22,10 @@ namespace :management do
   resources :proposals, only: [:index, :new, :create, :show] do
     post :vote, on: :member
     get :print, on: :collection
+    post :approve_threshold, on: :member
+    post :not_approve, on: :member
+    post :approve, on: :member
+    post :pending, on: :member
   end
 
   resources :spending_proposals, only: [:index, :new, :create, :show] do

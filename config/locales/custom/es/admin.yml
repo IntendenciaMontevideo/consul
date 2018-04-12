@@ -1,0 +1,28 @@
+es:
+  admin:
+    menu:
+      geozones: Gestionar municipios
+    geozones:
+      index:
+        title: Municipios
+        create: Crear un municipio
+        edit: Editar
+        delete: Borrar
+      geozone:
+        name: Nombre
+      errors:
+        form:
+          error:
+            one: "error impidió guardar el municipio"
+            other: 'errores impidieron guardar el municipio.'
+      edit:
+        form:
+          submit_button: Guardar cambios
+        editing: Editando municipio
+        back: Volver
+      new:
+        back: Volver
+        creating: Crear municipio
+      delete:
+        success: Municipio borrado correctamente
+        error: No se puede borrar el municipio porque ya tiene elementos asociados

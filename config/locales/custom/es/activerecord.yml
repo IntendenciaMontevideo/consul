@@ -1,0 +1,6 @@
+es:
+  activerecord:
+    models:
+      proposal:
+        one: "Idea"
+        other: "Ideas"

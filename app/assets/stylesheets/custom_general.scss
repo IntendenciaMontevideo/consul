@@ -109,6 +109,117 @@ div #tag-cloud ul li a{
 .proposal-show .votes, .legislation-proposals .votes {
   border-left: 0px;
 }
+
+.featured-title-proposal {
+
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.featured-proposals{
+  background-color: #fff;
+}
+
+.proposal-featured{
+  background-color: #f9bd41;
+  padding-top: 16px;
+  margin-bottom: 16px;
+}
+
+.featured-proposals .supports .button-support{
+  background: #fff;
+  font-weight: 900;
+}
+
+.featured-proposals .supports .button-support:hover {
+  background: #fff !important;
+  color: #ffdc5c;
+}
+
+.proposal .panel h3 a {
+  color: #f9bd41;
+}
+
+.featured-proposals h3 a:hover {
+  color: #222;
+}
+
+.proposal .panel .row {
+  margin-bottom: 10px;
+}
+
+.help-proposal {
+  padding-top: 30px;
+}
+
+p.help-questions {
+  color: #f9bd41;
+}
+
+.featured-proposals .proposal-featured {
+  min-height: 7.25rem;
+}
+
+.proposal-show h1{
+  color: #f9bd41;
+}
+
+.help-proposal ul {
+  margin-left: 30px;
+}
+
+.documents .document-link, .proposal-show .video-link, .proposal-show .document-link, .proposal-document{
+  background-color: #d7d7d7;
+  border: 1px solid #d7d7d7;
+  border-radius: 0;
+}
+
+.proposal-document {
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+}
+
+.proposal-document a, .video-link a{
+  color: #222;
+}
+
+.proposal-show .proposal-info .author a {
+  color: #515151 !important;
+  font-weight: 400;
+}
+
+.proposal-show aside h2 {
+  border-top: 2px solid #f9bd41;
+  color: #f9bd41;
+}
+
+.proposal-state-data {
+  background-color: #f2f2f2;
+  padding: 10px;
+
+  p {
+    margin-bottom: 1px;
+  }
+}
+
+.proposal-show {
+
+  figure {
+    margin: 0;
+  }
+
+  .image-preview{
+    padding-left: 0;
+  }
+}
+
+
+
+.tabs .tabs-title > a[aria-selected='true'], .tabs .tabs-title > a.is-active {
+  color: #515151;
+  border-bottom: 2px solid #f9bd41;
+}
+
 .debate .panel, .proposal .panel, .investment-project .panel, .budget-investment .panel, .legislation .panel, .communities-show .panel {
   background: #fff;
   border: 0;
@@ -747,4 +858,135 @@ input.button.disabled {
 
 .buttom-comments-debates {
   width: 100%;
+}
+
+.margin-top-25{
+  margin-top: 25px;
+}
+
+.margin-top-40{
+  margin-top: 40px;
+}
+
+.padding-votes{
+  padding: 13px;
+}
+
+.margin-top-50{
+  margin-top: 50px;
+}
+
+.margin-left-20-lg{
+  margin-left: 60px;
+}
+
+.margin-bot-20{
+  margin-bottom: 20px;
+}
+
+.border-green{
+  border: 2px solid #51cf91;
+  border-right: 0px;
+  color: #51cf91;
+  padding: 10px;
+  width: 23%;
+  position: absolute;
+}
+
+.ball-green{
+  border: 2px solid #51cf91;
+  background-color: #51cf91;
+  color: #51cf91;
+  padding: 30px;
+  border-radius: 60px;
+  top: -3px;
+  right: 38px;
+  position: relative;
+  z-index: 1000;
+}
+
+.border-pink{
+  border: 2px solid #f88fc2;
+  border-right: 0px;
+  color: #f88fc2;
+  padding: 10px;
+  width: 23%;
+  position: absolute;
+  margin-bottom: 0px;
+}
+
+.ball-pink{
+  border: 2px solid #f88fc2;
+  background-color: #f88fc2;
+  color: #f88fc2;
+  padding: 30px;
+  border-radius: 60px;
+  top: -3px;
+  right: 38px;
+  position: relative;
+  z-index: 1000;
+}
+
+.border-red{
+  border: 2px solid #f46a7a;
+  border-right: 0px;
+  color: #f46a7a;
+  padding: 10px;
+  width: 23%;
+  position: absolute;
+  margin-bottom: 20px;
+}
+
+.ball-red{
+  border: 2px solid #f46a7a;
+  background-color: #f46a7a;
+  color: #f46a7a;
+  padding: 30px;
+  border-radius: 45px;
+  top: -3px;
+  right: 38px;
+  position: relative;
+  z-index: 1000;
+}
+
+.border-yellow{
+  border: 2px solid #fabf40;
+  border-right: 0px;
+  color: #fabf40;
+  padding: 10px;
+  width: 23%;
+  position: absolute;
+  margin-bottom: 20px;
+}
+
+.ball-yellow{
+  border: 2px solid #fabf40;
+  background-color: #fabf40;
+  color: #fabf40;
+  padding: 30px;
+  border-radius: 45px;
+  top: -3px;
+  right: 38px;
+  position: relative;
+  z-index: 1000;
+}
+
+.div-border{
+  border-right: 3px solid #000;height:380px;
+  position: relative;
+  top: -440px;
+  z-index: 10;
+  left: -85px;
+}
+
+.m-h{
+  max-height: 500px;
+}
+
+.participation-not-allowed {
+  padding: 0;
+}
+
+.margin-vote-help {
+  margin-left: -13px !important;
 }

@@ -8,6 +8,7 @@ class ProposalsController < ApplicationController
   before_action :load_geozones, only: [:edit, :map, :summary]
   before_action :authenticate_user!, except: [:index, :show, :map, :summary]
   before_action :destroy_map_location_association, only: :update
+  before_action :can_create_proposal, only: [:new, :create]
 
   feature_flag :proposals
 
@@ -18,7 +19,10 @@ class ProposalsController < ApplicationController
   has_orders ->(c) { Proposal.proposals_orders(c.current_user) }, only: :index
   has_orders %w{most_voted newest oldest}, only: :show
 
+  before_action :find_proposal, :only => :show
   load_and_authorize_resource
+  before_action :can_edit_proposal, only: [:edit, :update]
+
   helper_method :resource_model, :resource_name
   respond_to :html, :js
 
@@ -122,7 +126,7 @@ class ProposalsController < ApplicationController
 
     def load_featured
       return unless !@advanced_search_terms && @search_terms.blank? && @tag_filter.blank? && params[:retired].blank? && @current_order != "recommendations"
-      @featured_proposals = Proposal.not_archived.sort_by_confidence_score.limit(3)
+      @featured_proposals = Proposal.not_archived.not_not_success.sort_by_confidence_score.limit(3)
       if @featured_proposals.present?
         set_featured_proposal_votes(@featured_proposals)
         @resources = @resources.where('proposals.id NOT IN (?)', @featured_proposals.map(&:id))
@@ -140,4 +144,25 @@ class ProposalsController < ApplicationController
       end
     end
 
+    def can_create_proposal
+      if !current_user.level_two_or_three_verified? || !Proposal.can_create?
+        redirect_to proposals_path, alert: "El periodo de creación de propuestas ha finalizado."
+      end
+    end
+
+    def can_edit_proposal
+      unless @proposal.open?
+        redirect_to proposal_path(@proposal), alert: "Solo se pueden editar ideas que aún no han pasado por el estudio de viabilidad."
+      end
+    end
+
+    def find_proposal
+      @proposal = Proposal.find_by_id(params[:id])
+      unless @proposal
+        proposal = Proposal.unscoped.find_by_id(params[:id])
+        if proposal && !proposal.hidden_at.blank?
+          redirect_to proposals_path, alert: 'La idea que intenta acceder fue eliminada por un administrador.'
+        end
+      end
+    end
 end
