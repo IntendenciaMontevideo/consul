@@ -18,10 +18,11 @@ es:
     content_body_2: Es una herramienta de participación democrática del proceso de descentralización con participación social, cuya construcción comenzó en 1990. Asegura a las y los habitantes de Montevideo el derecho de participación universal para deliberar, proponer y decidir sobre el uso de una parte de los recursos presupuestales de la comuna, determinando la realización de obras de su directo interés. En él se crean también procedimientos y oportunidades para que la ciudadanía y sus organizaciones puedan realizar un mejor seguimiento y control social de la gestión de la Intendencia
   ideas:
     title: Ideas
-    content_banner: Montevideo necesita tu aporte para crecer. Por eso te invitamos a que te sumes a los debates sobre los temas que más te preocupan, propongas ideas para mejorar la calidad de vida de todos y todas, y decidamos en conjunto cuáles se llevan a cabo.
+    content_banner: Tus ideas pueden cambiar la ciudad. Si tenés una idea para mejorar Montevideo, podrás plantearla para que la Intendencia la concrete.
     content: La ciudad necesita de los aportes ciudadanos para crecer. Si tenés una idea para mejorar Montevideo próximamente podrás plantearla para que la Intendencia la lleve a cabo.
   map:
     title: "Municipios"
+    proposal_for_district: "Crea una propuesta para tu municipio"
   proposal_notifications:
     new:
       info_about_receivers_html: "Este mensaje se enviará a <strong>%{count} usuarios</strong> y se publicará en %{proposal_page}."
@@ -111,7 +112,7 @@ es:
       section_footer:
         title: Ayuda sobre los debates
         proposals_link: idea
-        description: Inicia un debate para compartir puntos de vista con otras personas sobre los temas que te preocupan. El espacio de debates ciudadanos fue creado para que cualquier persona pueda exponer temas que le preocupan de Montevideo y compartir su punto de vista.
+        description: Inicia un debate para compartir puntos de vista con otras personas sobre los temas que te interesan. El espacio de debates ciudadanos fue creado para que cualquier persona pueda exponer temas que le interesan de Montevideo y compartir su punto de vista.
         description_link:  Montevideo Decide
         description_link2:  Cuenta
         description2: Para abrir un debate alcanza con registrarse en Montevideo Decide, con el nivel de usuario No1 (Twitter, Facebook, Google +). Los usuarios ya registrados también pueden comentar los debates abiertos, valorarlos y apoyarlos con los botones de "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos. Los debates estarán abiertos por un periodo de tres meses
@@ -136,7 +137,7 @@ es:
       proposal: Idea
       budget_investment: "Consulta ciudadana"
   proposals:
-    banner-text: El espacio de debates ciudadanos está dirigido a cualquier persona que quiera poner en discusión temas referidos a la ciudad que le preocupan y sobre los que quiera compartir puntos de vista con otras personas.
+    banner-text: "Montevideo necesita tu aporte para crecer. Por eso te invitamos a que te sumes a los debates sobre los temas que más te preocupan, propongas ideas para mejorar la calidad de vida de todos y todas, y decidamos en conjunto cuáles se llevan a cabo."
     create:
       form:
         submit_button: Crear idea
@@ -166,7 +167,7 @@ es:
         placeholder: Buscar ideas...
       select_order_long: Estas viendo las ideas
       start_proposal: Creá una idea
-      title: ideas ciudadanas
+      title: Ideas
       top_link_proposals: ideas más apoyadas por categoría
       section_header:
         icon_alt: Icono de ideas

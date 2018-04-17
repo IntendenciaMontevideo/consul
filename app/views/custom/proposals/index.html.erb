@@ -1,6 +1,6 @@
-<% provide :title do %><%= t('debates.index.title') %><% end %>
+<% provide :title do %><%= t('proposals.index.title') %><% end %>
 <% content_for :social_media_meta_tags do %>
-  <% render "/shared/social_media_meta_tags", social_title: t("welcome.proposal.title"), social_description: t("proposals.banner-text")  %>
+  <% render "/shared/social_media_meta_tags", social_title: t("proposals.index.title"), social_description: t("proposals.banner-text")  %>
 <% end %>
 
 <% content_for :header_addon do %>
@@ -18,7 +18,7 @@
     <div class="column box-text">
         <p> <%= image_tag(image_path_for('hand-1.png'), class: ' float-left show-for-large-only', size: '70x70', alt: t("layouts.header.logo")) %> </p>
         <p> <%= image_tag(image_path_for('hand-1.png'), class: ' float-left show-for-medium-only', size: '55x55', alt: t("layouts.header.logo")) %> </p>
-      <h2 class="banner-title inline-h-0"><%= t("ideas.title") %></h2>
+      <h2 class="banner-title"><%= t("ideas.title") %></h2>
       <p class="banner-font medium-9 show-for-large-only"><%= t("ideas.content_banner") %></p>
     </div>
   </div>
