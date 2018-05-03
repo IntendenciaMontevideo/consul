@@ -14,7 +14,7 @@ module Abilities
 
       can :read, Proposal
       can :update, Proposal do |proposal|
-        proposal.editable_by?(user)
+        proposal.editable_by?(user) || (user && user.administrator?)
       end
       can [:retire_form, :retire], Proposal, author_id: user.id
 

@@ -102,12 +102,12 @@
       </div>
 
       <aside class="small-12 medium-3 column">
-        <% if author_of_proposal?(@proposal) || current_editable?(@proposal) || can_destroy_image?(@proposal) %>
+        <% if current_administrator? || author_of_proposal?(@proposal) || current_editable?(@proposal) || can_destroy_image?(@proposal) %>
           <div class="sidebar-divider"></div>
           <h2><%= t("proposals.show.author") %></h2>
           <div class="show-actions-menu">
 
-            <% if current_editable?(@proposal) %>
+            <% if current_administrator? || current_editable?(@proposal) %>
               <%= link_to edit_proposal_path(@proposal), class: 'button hollow expanded' do %>
                           <%= t("proposals.show.edit_proposal_link") %>
               <% end %>
@@ -120,7 +120,7 @@
               <% end %>
             <% end %>
 
-            <% if can_destroy_image?(@proposal) %>
+            <% if author_of_proposal?(@proposal) && can_destroy_image?(@proposal) %>
               <%= link_to image_path(@proposal.image, from: request.url),
                           method: :delete,
                           class: 'button hollow alert expanded',
