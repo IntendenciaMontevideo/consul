@@ -2,17 +2,28 @@
   <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>
   <p>El perido para apoyar esta idea a finalizado.</p>
 <% elsif proposal.not_successful? %>
-  <div class="padding text-center">
-    <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>
-    <p>Esta propuesta no ha sido viable <%= resaon_not_success(proposal)%></p>
-  </div>
+  <% if proposal.text_show_finished.blank? %>
+    <div class="padding text-center">
+      <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>
+      <p>Esta propuesta no ha sido viable <%= resaon_not_success(proposal)%></p>
+    </div>
+  <% else %>
+    <p>
+      <%= proposal.text_show_finished%>
+    </p>
+  <% end %>
 <% elsif proposal.successful? %>
   <div class="padding text-center">
-
-    <p>
-      <%= t("proposals.proposal.successful",
-          voting: link_to(t("proposals.proposal.voting"), polls_path)).html_safe %>
-    </p>
+    <% if proposal.text_show_finished.blank? %>
+      <p>
+        <%= t("proposals.proposal.successful",
+            voting: link_to(t("proposals.proposal.voting"), polls_path)).html_safe %>
+      </p>
+    <% else %>
+      <p>
+        <%= proposal.text_show_finished%>
+      </p>
+    <% end %>
   </div>
   <% if show %>
     <%= render 'votes',

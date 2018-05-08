@@ -252,12 +252,12 @@ class Proposal < ActiveRecord::Base
     update(state: STATES[:pre_success], votes_for_success: votes_for_success)
   end
 
-  def success!
-    update(state: STATES[:success])
+  def success!(text)
+    update(state: STATES[:success], text_show_finished: text)
   end
 
-  def not_success!(link)
-    update(state: STATES[:not_success], link_not_success: link)
+  def not_success!(link, text)
+    update(state: STATES[:not_success], link_not_success: link, text_show_finished: text)
   end
 
   def pending!

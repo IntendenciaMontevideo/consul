@@ -4,6 +4,8 @@
   <% elsif proposal.votes_pre_successful? %>
     <%= form_tag approve_management_proposal_path(proposal) do %>
       <h5>Aprobar Idea</h5>
+      <%= label_tag "Texto que aparecerá al los usuarios al acceder a la propuesta(No obligatorio)"%>
+      <%= text_field_tag :text_show_finished %>
       <%= submit_tag 'Aprobar'%>
     <% end %>
     <br>
@@ -18,6 +20,8 @@
       <h5>No aprobar idea</h5>
       <%= label_tag "Motivo de no aprobación URL", "Motivo de no aprobación(URL):"%>
       <%= text_field_tag :link_not_success %>
+      <%= label_tag "Texto que aparecerá al los usuarios al acceder a la propuesta(No obligatorio)"%>
+      <%= text_field_tag :text_show_finished %>
       <%= submit_tag 'No aprobar'%>
     <% end %>
     <br>
@@ -37,6 +41,8 @@
       <h5>No aprobar idea</h5>
       <%= label_tag "Motivo de no aprobación URL", "Motivo de no aprobación(URL):"%>
       <%= text_field_tag :link_not_success %>
+      <%= label_tag "Texto que aparecerá al los usuarios al acceder a la propuesta(No obligatorio)"%>
+      <%= text_field_tag :text_show_finished %>
       <%= submit_tag 'No aprobar'%>
     <% end %>
   <% end %>
@@ -46,5 +52,8 @@
   <% end %>
   <p>Apoyos requeridos: <%= proposal.votes_for_success.to_s %></pr>
   <p>Apoyos recibidos: <%= proposal.total_votes.to_s %></pr>
+  <% unless proposal.text_show_finished.blank? %>
+    <p>Texto que aparecerá al los usuarios al acceder a la propuesta: <%= proposal.text_show_finished.to_s %></pr>
+  <% end %>
 
 </div>
