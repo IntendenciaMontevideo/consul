@@ -25,6 +25,20 @@
       <h5>Pasar a pendiente</h5>
       <%= submit_tag 'Pasar a pendiente'%>
     <% end %>
+  <% else %>
+    <% unless proposal.open? %>
+      <%= form_tag pending_management_proposal_path(proposal) do %>
+        <h5>Pasar a pendiente</h5>
+        <%= submit_tag 'Pasar a pendiente'%>
+      <% end %>
+    <% end %>
+    <br>
+    <%= form_tag not_approve_management_proposal_path(proposal) do %>
+      <h5>No aprobar idea</h5>
+      <%= label_tag "Motivo de no aprobación URL", "Motivo de no aprobación(URL):"%>
+      <%= text_field_tag :link_not_success %>
+      <%= submit_tag 'No aprobar'%>
+    <% end %>
   <% end %>
   <p>Estado actual: <%= proposal.state_text %></p>
   <% if proposal.not_successful? && !proposal.link_not_success.blank?%>
