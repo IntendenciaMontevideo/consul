@@ -37,6 +37,7 @@ section "Creating Settings" do
   Setting.create(key: 'feature.twitter_login', value: "true")
   Setting.create(key: 'feature.facebook_login', value: "true")
   Setting.create(key: 'feature.google_login', value: "true")
+  Setting.create(key: 'feature.saml_login', value: "true")
   Setting.create(key: 'feature.signature_sheets', value: "true")
   Setting.create(key: 'feature.legislation', value: "true")
   Setting.create(key: 'feature.user.recommendations', value: "true")
