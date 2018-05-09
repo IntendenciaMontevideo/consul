@@ -1,6 +1,6 @@
 es:
   devise:
     confirmations:
-      confirmed: "Tu cuenta ha sido confirmada. Por favor autentifícate con tu usuario de IDUruguay para acceder"
+      confirmed: "Tu cuenta ha sido confirmada y autenticada correctamente."
     registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto. Los datos personales registrados como usuario de la Web quedan amparados a lo previsto en la Ley 18.331 de protección de datos personales, y la Ley 18.381 de Acceso a la Información Pública."
