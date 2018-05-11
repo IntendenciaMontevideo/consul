@@ -16,6 +16,9 @@ es:
     content_banner: Proceso de diálogo democrático que se establece entre la Intendencia, vecinos y vecinas, organizaciones e instituciones sociales
     content_body: Programa departamental que se desarrolla e implementa a nivel local en los ocho municipios montevideanos.
     content_body_2: Es una herramienta de participación democrática del proceso de descentralización con participación social, cuya construcción comenzó en 1990. Asegura a las y los habitantes de Montevideo el derecho de participación universal para deliberar, proponer y decidir sobre el uso de una parte de los recursos presupuestales de la comuna, determinando la realización de obras de su directo interés. En él se crean también procedimientos y oportunidades para que la ciudadanía y sus organizaciones puedan realizar un mejor seguimiento y control social de la gestión de la Intendencia
+  polls:
+    show:
+      back_poll: Volver a la votación
   ideas:
     title: Ideas
     content_banner: Tus ideas pueden cambiar la ciudad. Si tenés una idea para mejorar Montevideo, podrás plantearla para que la Intendencia la concrete.
