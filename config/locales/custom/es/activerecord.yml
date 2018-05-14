@@ -4,3 +4,7 @@ es:
       proposal:
         one: "Idea"
         other: "Ideas"
+    attributes:
+      poll:
+        level_access: "Nivel de acceso"
+        level_2: "Nivel 2"

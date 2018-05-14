@@ -5,6 +5,7 @@ class Poll < ActiveRecord::Base
   include Notifiable
 
   RECOUNT_DURATION = 1.week
+  LEVEL_ACCESS = { level_2: 2, level_3: 3 }
 
   has_many :booth_assignments, class_name: "Poll::BoothAssignment"
   has_many :booths, through: :booth_assignments

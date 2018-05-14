@@ -26,3 +26,7 @@ es:
       delete:
         success: Municipio borrado correctamente
         error: No se puede borrar el municipio porque ya tiene elementos asociados
+    polls:
+      new:
+        level_2: nivel 2
+        level_3: nivel 3
