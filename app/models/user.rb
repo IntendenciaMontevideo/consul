@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   include Verification
 
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable,
-         :trackable, :validatable, :omniauthable, :async, :password_expirable, :secure_validatable,
+         :trackable, :omniauthable, :async, :password_expirable, :secure_validatable,
          authentication_keys: [:login]
 
   acts_as_voter
