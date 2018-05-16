@@ -532,6 +532,10 @@ footer a {
   padding-right: 15px;
 }
 
+.margin-top-100{
+  margin-top: 100px;
+}
+
 .margin-top-20{
   margin-top: 20px;
   padding-right: 15px;
@@ -884,6 +888,10 @@ input.button.disabled {
   margin-bottom: 20px;
 }
 
+.margin-bot-50{
+  margin-bottom: 50px;
+}
+
 .border-green{
   border: 2px solid #51cf91;
   border-right: 0px;
@@ -993,4 +1001,15 @@ input.button.disabled {
 
 .debate-form .recommendations li::before {
   color: #f9bd41;
+}
+
+td{
+  border: 1px solid black;
+  text-align: center;
+  width: 33%;
+}
+
+.iframe-size{
+  width: 560px; 
+  height:315px;
 }
