@@ -49,8 +49,8 @@ module PollsHelper
     question.answers.where(author: current_user).any? { |vote| current_user.current_sign_in_at >= vote.updated_at }
   end
 
-  def options_level_access
-    Poll::LEVEL_ACCESS.collect { |key, value| [t("admin.polls.new.#{key}"), value] }
+  def options_access_level
+    Poll::ACCESS_LEVEL.collect { |key, value| [t("admin.polls.new.#{key}"), value] }
   end
 
 end

@@ -8,6 +8,7 @@ class Polls::QuestionsController < ApplicationController
   def answer
     answer = @question.answers.find_or_initialize_by(author: current_user)
     token = params[:token]
+    @poll = Poll.find(params[:poll_id].to_i)
 
     answer.answer = params[:answer]
     answer.touch if answer.persisted?
