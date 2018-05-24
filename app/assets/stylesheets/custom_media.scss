@@ -327,6 +327,10 @@
 }
 
 @media (min-width: 100px) and (max-width: 840px) {
+  .margin-top-100 {
+    margin-top: 0;
+  }
+
   .jumbo {
     margin-top: 1px;
   }
@@ -718,7 +722,7 @@
   }
 
   .iframe-size{
-    width: 98%; 
+    width: 98%;
     height: auto;
   }
 
@@ -731,6 +735,9 @@
 @media (max-width: 425px) {
   .featured-proposals .proposal-featured {
     min-height: 160px;
+  }
+  .width-icon-small {
+    width: 30%;
   }
 }
 
@@ -824,6 +831,9 @@
 
 
 @media (min-width: 100px) and (max-width: 342px) {
+  .width-icon-small {
+    width: 50%;
+  }
 
   .margin-left-20-lg h4{
     font-size: 14px;

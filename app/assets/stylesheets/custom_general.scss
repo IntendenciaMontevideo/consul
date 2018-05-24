@@ -1011,6 +1011,19 @@ table tr td{
 }
 
 .iframe-size{
-  width: 560px; 
+  width: 560px;
   height:315px;
+}
+
+.last-td {
+  border-color: #fff;
+}
+
+.td-saml-level-2 {
+  padding-top: 7px;
+  vertical-align: baseline;
+}
+
+.login-saml-title {
+  font-size: 18px;
 }
