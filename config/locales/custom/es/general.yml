@@ -68,7 +68,7 @@ es:
       sign_up: Regístrate con Twitter
       name: Twitter
     finish_signup:
-      username_warning: "Es posible que tu nombre de usuario o correo electrónico aparezca como 'ya en uso'. Si es tu caso, por favor ingresa uno distinto."
+      username_warning: "Por favor ingrese su correo electrónico."
   login_view:
     sign_in_with: Entrar con
     sign_in_user_one: Usuario Nivel 1

@@ -78,6 +78,7 @@ class User < ActiveRecord::Base
 
   # Get the existing user by email if the provider gives us a verified email.
   def self.first_or_initialize_for_oauth(auth)
+  
     oauth_email           = auth.info.email || [auth.uid, '@consul.imm.gub.uy'].join
     oauth_email_confirmed = oauth_email.present? && (auth.info.verified || auth.info.verified_email || ["twitter", "google_oauth2"].include?(auth.provider))
     oauth_user            = User.find_by(email: oauth_email) if oauth_email_confirmed
@@ -86,8 +87,11 @@ class User < ActiveRecord::Base
       oauth_user.set_level_one
     end
 
+    user_count = User.where("username like '#{auth.info.name}%'").count
+    username = user_count > 0 ?  [auth.info.name, user_count.to_s].join('_') : auth.info.name
+
     oauth_user || User.new(
-      username:  auth.info.name || auth.uid,
+      username:  username || auth.uid,
       first_name: auth.info.name,
       email: oauth_email,
       oauth_email: oauth_email,
