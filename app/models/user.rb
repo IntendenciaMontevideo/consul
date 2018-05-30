@@ -39,7 +39,6 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
-  validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
 
   validate :validate_username_length
   validates :email, presence: true
@@ -78,7 +77,7 @@ class User < ActiveRecord::Base
 
   # Get the existing user by email if the provider gives us a verified email.
   def self.first_or_initialize_for_oauth(auth)
-  
+
     oauth_email           = auth.info.email || [auth.uid, '@consul.imm.gub.uy'].join
     oauth_email_confirmed = oauth_email.present? && (auth.info.verified || auth.info.verified_email || ["twitter", "google_oauth2"].include?(auth.provider))
     oauth_user            = User.find_by(email: oauth_email) if oauth_email_confirmed
