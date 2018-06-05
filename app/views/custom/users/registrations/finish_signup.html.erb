@@ -13,11 +13,7 @@
         <%= f.hidden_field :username %>
       <% end %>
 
-      <% if current_user.errors.include? :email %>
-        <%= f.email_field :email, placeholder: t("devise_views.users.registrations.new.email_label") %>
-      <% else %>
-        <%= f.hidden_field :email %>
-      <% end %>
+      <%= f.email_field :email, placeholder: t("devise_views.users.registrations.new.email_label") %>
 
       <%= f.submit t("devise_views.users.registrations.new.submit"), class: 'button expanded  margin-top-20 center-mid' %>
       <div class="text-center">
