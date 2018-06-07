@@ -1,11 +1,8 @@
-<div class="medium-5 center-mid">
-  <h2><%= t('omniauth.finish_signup.title') %></h2>
+<div class="medium-8 center-mid">
+  <h3><%= t('omniauth.finish_signup.title') %></h3>
 
   <%= form_for current_user, as: :user, url: do_finish_signup_path, html: { role: 'form'} do |f| %>
     <div class="medium-9 center-mid">
-      <div class='callout primary'>
-        <%= t("omniauth.finish_signup.username_warning") %>
-      </div>
 
       <% if current_user.errors.include? :username %>
         <%= f.text_field :username, placeholder: t("devise_views.users.registrations.new.username_label") %>

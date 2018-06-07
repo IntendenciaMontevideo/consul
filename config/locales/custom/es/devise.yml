@@ -5,4 +5,4 @@ es:
     registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto. Los datos personales registrados como usuario de la Web quedan amparados a lo previsto en la Ley 18.331 de protección de datos personales, y la Ley 18.381 de Acceso a la Información Pública."
       user:
-        confirmed: "Se ha registrado correctamente, le hemos enviado un correo electrónico para que pueda confirmar su emal."
+        confirmed: "Se ha registrado correctamente, le hemos enviado un correo electrónico para que pueda confirmar su email."

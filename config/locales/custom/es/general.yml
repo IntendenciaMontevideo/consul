@@ -68,6 +68,7 @@ es:
       sign_up: Regístrate con Twitter
       name: Twitter
     finish_signup:
+      title: "Para finalizar tu registro ingresa tu correo electrónico que utilizaremos para mantenernos en contacto contigo"
       username_warning: "Por favor ingrese su correo electrónico."
   login_view:
     sign_in_with: Entrar con
