@@ -4,9 +4,6 @@
       <span class="avatar-title" style="background: <%=  set_class %>" > <%=  @account.name[0].try(:upcase) %></span>
         <h1 class="inline-block"><%= t("account.show.title") %></h1>
     </div>
-    <div class="float-right text-right">
-      <%= link_to t("account.show.erase_account_link"), users_registrations_delete_form_path, class: "delete" %>
-    </div>
       <div class="large-12 float-left margin-bot-small">
 
         <%= render "shared/errors", resource: @account %>
