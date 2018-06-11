@@ -95,6 +95,7 @@ group :development do
   gem 'rvm1-capistrano3', '~> 1.4.0', require: false
   gem 'scss_lint', '~> 0.54.0', require: false
   gem 'web-console', '~> 3.3.0'
+  gem 'thin'
 end
 
 eval_gemfile './Gemfile_custom'

@@ -46,7 +46,7 @@ Setting['per_page_code_body'] = ''
 
 # Social settings
 Setting["twitter_handle"] = nil
-Setting["twitter_hashtag"] = nil
+Setting["twitter_hashtag"] = '#MontevideoDecide'
 Setting["facebook_handle"] = nil
 Setting["youtube_handle"] = nil
 Setting["telegram_handle"] = nil
@@ -54,6 +54,7 @@ Setting["instagram_handle"] = nil
 Setting["blog_url"] = nil
 Setting["transparency_url"] = nil
 Setting["opendata_url"] = "/opendata"
+Setting["url_registration_saml"] = 'https://mi.iduruguay.gub.uy/registro'
 
 # Public-facing URL of the app.
 Setting["url"] = "http://example.com"

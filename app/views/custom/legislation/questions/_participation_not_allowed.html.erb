@@ -8,7 +8,8 @@
   <div class="participation-not-allowed" style='display:none' aria-hidden="false">
     <p>
       <%= t("legislation.questions.participation.verified_only",
-          associate: link_to('Nivel 2', '/associate' )).html_safe %>
+          access: link_to("ingresá aquí", user_omniauth_authorize_path(:saml), title: "ingresá aquí"),
+          registration: link_to('registrate', Setting["url_registration_saml"], title: "registrate", target: '_blank' )).html_safe %>
     </p>
   </div>
 <% elsif !user_signed_in? %>

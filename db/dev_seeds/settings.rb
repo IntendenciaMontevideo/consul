@@ -18,7 +18,7 @@ section "Creating Settings" do
   Setting.create(key: 'comments_body_max_length', value: '1000')
 
   Setting.create(key: 'twitter_handle', value: '@consul_dev')
-  Setting.create(key: 'twitter_hashtag', value: '#consul_dev')
+  Setting.create(key: 'twitter_hashtag', value: '#MontevideoDecide')
   Setting.create(key: 'facebook_handle', value: 'CONSUL')
   Setting.create(key: 'youtube_handle', value: 'CONSUL')
   Setting.create(key: 'telegram_handle', value: 'CONSUL')
@@ -74,4 +74,6 @@ section "Creating Settings" do
   Setting.create(key: 'proposals_vote_end_day', value: 31)
   Setting.create(key: 'proposals_vote_end_month', value: 3)
   Setting.create(key: 'proposals_feasibility_threshold', value: 500)
+
+  Setting.create(key: 'url_registration_saml': 'https://mi.iduruguay.gub.uy/registro')
 end
