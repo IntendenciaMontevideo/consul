@@ -710,6 +710,22 @@
   form .checkbox, form .radio {
     width: 80%;
   }
+
+  td{
+    border: 1px solid black;
+    text-align: center;
+    width: auto;
+  }
+
+  .iframe-size{
+    width: 98%; 
+    height: auto;
+  }
+
+  .margin-top-100{
+    margin-top: 10px;
+  }
+
 }
 
 @media (max-width: 425px) {

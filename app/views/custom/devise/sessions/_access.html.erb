@@ -36,7 +36,7 @@
           </div>
         <% end -%>
 
-        <div class="small-12 medium-6 small-centered">
+        <div class="small-12 medium-6 ">
           <%= f.submit(t("devise_views.sessions.new.submit"), class: "button expanded") %>
         </div>
       </div>
@@ -44,57 +44,102 @@
   <% end %>
 </div>
 
-  <div class="large-8 medium-8 float-left margin-left-10 margin-top-10">
-    <h3><%= t("login_view.know_your_user_lvl") %></h3>
-  </div>
-  <div class="medium-5 large-4 float-left margin-left-10">
-    <div class="margin-top-20">
-      <h4><%= t("login_view.sign_in_user_one") %> :</h4>
-      <p class="p-small float-left"><%= t("login_view.user_one_description") %></p>
-      <p class="p-small float-left"><%= t("login_view.user_one_acces") %></p>
-    </div>
-    <div class="medium-6 float-left">
-      <div class="margin-top-20">
-        <p class="base-color"><%= t("login_view.title_debates") %>:</p>
-        <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_debates_one") %></p></div>
-        <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_debates_two") %></p></div>
-        <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_debates_three") %></p></div>
+  <div class="large-8 medium-8 float-left margin-left-10 margin-top-20">
+    <h3>Conocé tus niveles de usuario</h3>
+    <div class="row container">
+      <div class="large-9 margin-bot-50 columns">
+        <iframe class="iframe-size" src="https://www.youtube.com/embed/vlNyE51EiVk?controls=0&loop=1" allow="autoplay; encrypted-media" ></iframe>
       </div>
-    </div>
-      <div class="medium-6 small-12 float-right">
-      <div class="margin-top-20">
-        <p class="base-color"><%= t("login_view.title_ideas") %> :</p>
-        <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_ideas_one") %></p></div>
+      <div class="large-3 columns margin-top-100">
+        <p><strong>Nivel 1</strong><br>Acceso con cuenta de twitter, Facebook o Google+.</p>
+        <p><strong>Nivel 2</strong><br>Acceso con usuario AGESIC.</p>
       </div>
-    </div>
-  </div>
-
-<div class="medium-5 large-4 float-right margin-left-10 margin-top-20">
-  <div>
-    <h4><%= t("login_view.sign_in_user_two") %> :</h4>
-    <p class="p-small float-left"><%= t("login_view.user_two_description") %></p>
-    <p class="p-small float-left"><%= t("login_view.user_one_acces") %></p>
-  </div>
-  <div class="medium-6 float-left">
-    <div class="margin-top-20">
-      <p class="base-color"><%= t("login_view.title_debates") %>:</p>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_debates_one") %></p></div>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_debates_two") %></p></div>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_debates_three") %></p></div>
-    </div>
-    <div class="margin-top-20">
-      <p class="base-color"><%= t("login_view.title_consultas") %>:</p>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_consultas_one") %></p></div>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_consultas_two") %></p></div>
-    </div>
-  </div>
-    <div class="medium-6 float-right">
-    <div class="margin-top-20">
-      <p class="base-color"><%= t("login_view.title_ideas") %> :</p>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_ideas_one") %></p></div>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_ideas_two") %></p></div>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_ideas_three") %></p></div>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_ideas_four") %></p></div>
+      <div class="large-12">
+        <table>
+          <tbody>
+            <tr>
+              <td class="text-left" ><strong>DEBATES</strong></td>
+              <td><strong>NIVEL 1*</strong></td>
+              <td ><strong>NIVEL 2*</strong></td>
+            </tr>
+            <tr>
+              <td class="text-left">Crear un debate</td>
+              <td><span class="icon-check "></span></td>
+              <td><span class="icon-check "></span></td>
+            </tr>
+            <tr>
+              <td class="text-left">comentar los debatesh</td>
+              <td><span class="icon-check"></span></td>
+              <td><span class="icon-check "></span></td>
+            </tr>
+            <tr>
+              <td class="text-left">Apoyar debates</td>
+              <td><span class="icon-check "></span></td>
+              <td><span class="icon-check "></span></td>
+            </tr>
+             <tr>
+              <td class="text-left" ><strong>IDEAS</strong></td>
+              <td class="text-left" ><strong></strong></td>
+              <td class="text-left" ><strong></strong></td>
+            </tr>
+            <tr>
+              <td class="text-left">Proponer idea</td>
+              <td><span class="icon-x "></span></td>
+              <td><span class="icon-check "></span></td>
+            </tr>
+            <tr>
+              <td class="text-left">Comentar una idea</td>
+              <td><span class="icon-x "></span></td>
+              <td><span class="icon-check "></span></td>
+            </tr>
+            <tr>
+              <td class="text-left">Apoyar una idea</td>
+              <td><span class="icon-x "></span></td>
+              <td><span class="icon-check "></span></td>
+            </tr>
+            <tr>
+              <td class="text-left">Votar una idea</td>
+              <td><span class="icon-x "></span></td>
+              <td><span class="icon-check "></span></td>
+            </tr>
+             <tr>
+              <td class="text-left" ><strong>CONSULTAS</strong></td>
+              <td class="text-left" ><strong></strong></td>
+              <td class="text-left" ><strong></strong></td>
+            </tr>
+            <tr>
+              <td class="text-left">Comentar las consultas realizadas por la IM</td>
+              <td><span class="icon-x "></span></td>
+              <td><span class="icon-check "></span></td>
+            </tr>
+            <tr>
+              <td class="text-left">Decide sobre consultas</td>
+              <td><span class="icon-x "></span></td>
+              <td><span class="icon-check "></span></td>
+            </tr>
+             <tr>
+              <td class="text-left" ><strong>PRESUPUESTO PARTICIPATIVO</strong></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="text-left">Acceder a enlace del Presupuesto participativo</td>
+              <td><span class="icon-check "></span></td>
+              <td><span class="icon-check "></span></td>
+            </tr>
+             <tr>
+              <td class="text-left" ><strong>ESPACIOS DE COLABORACIÓN</strong></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="text-left">Acceder a los enlaces de los espacios de colaboración que ofrece la IM para participar en manera presencial</td>
+              <td><span class="icon-check "></span></td>
+              <td><span class="icon-check "></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
