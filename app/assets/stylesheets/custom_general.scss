@@ -1010,8 +1010,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
-  border-top: 10px solid #f9bd41;
   border-right: 1px solid #000;
+}
+
+.border-top-table-user{
+  border-top: 10px solid #f9bd41;
 }
 
 .border-bot-table-user{
@@ -1019,7 +1022,7 @@ table {
 }
 
 .border-left-table-user{
-  border-left: 10px solid #f9bd41;
+  border-left: 5px solid #f9bd41;
 }
 
 thead, tbody, tfoot {
@@ -1035,6 +1038,7 @@ td{
   background-color: #f9bd41;
   color: #fff;
   width: 15px;
+  margin-bottom: 4px;
 }
 
 .tr-w{
@@ -1070,28 +1074,51 @@ td{
 .bg-twitter{
   background-color: #cceffc !important;
   border-left: 10px solid #00adee;
+  padding: 8px;
+  width: 98%;
 }
 
 .bg-facebook{
   background-color: #d4d3e0 !important;
   border-left: 10px solid #262262;
+  padding: 8px;
+  width: 98%;
 }
 
 .bg-google{
   background-color: #fbd2d3 !important;
   border-left: 10px solid #ec1c24;
+  padding: 8px;
+  width: 98%;
 }
 
 .no-border{
   border-left: 3px solid #fff !important;
 }
 
+.no-border-2{
+  border-left: 3px solid #fff !important;
+  border-right: 3px solid #fff !important;
+}
+
 .iduru{
   position: absolute;
   margin-top: -10px;
-  width: 16%;
+  width: 12%;
 }
 
 .iduru-color{
   color: #58585a !important;
+}
+
+.padding-bot-0{
+  padding-bottom: 0px;
+}
+
+.w-div {
+  width: 10px;
+  border-top: 10px solid #fff;
+  position: absolute;
+  margin-top: -31px;
+  margin-left: 668px;
 }

@@ -43,9 +43,9 @@
      <table>
        <tbody>
          <tr>
-           <td class="text-left" ></td>
-           <td><p class="float-center user-number w-200"><strong>1</strong></p></td>
-           <td ><p class="float-center user-number w-200"><strong>2</strong></p></td>
+           <td class="text-left border-top-table-user" ><div class="w-div"></div></td>
+           <td class="padding-bot-0 border-top-table-user"><h3 class="float-center user-number w-200"><strong>1</strong></h3></td>
+           <td class="padding-bot-0 border-top-table-user"><h3 class="float-center user-number w-200"><strong>2</strong></h3></td>
          </tr>
          <tr class="tr-light-gray">
            <td class="text-left border-left-table-user" ><strong>DEBATES</strong></td>
@@ -78,12 +78,12 @@
            <td><span class="icon-x "></span></td>
            <td><span class="icon-check "></span></td>
          </tr>
-         <tr class="table-bar"><td></td><td></td><td></td></tr>
          <tr class="tr-dark-gray">
            <td class="text-left">Votar una idea</td>
            <td><span class="icon-x "></span></td>
            <td><span class="icon-check "></span></td>
          </tr>
+         <tr class="table-bar"><td></td><td></td><td></td></tr>
           <tr class="tr-light-gray">
            <td class="text-left border-left-table-user" ><strong>CONSULTAS</strong></td>
            <td class="text-left" ><strong></strong></td>
@@ -94,25 +94,23 @@
            <td class="border-bot-table-user"><span class="icon-x "></span></td>
            <td class="border-bot-table-user"><span class="icon-check "></span></td>
          </tr>
-         <tr class="table-bar"><td class="tr-w"></td><td class="no-border"></td><td class="border-left-table-user bg-iduruguay"></td></tr>
-         <tr class="table-bar"><td class="tr-w"></td><td class="no-border"></td><td class="border-left-table-user bg-iduruguay"></td></tr>
+         <tr class="table-bar"><td class="tr-w"></td><td class="no-border"></td><td class="tr-w no-border-2"></td></tr>
+         <tr class="table-bar"><td class="tr-w"></td><td class="no-border"></td><td class="tr-w no-border-2"></td></tr>
          <tr class="tr-w">
            <td></td>
-           <td class="bg-twitter"><% if feature? :twitter_login %> <%= link_to (image_tag(image_path_for('twitter.png'), class: '', width: '30x30', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:twitter) %><% end %></td>
+           <td class="no-border-2"><div class="bg-twitter"><% if feature? :twitter_login %> <%= link_to (image_tag(image_path_for('twitter.png'), class: '', width: '30x30', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:twitter) %><% end %></div></td>
            <td class="border-left-table-user bg-iduruguay"></td>
          </tr>
-         <tr class="table-bar"><td class="tr-w"></td><td class="no-border"></td><td class="border-left-table-user bg-iduruguay "></td></tr>
           <tr class="tr-w">
            <td ></td>
-           <td class="bg-facebook"><% if feature? :facebook_login %> <%= link_to (image_tag(image_path_for('facebook.png'), class: '', width: '30x30', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:facebook) %><% end %></td>
+           <td class="no-border-2"><div class="bg-facebook"><% if feature? :facebook_login %> <%= link_to (image_tag(image_path_for('facebook.png'), class: '', width: '30x30', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:facebook) %><% end %></div></td>
            <td class="border-left-table-user bg-iduruguay "> <% if feature? :saml_login %><h5 class="iduru"><%= link_to t("omniauth.saml.name"), user_omniauth_authorize_path(:saml),
                       title: t("omniauth.saml.sign_in"),
                       class: "iduru-color" %></h5><% end %></td>
          </tr>
-         <tr class="table-bar"><td class="tr-w"></td><td class="no-border"></td><td class="border-left-table-user bg-iduruguay"></td></tr>
          <tr class="tr-w">
            <td></td>
-           <td class="bg-google"><% if feature? :google_login %><%= link_to (image_tag(image_path_for('google.png'), class: '', width: '30x30', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:google_oauth2) %><% end %></td>
+           <td class="no-border-2"><div class="bg-google"><% if feature? :google_login %><%= link_to (image_tag(image_path_for('google.png'), class: '', width: '30x30', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:google_oauth2) %><% end %></div></td>
            <td class="border-left-table-user bg-iduruguay"></td>
          </tr>
        </tbody>
