@@ -9,12 +9,7 @@
     </div>
   </div>
   <p class="column">
-
   </p>
-
-  <%= render 'devise/omniauth_form' %>
-
-
   <% if params[:login_admin] %>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="row">
@@ -43,58 +38,90 @@
     <% end %>
   <% end %>
 </div>
-
-  <div class="large-8 medium-8 float-left margin-left-10 margin-top-10">
-    <h3><%= t("login_view.know_your_user_lvl") %></h3>
+<div class="column">
+  <div class="large-12">
+     <table>
+       <tbody>
+         <tr>
+           <td class="text-left" ></td>
+           <td><p class="float-center user-number w-200"><strong>1</strong></p></td>
+           <td ><p class="float-center user-number w-200"><strong>2</strong></p></td>
+         </tr>
+         <tr class="tr-light-gray">
+           <td class="text-left border-left-table-user" ><strong>DEBATES</strong></td>
+           <td></td>
+           <td ></td>
+         </tr>
+         <tr class="tr-dark-gray">
+           <td class="text-left">comentar los debatesh</td>
+           <td><span class="icon-check"></span></td>
+           <td><span class="icon-check"></span></td>
+         </tr>
+         <tr class="tr-light-gray">
+           <td class="text-left">Apoyar debates</td>
+           <td><span class="icon-check "></span></td>
+           <td><span class="icon-check "></span></td>
+         </tr>
+         <tr class="table-bar"><td></td><td></td><td></td></tr>
+          <tr class="tr-light-gray">
+           <td class="text-left border-left-table-user" ><strong>IDEAS</strong></td>
+           <td class="text-left" ><strong></strong></td>
+           <td class="text-left" ><strong></strong></td>
+         </tr>
+         <tr class="tr-dark-gray">
+           <td class="text-left">Proponer idea</td>
+           <td><span class="icon-x "></span></td>
+           <td><span class="icon-check "></span></td>
+         </tr>
+         <tr class="tr-light-gray">
+           <td class="text-left">Apoyar una idea</td>
+           <td><span class="icon-x "></span></td>
+           <td><span class="icon-check "></span></td>
+         </tr>
+         <tr class="table-bar"><td></td><td></td><td></td></tr>
+         <tr class="tr-dark-gray">
+           <td class="text-left">Votar una idea</td>
+           <td><span class="icon-x "></span></td>
+           <td><span class="icon-check "></span></td>
+         </tr>
+          <tr class="tr-light-gray">
+           <td class="text-left border-left-table-user" ><strong>CONSULTAS</strong></td>
+           <td class="text-left" ><strong></strong></td>
+           <td class="text-left" ><strong></strong></td>
+         </tr>
+         <tr class="tr-dark-gray">
+           <td class="text-left">Decide sobre consultas</td>
+           <td class="border-bot-table-user"><span class="icon-x "></span></td>
+           <td class="border-bot-table-user"><span class="icon-check "></span></td>
+         </tr>
+         <tr class="table-bar"><td class="tr-w"></td><td class="no-border"></td><td class="border-left-table-user bg-iduruguay"></td></tr>
+         <tr class="table-bar"><td class="tr-w"></td><td class="no-border"></td><td class="border-left-table-user bg-iduruguay"></td></tr>
+         <tr class="tr-w">
+           <td></td>
+           <td class="bg-twitter"><% if feature? :twitter_login %> <%= link_to (image_tag(image_path_for('twitter.png'), class: '', width: '30x30', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:twitter) %><% end %></td>
+           <td class="border-left-table-user bg-iduruguay"></td>
+         </tr>
+         <tr class="table-bar"><td class="tr-w"></td><td class="no-border"></td><td class="border-left-table-user bg-iduruguay "></td></tr>
+          <tr class="tr-w">
+           <td ></td>
+           <td class="bg-facebook"><% if feature? :facebook_login %> <%= link_to (image_tag(image_path_for('facebook.png'), class: '', width: '30x30', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:facebook) %><% end %></td>
+           <td class="border-left-table-user bg-iduruguay "> <% if feature? :saml_login %><h5><%= link_to t("omniauth.saml.name"), user_omniauth_authorize_path(:saml),
+                      title: t("omniauth.saml.sign_in"),
+                      class: "" %></h5><% end %></td>
+         </tr>
+         <tr class="table-bar"><td class="tr-w"></td><td class="no-border"></td><td class="border-left-table-user bg-iduruguay"></td></tr>
+         <tr class="tr-w">
+           <td></td>
+           <td class="bg-google"><% if feature? :google_login %><%= link_to (image_tag(image_path_for('google.png'), class: '', width: '30x30', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:google_oauth2) %><% end %></td>
+           <td class="border-left-table-user bg-iduruguay"></td>
+         </tr>
+       </tbody>
+     </table>
   </div>
-  <div class="medium-5 large-4 float-left margin-left-10">
-    <div class="margin-top-20">
-      <h4><%= t("login_view.sign_in_user_one") %> :</h4>
-      <p class="p-small float-left"><%= t("login_view.user_one_description") %></p>
-      <p class="p-small float-left"><%= t("login_view.user_one_acces") %></p>
-    </div>
-    <div class="medium-6 float-left">
-      <div class="margin-top-20">
-        <p class="base-color"><%= t("login_view.title_debates") %>:</p>
-        <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_debates_one") %></p></div>
-        <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_debates_two") %></p></div>
-        <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_debates_three") %></p></div>
-      </div>
-    </div>
-      <div class="medium-6 small-12 float-right">
-      <div class="margin-top-20">
-        <p class="base-color"><%= t("login_view.title_ideas") %> :</p>
-        <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_ideas_one") %></p></div>
-      </div>
-    </div>
-  </div>
-
-<div class="medium-5 large-4 float-right margin-left-10 margin-top-20">
-  <div>
-    <h4><%= t("login_view.sign_in_user_two") %> :</h4>
-    <p class="p-small float-left"><%= t("login_view.user_two_description") %></p>
-    <p class="p-small float-left"><%= t("login_view.user_one_acces") %></p>
-  </div>
-  <div class="medium-6 float-left">
-    <div class="margin-top-20">
-      <p class="base-color"><%= t("login_view.title_debates") %>:</p>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_debates_one") %></p></div>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_debates_two") %></p></div>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_debates_three") %></p></div>
-    </div>
-    <div class="margin-top-20">
-      <p class="base-color"><%= t("login_view.title_consultas") %>:</p>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_consultas_one") %></p></div>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_consultas_two") %></p></div>
-    </div>
-  </div>
-    <div class="medium-6 float-right">
-    <div class="margin-top-20">
-      <p class="base-color"><%= t("login_view.title_ideas") %> :</p>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_ideas_one") %></p></div>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_ideas_two") %></p></div>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_ideas_three") %></p></div>
-      <div class="column"><span class="icon-check float-left negativ-margin"></span><p class="p-small float-left"><%= t("login_view.content_ideas_four") %></p></div>
+  <div class="row container margin-top-50">
+    <div class="large-6 large-centered margin-top-50 columns"> 
+      <h4 class="column large-offset-3 margin-top-50">Conocé tus niveles de usuario</h4>
+      <iframe class="iframe-size margin-top-50 large-centered" src="https://www.youtube.com/embed/vlNyE51EiVk?controls=0&loop=1" allow="autoplay; encrypted-media" ></iframe>
     </div>
   </div>
 </div>
