@@ -996,7 +996,7 @@ input.button.disabled {
 }
 
 .iframe-size{
-  width: 560px; 
+  width: 560px;
   height:315px;
 }
 
@@ -1103,8 +1103,10 @@ td{
 
 .iduru{
   position: absolute;
-  margin-top: -10px;
+  margin-top: -20px;
   width: 14%;
+  clear: both;
+  font-weight: 700;
 }
 
 .iduru-color{
@@ -1121,4 +1123,24 @@ td{
   position: absolute;
   margin-top: -31px;
   margin-left: 668px;
+}
+
+.bg-color-white {
+  background-color: #fff;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0;
+}
+
+.no-padding-top {
+  padding-top: 0;
+}
+
+.padding-left-10 {
+  padding-left: 10px;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
 }
