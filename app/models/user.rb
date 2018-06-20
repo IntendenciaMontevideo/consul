@@ -105,7 +105,7 @@ class User < ActiveRecord::Base
   def self.first_or_initialize_for_oauth_saml(auth, user=nil)
     unless user
       oauth_email           = nil
-      oauth_email_confirmed = false
+      oauth_email_confirmed = nil
       oauth_user            = nil
     else
       oauth_user = user
@@ -116,6 +116,10 @@ class User < ActiveRecord::Base
       username = [user_attributes['http://wso2.org/claims/givenname'].first, user_attributes['http://wso2.org/claims/lastname'].first].join(' ')
       user_count = User.where("username like '#{username}%'").count
       username = [username, user_count.to_s].join('_') if user_count > 0
+      oauth_email = user_attributes['http://wso2.org/claims/emailaddress'].try(:first)
+      unless oauth_email.blank?
+        oauth_email_confirmed = DateTime.current
+      end
       oauth_user = User.new(
         username:  username,
         email: oauth_email,
@@ -134,12 +138,18 @@ class User < ActiveRecord::Base
         user_verified: user_attributes['http://wso2.org/claims/userVerified'].first == 'true' ? true : false,
         middle_name: user_attributes['http://wso2.org/claims/middleName'].try(:first),
         uid: auth.uid,
-        confirmed_at: nil,
+        confirmed_at: oauth_email_confirmed,
         verified_at: nil
       )
     else
       if auth.extra.raw_info.attributes
+        oauth_email = user_attributes['http://wso2.org/claims/emailaddress'].try(:first)
+        if oauth_user.email != oauth_email
+          oauth_user.confirmed_at = DateTime.current
+          oauth_user.skip_reconfirmation!
+        end
         oauth_user.first_name = user_attributes['http://wso2.org/claims/givenname'].try(:first)
+        oauth_user.email = oauth_email || oauth_user.email
         oauth_user.last_name = user_attributes['http://wso2.org/claims/lastname'].try(:first)
         oauth_user.last_name_2 = user_attributes['http://wso2.org/claims/lastname2'].try(:first)
         oauth_user.role = user_attributes['http://wso2.org/claims/role'].try(:first)
