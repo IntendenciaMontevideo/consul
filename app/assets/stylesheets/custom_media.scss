@@ -331,6 +331,10 @@
     margin-top: 1px;
   }
 
+  .w-div {
+    display: none;
+  }
+
   .title-login-options {
     padding-left: 10px;
   }
@@ -345,6 +349,23 @@
 
   .box-text {
     top: 46%;
+  }
+
+  .iframe-size{
+    width: 90%;
+  }
+
+  .iduru-color{
+    color: #58585a !important;
+    font-size: 16px;
+    padding-right: 10px;
+  }
+
+  .iduru{
+    position: absolute;
+    margin-top: -21px;
+    width: 18%;
+    padding-right: 10px;
   }
 
   .inline-h-0{
@@ -640,7 +661,18 @@
   }
 }
 
+@media (max-width: 768px) {
+
+  .iframe-size{
+    width: 104%;
+  }
+}
+
 @media (min-width: 100px) and (max-width: 639px) {
+
+  .iframe-size{
+    width: 110%;
+  }
 
   .margin-left-40{
     margin-left:10px;
@@ -716,9 +748,24 @@
   .featured-proposals .proposal-featured {
     min-height: 160px;
   }
+  .iduru{
+    position: absolute;
+    margin-top: -31px;
+  }
+
+  .iduru-color{
+    font-size: 13px;
+    padding-right: 0;
+  }
+
 }
 
 @media (min-width: 100px) and (max-width: 375px) {
+
+  .iduru{
+    position: absolute;
+    margin-top: -40px;
+  }
 
   .ball-green{
     right: 16px;

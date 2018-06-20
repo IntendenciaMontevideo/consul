@@ -994,3 +994,153 @@ input.button.disabled {
 .debate-form .recommendations li::before {
   color: #f9bd41;
 }
+
+.iframe-size{
+  width: 560px;
+  height:315px;
+}
+
+table tr td{
+  text-align: center;
+  padding: 0.4rem 0.375rem;
+}
+
+table {
+  border: #fff;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border-right: 1px solid #000;
+}
+
+.border-top-table-user{
+  border-top: 10px solid #f9bd41;
+}
+
+.border-bot-table-user{
+  border-bottom: 10px solid #f9bd41;
+}
+
+.border-left-table-user{
+  border-left: 5px solid #f9bd41;
+}
+
+thead, tbody, tfoot {
+  border: 0;
+  background-color: #fff;
+}
+
+td{
+    border-right: 1px solid #000;
+}
+
+.user-number{
+  background-color: #f9bd41;
+  color: #fff;
+  width: 15px;
+  margin-bottom: 4px;
+}
+
+.tr-w{
+  background-color: #fff !important;
+}
+
+.tr-light-gray{
+  background-color: #f0f1f1 !important;
+}
+
+.tr-dark-gray{
+  background-color: #e5e6e7 !important;
+}
+
+.margin-bot-10{
+  margin-bottom: 10px;
+}
+
+.table-bar{
+  height: 10px;
+  background-color: #fff;
+}
+
+.w-200{
+  width: 40px;
+}
+
+.bg-iduruguay{
+  background-color: #fef2d9 !important;
+  border-right: 1px solid #fef2d9 !important;
+}
+
+.bg-twitter{
+  background-color: #cceffc !important;
+  border-left: 10px solid #00adee;
+  padding: 8px;
+  width: 98%;
+}
+
+.bg-facebook{
+  background-color: #d4d3e0 !important;
+  border-left: 10px solid #262262;
+  padding: 8px;
+  width: 98%;
+}
+
+.bg-google{
+  background-color: #fbd2d3 !important;
+  border-left: 10px solid #ec1c24;
+  padding: 8px;
+  width: 98%;
+}
+
+.no-border{
+  border-left: 3px solid #fff !important;
+}
+
+.no-border-2{
+  border-left: 3px solid #fff !important;
+  border-right: 3px solid #fff !important;
+}
+
+.iduru{
+  position: absolute;
+  margin-top: -20px;
+  width: 14%;
+  clear: both;
+  font-weight: 700;
+}
+
+.iduru-color{
+  color: #58585a !important;
+}
+
+.padding-bot-0{
+  padding-bottom: 0px;
+}
+
+.w-div {
+  width: 10px;
+  border-top: 10px solid #fff;
+  position: absolute;
+  margin-top: -31px;
+  margin-left: 668px;
+}
+
+.bg-color-white {
+  background-color: #fff;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0;
+}
+
+.no-padding-top {
+  padding-top: 0;
+}
+
+.padding-left-10 {
+  padding-left: 10px;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
