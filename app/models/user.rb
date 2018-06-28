@@ -114,8 +114,13 @@ class User < ActiveRecord::Base
     if oauth_user.blank? && !oauth_email.blank?
       oauth_user = User.where(email: oauth_email).first
       if oauth_user
-        oauth_user.confirmed_at = DateTime.current
-        oauth_user.skip_reconfirmation!
+        if (oauth_user.identities.where(provider: Identity::SAML_PROVIDER).count == 0 )
+          oauth_user.confirmed_at = DateTime.current
+          oauth_user.skip_reconfirmation!
+        else
+          oauth_user = nil
+          oauth_email = nil
+        end
       end
     end
     if oauth_user.blank?
