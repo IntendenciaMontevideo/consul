@@ -1,5 +1,4 @@
 <div class="supports text-center">
-<%= render "/shared/registration_modal" %>
   <% if proposal.successful? || proposal.pre_successful? %>
     <div class="progress small-12 round">
       <span class="meter" style="width: <%= progress_bar_percentage(proposal) %>%;"></span>

@@ -11,7 +11,7 @@
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: proposals_url %>
 <% end %>
-
+<%= render "/shared/registration_modal" %>
 <div class="row-for-banners">
   <div class="box">
      <%= image_tag(image_path_for('banner-ideas.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
