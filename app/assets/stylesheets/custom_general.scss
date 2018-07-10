@@ -1173,3 +1173,16 @@ td{
   color: #fff;
   background: #f9bd41;
 }
+
+#registration_modal {
+  border: none !important;
+}
+
+#registration_modal:focus {
+  border: none !important;
+  outline: none;
+}
+
+#registration_modal  .close-button:hover, #registration_modal  .close-button:focus {
+  color: white;
+}

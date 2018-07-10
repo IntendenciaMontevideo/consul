@@ -9,14 +9,14 @@
     <p>
       <%= t("legislation.questions.participation.verified_only",
           access: link_to("ingresá aquí", user_omniauth_authorize_path(:saml), title: "ingresá aquí"),
-          registration: link_to('registrate', Setting["url_registration_saml"], title: "registrate", target: '_blank' )).html_safe %>
+          registration: link_to('registrate', '#', data: {open: 'registration_modal'} ,title: "registrate")).html_safe %>
     </p>
   </div>
 <% elsif !user_signed_in? %>
   <div class="participation-not-allowed" style='display:none' aria-hidden="false">
     <%= t("legislation.questions.participation.unauthenticated",
           access: link_to("ingresá aquí", user_omniauth_authorize_path(:saml), title: "ingresá aquí"),
-          registration: link_to('registrate', Setting["url_registration_saml"], title: "registrate", target: '_blank' )).html_safe %>
+          registration: link_to('registrate', '#', data: {open: 'registration_modal'} ,title: "registrate")).html_safe %>
   </div>
 <% elsif !@process.debate_phase.open? %>
   <div class="participation-not-allowed" style='display:none' aria-hidden="false">
