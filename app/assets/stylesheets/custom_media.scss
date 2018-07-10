@@ -674,6 +674,28 @@
 
 @media (min-width: 100px) and (max-width: 639px) {
 
+  .padding-all-modal-content{
+    padding: 10px;
+    padding-top: 30px;
+  }
+
+  .close-button{
+    color: #fff;
+    margin-top: 18px;
+    margin-right: 10px;
+    font-size: 22px;
+  }
+
+  .medium{
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .modal-header{
+    color: #fff;
+    background: #f9bd41;
+  }
+
   .iframe-size{
     width: 110%;
   }
