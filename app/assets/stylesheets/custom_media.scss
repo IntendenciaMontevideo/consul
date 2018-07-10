@@ -670,9 +670,16 @@
   .title-video {
     font-size: 16px !important;
   }
+
+  .collaboration-spaces h3 {
+    font-size: 12px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 639px) {
+  .collaboration-spaces h3 {
+    font-size: 24px;
+  }
 
   .padding-all-modal-content{
     padding: 10px;
@@ -1063,6 +1070,9 @@
   .featured-proposals .participation-not-allowed {
     width: 190%;
     margin-left: -130px;
+  }
+  .collaboration-spaces h3 {
+    font-size: 18px;
   }
 }
 
