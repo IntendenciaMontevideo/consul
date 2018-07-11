@@ -26,6 +26,7 @@ namespace :management do
     post :not_approve, on: :member
     post :approve, on: :member
     post :pending, on: :member
+    post :archived, on: :member
   end
 
   resources :spending_proposals, only: [:index, :new, :create, :show] do

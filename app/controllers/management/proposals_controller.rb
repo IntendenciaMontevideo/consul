@@ -2,8 +2,8 @@ class Management::ProposalsController < Management::BaseController
   include HasOrders
   include CommentableActions
 
-  before_action :only_verified_users, except: [:print, :index, :show, :not_approve, :approve_threshold, :approve, :pending]
-  before_action :set_proposal, only: [:vote, :show, :not_approve, :approve_threshold, :approve, :pending]
+  before_action :only_verified_users, except: [:print, :index, :show, :not_approve, :approve_threshold, :approve, :pending, :archived]
+  before_action :set_proposal, only: [:vote, :show, :not_approve, :approve_threshold, :approve, :pending, :archived]
   before_action :parse_search_terms, only: :index
   before_action :load_categories, only: [:new, :edit]
   before_action :load_geozones, only: [:edit]
@@ -40,6 +40,11 @@ class Management::ProposalsController < Management::BaseController
 
   def pending
     @proposal.pending!
+    redirect_to management_proposal_path(@proposal), notice: 'Actualizado correctamente'
+  end
+
+  def archived
+    @proposal.archived!
     redirect_to management_proposal_path(@proposal), notice: 'Actualizado correctamente'
   end
 
