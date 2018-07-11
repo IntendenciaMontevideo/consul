@@ -1,6 +1,12 @@
 <div class='small-12 medium-9 proposal-state-data'>
   <% if proposal.archived? %>
     <h5> IDEA ARCHIVADA</h5>
+    <% if proposal.manually_archived? %>
+      <%= form_tag pending_management_proposal_path(proposal) do %>
+        <h5>Pasar a pendiente</h5>
+        <%= submit_tag 'Pasar a pendiente'%>
+      <% end %>
+    <% end %>
   <% elsif proposal.votes_pre_successful? %>
     <%= form_tag approve_management_proposal_path(proposal) do %>
       <h5>Aprobar Idea</h5>
@@ -29,6 +35,10 @@
       <h5>Pasar a pendiente</h5>
       <%= submit_tag 'Pasar a pendiente'%>
     <% end %>
+    <%= form_tag archived_management_proposal_path(proposal) do %>
+      <h5>Pasar a archivada</h5>
+      <%= submit_tag 'Pasar a archivada'%>
+    <% end %>
   <% else %>
     <% unless proposal.open? %>
       <%= form_tag pending_management_proposal_path(proposal) do %>
@@ -37,6 +47,10 @@
       <% end %>
     <% end %>
     <br>
+    <%= form_tag archived_management_proposal_path(proposal) do %>
+      <h5>Pasar a archivada</h5>
+      <%= submit_tag 'Pasar a archivada'%>
+    <% end %>
     <%= form_tag not_approve_management_proposal_path(proposal) do %>
       <h5>No aprobar idea</h5>
       <%= label_tag "Motivo de no aprobación URL", "Motivo de no aprobación(URL):"%>

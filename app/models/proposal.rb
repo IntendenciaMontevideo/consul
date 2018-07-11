@@ -26,7 +26,7 @@ class Proposal < ActiveRecord::Base
   include ActsAsParanoidAliases
 
   RETIRE_OPTIONS = %w(duplicated started unfeasible done other)
-  STATES = { open: 1, pre_success: 2, success: 3, not_success: 4}
+  STATES = { open: 1, pre_success: 2, success: 3, not_success: 4, archived: 5}
 
   belongs_to :author, -> { with_hidden }, class_name: 'User', foreign_key: 'author_id'
   belongs_to :geozone
@@ -62,8 +62,8 @@ class Proposal < ActiveRecord::Base
   scope :sort_by_flags,            -> { order(flags_count: :desc, updated_at: :desc) }
   scope :sort_by_archival_date,    -> { archived.sort_by_confidence_score }
   scope :sort_by_recommendations,  -> { order(cached_votes_up: :desc) }
-  scope :archived,                 -> { where("proposals.created_at <= ?", [Setting['proposals_start_day'], '/', Setting['proposals_start_month'], '/', Time.zone.now.year].join.to_time) }
-  scope :not_archived,             -> { where("proposals.created_at > ?", [Setting['proposals_start_day'], '/', Setting['proposals_start_month'], '/', Time.zone.now.year].join.to_time) }
+  scope :archived,                 -> { where("state = ? OR proposals.created_at <= ?", STATES[:archived], [Setting['proposals_start_day'], '/', Setting['proposals_start_month'], '/', Time.zone.now.year].join.to_time) }
+  scope :not_archived,             -> { where("state != ? AND proposals.created_at > ?", STATES[:archived], [Setting['proposals_start_day'], '/', Setting['proposals_start_month'], '/', Time.zone.now.year].join.to_time) }
   scope :last_week,                -> { where("proposals.created_at >= ?", 7.days.ago)}
   scope :retired,                  -> { where.not(retired_at: nil) }
   scope :not_retired,              -> { where(retired_at: nil) }
@@ -217,9 +217,13 @@ class Proposal < ActiveRecord::Base
     state == Proposal::STATES[:not_success]
   end
 
+  def manually_archived?
+    state == Proposal::STATES[:archived]
+  end
+
   def archived?
     #created_at <= Setting["months_to_archive_proposals"].to_i.days.ago
-    Time.zone.now >= [Setting['proposals_start_day'], '/', Setting['proposals_start_month'], '/', created_at.year + 1].join.to_time.beginning_of_day
+    manually_archived? || (Time.zone.now >= [Setting['proposals_start_day'], '/', Setting['proposals_start_month'], '/', created_at.year + 1].join.to_time.beginning_of_day)
   end
 
   def notifications
@@ -264,6 +268,10 @@ class Proposal < ActiveRecord::Base
     update(state: STATES[:open])
   end
 
+  def archived!
+    update(state: STATES[:archived])
+  end
+
   def state_text
     case state
     when STATES[:open]
@@ -274,6 +282,8 @@ class Proposal < ActiveRecord::Base
      'Aprobada'
     when STATES[:not_success]
      'No Aprobada'
+    when STATES[:archived]
+     'Archivada'
     end
   end
 
