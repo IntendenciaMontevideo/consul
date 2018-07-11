@@ -1071,6 +1071,17 @@
     width: 190%;
     margin-left: -130px;
   }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .collaboration-spaces h3 {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
   .collaboration-spaces h3 {
     font-size: 18px;
   }
