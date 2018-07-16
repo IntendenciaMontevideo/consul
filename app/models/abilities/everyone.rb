@@ -6,7 +6,7 @@ module Abilities
       can [:read, :map], Debate
       can [:read, :map, :summary, :share], Proposal
       can :read, Comment
-      can :read, Poll
+      can [:read, :show_question], Poll
       can :results, Poll do |poll|
         poll.expired? && poll.results_enabled?
       end

@@ -1,0 +1,15 @@
+<div id="<%= dom_id(question) %>" class="poll-question">
+  <% if is_show_question%>
+    <h3>
+      <%= question.title %>
+    </h3>
+  <% else %>
+    <h3>
+      <%= link_to question.title, show_question_poll_path(id: @poll.id, question: question) %>
+    </h3>
+  <% end %>
+
+  <div id="<%= dom_id(question) %>_answers" class="padding">
+    <%= render 'polls/questions/answers', question: question, token: token %>
+  </div>
+</div>
