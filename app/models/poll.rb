@@ -5,6 +5,7 @@ class Poll < ActiveRecord::Base
   include Notifiable
 
   RECOUNT_DURATION = 1.week
+  ACCESS_LEVEL = { level_2: 2, level_3: 3 }
 
   has_many :booth_assignments, class_name: "Poll::BoothAssignment"
   has_many :booths, through: :booth_assignments
@@ -89,6 +90,16 @@ class Poll < ActiveRecord::Base
   def date_range
     unless starts_at.present? && ends_at.present? && starts_at <= ends_at
       errors.add(:starts_at, I18n.t('errors.messages.invalid_date_range'))
+    end
+  end
+
+  def validate_permission(current_user)
+    if self.access_level == ACCESS_LEVEL[:level_2] && current_user.level_two_verified?
+      return true
+    elsif self.access_level == ACCESS_LEVEL[:level_3] && current_user.level_three_verified?
+      return true
+    else
+      return false
     end
   end
 
