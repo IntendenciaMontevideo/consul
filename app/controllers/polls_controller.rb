@@ -48,10 +48,12 @@ class PollsController < ApplicationController
   end
 
   def stats
+    @is_show_question = false
     @stats = Poll::Stats.new(@poll).generate
   end
 
   def results
+    @is_show_question = false
   end
 
 end
