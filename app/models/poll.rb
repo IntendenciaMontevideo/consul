@@ -94,9 +94,9 @@ class Poll < ActiveRecord::Base
   end
 
   def validate_permission(current_user)
-    if self.access_level == ACCESS_LEVEL[:level_2] && current_user.level_two_verified?
+    if self.access_level == ACCESS_LEVEL[:level_2] && current_user && current_user.level_two_verified?
       return true
-    elsif self.access_level == ACCESS_LEVEL[:level_3] && current_user.level_three_verified?
+    elsif self.access_level == ACCESS_LEVEL[:level_3] && current_user && current_user.level_three_verified?
       return true
     else
       return false
