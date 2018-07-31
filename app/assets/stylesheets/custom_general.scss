@@ -1186,3 +1186,8 @@ td{
 #registration_modal  .close-button:hover, #registration_modal  .close-button:focus {
   color: white;
 }
+
+.poll-question-answers .poll-question-answer-access .disabled {
+  background-color: #face79;
+  opacity: 0.55;
+}
