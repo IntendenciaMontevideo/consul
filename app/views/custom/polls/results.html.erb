@@ -33,10 +33,11 @@
           </thead>
           <tbody>
             <tr>
+              <% total_question_answers = question.question_answers.size %>
               <%- question.question_answers.each do |answer| %>
                 <td id="answer_<%= answer.id %>_result" <%= answer.most_voted? ? "class=win" : "" %>>
                   <%= answer.total_votes %>
-                  (<%= answer.total_votes_percentage.round(2) %>%)
+                  <% if total_question_answers > 1 %>(<%= answer.total_votes_percentage.round(2) %>%)<% end %>
                 </td>
               <% end %>
             </tr>
