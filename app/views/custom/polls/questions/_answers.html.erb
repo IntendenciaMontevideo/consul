@@ -23,7 +23,8 @@
         <span class="button secondary hollow disabled disabled-text-black"><%= answer.title %></span>
       <% end %>
       <div class="participation-not-allowed" style='display:none' aria-hidden="false">
-        Las ideas solo pueden ser apoyadas por usuarios con <%= link_to t("admin.polls.new.level_#{@poll.access_level}"), user_omniauth_authorize_path(:saml), title: "#{t("admin.polls.new.level_#{@poll.access_level}")}" %>
+        Esta votación solo puede ser apoyada por usuarios con <%= t("admin.polls.new.level_#{@poll.access_level}") %>.
+        Si ya contás con el usuario <%= link_to("ingresá aquí", user_omniauth_authorize_path(:saml), title: "ingresá aquí") %>, o de lo contrario <%= link_to('registrate', '#', data: {open: 'registration_modal'} ,title: "registrate") %>
       </div>
     </div>
   <% end %>
