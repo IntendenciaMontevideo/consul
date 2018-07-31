@@ -1,0 +1,21 @@
+<h2 class="inline-block"><%= t("admin.poll_groups.index.title") %></h2>
+
+<%= link_to t("admin.poll_groups.index.create"),
+            new_admin_poll_group_path,
+            class: "button success float-right" %>
+
+<% if @poll_groups.any? %>
+  <table>
+    <thead>
+      <th class="medium-6"><%= t("admin.poll_groups.index.name") %></th>
+      <th class="text-right"><%= t("admin.actions.actions") %></th>
+    </thead>
+    <tbody>
+      <%= render @poll_groups %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="callout primary">
+    <%= t("admin.poll_groups.index.no_poll_groups") %>
+  </div>
+<% end %>

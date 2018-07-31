@@ -75,5 +75,5 @@ section "Creating Settings" do
   Setting.create(key: 'proposals_vote_end_month', value: 3)
   Setting.create(key: 'proposals_feasibility_threshold', value: 500)
 
-  Setting.create(key: 'url_registration_saml': 'https://mi.iduruguay.gub.uy/registro')
+  Setting.create(key: 'url_registration_saml', value: 'https://mi.iduruguay.gub.uy/registro')
 end
