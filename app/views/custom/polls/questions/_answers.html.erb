@@ -20,7 +20,7 @@
   <% else %>
     <div class="poll-question-answer-access">
       <% question.question_answers.each do |answer| %>
-        <span class="button secondary hollow disabled disabled-text-black"><%= answer.title %></span>
+        <span class="button secondary hollow disabled"><%= answer.title %></span>
       <% end %>
       <div class="participation-not-allowed" style='display:none' aria-hidden="false">
         Esta votación solo puede ser apoyada por usuarios con <%= t("admin.polls.new.level_#{@poll.access_level}") %>.
