@@ -30,3 +30,5 @@ es:
       new:
         level_2: nivel 2
         level_3: nivel 3
+        select_poll_group: Seleccionar grupo
+        poll_group_label: Grupo
