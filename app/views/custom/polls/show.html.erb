@@ -1,6 +1,7 @@
 <% provide :title do %><%= @poll.name %><% end %>
 
 <div class="polls-show">
+  <%= render "shared/registration_modal" %>
   <%= render "poll_header", is_show_question: @is_show_question %>
 
   <%= render "poll_subnav" %>
