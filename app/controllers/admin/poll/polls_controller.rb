@@ -52,6 +52,11 @@ class Admin::Poll::PollsController < Admin::Poll::BaseController
     @polls = Poll.current_or_incoming
   end
 
+  def download_report
+    @poll = Poll.find(params[:poll_id])
+    render xlsx: 'download_report'
+  end
+
   private
 
     def load_geozones

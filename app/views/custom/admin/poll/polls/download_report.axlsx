@@ -1,0 +1,18 @@
+wb = xlsx_package.workbook
+header_style = { :alignment => { :horizontal => :center }, :b => true }
+header_xf = wb.styles.add_style header_style
+
+wb.add_worksheet(name: 'Reporte Votaciones') do |sheet|
+  sheet.add_row ['Título de la Pregunta', 'Opción', 'Cantidad de Votos'], style: header_xf
+  unless @poll.questions.empty?
+    @poll.questions.each do |question|
+      if question.question_answers.empty?
+        sheet.add_row [question.title]
+      else
+        question.question_answers.each do |question_answer|
+          sheet.add_row [question.title, question_answer.title, question_answer.total_votes]
+        end
+      end
+    end
+  end
+end
