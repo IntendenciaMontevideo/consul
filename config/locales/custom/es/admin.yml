@@ -33,6 +33,8 @@ es:
         level_3: nivel 3
         select_poll_group: Seleccionar grupo
         poll_group_label: Grupo
+        access_level: Nivel de acceso
+        number_votes_allowed: Cantidad de votos permitidos
     poll_groups:
       index:
         title: Listado de grupo de votaciones
