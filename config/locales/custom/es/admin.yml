@@ -2,6 +2,7 @@ es:
   admin:
     menu:
       geozones: Gestionar municipios
+      poll_groups: Grupo de Votaciones
     geozones:
       index:
         title: Municipios
@@ -32,3 +33,17 @@ es:
         level_3: nivel 3
         select_poll_group: Seleccionar grupo
         poll_group_label: Grupo
+    poll_groups:
+      index:
+        title: Listado de grupo de votaciones
+        no_poll_groups: No hay ningún grupo de votación.
+        create: Crear grupo de votación
+        name: Nombre
+      new:
+        title: Nuevo grupo de votación
+        submit_button: "Crear grupo de votación"
+      edit:
+        title: Editar grupo de votación
+        submit_button: "Actualizar grupo de votación"
+    actions:
+      delete: Borrar

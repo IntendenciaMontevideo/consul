@@ -1,0 +1,16 @@
+<tr id="<%= dom_id(poll_group) %>" class="poll">
+  <td>
+    <strong>
+      <%= poll_group.name %>
+    </strong>
+  </td>
+  <td class="text-right">
+    <%= link_to t("admin.actions.edit"),
+                edit_admin_poll_group_path(poll_group),
+                class: "button hollow" %>
+    <%= link_to t("admin.actions.delete"),
+                admin_poll_group_path(poll_group),
+                method: :delete,
+                class: "button hollow" %>
+  </td>
+</tr>

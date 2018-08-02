@@ -1,0 +1,9 @@
+es:
+  flash:
+    actions:
+      create:
+        poll_group: Grupo de votación creado correctamente.
+      update:
+        poll_group: Grupo de votación actualizado correctamente.
+      destroy:
+        poll_group: Grupo de votación eliminado correctamente.

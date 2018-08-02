@@ -1,0 +1,14 @@
+<%= form_for [:admin, @poll_group] do |f| %>
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-4 column">
+      <%= f.submit t("admin.poll_groups.#{admin_submit_action(@poll_group)}.submit_button"),
+                   class: "button success expanded" %>
+    </div>
+  </div>
+<% end %>
