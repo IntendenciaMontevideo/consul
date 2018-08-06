@@ -2,10 +2,12 @@
   <% if @poll.validate_permission(current_user) && !question.poll.voted_in_booth?(current_user) %>
     <% question.question_answers.each do |answer| %>
       <% if @session_answers[question.id.to_s] == answer.id.to_s %>
-        <span class="button answered"
-              title="<%= t("poll_questions.show.voted", answer: answer.title)%>">
-          <%= answer.title %>
-        </span>
+        <%= link_to create_session_answer_question_path(question, answer_id: answer.id, token: token, poll_id: @poll), method: :post, remote: true  do %>
+          <span class="button answered"
+            title="<%= t("poll_questions.show.voted", answer: answer.title) %>">
+            <%= answer.title %>
+          </span>
+        <% end %>
       <% else %>
         <%= link_to answer.title,
           create_session_answer_question_path(question, answer_id: answer.id, token: token, poll_id: @poll),

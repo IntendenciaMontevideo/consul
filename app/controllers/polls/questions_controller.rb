@@ -8,7 +8,11 @@ class Polls::QuestionsController < ApplicationController
   def create_session_answer
     @poll = Poll.find(params[:poll_id].to_i)
     session[@poll.id] ||= {}
-    session[@poll.id][@question.id.to_s] = params[:answer_id]
+    if session[@poll.id][@question.id.to_s] == params[:answer_id]
+      session[@poll.id].delete(@question.id.to_s)
+    else
+      session[@poll.id][@question.id.to_s] = params[:answer_id]
+    end
 
     @session_answers = session[@poll.id]
   end
