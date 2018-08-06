@@ -25,6 +25,11 @@ class PollsController < ApplicationController
       @answers_by_question_id[answer.question_id] = answer.answer
     end
 
+    @session_answers = {}
+    if @answers_by_question_id.blank?
+      @session_answers = session[@poll.id]
+    end
+
     @commentable = @poll
     @comment_tree = CommentTree.new(@commentable, params[:page], @current_order)
   end

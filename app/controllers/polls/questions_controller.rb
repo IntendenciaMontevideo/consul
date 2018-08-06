@@ -5,6 +5,14 @@ class Polls::QuestionsController < ApplicationController
 
   has_orders %w{most_voted newest oldest}, only: :show
 
+  def create_session_answer
+    @poll = Poll.find(params[:poll_id].to_i)
+    session[@poll.id] ||= {}
+    session[@poll.id][@question.id.to_s] = params[:answer_id]
+
+    @session_answers = session[@poll.id]
+  end
+
   def answer
     answer = @question.answers.find_or_initialize_by(author: current_user)
     token = params[:token]

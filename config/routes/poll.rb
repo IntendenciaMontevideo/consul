@@ -7,5 +7,6 @@ resources :polls, only: [:show, :index] do
 
   resources :questions, controller: 'polls/questions', shallow: true do
     post :answer, on: :member
+    post :create_session_answer, on: :member
   end
 end
