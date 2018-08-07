@@ -1,0 +1,7 @@
+<ul>
+  <% session_answers.each do |session_answer| %>
+    <li>
+      <%= Poll::Question.find(session_answer[0].to_i).title %> : <%= Poll::Question::Answer.find(session_answer[1].to_i).title %>
+    </li>
+  <% end %>
+</ul>

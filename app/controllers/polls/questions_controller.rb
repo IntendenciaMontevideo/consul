@@ -13,7 +13,6 @@ class Polls::QuestionsController < ApplicationController
     else
       session[@poll.id][@question.id.to_s] = params[:answer_id]
     end
-
     @session_answers = session[@poll.id]
   end
 

@@ -1152,12 +1152,28 @@ td{
   padding-bottom: 10px;
 }
 
+.padding-vote-header
+{
+  padding: 25px;
+}
+
 .padding-all{
   padding: 20px;
 }
 
 .padding-all-modal-content{
   padding: 80px;
+}
+
+.padding-all-modal-content-vote{
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom: 80px;
+  padding-top: 40px;
+}
+
+.without-margin-top{
+  margin-top: unset !important;
 }
 
 .close-button{

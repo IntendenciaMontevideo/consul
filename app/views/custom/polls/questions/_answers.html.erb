@@ -1,7 +1,7 @@
 <div class="poll-question-answers">
   <% if @poll.validate_permission(current_user) && !question.poll.voted_in_booth?(current_user) %>
     <% question.question_answers.each do |answer| %>
-      <% if @session_answers[question.id.to_s] == answer.id.to_s %>
+      <% if !@session_answers.blank? && @session_answers[question.id.to_s] == answer.id.to_s %>
         <%= link_to create_session_answer_question_path(question, answer_id: answer.id, token: token, poll_id: @poll), method: :post, remote: true  do %>
           <span class="button answered"
             title="<%= t("poll_questions.show.voted", answer: answer.title) %>">
@@ -13,6 +13,7 @@
           create_session_answer_question_path(question, answer_id: answer.id, token: token, poll_id: @poll),
           method: :post,
           remote: true,
+          data: {open: 'vote-modal'},
           title: t("poll_questions.show.vote_answer", answer: answer.title),
           class: "button secondary hollow js-question-answer" %>
       <% end %>

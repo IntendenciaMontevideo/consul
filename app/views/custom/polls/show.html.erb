@@ -2,6 +2,9 @@
 
 <div class="polls-show">
   <%= render "shared/registration_modal" %>
+  <div id='modal-vote'>
+    <%= render "/shared/vote_modal" %>
+  </div>
   <%= render "poll_header", is_show_question: @is_show_question %>
 
   <%= render "poll_subnav" %>
