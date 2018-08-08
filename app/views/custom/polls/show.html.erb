@@ -2,9 +2,9 @@
 
 <div class="polls-show">
   <%= render "shared/registration_modal" %>
-  <div id='modal-vote'>
-    <%= render "/shared/vote_modal" %>
-  </div>
+  <%= render "/shared/vote_modal", poll: @poll %>
+  <%= render "/shared/can_not_vote_modal" %>
+
   <%= render "poll_header", is_show_question: @is_show_question %>
 
   <%= render "poll_subnav" %>
@@ -26,9 +26,11 @@
         <% end %>
       <% end %>
 
-      <% @questions.each do |question| %>
-        <%= render 'polls/questions/question', question: question, token: @token, is_show_question: @is_show_question %>
-      <% end %>
+      <div id="questions-poll">
+        <% @questions.each do |question| %>
+          <%= render 'polls/questions/question', question: question, token: @token, is_show_question: @is_show_question, session_answers: @session_answers %>
+        <% end %>
+      </div>
 
       <% if poll_voter_token(@poll, current_user).empty? %>
         <div class="callout token-message js-token-message" style="display: none">

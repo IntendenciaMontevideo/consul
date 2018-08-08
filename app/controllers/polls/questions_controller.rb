@@ -7,7 +7,9 @@ class Polls::QuestionsController < ApplicationController
 
   def create_session_answer
     @poll = Poll.find(params[:poll_id].to_i)
+    @questions = @poll.questions.for_render.sort_for_list
     session[@poll.id] ||= {}
+
     if session[@poll.id][@question.id.to_s] == params[:answer_id]
       @is_select_answer = false
       session[@poll.id].delete(@question.id.to_s)

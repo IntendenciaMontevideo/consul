@@ -1,0 +1,3 @@
+<% questions.each do |question| %>
+  <%= render '/polls/questions/question', question: question, token: token, is_show_question: false, session_answers: session_answers %>
+<% end %>

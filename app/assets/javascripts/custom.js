@@ -14,3 +14,9 @@
   js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.11';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+
+$(document).ready(function() {
+  $(".can-not-vote").click(function(){
+    jQuery('#can-not-vote-modal').foundation('open');
+  });
+});

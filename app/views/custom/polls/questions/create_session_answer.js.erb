@@ -1,6 +1,9 @@
 $("#answer-selected").html('<%= j render("polls/questions/question_selected", session_answers: @session_answers) %>');
 <% token = poll_voter_token(@question.poll, current_user) %>
-$("#<%= dom_id(@question) %>_answers").html('<%= j render("polls/questions/answers", question: @question, token: token) %>');
+$("#questions-poll").html('<%= j render("polls/questions/questions", questions: @questions, token: token, session_answers: @session_answers) %>');
 <% if @is_select_answer %>
   jQuery('#vote-modal').foundation('open');
 <% end %>
+$(".can-not-vote").click(function(){
+  jQuery('#can-not-vote-modal').foundation('open');
+});

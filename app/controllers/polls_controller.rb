@@ -27,7 +27,7 @@ class PollsController < ApplicationController
 
     @session_answers = {}
     if @answers_by_question_id.blank?
-      @session_answers = session[@poll.id]
+      session[@poll.id].blank? ? @session_answers = {} : @session_answers = session[@poll.id]
     end
 
     @commentable = @poll

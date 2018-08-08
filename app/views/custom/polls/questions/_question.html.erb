@@ -10,6 +10,6 @@
   <% end %>
 
   <div id="<%= dom_id(question) %>_answers" class="padding">
-    <%= render 'polls/questions/answers', question: question, token: token %>
+    <%= render 'polls/questions/answers', question: question, token: token, session_answers: session_answers %>
   </div>
 </div>

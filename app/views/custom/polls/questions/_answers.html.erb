@@ -1,5 +1,6 @@
 <div class="poll-question-answers">
   <% if @poll.validate_permission(current_user) && !question.poll.voted_in_booth?(current_user) %>
+    <% number_selected = session_answers.count %>
     <% question.question_answers.each do |answer| %>
       <% if !@session_answers.blank? && @session_answers[question.id.to_s] == answer.id.to_s %>
         <%= link_to create_session_answer_question_path(question, answer_id: answer.id, token: token, poll_id: @poll), method: :post, remote: true  do %>
@@ -9,12 +10,25 @@
           </span>
         <% end %>
       <% else %>
-        <%= link_to answer.title,
-          create_session_answer_question_path(question, answer_id: answer.id, token: token, poll_id: @poll),
-          method: :post,
-          remote: true,
-          title: t("poll_questions.show.vote_answer", answer: answer.title),
-          class: "button secondary hollow js-question-answer" %>
+        <% if number_selected < @poll.number_votes_allowed %>
+          <%= link_to answer.title,
+            create_session_answer_question_path(question, answer_id: answer.id, token: token, poll_id: @poll),
+            method: :post,
+            remote: true,
+            title: t("poll_questions.show.vote_answer", answer: answer.title),
+            class: "button secondary hollow js-question-answer" %>
+        <% else %>
+          <% if @session_answers[question.id.to_s].blank? %>
+            <span class="button secondary hollow can-not-vote"><%= answer.title %></span>
+          <% else %>
+            <%= link_to answer.title,
+            create_session_answer_question_path(question, answer_id: answer.id, token: token, poll_id: @poll),
+            method: :post,
+            remote: true,
+            title: t("poll_questions.show.vote_answer", answer: answer.title),
+            class: "button secondary hollow js-question-answer" %>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
   <% else %>
