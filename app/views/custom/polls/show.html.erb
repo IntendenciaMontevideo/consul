@@ -2,8 +2,10 @@
 
 <div class="polls-show">
   <%= render "shared/registration_modal" %>
-  <%= render "/shared/vote_modal", poll: @poll %>
+  <%= render "/shared/vote_modal", poll: @poll, token: @token %>
   <%= render "/shared/can_not_vote_modal" %>
+  <%= render "/shared/show_vote_modal", poll: @poll, user: current_user %>
+  <%= render "/shared/show_error_vote_modal" %>
 
   <%= render "poll_header", is_show_question: @is_show_question %>
 
@@ -32,11 +34,6 @@
         <% end %>
       </div>
 
-      <% if poll_voter_token(@poll, current_user).empty? %>
-        <div class="callout token-message js-token-message" style="display: none">
-          <%= t('poll_questions.show.voted_token') %>
-        </div>
-      <% end %>
     </div>
   </div>
   <% unless @poll_questions_answers.empty? %>

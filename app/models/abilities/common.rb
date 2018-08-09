@@ -97,6 +97,7 @@ module Abilities
 
       can [:create], Topic
       can [:update, :destroy], Topic, author_id: user.id
+      can [:vote], Poll
     end
   end
 end

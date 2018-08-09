@@ -133,6 +133,13 @@ class Mailer < ApplicationMailer
     mail(to: @email_to, from: @newsletter.from, subject: @newsletter.subject)
   end
 
+  def email_ticket_vote(poll, token, user)
+    @poll = poll
+    @token = token
+
+    mail(to: @email_to, from: user.email, subject: 'Constancia de Votación')
+  end
+
   private
 
   def with_user(user, &block)

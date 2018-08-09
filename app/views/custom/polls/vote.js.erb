@@ -1,0 +1,8 @@
+<% if @exist_vote %>
+  jQuery('#vote-modal').foundation('close');
+  jQuery('#show-error-vote-modal').foundation('open');
+<% else %>
+  $("#token-poll").html('<%= @token %>');
+  jQuery('#vote-modal').foundation('close');
+  jQuery('#show-vote-modal').foundation('open');
+<% end %>

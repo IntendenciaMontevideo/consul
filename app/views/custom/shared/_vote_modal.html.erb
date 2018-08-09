@@ -10,7 +10,12 @@
     <button class="button float-center small-12 medium-8 margin-top-20" data-close aria-label="Close modal" type="button">
       Seguir Seleccionando
     </button>
-    <%= link_to 'Confirmar Voto y Finalizar', '#', class: "button float-center small-12 medium-8 margin-top-20" %>
+    <%= link_to 'Confirmar Voto y Finalizar',
+      vote_poll_path(poll: poll, token: token),
+      method: :post,
+      remote: true,
+      class: "button float-center small-12 medium-8 margin-top-20",
+      id: "confirm-vote-end" %>
 
   </div>
   <button class="close-button without-margin-top" data-close aria-label="Close modal" type="button">

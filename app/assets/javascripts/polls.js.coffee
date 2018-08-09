@@ -10,7 +10,7 @@ App.Polls =
     return token
 
   replaceToken: ->
-    for link in $('.js-question-answer')
+    for link in $('#confirm-vote-end')
       token_param = link.search.slice(-6)
       if token_param == "token="
         link.href = link.href + @token
