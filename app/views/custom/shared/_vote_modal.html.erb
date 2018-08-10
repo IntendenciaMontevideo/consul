@@ -11,7 +11,7 @@
       Seguir Seleccionando
     </button>
     <%= link_to 'Confirmar Voto y Finalizar',
-      vote_poll_path(poll: poll, token: token),
+      vote_poll_questions_path(poll_id: poll.id, token: token),
       method: :post,
       remote: true,
       class: "button float-center small-12 medium-8 margin-top-20",
