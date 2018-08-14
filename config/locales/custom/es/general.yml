@@ -19,6 +19,7 @@ es:
   polls:
     show:
       back_poll: Volver a la votación
+      already_voted_in_group_web: "Ya has participado en una votación perteneciente al mismo grupo."
   ideas:
     title: Ideas
     content_banner: Tus ideas pueden cambiar la ciudad. Si tenés una idea para mejorar Montevideo, podrás plantearla para que la Intendencia la concrete.

@@ -23,6 +23,8 @@ class Polls::QuestionsController < ApplicationController
       @is_select_answer = true
     end
     @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
+
+    @can_vote = validate_can_vote(current_user, @poll)
   end
 
   def vote

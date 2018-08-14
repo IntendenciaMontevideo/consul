@@ -49,6 +49,17 @@ module PollsHelper
     end
   end
 
+  def validate_can_vote(user, poll)
+    if user.nil?
+      false
+    else
+      Poll::Voter
+      .joins(:poll)
+      .where(document_number: user.document_number, origin: "web",
+        polls:{poll_group_id: poll.poll_group_id}).blank? ? true : false
+    end
+  end
+
   def voted_before_sign_in(question)
     question.answers.where(author: current_user).any? { |vote| current_user.current_sign_in_at >= vote.updated_at }
   end

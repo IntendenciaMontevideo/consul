@@ -34,6 +34,11 @@ class PollsController < ApplicationController
     @commentable = @poll
     @comment_tree = CommentTree.new(@commentable, params[:page], @current_order)
 
+    @can_vote = true
+    if @token.blank?
+      @can_vote = validate_can_vote(current_user, @poll)
+    end
+
   end
 
   def show_question
@@ -50,11 +55,16 @@ class PollsController < ApplicationController
 
     @session_answers = {}
     if !current_user.blank? && @answers_by_question_id.blank?
-      session[current_user.id.to_s].blank? ? @session_answers = {} : @session_answers = session[current_user.id.to_s][@poll.id]
+      session[current_user.id.to_s].blank? ? @session_answers = {} : @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
     end
 
     @commentable = @poll
     @comment_tree = CommentTree.new(@commentable, params[:page], @current_order)
+
+    @can_vote = true
+    if @token.blank?
+      @can_vote = validate_can_vote(current_user, @poll)
+    end
 
     render 'show'
   end
