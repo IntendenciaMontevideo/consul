@@ -9,6 +9,7 @@ resources :polls, only: [:show, :index] do
     post :create_session_answer, on: :member
     collection do
       post :vote
+      post :show_modal_vote
     end
   end
 end

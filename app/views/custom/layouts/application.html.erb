@@ -32,6 +32,11 @@
       <%= render 'layouts/header' %>
     </div>
 
+    <%= render "/shared/vote_modal" %>
+    <%= render "/shared/can_not_vote_modal" %>
+    <%= render "/shared/show_vote_modal" %>
+    <%= render "/shared/show_error_vote_modal" %>
+
       <!--[if lt IE 9]>
       <% if browser.ie? && cookies['ie_alert_closed'] != 'true' %>
         <div data-alert class="callout primary ie-callout" data-closable>

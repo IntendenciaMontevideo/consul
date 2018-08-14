@@ -5,17 +5,12 @@
     <h3 class="base-color">Gracias por votar</h3>
     <div id="poll-information">
       <p>CONSTANCIA DE VOTO</p>
-      <p><%= poll.name %></p>
+      <p id="p-show-vote-modal-name"></p>
     </div>
     <div id="token-poll">
     </div>
-    <p>Esta es tu constancia de voto, guárdala para futuros controles. También te enviaremos
-      un email a <%= current_user.blank? ? '' : current_user.email %> con la constancia</p><br>
-
-    <%= link_to 'Entiendo',
-      poll_path(poll),
-      class: "button float-center small-12 medium-8 margin-top-20" %>
-
+    <p id="p-show-vote-modal"></p><br>
+    <div id="link-show-vote-modal"></div>
   </div>
   <button class="close-button without-margin-top" data-close aria-label="Close modal" type="button">
     Cerrar

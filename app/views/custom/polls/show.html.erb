@@ -2,10 +2,6 @@
 
 <div class="polls-show">
   <%= render "shared/registration_modal" %>
-  <%= render "/shared/vote_modal", poll: @poll, token: @token %>
-  <%= render "/shared/can_not_vote_modal" %>
-  <%= render "/shared/show_vote_modal", poll: @poll, user: current_user %>
-  <%= render "/shared/show_error_vote_modal" %>
 
   <%= render "poll_header", is_show_question: @is_show_question %>
 

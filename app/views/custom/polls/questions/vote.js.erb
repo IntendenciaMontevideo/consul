@@ -4,5 +4,15 @@
 <% else %>
   $("#token-poll").html('<%= @token %>');
   jQuery('#vote-modal').foundation('close');
+  $("#p-show-vote-modal").html('Esta es tu constancia de voto, guárdala para futuros controles. También te enviaremos un email a <%= current_user.blank? ? '' : current_user.email %> con la constancia');
+  $("#p-show-vote-modal-name").html('<%= @poll.name %>');
+  $("#link-show-vote-modal").html('<%= link_to 'Entiendo', poll_path(@poll), class: "button float-center small-12 medium-8 margin-top-20" %>');
   jQuery('#show-vote-modal').foundation('open');
+  <% if session[current_user.id.to_s].blank? %>
+    $(".button-vote-c").html('');
+  <% else %>
+    <% if session[current_user.id.to_s][@poll.id.to_s].blank? %>
+      $(".button-vote-<%= @poll.id.to_s %>").remove();
+    <% end %>
+  <% end %>
 <% end %>

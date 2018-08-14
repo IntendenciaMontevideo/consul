@@ -1,0 +1,28 @@
+<h3 class="base-color">Haz seleccionado</h3>
+<div id="answer-selected">
+  <ul>
+    <% session_answers.each do |session_answer| %>
+      <li>
+        <%= Poll::Question.find(session_answer[0].to_i).title %> : <%= Poll::Question::Answer.find(session_answer[1].to_i).title %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<p>Recuerda que puedes seleccionar hasta <%= poll.number_votes_allowed %> propuestas y votar en un sólo municipio. Cuando confirmes el voto ya no podrás cambiarlo.</p><br>
+
+<% if is_create_session %>
+  <button class="button float-center small-12 medium-8 margin-top-20" data-close aria-label="Close modal" type="button">
+    Seguir Seleccionando
+  </button>
+<% else %>
+  <%= link_to 'Seguir Seleccionando',
+    poll_path(poll),
+    class: "button float-center small-12 medium-8 margin-top-20"%>
+<% end %>
+
+<%= link_to 'Confirmar Voto y Finalizar',
+  vote_poll_questions_path(poll_id: poll.id, token: token),
+  method: :post,
+  remote: true,
+  class: "button float-center small-12 medium-8 margin-top-20",
+  id: "confirm-vote-end" %>

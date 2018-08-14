@@ -9,16 +9,20 @@ class Polls::QuestionsController < ApplicationController
   def create_session_answer
     @poll = Poll.find(params[:poll_id].to_i)
     @questions = @poll.questions.for_render.sort_for_list
-    session[@poll.id] ||= {}
+    session[current_user.id.to_s] ||= {}
+    session[current_user.id.to_s][@poll.id.to_s] ||= {}
 
-    if session[@poll.id][@question.id.to_s] == params[:answer_id]
+    if session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] == params[:answer_id]
+      session[current_user.id.to_s][@poll.id.to_s].delete(@question.id.to_s)
+      if session[current_user.id.to_s][@poll.id.to_s].blank?
+        session[current_user.id.to_s].delete(@poll.id.to_s)
+      end
       @is_select_answer = false
-      session[@poll.id].delete(@question.id.to_s)
     else
-      session[@poll.id][@question.id.to_s] = params[:answer_id]
+      session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] = params[:answer_id]
       @is_select_answer = true
     end
-    @session_answers = session[@poll.id]
+    @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
   end
 
   def vote
@@ -26,7 +30,7 @@ class Polls::QuestionsController < ApplicationController
     @poll = Poll.find(params[:poll_id].to_i)
 
     if @token.blank?
-      session[@poll.id].each do |question_answer|
+      session[current_user.id.to_s][@poll.id.to_s].each do |question_answer|
         question = @poll.questions.find(question_answer[0].to_i)
         answer = question.answers.find_or_initialize_by(author: current_user)
         @token = params[:token]
@@ -39,12 +43,17 @@ class Polls::QuestionsController < ApplicationController
           question_answer.set_most_voted
         end
       end
-      session.delete(@poll.id.to_s)
+      session[current_user.id.to_s].delete(@poll.id.to_s)
       Mailer.email_ticket_vote(@poll, @token, current_user).deliver_later
       @exist_vote = false
     else
       @exist_vote = true
     end
+  end
+
+  def show_modal_vote
+    @poll = Poll.find(params[:poll_id].to_i)
+    @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
   end
 
 end

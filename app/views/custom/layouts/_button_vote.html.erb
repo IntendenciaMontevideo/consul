@@ -1,0 +1,11 @@
+<div class="button-vote">
+  <% session[current_user.id.to_s].each do |poll_option| %>
+    <div class="button-vote-<%= poll_option[0] %>">
+      <%= link_to "Finalizar Votación (#{Poll.find(poll_option[0].to_i).name})",
+        show_modal_vote_poll_questions_path(poll_id: poll_option[0].to_i),
+        method: :post,
+        remote: true,
+        class: "link-vote-up"%>
+    </div>
+  <% end %>
+</div>

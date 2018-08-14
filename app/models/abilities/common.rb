@@ -88,6 +88,9 @@ module Abilities
         can :create_session_answer, Poll::Question do |question|
           question.answerable_by?(user)
         end
+        can :show_modal_vote, Poll::Question do |question|
+          question.answerable_by?(user)
+        end
       end
 
       can [:create, :show], ProposalNotification, proposal: { author_id: user.id }

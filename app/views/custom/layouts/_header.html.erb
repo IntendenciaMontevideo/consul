@@ -55,4 +55,11 @@
   </div>
     </div>
   </div>
+
+  <div class= "button-vote-c">
+    <% if !current_user.blank? && !session[current_user.id.to_s].blank? %>
+      <%= render '/layouts/button_vote' %>
+    <% end %>
+  </div>
+
 </header>

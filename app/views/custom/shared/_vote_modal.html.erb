@@ -1,22 +1,7 @@
 <div class="reveal medium only-padding-bot" id="vote-modal" data-reveal>
   <div class="modal-header padding-vote-header">
   </div>
-  <div class="padding-all-modal-content-vote">
-    <h3 class="base-color">Haz seleccionado</h3>
-    <div id="answer-selected">
-    </div>
-    <p>Recuerda que puedes seleccionar hasta <%= poll.number_votes_allowed %> propuestas y votar en un sólo municipio. Cuando confirmes el voto ya no podrás cambiarlo.</p><br>
-
-    <button class="button float-center small-12 medium-8 margin-top-20" data-close aria-label="Close modal" type="button">
-      Seguir Seleccionando
-    </button>
-    <%= link_to 'Confirmar Voto y Finalizar',
-      vote_poll_questions_path(poll_id: poll.id, token: token),
-      method: :post,
-      remote: true,
-      class: "button float-center small-12 medium-8 margin-top-20",
-      id: "confirm-vote-end" %>
-
+  <div class="padding-all-modal-content-vote", id="vote-modal-content">
   </div>
   <button class="close-button without-margin-top" data-close aria-label="Close modal" type="button">
     Cerrar

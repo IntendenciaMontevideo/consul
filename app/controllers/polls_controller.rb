@@ -26,8 +26,9 @@ class PollsController < ApplicationController
     end
 
     @session_answers = {}
-    if @answers_by_question_id.blank?
-      session[@poll.id].blank? ? @session_answers = {} : @session_answers = session[@poll.id]
+
+    if !current_user.blank? && @answers_by_question_id.blank?
+      session[current_user.id.to_s].blank? ? @session_answers = {} : @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
     end
 
     @commentable = @poll
@@ -48,8 +49,8 @@ class PollsController < ApplicationController
     end
 
     @session_answers = {}
-    if @answers_by_question_id.blank?
-      session[@poll.id].blank? ? @session_answers = {} : @session_answers = session[@poll.id]
+    if !current_user.blank? && @answers_by_question_id.blank?
+      session[current_user.id.to_s].blank? ? @session_answers = {} : @session_answers = session[current_user.id.to_s][@poll.id]
     end
 
     @commentable = @poll

@@ -15,8 +15,8 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-$(document).ready(function() {
+function notVote() {
   $(".can-not-vote").click(function(){
     jQuery('#can-not-vote-modal').foundation('open');
   });
-});
+};

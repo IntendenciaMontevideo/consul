@@ -1,9 +1,16 @@
-$("#answer-selected").html('<%= j render("polls/questions/question_selected", session_answers: @session_answers) %>');
 <% token = poll_voter_token(@question.poll, current_user) %>
-$("#questions-poll").html('<%= j render("polls/questions/questions", questions: @questions, token: token, session_answers: @session_answers) %>');
+$("#questions-poll").html('<%= j render("/polls/questions/questions", questions: @questions, token: token, session_answers: @session_answers) %>');
 <% if @is_select_answer %>
+  $("#vote-modal-content").html('<%= j render("/polls/questions/vote_modal_info", session_answers: @session_answers, token: token, poll: @poll, is_create_session: true) %>');
+  App.Polls.replaceToken();
+  $(".button-vote-c").html('<%= j render('/layouts/button_vote') %>');
   jQuery('#vote-modal').foundation('open');
+<% else %>
+  <% if session[current_user.id.to_s].blank? %>
+    $(".button-vote-c").html('');
+  <% else %>
+    <% if session[current_user.id.to_s][@poll.id.to_s].blank? %>
+      $(".button-vote-<%= @poll.id.to_s %>").remove();
+    <% end %>
+  <% end %>
 <% end %>
-$(".can-not-vote").click(function(){
-  jQuery('#can-not-vote-modal').foundation('open');
-});
