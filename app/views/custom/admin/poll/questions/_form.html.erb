@@ -12,6 +12,10 @@
                     label: t("admin.questions.new.poll_label") %>
     </div>
 
+    <div class="small-12 medium-6 large-4">
+      <%= f.number_field :order_number, label: t("admin.polls.new.order_number") %>
+    </div>
+
     <%= f.text_field :title %>
 
     <div class="small-12">

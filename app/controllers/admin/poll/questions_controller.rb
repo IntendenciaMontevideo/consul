@@ -7,9 +7,7 @@ class Admin::Poll::QuestionsController < Admin::Poll::BaseController
   def index
     @polls = Poll.all
     @search = search_params[:search]
-
-    @questions = @questions.search(search_params).page(params[:page]).order("created_at DESC")
-
+    @questions = @questions.search(search_params).page(params[:page]).sort_by_order_number
     @proposals = Proposal.successful.sort_by_confidence_score
   end
 
@@ -55,7 +53,7 @@ class Admin::Poll::QuestionsController < Admin::Poll::BaseController
   private
 
     def question_params
-      params.require(:poll_question).permit(:poll_id, :title, :question, :proposal_id, :video_url)
+      params.require(:poll_question).permit(:poll_id, :title, :question, :proposal_id, :video_url, :order_number)
     end
 
     def search_params

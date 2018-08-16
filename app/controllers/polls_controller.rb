@@ -14,9 +14,8 @@ class PollsController < ApplicationController
 
   def show
     @is_show_question = false
-    @questions = @poll.questions.for_render.sort_for_list
+    @questions = @poll.questions.for_render.sort_by_order_number
     @token = poll_voter_token(@poll, current_user)
-
     @poll_questions_answers = Poll::Question::Answer.joins("Inner JOIN images ON images.imageable_id = poll_question_answers.id and images.imageable_type= 'Poll::Question::Answer'").where(question: @poll.questions.ids).order(:given_order)
 
     @answers_by_question_id = {}
@@ -26,7 +25,6 @@ class PollsController < ApplicationController
     end
 
     @session_answers = {}
-
     if !current_user.blank? && @answers_by_question_id.blank?
       session[current_user.id.to_s].blank? ? @session_answers = {} : @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
     end

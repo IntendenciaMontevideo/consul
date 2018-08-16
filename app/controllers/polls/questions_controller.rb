@@ -8,7 +8,7 @@ class Polls::QuestionsController < ApplicationController
 
   def create_session_answer
     @poll = Poll.find(params[:poll_id].to_i)
-    @questions = @poll.questions.for_render.sort_for_list
+    @questions = @poll.questions.for_render.sort_by_order_number
     @same_group_poll = Poll.find_same_group_poll(@poll).pluck(:id)
     @can_vote_session = session[current_user.id.to_s].blank? ? true : validate_can_vote_session(session[current_user.id.to_s], @poll, @same_group_poll)
 
@@ -66,7 +66,7 @@ class Polls::QuestionsController < ApplicationController
     same_group_poll = Poll.find_same_group_poll(@poll).pluck(:id)
     if params[:clean_own_poll] == 'true'
       session[current_user.id.to_s].delete(@poll.id.to_s)
-      @questions = @poll.questions.for_render.sort_for_list
+      @questions = @poll.questions.for_render.sort_by_order_number
       @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
       @can_vote = validate_can_vote(current_user, @poll)
       @clean_own_poll = true

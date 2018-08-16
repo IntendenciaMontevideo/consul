@@ -9,7 +9,7 @@ class Admin::Poll::PollsController < Admin::Poll::BaseController
 
   def show
     @poll = Poll.includes(:questions).
-                          order('poll_questions.title').
+                          order('poll_questions.order_number').
                           find(params[:id])
   end
 

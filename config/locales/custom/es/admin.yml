@@ -35,6 +35,7 @@ es:
         poll_group_label: Grupo
         access_level: Nivel de acceso
         number_votes_allowed: Cantidad de votos permitidos
+        order_number: Orden
     poll_groups:
       index:
         title: Listado de grupo de votaciones

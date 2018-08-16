@@ -23,6 +23,7 @@ class Poll::Question < ActiveRecord::Base
   scope :by_poll_id,    ->(poll_id) { where(poll_id: poll_id) }
 
   scope :sort_for_list, -> { order('poll_questions.proposal_id IS NULL', :created_at)}
+  scope :sort_by_order_number, -> { order(:order_number) }
   scope :for_render,    -> { includes(:author, :proposal) }
 
   def self.search(params)
