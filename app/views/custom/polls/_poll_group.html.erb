@@ -33,11 +33,6 @@
             <%= link_to poll.name, poll %>
           </h4>
           <%= poll_dates(poll) %>
-          <ul class="margin-top">
-            <% poll.questions.each do |question| %>
-              <li><%= question.title %></li>
-            <% end %>
-          </ul>
         <% end %>
         <% if poll.geozones.any? %>
           <p>
