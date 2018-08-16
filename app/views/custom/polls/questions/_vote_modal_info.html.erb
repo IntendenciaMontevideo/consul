@@ -2,9 +2,15 @@
 <div id="answer-selected">
   <ul>
     <% session_answers.each do |session_answer| %>
-      <li>
-        <%= Poll::Question.find(session_answer[0].to_i).title %> : <%= Poll::Question::Answer.find(session_answer[1].to_i).title %>
-      </li>
+      <% if Poll::Question.find(session_answer[0].to_i).question_answers.count > 1 %>
+        <li>
+          <%= Poll::Question.find(session_answer[0].to_i).title %> : <%= Poll::Question::Answer.find(session_answer[1].to_i).title %>
+        </li>
+      <% else %>
+        <li>
+          <%= Poll::Question.find(session_answer[0].to_i).title %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>
@@ -26,3 +32,9 @@
   remote: true,
   class: "button float-center small-12 medium-8 margin-top-20",
   id: "confirm-vote-end" %>
+
+<%= link_to 'Limpiar Votación',
+  clean_session_same_group_poll_questions_path(poll_id: poll.id, clean_own_poll: true),
+  method: :post,
+  remote: true,
+  class: "link-clean-poll" %>

@@ -1,0 +1,7 @@
+<h3 class="base-color">Ya has iniciado una votación del mismo grupo.</h3>
+<p>Para limpiar la votación iniciada hacer click en el siguient link
+<%= link_to 'Limpiar Votación',
+  clean_session_same_group_poll_questions_path(poll_id: poll.id, clean_session: false),
+  method: :post,
+  remote: true %>
+</p>

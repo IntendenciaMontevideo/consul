@@ -10,6 +10,7 @@ resources :polls, only: [:show, :index] do
     collection do
       post :vote
       post :show_modal_vote
+      post :clean_session_same_group
     end
   end
 end

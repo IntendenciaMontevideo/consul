@@ -60,6 +60,19 @@ module PollsHelper
     end
   end
 
+  def validate_can_vote_session(session_current_user, poll, same_group_poll)
+    can_vote = true
+    if !same_group_poll.blank?
+      same_group_poll.each do |poll_id|
+        can_vote = session_current_user.select{|key, hash| key== poll_id.to_s}.blank? ? true : false
+        if !can_vote
+          break
+        end
+      end
+    end
+    return can_vote
+  end
+
   def voted_before_sign_in(question)
     question.answers.where(author: current_user).any? { |vote| current_user.current_sign_in_at >= vote.updated_at }
   end

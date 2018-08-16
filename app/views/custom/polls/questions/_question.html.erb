@@ -1,5 +1,5 @@
 <div id="<%= dom_id(question) %>" class="poll-question">
-  <% if is_show_question%>
+  <% if is_show_question || !(@poll.validate_permission(current_user) && !question.poll.voted_in_booth?(current_user)) %>
     <h3>
       <%= question.title %>
     </h3>

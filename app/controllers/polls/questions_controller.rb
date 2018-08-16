@@ -9,21 +9,24 @@ class Polls::QuestionsController < ApplicationController
   def create_session_answer
     @poll = Poll.find(params[:poll_id].to_i)
     @questions = @poll.questions.for_render.sort_for_list
-    session[current_user.id.to_s] ||= {}
-    session[current_user.id.to_s][@poll.id.to_s] ||= {}
+    @same_group_poll = Poll.find_same_group_poll(@poll).pluck(:id)
+    @can_vote_session = session[current_user.id.to_s].blank? ? true : validate_can_vote_session(session[current_user.id.to_s], @poll, @same_group_poll)
 
-    if session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] == params[:answer_id]
-      session[current_user.id.to_s][@poll.id.to_s].delete(@question.id.to_s)
-      if session[current_user.id.to_s][@poll.id.to_s].blank?
-        session[current_user.id.to_s].delete(@poll.id.to_s)
+    if @poll.poll_group_id.blank? || @can_vote_session || session[current_user.id.to_s].blank?
+      session[current_user.id.to_s] ||= {}
+      session[current_user.id.to_s][@poll.id.to_s] ||= {}
+      if session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] == params[:answer_id]
+        session[current_user.id.to_s][@poll.id.to_s].delete(@question.id.to_s)
+        if session[current_user.id.to_s][@poll.id.to_s].blank?
+          session[current_user.id.to_s].delete(@poll.id.to_s)
+        end
+        @is_select_answer = false
+      else
+        session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] = params[:answer_id]
+        @is_select_answer = true
       end
-      @is_select_answer = false
-    else
-      session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] = params[:answer_id]
-      @is_select_answer = true
     end
     @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
-
     @can_vote = validate_can_vote(current_user, @poll)
   end
 
@@ -58,4 +61,17 @@ class Polls::QuestionsController < ApplicationController
     @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
   end
 
+  def clean_session_same_group
+    @poll = Poll.find(params[:poll_id].to_i)
+    same_group_poll = Poll.find_same_group_poll(@poll).pluck(:id)
+    if params[:clean_own_poll] == 'true'
+      session[current_user.id.to_s].delete(@poll.id.to_s)
+    else
+      same_group_poll.each do |poll_id|
+        if !session[current_user.id.to_s][poll_id.to_s].blank?
+          session[current_user.id.to_s].delete(poll_id.to_s)
+        end
+      end
+    end
+  end
 end
