@@ -24,7 +24,7 @@
         <% end %>
       <% end %>
 
-      <div id="questions-poll">
+      <div id="questions-poll-<%= @poll.id %>">
         <% @questions.each do |question| %>
           <%= render 'polls/questions/question', question: question, token: @token, is_show_question: @is_show_question, session_answers: @session_answers %>
         <% end %>

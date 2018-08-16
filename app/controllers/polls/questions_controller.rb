@@ -66,12 +66,17 @@ class Polls::QuestionsController < ApplicationController
     same_group_poll = Poll.find_same_group_poll(@poll).pluck(:id)
     if params[:clean_own_poll] == 'true'
       session[current_user.id.to_s].delete(@poll.id.to_s)
+      @questions = @poll.questions.for_render.sort_for_list
+      @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
+      @can_vote = validate_can_vote(current_user, @poll)
+      @clean_own_poll = true
     else
       same_group_poll.each do |poll_id|
         if !session[current_user.id.to_s][poll_id.to_s].blank?
           session[current_user.id.to_s].delete(poll_id.to_s)
         end
       end
+      @clean_own_poll = false
     end
   end
 end

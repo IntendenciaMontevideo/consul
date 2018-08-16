@@ -1,2 +1,8 @@
+<% if @clean_own_poll %>
+  <% token = poll_voter_token(@poll, current_user) %>
+  if (document.getElementById("questions-poll-<%= @poll.id %>") != null) {
+    $("#questions-poll-<%= @poll.id %>").html('<%= j render("/polls/questions/questions", questions: @questions, token: token, session_answers: @session_answers) %>');
+  }
+<% end %>
 $(".button-vote-c").html('<%= j render("/layouts/button_vote") %>');
 jQuery('#vote-modal').foundation('close');
