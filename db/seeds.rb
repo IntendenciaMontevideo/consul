@@ -137,4 +137,5 @@ Setting['proposals_vote_start_month'] = 4
 Setting['proposals_vote_end_day'] = 31
 Setting['proposals_vote_end_month'] = 3
 Setting['proposals_feasibility_threshold'] = 500
-
+#Enable participatory budget
+Setting['enable_participatory_budget'] = "false"

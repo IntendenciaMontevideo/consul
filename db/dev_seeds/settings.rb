@@ -76,4 +76,8 @@ section "Creating Settings" do
   Setting.create(key: 'proposals_feasibility_threshold', value: 500)
 
   Setting.create(key: 'url_registration_saml', value: 'https://mi.iduruguay.gub.uy/registro')
+
+  #Enable participatory budget
+  Setting.create(key: 'enable_participatory_budget', value: "false")
+
 end

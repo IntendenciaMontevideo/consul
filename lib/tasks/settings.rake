@@ -8,4 +8,12 @@ namespace :settings do
     per_page_code_setting.destroy if per_page_code_setting.present?
   end
 
+  desc "Add Setting key enable_participatory_budget"
+  task add_enable_participatory_budget: :environment do
+    setting = Setting.find_by_key 'enable_participatory_budget'
+    if setting.blank?
+      Setting['enable_participatory_budget'] = "false"
+    end
+  end
+
 end

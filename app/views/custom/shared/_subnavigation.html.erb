@@ -50,10 +50,9 @@
       </li>
     <% end %>
 
-
     <li class="flex-4">
       <%= layout_menu_link_to t("layouts.header.budgets"),
-                                presupuesto_participativo_path,
+                                Setting['enable_participatory_budget'] == "false" || Setting['enable_participatory_budget'].blank? ? presupuesto_participativo_path : polls_path,
                                 controller_name == "budgets" || controller_name == "investments",
                                 accesskey: "4",
                                 title: t("shared.go_to_page") + t("layouts.header.budgets") %>

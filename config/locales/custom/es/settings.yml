@@ -3,3 +3,4 @@ es:
     feature:
       saml_login: Registro con SAML
     can_send_private_message: Permitir enviar mensajes privados
+    enable_participatory_budget: Habilitar PP
