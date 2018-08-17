@@ -10,8 +10,12 @@ class PollsController < ApplicationController
 
   def index
     @polls = @polls.send(@current_filter).includes(:geozones).sort_for_list.page(params[:page])
-    if !current_user.blank? && current_user.administrator?
-      if !@valid_filters.include?("incoming")
+    if @valid_filters.include?("incoming")
+      if !current_user.administrator?
+        @valid_filters.delete("incoming")
+      end
+    else
+      if !current_user.blank? && current_user.administrator?
         @valid_filters.push("incoming")
       end
     end
