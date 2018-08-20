@@ -2,12 +2,8 @@
   jQuery('#vote-modal').foundation('close');
   jQuery('#show-error-vote-modal').foundation('open');
 <% else %>
-  $("#token-poll").html('<%= @token %>');
   jQuery('#vote-modal').foundation('close');
-  $("#p-show-vote-modal").html('Esta es tu constancia de voto, guárdala para futuros controles. También te enviaremos un email a <%= current_user.blank? ? '' : current_user.email %> con la constancia');
-  $("#p-show-vote-modal-name").html('<%= @poll.name %>');
-  $("#link-show-vote-modal").html('<%= link_to 'Entiendo', poll_path(@poll), class: "button float-center small-12 medium-8 margin-top-20" %>');
-  $("#link-close-show-vote-modal").html('<%= link_to 'Cerrar', poll_path(@poll), class: "close-button without-margin-top" %>');
+  $("#show-vote-modal-info").html('<%= j render("/polls/questions/show_vote_modal_info", token: @token, poll: @poll) %>');
   jQuery('#show-vote-modal').foundation('open');
   <% if session[current_user.id.to_s].blank? %>
     $(".button-vote-c").html('');

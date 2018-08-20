@@ -55,3 +55,58 @@
 .margin-top-30{
   margin-top: 30px;
 }
+
+.modal-vote-header {
+  background: #5ce0b2;
+}
+
+#poll-information {
+  border: #5ce0b2;
+  border-style: solid;
+  margin-bottom: 20px;
+}
+
+.header-poll-information {
+  background-color: #5ce0b2;
+  text-align: center;
+  color: white;
+}
+
+.h3-vote-modal {
+  letter-spacing: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.token-poll {
+  word-wrap: break-word;
+  padding: 20px;
+}
+
+.p-modal-vote {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.modal-show-vote-size {
+  width: 35%;
+}
+
+.padding-content-show-vote {
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom: 55px;
+  padding-top: 40px;
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+a.button-show-vote:hover {
+  background: #5ce0b2 !important;
+}
+
+a.button-show-vote:focus {
+  background: #5ce0b2 !important;
+}
