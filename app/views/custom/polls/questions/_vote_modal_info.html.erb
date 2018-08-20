@@ -1,36 +1,32 @@
-<h3 class="base-color">Haz seleccionado</h3>
+<h3 class="color-title-vote-modal">Haz seleccionado</h3>
 <div id="answer-selected">
-  <ul>
-    <% session_answers.each do |session_answer| %>
+  <% session_answers.each do |session_answer| %>
+    <div class="list-selected-vote">
       <% if Poll::Question.find(session_answer[0].to_i).question_answers.count > 1 %>
-        <li>
-          <%= Poll::Question.find(session_answer[0].to_i).title %> : <%= Poll::Question::Answer.find(session_answer[1].to_i).title %>
-        </li>
+        <%= Poll::Question.find(session_answer[0].to_i).title %> : <%= Poll::Question::Answer.find(session_answer[1].to_i).title %>
       <% else %>
-        <li>
-          <%= Poll::Question.find(session_answer[0].to_i).title %>
-        </li>
+        <%= Poll::Question.find(session_answer[0].to_i).title %>
       <% end %>
-    <% end %>
-  </ul>
+    </div>
+  <% end %>
 </div>
-<p>Recuerda que puedes seleccionar hasta <%= poll.number_votes_allowed %> propuestas y votar en un sólo municipio. Cuando confirmes el voto ya no podrás cambiarlo.</p><br>
+<p class="padding-top-5">Recuerda que puedes seleccionar hasta <%= poll.number_votes_allowed %> propuestas y votar en un sólo municipio. Cuando confirmes el voto ya no podrás cambiarlo.</p><br>
 
 <% if is_create_session %>
-  <button class="button float-center small-12 medium-8 margin-top-20" data-close aria-label="Close modal" type="button">
+  <button class="button float-center button-vote-modal" data-close aria-label="Close modal" type="button">
     Seguir Seleccionando
   </button>
 <% else %>
   <%= link_to 'Seguir Seleccionando',
     poll_path(poll),
-    class: "button float-center small-12 medium-8 margin-top-20"%>
+    class: "button float-center button-vote-modal"%>
 <% end %>
 
 <%= link_to 'Confirmar Voto y Finalizar',
   vote_poll_questions_path(poll_id: poll.id, token: token),
   method: :post,
   remote: true,
-  class: "button float-center small-12 medium-8 margin-top-20",
+  class: "button float-center button-vote-modal",
   id: "confirm-vote-end" %>
 
 <%= link_to 'Limpiar Votación',

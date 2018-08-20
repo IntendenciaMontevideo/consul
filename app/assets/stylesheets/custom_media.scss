@@ -297,6 +297,7 @@
     margin-top: 20px;
   }
 }
+
 @media (min-width: 841px) and (max-width: 860px) {
 
   .title-login-options {
@@ -674,6 +675,12 @@
   .collaboration-spaces h3 {
     font-size: 12px;
   }
+
+  div.modal-poll-size {
+    width: 600px;
+    max-width: 75rem;
+  }
+
 }
 
 @media (min-width: 100px) and (max-width: 639px) {
@@ -781,6 +788,7 @@
   .featured-proposals .proposal-featured {
     min-height: 160px;
   }
+
   .iduru{
     position: absolute;
     margin-top: -31px;
@@ -789,6 +797,38 @@
   .iduru-color{
     font-size: 13px;
     padding-right: 0;
+  }
+
+  div.modal-poll-size {
+    width: 90%;
+    margin-left: 5%;
+    height: 80%;
+    min-height: 80%;
+    margin-top: 40px;
+  }
+
+  div.padding-all-modal-content-vote {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+  }
+
+  div.list-selected-vote {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  p.padding-top-5 {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  .button-vote-modal {
+    font-size: 14px;
+  }
+
+  .link-clean-poll {
+    font-size: 14px;
   }
 
 }
@@ -885,7 +925,6 @@
   }
 
 }
-
 
 @media (min-width: 100px) and (max-width: 342px) {
 
@@ -1079,6 +1118,12 @@
   .collaboration-spaces h3 {
     font-size: 12px;
   }
+
+  div.modal-poll-size {
+    width: 600px;
+    max-width: 75rem;
+  }
+
 }
 
 @media (min-width: 1024px) and (max-width: 1280px) {
