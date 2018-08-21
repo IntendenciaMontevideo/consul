@@ -1,13 +1,23 @@
 <div class="button-vote">
-  <% session[current_user.id.to_s].each do |poll_option| %>
+  <% session[current_user.id.to_s].each_with_index do |poll_option, index| %>
     <% if !Poll.where(id: poll_option[0].to_i).blank? && validate_can_vote(current_user, Poll.find(poll_option[0].to_i)) %>
-      <div class="button-vote-<%= poll_option[0] %>">
-        <%= link_to "Finalizar Votación (#{Poll.find(poll_option[0].to_i).name})",
-          show_modal_vote_poll_questions_path(poll_id: poll_option[0].to_i),
-          method: :post,
-          remote: true,
-          class: "link-vote-up"%>
-      </div>
+      <% if index == 0%>
+        <div class="button-vote-<%= poll_option[0] %>">
+          <%= link_to "Finalizar Votación (#{Poll.find(poll_option[0].to_i).name})",
+            show_modal_vote_poll_questions_path(poll_id: poll_option[0].to_i),
+            method: :post,
+            remote: true,
+            class: "link-vote-up"%>
+        </div>
+      <% else %>
+        <div class="button-vote-<%= poll_option[0] %> padding-top-15">
+          <%= link_to "Finalizar Votación (#{Poll.find(poll_option[0].to_i).name})",
+            show_modal_vote_poll_questions_path(poll_id: poll_option[0].to_i),
+            method: :post,
+            remote: true,
+            class: "link-vote-up"%>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>

@@ -9,13 +9,29 @@
 @import 'custom_media';
 
 .button-vote {
-  background-color: green;
+  background-color: #5ce0b2;
   text-align: center;
   min-width: 100%;
+  padding: 15px
 }
 
 .link-vote-up {
   color: white;
+  border: white;
+  border-style: solid;
+  padding: 2px 30px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+a.link-vote-up:hover {
+  color: white;
+  text-decoration: unset;
+}
+
+a.link-vote-up:focus {
+  color: white;
+  text-decoration: unset;
 }
 
 .link-clean-poll {
@@ -109,4 +125,8 @@ a.button-show-vote:hover {
 
 a.button-show-vote:focus {
   background: #5ce0b2 !important;
+}
+
+.padding-top-15 {
+  padding-top: 15px;
 }

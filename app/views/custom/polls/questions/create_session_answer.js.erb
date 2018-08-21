@@ -10,8 +10,8 @@
     <% if session[current_user.id.to_s].blank? %>
       $(".button-vote-c").html('');
     <% else %>
-      <% if session[current_user.id.to_s][@poll.id.to_s].blank? %>
-        $(".button-vote-<%= @poll.id.to_s %>").remove();
+      <% if !current_user.blank? && !session[current_user.id.to_s].blank? %>
+         $(".button-vote-c").html('<%= j render('/layouts/button_vote') %>');
       <% end %>
     <% end %>
   <% end %>

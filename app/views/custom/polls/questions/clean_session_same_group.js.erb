@@ -4,5 +4,9 @@
     $("#questions-poll-<%= @poll.id %>").html('<%= j render("/polls/questions/questions", questions: @questions, token: token, session_answers: @session_answers) %>');
   }
 <% end %>
-$(".button-vote-c").html('<%= j render("/layouts/button_vote") %>');
+<% if !current_user.blank? && !session[current_user.id.to_s].blank? %>
+  $(".button-vote-c").html('<%= j render("/layouts/button_vote") %>');
+<% else %>
+  $(".button-vote-c").html('');
+<% end %>
 jQuery('#vote-modal').foundation('close');
