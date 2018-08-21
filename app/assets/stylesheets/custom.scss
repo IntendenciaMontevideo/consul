@@ -130,3 +130,18 @@ a.button-show-vote:focus {
 .padding-top-15 {
   padding-top: 15px;
 }
+
+.poll-question-answers .button.answered {
+  background: #5ce0b2;
+  border: 4px solid #54cda3;
+}
+
+.poll-question-answers .button.answered::after {
+  background: #54cda3;
+  right: -10px;
+  top: -10px;
+}
+
+span.answered:hover {
+  background: #5ce0b2 !important;
+}
