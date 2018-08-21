@@ -1,0 +1,18 @@
+<table class="margin-top table-polls">
+  <thead>
+    <th scope="col"><%= t("users.show.current_polls") %></th>
+    <th scope="col">Token</th>
+  </thead>
+  <tbody>
+    <% @poll_voters.each do |poll_voter| %>
+      <tr>
+        <td>
+          <%= link_to poll_voter.poll.name, poll_path(poll_voter.poll) %>
+        </td>
+        <td>
+          #<%= poll_voter.token %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -312,4 +312,9 @@ es:
     law: "Resolución Nro. 528/18"
   users:
     show:
+      current_polls: Mis Votaciones
       no_private_messages_allowed: "Solo los usuarios registrados con Nivel 2 puden enviar un mensaje privado. Accede a tu Cuenta para ver mas información"
+      filters:
+        polls:
+          one: 1 Votación
+          other: "%{count} Votaciones"
