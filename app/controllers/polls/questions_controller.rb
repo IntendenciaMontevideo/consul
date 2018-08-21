@@ -27,7 +27,10 @@ class Polls::QuestionsController < ApplicationController
       end
     end
     @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
-    @can_vote = validate_can_vote(current_user, @poll)
+    @can_vote = true
+    if !@poll.poll_group_id.blank?
+      @can_vote = validate_can_vote(current_user, @poll)
+    end
   end
 
   def vote
@@ -53,6 +56,8 @@ class Polls::QuestionsController < ApplicationController
       @exist_vote = false
     else
       @exist_vote = true
+      session[current_user.id.to_s].delete(@poll.id.to_s)
+      @questions = @poll.questions.for_render.sort_by_order_number
     end
   end
 

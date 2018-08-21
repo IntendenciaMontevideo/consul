@@ -1,5 +1,16 @@
 <% if @exist_vote %>
   jQuery('#vote-modal').foundation('close');
+  <% if session[current_user.id.to_s].blank? %>
+    $(".button-vote-c").html('');
+  <% else %>
+    <% if session[current_user.id.to_s][@poll.id.to_s].blank? %>
+      $(".button-vote-<%= @poll.id.to_s %>").remove();
+    <% end %>
+  <% end %>
+  <% token = poll_voter_token(@poll, current_user) %>
+  if (document.getElementById("questions-poll-<%= @poll.id %>") != null) {
+    $("#questions-poll-<%= @poll.id %>").html('<%= j render("/polls/questions/questions", questions: @questions, token: token, session_answers: @session_answers) %>');
+  }
   jQuery('#show-error-vote-modal').foundation('open');
 <% else %>
   jQuery('#vote-modal').foundation('close');
