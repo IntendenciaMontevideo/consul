@@ -137,7 +137,7 @@ class Mailer < ApplicationMailer
     @poll = poll
     @token = token
 
-    mail(to: @email_to, from: user.email, subject: 'Constancia de Votación')
+    mail(to: user.email, subject: 'Constancia de Votación')
   end
 
   private

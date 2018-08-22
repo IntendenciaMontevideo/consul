@@ -62,7 +62,6 @@ class Polls::QuestionsController < ApplicationController
         @number_votes_allowed = true
       else
         @number_votes_allowed = false
-        session[current_user.id.to_s].delete(@poll.id.to_s)
         @questions = @poll.questions.for_render.sort_by_order_number
       end
     else
