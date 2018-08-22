@@ -31,7 +31,6 @@ class Polls::QuestionsController < ApplicationController
     else
       @can_vote = validate_can_vote(current_user, @poll)
     end
-
     @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
     @questions = @poll.questions.for_render.sort_by_order_number
     @same_group_poll = Poll.find_same_group_poll(@poll).pluck(:id)
@@ -58,7 +57,7 @@ class Polls::QuestionsController < ApplicationController
           end
         end
         session[current_user.id.to_s].delete(@poll.id.to_s)
-        Mailer.email_ticket_vote(@poll, @token, current_user).deliver_later
+        Mailer.email_ticket_vote(@poll, @token, current_user).deliver_now
         @exist_vote = false
         @number_votes_allowed = true
       else
@@ -68,7 +67,6 @@ class Polls::QuestionsController < ApplicationController
       end
     else
       @exist_vote = true
-      session[current_user.id.to_s].delete(@poll.id.to_s)
       @questions = @poll.questions.for_render.sort_by_order_number
     end
   end
