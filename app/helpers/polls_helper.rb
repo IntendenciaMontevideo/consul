@@ -56,7 +56,7 @@ module PollsHelper
       Poll::Voter
       .joins(:poll)
       .where(document_number: user.document_number, origin: "web",
-        polls:{poll_group_id: poll.poll_group_id}).blank? ? true : false
+        polls:{poll_group_id: poll.poll_group_id}).blank? || poll.poll_group_id.blank? ? true : false
     end
   end
 

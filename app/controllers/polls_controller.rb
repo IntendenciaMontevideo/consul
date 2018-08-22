@@ -46,7 +46,7 @@ class PollsController < ApplicationController
     @comment_tree = CommentTree.new(@commentable, params[:page], @current_order)
 
     @can_vote = true
-    if @token.blank? && !@poll.poll_group_id.blank?
+    if @token.blank?
       @can_vote = validate_can_vote(current_user, @poll)
     end
 

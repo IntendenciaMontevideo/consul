@@ -7,9 +7,8 @@
       $(".button-vote-<%= @poll.id.to_s %>").remove();
     <% end %>
   <% end %>
-  <% token = poll_voter_token(@poll, current_user) %>
   if (document.getElementById("questions-poll-<%= @poll.id %>") != null) {
-    $("#questions-poll-<%= @poll.id %>").html('<%= j render("/polls/questions/questions", questions: @questions, token: token, session_answers: @session_answers) %>');
+    $("#questions-poll-<%= @poll.id %>").html('<%= j render("/polls/questions/questions", questions: @questions, token: @token, session_answers: @session_answers) %>');
   }
   jQuery('#show-error-vote-modal').foundation('open');
 <% else %>
@@ -17,6 +16,9 @@
     jQuery('#vote-modal').foundation('close');
     $("#show-vote-modal-info").html('<%= j render("/polls/questions/show_vote_modal_info", token: @token, poll: @poll) %>');
     jQuery('#show-vote-modal').foundation('open');
+    if (document.getElementById("questions-poll-<%= @poll.id %>") != null) {
+      $("#questions-poll-<%= @poll.id %>").html('<%= j render("/polls/questions/questions", questions: @questions, token: @token, session_answers: @session_answers) %>');
+    }
     <% if session[current_user.id.to_s].blank? %>
       $(".button-vote-c").html('');
     <% else %>

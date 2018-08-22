@@ -9,28 +9,26 @@ class Polls::QuestionsController < ApplicationController
   def create_session_answer
     @poll = Poll.find(params[:poll_id].to_i)
     @can_vote_session = session[current_user.id.to_s].blank? ? true : validate_can_vote_session(session[current_user.id.to_s], @poll, @same_group_poll)
-    @can_vote = true
+    @token = poll_voter_token(@poll, current_user)
 
-    if @poll.poll_group_id.blank?
-      if @can_vote_session || session[current_user.id.to_s].blank?
-        session[current_user.id.to_s] ||= {}
-        session[current_user.id.to_s][@poll.id.to_s] ||= {}
-        if session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] == params[:answer_id]
-          session[current_user.id.to_s][@poll.id.to_s].delete(@question.id.to_s)
-          if session[current_user.id.to_s][@poll.id.to_s].blank?
-            session[current_user.id.to_s].delete(@poll.id.to_s)
-          end
-          @is_select_answer = false
-        else
-          if session[current_user.id.to_s][@poll.id.to_s].count <= @poll.number_votes_allowed
-            session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] = params[:answer_id]
-          end
-          @is_select_answer = true
+    if (@can_vote_session || session[current_user.id.to_s].blank?) && @token.blank?
+      session[current_user.id.to_s] ||= {}
+      session[current_user.id.to_s][@poll.id.to_s] ||= {}
+      if session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] == params[:answer_id]
+        session[current_user.id.to_s][@poll.id.to_s].delete(@question.id.to_s)
+        if session[current_user.id.to_s][@poll.id.to_s].blank?
+          session[current_user.id.to_s].delete(@poll.id.to_s)
         end
+        @is_select_answer = false
+      else
+        if session[current_user.id.to_s][@poll.id.to_s].count <= @poll.number_votes_allowed
+          session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] = params[:answer_id]
+        end
+        @is_select_answer = true
       end
-    else
-      @can_vote = validate_can_vote(current_user, @poll)
     end
+
+    @can_vote = validate_can_vote(current_user, @poll)
     @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
     @questions = @poll.questions.for_render.sort_by_order_number
     @same_group_poll = Poll.find_same_group_poll(@poll).pluck(:id)
@@ -40,6 +38,7 @@ class Polls::QuestionsController < ApplicationController
   def vote
     @token = poll_voter_token(@poll, current_user)
     @poll = Poll.find(params[:poll_id].to_i)
+    @questions = @poll.questions.for_render.sort_by_order_number
 
     if @token.blank?
       if session[current_user.id.to_s][@poll.id.to_s].count <= @poll.number_votes_allowed
@@ -62,12 +61,12 @@ class Polls::QuestionsController < ApplicationController
         @number_votes_allowed = true
       else
         @number_votes_allowed = false
-        @questions = @poll.questions.for_render.sort_by_order_number
       end
     else
       @exist_vote = true
-      @questions = @poll.questions.for_render.sort_by_order_number
+      session[current_user.id.to_s].delete(@poll.id.to_s)
     end
+    @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
   end
 
   def show_modal_vote
