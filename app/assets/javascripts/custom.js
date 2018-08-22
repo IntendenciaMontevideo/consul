@@ -20,3 +20,9 @@ function notVote() {
     jQuery('#can-not-vote-modal').foundation('open');
   });
 };
+
+function disabledButton() {
+  $(".js-question-answer").click(function(){
+    $(".js-question-answer").addClass("disabled");
+  });
+}

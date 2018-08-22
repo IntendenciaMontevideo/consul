@@ -8,29 +8,34 @@ class Polls::QuestionsController < ApplicationController
 
   def create_session_answer
     @poll = Poll.find(params[:poll_id].to_i)
-    @questions = @poll.questions.for_render.sort_by_order_number
-    @same_group_poll = Poll.find_same_group_poll(@poll).pluck(:id)
     @can_vote_session = session[current_user.id.to_s].blank? ? true : validate_can_vote_session(session[current_user.id.to_s], @poll, @same_group_poll)
-
-    if @poll.poll_group_id.blank? || @can_vote_session || session[current_user.id.to_s].blank?
-      session[current_user.id.to_s] ||= {}
-      session[current_user.id.to_s][@poll.id.to_s] ||= {}
-      if session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] == params[:answer_id]
-        session[current_user.id.to_s][@poll.id.to_s].delete(@question.id.to_s)
-        if session[current_user.id.to_s][@poll.id.to_s].blank?
-          session[current_user.id.to_s].delete(@poll.id.to_s)
-        end
-        @is_select_answer = false
-      else
-        session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] = params[:answer_id]
-        @is_select_answer = true
-      end
-    end
-    @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
     @can_vote = true
-    if !@poll.poll_group_id.blank?
+
+    if @poll.poll_group_id.blank?
+      if @can_vote_session || session[current_user.id.to_s].blank?
+        session[current_user.id.to_s] ||= {}
+        session[current_user.id.to_s][@poll.id.to_s] ||= {}
+        if session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] == params[:answer_id]
+          session[current_user.id.to_s][@poll.id.to_s].delete(@question.id.to_s)
+          if session[current_user.id.to_s][@poll.id.to_s].blank?
+            session[current_user.id.to_s].delete(@poll.id.to_s)
+          end
+          @is_select_answer = false
+        else
+          if session[current_user.id.to_s][@poll.id.to_s].count <= @poll.number_votes_allowed
+            session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] = params[:answer_id]
+          end
+          @is_select_answer = true
+        end
+      end
+    else
       @can_vote = validate_can_vote(current_user, @poll)
     end
+
+    @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
+    @questions = @poll.questions.for_render.sort_by_order_number
+    @same_group_poll = Poll.find_same_group_poll(@poll).pluck(:id)
+
   end
 
   def vote
@@ -38,22 +43,29 @@ class Polls::QuestionsController < ApplicationController
     @poll = Poll.find(params[:poll_id].to_i)
 
     if @token.blank?
-      session[current_user.id.to_s][@poll.id.to_s].each do |question_answer|
-        question = @poll.questions.find(question_answer[0].to_i)
-        answer = question.answers.find_or_initialize_by(author: current_user)
-        @token = params[:token]
-        answer.answer = question.question_answers.find(question_answer[1].to_i).title
-        answer.touch if answer.persisted?
-        answer.save!
+      if session[current_user.id.to_s][@poll.id.to_s].count <= @poll.number_votes_allowed
+        session[current_user.id.to_s][@poll.id.to_s].each do |question_answer|
+          question = @poll.questions.find(question_answer[0].to_i)
+          answer = question.answers.find_or_initialize_by(author: current_user)
+          @token = params[:token]
+          answer.answer = question.question_answers.find(question_answer[1].to_i).title
+          answer.touch if answer.persisted?
+          answer.save!
 
-        answer.record_voter_participation(@token)
-        question.question_answers.where(question_id: question).each do |question_answer|
-          question_answer.set_most_voted
+          answer.record_voter_participation(@token)
+          question.question_answers.where(question_id: question).each do |question_answer|
+            question_answer.set_most_voted
+          end
         end
+        session[current_user.id.to_s].delete(@poll.id.to_s)
+        Mailer.email_ticket_vote(@poll, @token, current_user).deliver_later
+        @exist_vote = false
+        @number_votes_allowed = true
+      else
+        @number_votes_allowed = false
+        session[current_user.id.to_s].delete(@poll.id.to_s)
+        @questions = @poll.questions.for_render.sort_by_order_number
       end
-      session[current_user.id.to_s].delete(@poll.id.to_s)
-      Mailer.email_ticket_vote(@poll, @token, current_user).deliver_later
-      @exist_vote = false
     else
       @exist_vote = true
       session[current_user.id.to_s].delete(@poll.id.to_s)
