@@ -54,7 +54,7 @@ class Admin::Poll::PollsController < Admin::Poll::BaseController
 
   def download_report
     @poll = Poll.find(params[:poll_id])
-    render xlsx: 'download_report'
+    render xlsx: 'download_report', filename: "Reporte_#{@poll.name.split(" ").join('_')}.xlsx"
   end
 
   private

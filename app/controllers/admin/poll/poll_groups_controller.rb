@@ -27,11 +27,13 @@ class Admin::Poll::PollGroupsController < Admin::Poll::BaseController
   end
 
   def download_report
+    @poll_group = PollGroup.find(params[:poll_group_id].to_i)
     @poll_voter_by_groups = Poll::Voter
                               .includes(:poll)
                               .joins(:poll)
                               .where(origin: "web", polls:{poll_group_id: params[:poll_group_id].to_i})
-    render xlsx: 'download_report'
+                              .order('polls.id')
+    render xlsx: 'download_report', filename: "Reporte_CI_#{@poll_group.name.split(" ").join('_')}.xlsx"
   end
 
   private

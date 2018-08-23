@@ -4,7 +4,7 @@ rows_style = { :alignment => { :horizontal => :left } }
 header_xf = wb.styles.add_style header_style
 rows_xf = wb.styles.add_style rows_style
 
-wb.add_worksheet(name: 'Reporte Grupo de Votaciones') do |sheet|
+wb.add_worksheet(name: "Datos") do |sheet|
   sheet.add_row ['Número de documento', 'Título de la Votación'], style: header_xf
   unless @poll_voter_by_groups.empty?
     @poll_voter_by_groups.each do |poll_voter|

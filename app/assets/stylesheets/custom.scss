@@ -162,3 +162,7 @@ table {
 a.disabled.js-question-answer {
   pointer-events: none;
 }
+
+.button.hollow.download-poll:focus {
+  background-color: #f9bd41;
+}

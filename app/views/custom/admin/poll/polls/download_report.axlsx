@@ -1,8 +1,9 @@
 wb = xlsx_package.workbook
 header_style = { :alignment => { :horizontal => :center }, :b => true }
 header_xf = wb.styles.add_style header_style
+headers["Content-Disposition"] = "attachment; filename=\hhh"
 
-wb.add_worksheet(name: 'Reporte Votaciones') do |sheet|
+wb.add_worksheet(name: "Datos") do |sheet|
   sheet.add_row ['Título de la Pregunta', 'Opción', 'Cantidad de Votos'], style: header_xf
   unless @poll.questions.empty?
     @poll.questions.each do |question|
