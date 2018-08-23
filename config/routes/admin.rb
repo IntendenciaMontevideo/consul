@@ -136,7 +136,9 @@ namespace :admin do
       post '/answers/order_answers', to: 'questions/answers#order_answers'
     end
 
-    resources :poll_groups
+    resources :poll_groups do
+      get :download_report
+    end
 
   end
 

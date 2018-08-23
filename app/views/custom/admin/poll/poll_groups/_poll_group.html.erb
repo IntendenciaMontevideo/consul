@@ -12,5 +12,8 @@
                 admin_poll_group_path(poll_group),
                 method: :delete,
                 class: "button hollow" %>
+    <%= link_to "Descargar Reporte",
+                admin_poll_group_download_report_path(poll_group),
+                class: "button hollow" %>
   </td>
 </tr>

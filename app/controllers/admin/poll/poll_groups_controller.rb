@@ -26,6 +26,14 @@ class Admin::Poll::PollGroupsController < Admin::Poll::BaseController
     end
   end
 
+  def download_report
+    @poll_voter_by_groups = Poll::Voter
+                              .includes(:poll)
+                              .joins(:poll)
+                              .where(origin: "web", polls:{poll_group_id: params[:poll_group_id].to_i})
+    render xlsx: 'download_report'
+  end
+
   private
   def poll_group_params
     attributes = [:name]
