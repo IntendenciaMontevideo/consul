@@ -10,16 +10,29 @@
     </div>
   <% end %>
 </div>
-<p class="padding-top-5">Recuerda que puedes seleccionar hasta <%= poll.number_votes_allowed %> propuestas y votar en un sólo municipio. Cuando confirmes el voto ya no podrás cambiarlo.</p><br>
 
-<% if is_create_session %>
-  <button class="button float-center button-vote-modal" data-close aria-label="Close modal" type="button">
-    Seguir Seleccionando
-  </button>
+<% if Setting['enable_participatory_budget'] == "false" %>
+  <p class="padding-top-5">Recuerda que puedes seleccionar hasta <%= poll.number_votes_allowed %> propuestas y votar en un sólo municipio. Cuando confirmes el voto ya no podrás cambiarlo.</p><br>
+
+  <% if is_create_session %>
+    <button class="button float-center button-vote-modal" data-close aria-label="Close modal" type="button">
+      Seguir Seleccionando
+    </button>
+  <% else %>
+    <%= link_to 'Seguir Seleccionando',
+      poll_path(poll),
+      class: "button float-center button-vote-modal"%>
+  <% end %>
 <% else %>
-  <%= link_to 'Seguir Seleccionando',
-    poll_path(poll),
-    class: "button float-center button-vote-modal"%>
+  <% if is_create_session %>
+    <button class="button float-center button-vote-modal" data-close aria-label="Close modal" type="button">
+      Cambiar Selección
+    </button>
+  <% else %>
+    <%= link_to 'Cambiar Selección',
+      poll_path(poll),
+      class: "button float-center button-vote-modal"%>
+  <% end %>
 <% end %>
 
 <%= link_to 'Confirmar Voto y Finalizar',
