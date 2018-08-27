@@ -11,7 +11,7 @@
   <% end %>
 </div>
 
-<% if Setting['enable_participatory_budget'] == "false" %>
+<% if Setting['enable_participatory_budget'] == "true" %>
   <p class="padding-top-5">Recuerda que puedes seleccionar hasta <%= poll.number_votes_allowed %> propuestas y votar en un sólo municipio. Cuando confirmes el voto ya no podrás cambiarlo.</p><br>
 
   <% if is_create_session %>
