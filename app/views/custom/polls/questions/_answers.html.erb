@@ -57,9 +57,26 @@
       <% question.question_answers.each do |answer| %>
         <span class="button secondary hollow disabled"><%= answer.title %></span>
       <% end %>
-      <div class="participation-not-allowed" style='display:none' aria-hidden="false">
-        Esta votación solo puede ser apoyada por usuarios con <%= t("admin.polls.new.level_#{@poll.access_level}") %>.
-        Si ya contás con el usuario <%= link_to("ingresá aquí", user_omniauth_authorize_path(:saml), title: "ingresá aquí") %>, o de lo contrario <%= link_to('registrate', '#', data: {open: 'registration_modal'} ,title: "registrate") %>
+      <div class="participation-not-allowed poll-span-not-allowed" style='display:none' aria-hidden="false">
+        <div class="row size-span-poll">
+          <div class="small-12 columns text-span-not-allowed">
+            Esta votación solo puede ser efectuada por usuarios ID Uruguay verificados
+            de forma presencial en los lugares habilitados.
+          </div>
+          <div class="small-12 large-6 columns">
+            <%= link_to "Iniciar sesión ID Uruguay",
+                user_omniauth_authorize_path(:saml),
+                title: "Iniciar sesión ID Uruguay",
+                class: "button float-right button-span-not-allowed-poll" %>
+          </div>
+          <div class="small-12 large-6 columns">
+            <%= link_to "Ver requisitos para verificación",
+                "#",
+                data: {open: "registration_modal"},
+                title: "Ver requisitos para verificación",
+                class: "button float-left button-span-not-allowed-poll" %>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>

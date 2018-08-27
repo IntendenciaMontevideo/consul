@@ -166,3 +166,31 @@ a.disabled.js-question-answer {
 .button.hollow.download-poll:focus {
   background-color: #f9bd41;
 }
+
+.text-span-not-allowed {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  color: #58595b;
+  font-weight: 700;
+}
+
+.participation-not-allowed.poll-span-not-allowed {
+  background: #fcd07b;
+}
+
+.size-span-poll {
+  width: 80%;
+  display: inline-block;
+}
+
+a.button-span-not-allowed-poll {
+  background-color: white;
+  text-decoration: none;
+  color: #f9bd41 !important;
+  padding: 8px;
+  width: 80%;
+}
+
+a.button-span-not-allowed-poll:hover {
+  background-color: white !important;
+}
