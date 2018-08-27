@@ -16,6 +16,7 @@
     <% end %>
   <% end %>
 <% else %>
-  $("#vote-modal-content").html('<%= j render("/polls/questions/vote_modal_error", poll: @poll) %>');
+  $("#vote-modal-content").html('<%= j render("/polls/questions/vote_modal_error", poll: @poll, current_session: session[current_user.id.to_s]) %>');
+  $(".js-question-answer").removeClass("disabled");
   jQuery('#vote-modal').foundation('open');
 <% end %>

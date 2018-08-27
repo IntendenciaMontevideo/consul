@@ -3,8 +3,12 @@
     <%= image_tag(image_path_for('icono-warning.png'), class: "float-center", size: "60") %>
   </div>
   <div class="padding-all-modal-content">
-    <p>Ya a alcanzado el maximo de votos para esta votación,
-    si desea puede cambiar sus votos deseleccionando alguna opción.</p><br>
+    <p class="text-can-not-vote-modal">
+      Ya has seleccionado el máximo de opciones posibles para esta votación.
+    </p><br>
+    <p class="padding-top-50">
+      Si deseas puedes deseleccionar alguna de las opciones y continuar seleccionando.
+    </p>
   </div>
   <button class="close-button" data-close aria-label="Close modal" type="button">
     Cerrar

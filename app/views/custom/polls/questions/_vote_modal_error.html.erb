@@ -1,7 +1,28 @@
-<h3 class="base-color">Ya has iniciado una votación del mismo grupo.</h3>
-<p>Para limpiar la votación iniciada hacer click en el siguient link
-<%= link_to 'Limpiar Votación',
-  clean_session_same_group_poll_questions_path(poll_id: poll.id, clean_session: false),
-  method: :post,
-  remote: true %>
+<h3 class="base-color text-can-not-vote-modal">
+  Ya has iniciado la selección en otro
+  <% if Setting['enable_participatory_budget'] == "true" %>
+    municipio
+  <% else %>
+    grupo
+  <% end %>
+  .
+</h3>
+<p class="padding-30">
+  Recuerda que no puedes seleccionar propuestas de distintos
+  <% if Setting['enable_participatory_budget'] == "true" %>
+    municipios
+  <% else %>
+    grupos
+  <% end %>
+  .
 </p>
+
+<%= link_to 'Volver a la selección iniciada',
+  poll_path(current_session.first[0].to_i),
+  class: "button float-center button-vote-modal" %>
+
+<%= link_to 'Limpiar la seleccion iniciada',
+  clean_session_same_group_poll_questions_path(poll_id: poll.id, clean_own_poll: false),
+  method: :post,
+  remote: true,
+  class: "button float-center button-vote-modal" %>
