@@ -35,24 +35,29 @@ class UsersController < ApplicationController
     end
 
     def load_available_activity
-      if @activity_counts[:proposals] > 0
-        load_proposals
-        @current_filter = "proposals"
-      elsif @activity_counts[:debates] > 0
-        load_debates
-        @current_filter = "debates"
-      elsif  @activity_counts[:budget_investments] > 0
-        load_budget_investments
-        @current_filter = "budget_investments"
-      elsif  @activity_counts[:comments] > 0
-        load_comments
-        @current_filter = "comments"
-      elsif  @activity_counts[:follows] > 0
-        load_follows
-        @current_filter = "follows"
-      elsif  @activity_counts[:polls] > 0
+      if !params[:is_poll].blank? && params[:is_poll] == 'true'
         load_polls
         @current_filter = "polls"
+      else
+        if @activity_counts[:proposals] > 0
+          load_proposals
+          @current_filter = "proposals"
+        elsif @activity_counts[:debates] > 0
+          load_debates
+          @current_filter = "debates"
+        elsif  @activity_counts[:budget_investments] > 0
+          load_budget_investments
+          @current_filter = "budget_investments"
+        elsif  @activity_counts[:comments] > 0
+          load_comments
+          @current_filter = "comments"
+        elsif  @activity_counts[:follows] > 0
+          load_follows
+          @current_filter = "follows"
+        elsif  @activity_counts[:polls] > 0
+          load_polls
+          @current_filter = "polls"
+        end
       end
     end
 

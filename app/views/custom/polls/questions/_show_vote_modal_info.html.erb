@@ -2,12 +2,19 @@
 <div id="poll-information">
   <div class="header-poll-information">
     <p class="p-modal-vote">CONSTANCIA DE VOTO</p>
+    <% if Setting['enable_participatory_budget'] == "true" %>
+      <p class="p-modal-vote">
+        Presupuesto Participativo
+      </p>
+    <% end %>
     <p class="p-modal-vote">
       <%= poll.name %>
     </p>
   </div>
   <div class="token-poll">
-    #<%= token %>
+    <%= link_to 'Ver constancia de votación',
+      user_path(current_user, is_poll: true),
+      class: "button float-center button-vote-modal modal-vote-header button-show-vote" %>
   </div>
 </div>
 <p class="text-align-justify">
