@@ -53,32 +53,59 @@
       <% end %>
     <% end %>
   <% else %>
-    <div class="poll-question-answer-access">
-      <% question.question_answers.each do |answer| %>
-        <span class="button secondary hollow disabled"><%= answer.title %></span>
-      <% end %>
-      <div class="participation-not-allowed poll-span-not-allowed" style='display:none' aria-hidden="false">
-        <div class="row size-span-poll">
-          <div class="small-12 columns text-span-not-allowed">
-            Esta votación solo puede ser efectuada por usuarios ID Uruguay verificados
-            de forma presencial en los lugares habilitados.
-          </div>
-          <div class="small-12 large-6 columns">
-            <%= link_to "Iniciar sesión ID Uruguay",
-                user_omniauth_authorize_path(:saml),
-                title: "Iniciar sesión ID Uruguay",
-                class: "button float-right button-span-not-allowed-poll" %>
-          </div>
-          <div class="small-12 large-6 columns">
-            <%= link_to "Ver requisitos para verificación",
-                "#",
-                data: {open: "registration_modal"},
-                title: "Ver requisitos para verificación",
-                class: "button float-left button-span-not-allowed-poll" %>
+    <% if @poll.access_level == 3 %>
+      <div class="poll-question-answer-access">
+        <% question.question_answers.each do |answer| %>
+          <span class="button secondary hollow disabled"><%= answer.title %></span>
+        <% end %>
+        <div class="participation-not-allowed poll-span-not-allowed" style='display:none' aria-hidden="false">
+          <div class="row size-span-poll">
+            <div class="small-12 columns text-span-not-allowed">
+              Esta votación solo puede ser efectuada por usuarios ID Uruguay verificados
+              de forma presencial en los lugares habilitados.
+            </div>
+            <div class="small-12 large-6 columns">
+              <%= link_to "Iniciar sesión ID Uruguay",
+                  user_omniauth_authorize_path(:saml),
+                  title: "Iniciar sesión ID Uruguay",
+                  class: "button float-right button-span-not-allowed-poll" %>
+            </div>
+            <div class="small-12 large-6 columns">
+              <%= link_to "Ver requisitos para verificación",
+                  "#",
+                  data: {open: "registration_modal"},
+                  title: "Ver requisitos para verificación",
+                  class: "button float-left button-span-not-allowed-poll" %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% else %>
+      <% if @poll.access_level == 2 %>
+        <div class="poll-question-answer-access">
+          <% question.question_answers.each do |answer| %>
+            <span class="button secondary hollow disabled"><%= answer.title %></span>
+          <% end %>
+          <div class="participation-not-allowed poll-span-not-allowed" style='display:none' aria-hidden="false">
+            <div class="row size-span-poll">
+              <div class="small-12 columns text-span-not-allowed padding-40">
+                Para votar tenés que ingresar con usuario de ID Uruguay.
+                Si ya contás con un usuario
+                  <%= link_to "ingresá aquí",
+                    user_omniauth_authorize_path(:saml),
+                    title: "Iniciar sesión ID Uruguay"
+                  %>, o de lo contrario
+                  <%= link_to "registrate",
+                    '#',
+                    data: {open: 'registration_modal'},
+                    title: "registrate"
+                  %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
 

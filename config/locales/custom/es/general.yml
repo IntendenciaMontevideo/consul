@@ -20,6 +20,11 @@ es:
     show:
       back_poll: Volver a la votación
       already_voted_in_group_web: "Ya has participado en una votación perteneciente al mismo grupo."
+    index:
+      section_footer:
+        description: En el módulo de votaciones, la Intendencia de Montevideo realiza consultas a la ciudadanía, donde ésta con su voto podrá tener incidencia en las resoluciones que se tomen al respecto.
+        help_text_1: Las consultas se ponen a consideración por un determinado período de tiempo para que los usuarios puedan votar. Una vez finalizado se publican los resultados en la plataforma.
+        help_text_2: Para participar de una votación en Montevideo Decide, tenés que contar con usuario de ID Uruguay. Las votaciones para Presupuesto Participativo requieren usuario IDUruguay verificado de forma presencial.
   ideas:
     title: Ideas
     content_banner: Tus ideas pueden cambiar la ciudad. Si tenés una idea para mejorar Montevideo, podrás plantearla para que la Intendencia la concrete.
@@ -58,7 +63,7 @@ es:
       sign_in: Autenticarse
       sign_up: Entrar
       other_login: O ingresa con tu
-      name: Accedé con <br> Usuario Nivel 2
+      name: Accedé con <br> Usuario ID Uruguay
     facebook:
       sign_in: Entra con Facebook
       sign_up: Regístrate con Facebook

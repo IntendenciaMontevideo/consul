@@ -6,7 +6,7 @@ headers["Content-Disposition"] = "attachment; filename=\hhh"
 wb.add_worksheet(name: "Datos") do |sheet|
   sheet.add_row ['Título de la Pregunta', 'Opción', 'Cantidad de Votos'], style: header_xf
   unless @poll.questions.empty?
-    @poll.questions.each do |question|
+    @poll.questions.sort_by_order_number.each do |question|
       if question.question_answers.empty?
         sheet.add_row [question.title]
       else
