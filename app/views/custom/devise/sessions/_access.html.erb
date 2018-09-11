@@ -104,7 +104,7 @@
           <tr class="tr-w">
            <td ></td>
            <td class="no-border-2 no-padding-bottom"><div class="bg-facebook"><% if feature? :facebook_login %> <%= link_to (image_tag(image_path_for('fb_home.png'), class: '', width: '10x10', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:facebook) %><% end %></div></td>
-           <td class="border-left-table-user bg-iduruguay "> <% if feature? :saml_login %><h5 class="iduru"><%= link_to t("omniauth.saml.name").html_safe, user_omniauth_authorize_path(:saml),
+           <td class="border-left-table-user bg-iduruguay "> <% if feature? :saml_login %><h5 class="iduru text-align-center"><%= link_to t("omniauth.saml.name").html_safe, user_omniauth_authorize_path(:saml),
                       title: t("omniauth.saml.sign_in"),
                       class: "iduru-color" %></h5><% end %></td>
          </tr>
