@@ -1,0 +1,13 @@
+wb = xlsx_package.workbook
+header_style = { :alignment => { :horizontal => :center }, :b => true }
+header_xf = wb.styles.add_style header_style
+headers["Content-Disposition"] = "attachment; filename=\hhh"
+
+wb.add_worksheet(name: "Datos") do |sheet|
+  sheet.add_row ['Emails', 'Nombre Completo', 'Niveles'], style: header_xf
+  unless @users_segment_emails.empty?
+    @users_segment_emails.each do |user|
+      sheet.add_row [user.email, user.username, user.levels]
+    end
+  end
+end

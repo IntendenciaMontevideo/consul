@@ -6,8 +6,8 @@ class Admin::EmailsDownloadController < Admin::BaseController
     users_segment = params[:users_segment]
     filename = t("admin.segment_recipient.#{users_segment}")
 
-    csv_file = users_segment_emails_csv(users_segment)
-    send_data csv_file, filename: "#{filename}.csv"
+    @users_segment_emails = UserSegments.user_segment_emails(users_segment)
+    render xlsx: 'download_report', filename: "#{filename}.xlsx"
   end
 
   private
