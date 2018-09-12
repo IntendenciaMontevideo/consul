@@ -50,3 +50,6 @@ es:
         submit_button: "Actualizar grupo de votación"
     actions:
       delete: Borrar
+    emails_download:
+      index:
+        download_segment_help_text: Descarga en formato Excel
