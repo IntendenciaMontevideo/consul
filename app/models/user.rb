@@ -502,6 +502,24 @@ class User < ActiveRecord::Base
     follows.map{|follow| follow.followable.tags.map(&:name)}.flatten.compact.uniq
   end
 
+  def levels
+    levels = ""
+    self.identities.each do |identity|
+      if identity.provider == Identity::SAML_PROVIDER
+        if self.user_certified || self.user_verified
+          levels = levels + (levels.blank? ? "Nivel 3" : " Nivel 3")
+        else
+          levels = levels + (levels.blank? ? "Nivel 2" : " Nivel 2")
+        end
+      else
+        unless levels.include? "Nivel 1"
+          levels = levels + (levels.blank? ? "Nivel 1" : " Nivel 1")
+        end
+      end
+    end
+    return levels
+  end
+
   private
 
     def clean_document_number
