@@ -41,6 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     current_user.registering_with_oauth = false
     if current_user.update(sign_up_params)
       current_user.send_oauth_confirmation_instructions
+      Mailer.welcome_email(current_user).deliver_now
       current_user.confirm
       set_flash_message(:notice, :confirmed) if is_flashing_format?
       sign_in_and_redirect current_user, event: :authentication

@@ -141,6 +141,13 @@ class Mailer < ApplicationMailer
     mail(to: @email_to, subject: 'Constancia de Votación')
   end
 
+  def welcome_email(user)
+    @email_to = user.email
+    attachments.inline['header_email.png'] = File.read("#{Rails.root}/app/assets/images/header_email.png")
+    attachments.inline['signature_email.gif'] = File.read("#{Rails.root}/app/assets/images/signature_email.gif")
+    mail(to: @email_to, subject: 'Bienvenido')
+  end
+
   private
 
   def with_user(user, &block)
