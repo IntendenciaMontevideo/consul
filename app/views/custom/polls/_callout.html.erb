@@ -3,7 +3,8 @@
     <div class="callout primary">
       <%= t("polls.show.cant_answer_not_logged_in",
             signin: link_to(t("polls.show.signin"), new_user_session_path, class: "probe-message"),
-            signup: link_to(t("polls.show.signup"), new_user_registration_path, class: "probe-message")).html_safe %>
+            signup: link_to("registrate", '#', data: {open: 'registration_modal'},
+                    title: "registrate", class: "probe-message")).html_safe %>
     </div>
   <% elsif @poll.incoming? %>
     <div class="callout primary">
