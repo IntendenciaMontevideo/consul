@@ -20,6 +20,7 @@ es:
     show:
       back_poll: Volver a la votación
       already_voted_in_group_web: "Ya has participado en una votación perteneciente al mismo grupo."
+      cant_answer_not_logged_in: "Para votar tenés que ingresar con usuario de ID Uruguay. Si ya contás con un usuario %{signin}, o de lo contrario %{signup}."
     index:
       section_footer:
         description: En el módulo de votaciones, la Intendencia de Montevideo realiza consultas a la ciudadanía, donde ésta con su voto podrá tener incidencia en las resoluciones que se tomen al respecto.
