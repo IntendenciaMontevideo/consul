@@ -50,8 +50,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         end
       end
     end
+    send_welcome_user =  @user.new_record? ? true : false
     if save_user
       identity.update(user: @user)
+      Mailer.welcome_email(@user).deliver_now if send_welcome_user
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: provider.to_s.capitalize == 'Saml' ? 'ID Uruguay' :  provider.to_s.capitalize) if is_navigational_format?
     else
