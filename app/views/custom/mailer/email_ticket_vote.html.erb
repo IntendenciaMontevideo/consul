@@ -1,8 +1,24 @@
-<td style="padding-bottom: 20px; padding-left: 10px;">
-  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
-    Participaste de la votación <strong><%= @poll.name %></strong> de Montevideo Decide. Puedes guardar este mail como constancia de voto.
+<div>
+  <%= image_tag attachments['header_email.png'].url %>
+  <p style="padding-top:20px; font-size: 14px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal;">
+    ¡Hola!
   </p>
-  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+  <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
+    Participaste de la votación
+    <strong><%= @poll.name %></strong>
+    de Montevideo Decide. Puedes guardar este mail como constancia de voto.
+  </p>
+  <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal;">
     Constancia de voto: <strong><%= @token %></strong>.
   </p>
-</td>
+  <p style="padding-top:25px; font-size: 11pt; font-family: Arial; color: #000000; font-weight: bold; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline;">
+    Construí la ciudad en la que querés vivir.
+  </p>
+  <%= image_tag attachments['signature_email.gif'].url %>
+  <pre style="font-size: 9px;">
+  Asesoría de Desarrollo
+  Municipal y Participación.
+  Tel. 1950 int. 3122
+  Piso 2. Puerta 2042.
+  </pre>
+</div>
