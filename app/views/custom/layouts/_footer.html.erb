@@ -9,16 +9,23 @@
             <%= link_to t("footer.contact_form"), 'http://www.montevideo.gub.uy/node/42843', class: 'margin-left-form', target: :_blank %>
           </div>
           <div class="footer-sections small-12 medium-footer-div large-8 column footer-links gray-bg">
-            <div class="small-12 medium-3 margin-top-20 column">
+            <div class="small-12 medium-2 margin-top-20 column">
               <%= link_to t("footer.participation_title"), more_info_faq_path, class: "title" %>
             </div>
               <div id="barra_vertical-r" class="hide-for-small-only"></div>
-            <div class="small-12 medium-footer margin-top-20 column footer-links">
+            <div class="small-12 medium-2 margin-top-20 column footer-links">
               <%= link_to t("footer.transparency_title"), 'http://www.montevideo.gub.uy/institucional/transparencia', class: "title", target: :_blank, rel: "nofollow" %>
             </div>
             <div id="barra_vertical-r" class="hide-for-small-only"></div>
-            <div class="small-12 medium-footer margin-top-20 column float-left footer-links footer-last">
+            <div class="small-12 medium-2 margin-top-20 column float-left footer-links footer-last">
               <%= link_to t("footer.open_data_title"), 'https://catalogodatos.gub.uy/organization/intendencia-montevideo', class: "title", target: :_blank, rel: "nofollow" %>
+            </div>
+            <div id="barra_vertical-r" class="hide-for-small-only"></div>
+            <div class="small-12 medium-2 margin-top-20 column float-left footer-links footer-last">
+              <%= link_to (image_tag(image_path_for('FB-ICO.png'), class: 'medium-center', alt: t("FB-ICO.png"))), 'http://montevideo.gub.uy', class: 'float-left', target: :_blank %>
+              <%= link_to (image_tag(image_path_for('IG-ICO.png'), class: 'medium-center', alt: t("IG-ICO.png"))), 'http://montevideo.gub.uy', class: 'float-left', target: :_blank %>
+              <%= link_to (image_tag(image_path_for('TW-ICO.png'), class: 'medium-center', alt: t("TW-ICO.png"))), 'http://montevideo.gub.uy', class: 'float-left', target: :_blank %>
+              <%= link_to (image_tag(image_path_for('YT-ICO.png'), class: 'float-left', class: 'medium-center', alt: t("YT-ICO.png"))), 'http://montevideo.gub.uy', target: :_blank %>
             </div>
           </div>
         </div>
