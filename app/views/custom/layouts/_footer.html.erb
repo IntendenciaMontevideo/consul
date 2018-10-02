@@ -41,7 +41,11 @@
         </div>
       </div>
       <div class="bg-policy medium-12 text-center">
-        <%= link_to t("footer.policy"), privacy_path, class: "policy", rel: "nofollow" %> <%= t("footer.and") %> <%= link_to t("footer.conditions"), conditions_path, class: "policy", rel: "nofollow" %>
+        <%= link_to t("footer.policy"), privacy_path, class: "policy", rel: "nofollow" %>
+        <%= t("footer.and") %>
+        <%= link_to t("footer.conditions"), conditions_path, class: "policy", rel: "nofollow" %>
+        <%= t("footer.and") %>
+        <%= link_to t("footer.rules"), 'http://www.montevideo.gub.uy/sites/default/files/biblioteca/mvd-decide-reglamento.pdf', class: "policy", rel: "nofollow", target: :_blank %>
       </div>
     </div>
   </div>

@@ -39,8 +39,9 @@ es:
   footer:
     contact_form: Formulario de contacto
     policy: Políticas de privacidad
-    and: y
+    and: /
     conditions: condiciones de uso
+    rules: Reglamento de la plataforma
     accessibility: Accesibilidad
     conditions: Condiciones de uso
     consul: aplicación CONSUL
