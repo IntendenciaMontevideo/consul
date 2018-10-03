@@ -691,10 +691,6 @@
     padding: 0;
   }
 
-  .image-size {
-    height: 27px;
-  }
-
 }
 
 @media (min-width: 100px) and (max-width: 639px) {
@@ -867,6 +863,10 @@
     width: 60%;
     padding: 0;
     margin-left: 86px;
+  }
+
+  img.image-size {
+    height: 30px;
   }
 
 }
@@ -1177,7 +1177,7 @@
   }
 
   img.image-size {
-    height: 26px;
+    height: 23px;
   }
 
   .footer-sections {
