@@ -132,6 +132,7 @@ namespace :admin do
         resources :images, controller: 'questions/answers/images'
         resources :videos, controller: 'questions/answers/videos'
         get :documents, to: 'questions/answers#documents'
+        delete "images/destroy", to: "questions/answers/images#destroy", as: :delete_image
       end
       post '/answers/order_answers', to: 'questions/answers#order_answers'
     end
@@ -184,4 +185,5 @@ namespace :admin do
     resources :images, only: [:index, :update, :destroy]
     resources :content_blocks, except: [:show]
   end
+
 end

@@ -1,20 +1,26 @@
 class Admin::Poll::Questions::Answers::ImagesController < Admin::Poll::BaseController
   before_action :load_answer
-
   def index
   end
 
   def new
-    @answer = ::Poll::Question::Answer.find(params[:answer_id])
   end
 
   def create
-    @answer = ::Poll::Question::Answer.find(params[:answer_id])
     @answer.attributes = images_params
 
     if @answer.save
       redirect_to admin_answer_images_path(@answer),
                notice: t("flash.actions.create.poll_question_answer_image")
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    if @answer.images.delete(params[:image_id])
+      redirect_to admin_answer_images_path(@answer),
+               notice: t("flash.actions.destroy.poll_question_answer_image")
     else
       render :new
     end

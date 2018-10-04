@@ -1,0 +1,21 @@
+<%= back_link_to admin_question_path(@answer.question) %>
+
+<%= link_to t("admin.questions.answers.images.add_image"),
+            new_admin_answer_image_path(@answer),
+            class: "button hollow float-right" %>
+
+<ul class="breadcrumbs margin-top">
+  <li><%= @answer.question.title %></li>
+  <li><%= @answer.title %></li>
+</ul>
+
+<% @answer.images.each do |image| %>
+  <div class="row">
+    <div class="small-8 medium-6 column end">
+      <%= render_image(image, :large, true) if image.present? %>
+    </div>
+    <div class="small-4 medium-6 column end margin-top-delete-img">
+      <%= link_to t('shared.delete'), admin_answer_delete_image_path(@answer, image_id: image.id), class: "button hollow alert float-right", method: :delete %>
+    </div>
+  </div>
+<% end %>

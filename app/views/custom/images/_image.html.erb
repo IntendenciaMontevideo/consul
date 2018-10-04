@@ -1,11 +1,11 @@
 <div class="small-12 column image-preview">
-  <figure>
+  <figure class="custom-figure">
     <%= image_tag image.attachment.url(version),
                   class: image_class(image),
                   alt: image.title,
                   title: image.title %>
     <% if show_caption %>
-      <figcaption class="text-right">
+      <figcaption class="text-left">
         <em><%= image.title %></em>
       </figcaption>
     <% end %>

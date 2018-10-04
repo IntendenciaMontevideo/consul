@@ -7,3 +7,4 @@ es:
         poll_group: Grupo de votación actualizado correctamente.
       destroy:
         poll_group: Grupo de votación eliminado correctamente.
+        poll_question_answer_image: Imagen eliminada correctamente.

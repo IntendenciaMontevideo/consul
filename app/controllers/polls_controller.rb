@@ -29,7 +29,10 @@ class PollsController < ApplicationController
     @is_show_question = false
     @questions = @poll.questions.for_render.sort_by_order_number
     @token = poll_voter_token(@poll, current_user)
-    @poll_questions_answers = Poll::Question::Answer.joins("Inner JOIN images ON images.imageable_id = poll_question_answers.id and images.imageable_type= 'Poll::Question::Answer'").where(question: @poll.questions.ids).order(:given_order)
+    @poll_questions_answers = Poll::Question::Answer.joins("Inner JOIN images ON
+      images.imageable_id = poll_question_answers.id and
+      images.imageable_type= 'Poll::Question::Answer'")
+      .where(question: @poll.questions.ids).order(:given_order).distinct
 
     @answers_by_question_id = {}
     poll_answers = ::Poll::Answer.by_question(@poll.question_ids).by_author(current_user.try(:id))
@@ -56,7 +59,10 @@ class PollsController < ApplicationController
     @is_show_question = true
     @questions = [Poll::Question.find(params[:question].to_i)]
     @token = poll_voter_token(@poll, current_user)
-    @poll_questions_answers = Poll::Question::Answer.joins("Inner JOIN images ON images.imageable_id = poll_question_answers.id and images.imageable_type= 'Poll::Question::Answer'").where(question: @poll.questions).order(:given_order)
+    @poll_questions_answers = Poll::Question::Answer.joins("Inner JOIN images ON
+      images.imageable_id = poll_question_answers.id and
+      images.imageable_type= 'Poll::Question::Answer'")
+      .where(question: @questions).order(:given_order).distinct
 
     @answers_by_question_id = {}
     poll_answers = ::Poll::Answer.by_question(@questions.first.id).by_author(current_user.try(:id))
