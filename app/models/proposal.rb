@@ -300,8 +300,7 @@ class Proposal < ActiveRecord::Base
   end
 
   def description_without_html_tags
-    re = /<("[^"]*"|'[^']*'|[^'">])*>/
-    self.description.gsub!(re, '')
+    ActionView::Base.full_sanitizer.sanitize(self.description)
   end
 
   protected
