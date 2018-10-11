@@ -53,8 +53,7 @@ class Comment < ActiveRecord::Base
   scope :sort_descendants_by_oldest, -> { order(created_at: :asc) }
 
   scope :not_valuations, -> { where(valuation: false) }
-  scope :debate_or_proposal, -> { where(%{(commentable_type = 'Proposal') or (commentable_type = 'Debate')}) }
-
+  scope :debate_or_proposal, -> { where("commentable_type =? OR commentable_type =?", 'Proposal', 'Debate').joins('INNER JOIN proposals ON proposals.state !=', Proposal::STATES[:archived].to_s).distinct.order(:commentable_type) }
   after_create :call_after_commented
 
   def self.build(commentable, user, body, p_id = nil, valuation = false)
@@ -127,7 +126,7 @@ class Comment < ActiveRecord::Base
   end
 
   def self.to_csv
-    attributes = %w{id commentable_type body created_at }
+    attributes = %w{id commentable_type_name body created_at }
 
     CSV.generate(headers: true) do |csv|
       csv << ["Id", "Tipo de comentario", "Comentario", "Creado en"]
@@ -137,6 +136,14 @@ class Comment < ActiveRecord::Base
       end
     end
 
+  end
+
+  def commentable_type_name
+    if commentable_type == 'Proposal'
+      return 'Idea'
+    else
+      return commentable_type
+    end
   end
 
   private
