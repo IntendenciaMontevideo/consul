@@ -287,6 +287,23 @@ class Proposal < ActiveRecord::Base
     end
   end
 
+  def self.to_csv
+    attributes = %w{id title description_without_html_tags created_at cached_votes_up comments_count}
+
+    CSV.generate(headers: true) do |csv|
+      csv << ["Id", "Título", "Descripción", "Creado en", "Cantidad de votos", "Cantidad de comentarios"]
+
+      all.each do |proposal|
+        csv << attributes.map{ |attr| proposal.send(attr) }
+      end
+    end
+  end
+
+  def description_without_html_tags
+    re = /<("[^"]*"|'[^']*'|[^'">])*>/
+    self.description.gsub!(re, '')
+  end
+
   protected
 
     def set_responsible_name

@@ -23,6 +23,11 @@ class Admin::DebatesController < Admin::BaseController
     redirect_to request.query_parameters.merge(action: :index)
   end
 
+  def generate_csv
+    csv_file = Debate.sort_by_hot_score.to_csv
+    send_data csv_file, filename: "debates.csv"
+  end
+
   private
 
     def load_debate

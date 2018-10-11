@@ -3,6 +3,10 @@ es:
     menu:
       geozones: Gestionar municipios
       poll_groups: Grupo de Votaciones
+      open_data: Datos abiertos
+      ideas: Ideas
+      debates: Debates
+      comments_idea_debate: Comentarios Ideas/Debates
     geozones:
       index:
         title: Municipios

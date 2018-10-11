@@ -24,6 +24,11 @@ class Admin::ProposalsController < Admin::BaseController
     redirect_to request.query_parameters.merge(action: :index)
   end
 
+  def generate_csv
+    csv_file = Proposal.not_archived.sort_by_hot_score.to_csv
+    send_data csv_file, filename: "ideas.csv"
+  end
+
   private
 
     def load_proposal

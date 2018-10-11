@@ -20,6 +20,11 @@ class Admin::CommentsController < Admin::BaseController
     redirect_to request.query_parameters.merge(action: :index)
   end
 
+  def generate_csv
+    csv_file = Comment.debate_or_proposal.to_csv
+    send_data csv_file, filename: "comentarios.csv"
+  end
+
   private
 
     def load_comment

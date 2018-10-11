@@ -20,6 +20,7 @@ namespace :admin do
       put :restore
       put :confirm_hide
     end
+    get :generate_csv, on: :collection
   end
 
   resources :proposals, only: :index do
@@ -27,6 +28,7 @@ namespace :admin do
       put :restore
       put :confirm_hide
     end
+    get :generate_csv, on: :collection
   end
 
   resources :spending_proposals, only: [:index, :show, :edit, :update] do
@@ -66,6 +68,7 @@ namespace :admin do
       put :restore
       put :confirm_hide
     end
+    get :generate_csv, on: :collection
   end
 
   resources :tags, only: [:index, :create, :update, :destroy]

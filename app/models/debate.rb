@@ -1,4 +1,6 @@
 require 'numeric'
+require 'csv'
+
 class Debate < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   include Flaggable
@@ -154,4 +156,23 @@ class Debate < ActiveRecord::Base
     orders << "recommendations" if user.present?
     orders
   end
+
+  def self.to_csv
+    attributes = %w{id title description_without_html_tags created_at cached_votes_up cached_votes_down comments_count}
+
+    CSV.generate(headers: true) do |csv|
+      csv << ["Id", "Título", "Descripción", "Creado en", "Cantidad de me gusta", "Cantidad de no me gusta", "Cantidad de comentarios"]
+
+      all.each do |debate|
+        csv << attributes.map{ |attr| debate.send(attr) }
+      end
+    end
+
+  end
+
+  def description_without_html_tags
+    re = /<("[^"]*"|'[^']*'|[^'">])*>/
+    self.description.gsub!(re, '')
+  end
+
 end

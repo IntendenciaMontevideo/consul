@@ -216,5 +216,24 @@
         </li>
       </ul>
     </li>
+
+    <li class="section-title">
+      <a href="#">
+        <span class="icon-zip"></span>
+        <strong><%= t("admin.menu.open_data") %></strong>
+      </a>
+      <ul id="open_data_menu">
+        <li <%= "class=active" if controller_name == "proposals" %>>
+          <%= link_to t("admin.menu.ideas"), generate_csv_admin_proposals_path, 'data-no-turbolink' => false %>
+        </li>
+        <li <%= "class=active" if controller_name == "debates" %>>
+          <%= link_to t("admin.menu.debates"), generate_csv_admin_debates_path, 'data-no-turbolink' => false %>
+        </li>
+        <li <%= "class=active" if controller_name == "comments" %>>
+          <%= link_to t("admin.menu.comments_idea_debate"), generate_csv_admin_comments_path, 'data-no-turbolink' => false %>
+        </li>
+      </ul>
+    </li>
+
   </ul>
 </div>

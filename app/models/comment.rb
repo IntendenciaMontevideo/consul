@@ -53,6 +53,7 @@ class Comment < ActiveRecord::Base
   scope :sort_descendants_by_oldest, -> { order(created_at: :asc) }
 
   scope :not_valuations, -> { where(valuation: false) }
+  scope :debate_or_proposal, -> { where(%{(commentable_type = 'Proposal') or (commentable_type = 'Debate')}) }
 
   after_create :call_after_commented
 
@@ -123,6 +124,19 @@ class Comment < ActiveRecord::Base
   def calculate_confidence_score
     self.confidence_score = ScoreCalculator.confidence_score(cached_votes_total,
                                                              cached_votes_up)
+  end
+
+  def self.to_csv
+    attributes = %w{id commentable_type body created_at }
+
+    CSV.generate(headers: true) do |csv|
+      csv << ["Id", "Tipo de comentario", "Comentario", "Creado en"]
+
+      all.each do |comment|
+        csv << attributes.map{ |attr| comment.send(attr) }
+      end
+    end
+
   end
 
   private
