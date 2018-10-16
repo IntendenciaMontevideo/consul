@@ -22,7 +22,7 @@ class Admin::Poll::PollGroupsController < Admin::Poll::BaseController
     if @poll_group.destroy
       redirect_to admin_poll_groups_path, notice: t("flash.actions.destroy.poll_group")
     else
-      redirect_to admin_poll_groups_path, notice: t("flash.actions.destroy.error")
+      redirect_to admin_poll_groups_path, notice: @poll_group.errors.messages[:base].first
     end
   end
 
