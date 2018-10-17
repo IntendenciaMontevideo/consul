@@ -50,7 +50,7 @@
     <div class="small-12 medium-6 column">
       <%= f.select :poll_group_id,
                     options_for_select(PollGroup.pluck(:name, :id), @poll.poll_group_id),
-                    prompt: t("admin.polls.new.select_poll_group"),
+                    :include_blank => true,
                     label: t("admin.polls.new.poll_group_label") %>
     </div>
   </div>
