@@ -10,7 +10,15 @@ namespace :votes do
         print "."
       end
     end
+  end
 
+  desc "Delete existing votes"
+  task delete_existing_votes: :environment do
+    models = [Poll::Answer, Poll::Voter]
+
+    models.each do |model|
+      model.delete_all
+    end
   end
 
 end
