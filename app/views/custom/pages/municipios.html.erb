@@ -1,0 +1,50 @@
+<div class="municipality-content">
+  <% municipalities.each_with_index do |municipality, index| %>
+    <% if index == 0 %>
+      <div class="row">
+        <div class="small-4 large-1 columns media-padding-left-6">
+          <%= image_tag(image_path_for('picto-muni.png')) %>
+        </div>
+      </div>
+    <% else %>
+      <div class="row padding-top-30">
+        <div class="small-4 large-1 columns media-padding-left-6">
+          <%= image_tag(image_path_for('picto-muni.png')) %>
+        </div>
+      </div>
+    <% end %>
+    <div class="row media-margin-top-15">
+      <div class="small-12 large-5 columns custom-large-5-mun">
+        <div class="row">
+          <div class="large-12 columns">
+            <strong class="font-municipality">
+              <%= municipality[:name] %>
+            </strong>
+            <p class="without-margin-bottom custom-line-height">
+              Dirección: <%= municipality[:address] %>
+            </p>
+            <p class="custom-line-height">
+              Teléfono: <%= municipality[:phone_number] %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="media-margin-top-15 small-2 large-1 columns without-padding-right without-padding-left">
+        <%= image_tag(image_path_for('picto-loc.png'), class: "image-municipality-area") %>
+      </div>
+      <div class="small-12 large-5 columns media-margin-top-15">
+        <% municipality[:areas].each do |area| %>
+          <strong class="font-municipality">
+            <%= area[:name] %>
+          </strong>
+          <p class="without-margin-bottom custom-line-height font-address-area">
+            Dirección: <%= area[:address] %>
+          </p>
+          <p class="custom-line-height">
+            Teléfono: <%= area[:phone_number] %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

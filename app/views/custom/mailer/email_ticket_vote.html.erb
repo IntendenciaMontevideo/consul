@@ -11,6 +11,14 @@
   <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal;">
     Constancia de voto: <strong><%= @token %></strong>.
   </p>
+  <% if Setting['enable_participatory_budget'] == "true" %>
+    <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal;">
+      Te recordamos que el próximo domingo 11 de noviembre podrás concurrir votar los Concejos Vecinales en los
+    </p>
+    <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal;">
+      siguientes lugares: <%= link_to "http://www.montevideo.gub.uy/mapas/localesPPyCV", "http://www.montevideo.gub.uy/mapas/localesPPyCV", target: :_blank %>
+    </p>
+  <% end %>
   <p style="padding-top:25px; font-size: 11pt; font-family: Arial; color: #000000; font-weight: bold; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline;">
     Construí la ciudad en la que querés vivir.
   </p>

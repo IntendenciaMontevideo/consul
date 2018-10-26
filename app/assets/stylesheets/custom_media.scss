@@ -696,6 +696,21 @@
     margin-top: 15px;
   }
 
+  .municipality-content {
+    padding-left: 22px;
+  }
+
+  .media-margin-top-15 {
+    margin-top: 15px;
+  }
+
+  .media-padding-left-6 {
+    padding-left: 6px;
+  }
+
+  .padding-top-30 {
+    padding-top: 50px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 639px) {
@@ -1189,6 +1204,20 @@
     padding-top: 4% !important;
   }
 
+  .custom-large-5-mun {
+    padding-right: 0;
+    width: 37%;
+  }
+
+  .image-municipality-area {
+    width: 43%;
+    float: right;
+  }
+
+  .without-padding-left {
+    padding-left: 0;
+  }
+
 }
 
 @media (min-width: 1024px) and (max-width: 1280px) {
@@ -1201,6 +1230,20 @@
   .featured-proposals .participation-not-allowed {
     width: 160%;
     margin-left: -100px;
+  }
+
+  .custom-large-5-mun {
+    padding-right: 0;
+    width: 37%;
+  }
+
+  .image-municipality-area {
+    width: 43%;
+    float: right;
+  }
+
+  .without-padding-left {
+    padding-left: 0;
   }
 }
 

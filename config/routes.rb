@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   get '/espacios-de-colaboracion',                    to: 'pages#show', id: 'espacios-de-colaboracion',       as: 'espacios-de-colaboracion'
   get '/condiciones-de-uso',                          to: 'pages#show', id: 'conditions',                     as: 'conditions'
   get '/politicas-de-privacidad',                     to: 'pages#show', id: 'privacy',                        as: 'privacy'
+  get '/municipios',                                  to: 'pages#show', id: 'municipios',                     as: 'municipios'
 
   # Static pages
   get '/blog' => redirect("http://blog.consul/")
