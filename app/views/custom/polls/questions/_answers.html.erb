@@ -64,18 +64,11 @@
               Esta votación solo puede ser efectuada por usuarios ID Uruguay verificados
               de forma presencial en los lugares habilitados.
             </div>
-            <div class="small-12 large-6 columns">
-              <%= link_to "Iniciar sesión ID Uruguay",
-                  user_omniauth_authorize_path(:saml),
-                  title: "Iniciar sesión ID Uruguay",
+            <div class="small-12 large-6 large-offset-2 columns">
+              <%= link_to "Lugares habilitados",
+                  municipios_path,
+                  title: "Lugares habilitados",
                   class: "button float-right button-span-not-allowed-poll" %>
-            </div>
-            <div class="small-12 large-6 columns">
-              <%= link_to "Ver requisitos para verificación",
-                  "#",
-                  data: {open: "registration_modal"},
-                  title: "Ver requisitos para verificación",
-                  class: "button float-left button-span-not-allowed-poll" %>
             </div>
           </div>
         </div>
