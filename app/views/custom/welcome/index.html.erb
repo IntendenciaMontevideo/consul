@@ -7,24 +7,50 @@
 <% end %>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
+  <% if Setting['enable_first_image_participatory_budget'] == "true" %>
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+  <% else %>
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+  <% end %>
 
   <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-       <%= link_to ( image_tag(image_path_for('banner_home_a.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), root_path %>
+  <% if Setting['enable_first_image_participatory_budget'] == "true" %>
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= link_to ( image_tag(image_path_for('cabezal_portada_PP'), alt: t("layouts.header.logo"), class: 'float-center')), polls_path %>
+      </div>
+      <div class="item">
+        <%= link_to ( image_tag(image_path_for('banner_home_a.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), root_path %>
+      </div>
+      <div class="item">
+        <%= link_to ( image_tag(image_path_for('banner_home_b.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), more_info_path %>
+      </div>
+      <div class="item">
+        <%= link_to ( image_tag(image_path_for('montevideo_del_manana.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), debates_path(search: 'Montevideo del mañana') %>
+      </div>
     </div>
-    <div class="item">
-      <%= link_to ( image_tag(image_path_for('banner_home_b.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), more_info_path %>
+  <% else %>
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= link_to ( image_tag(image_path_for('banner_home_a.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), root_path %>
+      </div>
+      <div class="item">
+        <%= link_to ( image_tag(image_path_for('banner_home_b.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), more_info_path %>
+      </div>
+      <div class="item">
+        <%= link_to ( image_tag(image_path_for('montevideo_del_manana.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), debates_path(search: 'Montevideo del mañana') %>
+      </div>
     </div>
-    <div class="item">
-      <%= link_to ( image_tag(image_path_for('montevideo_del_manana.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), debates_path(search: 'Montevideo del mañana') %>
-    </div>
-  </div>
+  <% end %>
 </div>
 
 <% if feature?("user.recommendations") && (@recommended_debates.present? || @recommended_proposals.present?) %>

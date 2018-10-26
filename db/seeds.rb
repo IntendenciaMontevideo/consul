@@ -139,3 +139,4 @@ Setting['proposals_vote_end_month'] = 3
 Setting['proposals_feasibility_threshold'] = 500
 #Enable participatory budget
 Setting['enable_participatory_budget'] = "false"
+Setting['enable_first_image_participatory_budget'] = "false"

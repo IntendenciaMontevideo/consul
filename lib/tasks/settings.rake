@@ -16,4 +16,12 @@ namespace :settings do
     end
   end
 
+  desc "Add Setting key enable_first_image_participatory_budget"
+  task add_enable_image_participatory_budget: :environment do
+    setting = Setting.find_by_key 'enable_first_image_participatory_budget'
+    if setting.blank?
+      Setting['enable_first_image_participatory_budget'] = "false"
+    end
+  end
+
 end

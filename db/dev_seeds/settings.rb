@@ -79,5 +79,6 @@ section "Creating Settings" do
 
   #Enable participatory budget
   Setting.create(key: 'enable_participatory_budget', value: "false")
+  Setting.create(key: 'enable_first_image_participatory_budget', value: "false")
 
 end
