@@ -16,11 +16,11 @@ namespace :settings do
     end
   end
 
-  desc "Add Setting key enable_first_image_participatory_budget"
+  desc "Add Setting key enable_unique_image_banner"
   task add_enable_image_participatory_budget: :environment do
-    setting = Setting.find_by_key 'enable_first_image_participatory_budget'
+    setting = Setting.find_by_key 'enable_unique_image_banner'
     if setting.blank?
-      Setting['enable_first_image_participatory_budget'] = "false"
+      Setting['enable_unique_image_banner'] = "false"
     end
   end
 

@@ -137,7 +137,6 @@ class Mailer < ApplicationMailer
     @poll = poll
     @token = token
     @email_to = user.email
-    attachments.inline['header_email.png'] = File.read("#{Rails.root}/app/assets/images/custom/header_email.png")
     attachments.inline['signature_email.gif'] = File.read("#{Rails.root}/app/assets/images/custom/signature_email.gif")
     mail(to: @email_to, subject: 'Constancia de Votación')
   end

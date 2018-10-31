@@ -5,8 +5,13 @@
   </p>
   <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
     Participaste de la votación
-    <strong><%= @poll.name %></strong>
-    de Montevideo Decide. Puedes guardar este mail como constancia de voto.
+    <strong><%= @poll.name %></strong>,
+    <% if Setting['enable_participatory_budget'] == "true" %>
+      <strong>Municipio A - Presupuesto Participativo 2018.</strong>
+    <% else %>
+      de Montevideo Decide.
+    <% end %>
+    Puedes guardar este mail como constancia de voto.
   </p>
   <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal;">
     Constancia de voto: <strong><%= @token %></strong>.

@@ -4,4 +4,4 @@ es:
       saml_login: Registro con SAML
     can_send_private_message: Permitir enviar mensajes privados
     enable_participatory_budget: Habilitar PP
-    enable_first_image_participatory_budget: Habilitar Imagen PP
+    enable_unique_image_banner: Habilitar Única Imagen Banner
