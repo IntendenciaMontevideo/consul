@@ -17,7 +17,7 @@ namespace :settings do
   end
 
   desc "Add Setting key enable_unique_image_banner"
-  task add_enable_image_participatory_budget: :environment do
+  task add_enable_unique_image_banner: :environment do
     setting = Setting.find_by_key 'enable_unique_image_banner'
     if setting.blank?
       Setting['enable_unique_image_banner'] = "false"
