@@ -8,6 +8,10 @@ App.Votes =
       mouseleave: ->
         $("div.participation-not-allowed", this).hide()
         $("div.participation-allowed", this).show()
+      touchstart: ->
+        $("div.participation-not-allowed").hide()
+        $("div.participation-not-allowed", this).show()
+        $("div.participation-allowed", this).hide()
     }, votes
 
   initialize: ->
