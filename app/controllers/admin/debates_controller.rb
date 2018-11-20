@@ -24,7 +24,7 @@ class Admin::DebatesController < Admin::BaseController
   end
 
   def generate_csv
-    csv_file = Debate.sort_by_hot_score.to_csv
+    csv_file = Debate.unscoped.sort_by_hot_score.to_csv
     send_data csv_file, filename: "debates.csv"
   end
 

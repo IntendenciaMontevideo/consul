@@ -21,7 +21,7 @@ class Admin::CommentsController < Admin::BaseController
   end
 
   def generate_csv
-    csv_file = Comment.debate_or_proposal.to_csv
+    csv_file = Comment.unscoped.debate_or_proposal.to_csv
     send_data csv_file, filename: "comentarios.csv"
   end
 
