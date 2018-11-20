@@ -25,7 +25,7 @@ class Admin::ProposalsController < Admin::BaseController
   end
 
   def generate_csv
-    csv_file = Proposal.not_archived.sort_by_hot_score.to_csv
+    csv_file = Proposal.sort_by_hot_score.to_csv
     send_data csv_file, filename: "ideas.csv"
   end
 

@@ -53,7 +53,7 @@ class Comment < ActiveRecord::Base
   scope :sort_descendants_by_oldest, -> { order(created_at: :asc) }
 
   scope :not_valuations, -> { where(valuation: false) }
-  scope :debate_or_proposal, -> { where("commentable_type =? OR commentable_type =?", 'Proposal', 'Debate').joins('INNER JOIN proposals ON proposals.state !=', Proposal::STATES[:archived].to_s).distinct.order(:commentable_type) }
+  scope :debate_or_proposal, -> { where("commentable_type =? OR commentable_type =?", 'Proposal', 'Debate').order(:commentable_type) }
   after_create :call_after_commented
 
   def self.build(commentable, user, body, p_id = nil, valuation = false)
