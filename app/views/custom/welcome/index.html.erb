@@ -16,6 +16,8 @@
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
     </ol>
   <% end %>
 
@@ -29,13 +31,19 @@
   <% else %>
     <div class="carousel-inner">
       <div class="item active">
-        <%= link_to ( image_tag(image_path_for('banner_home_a.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), root_path %>
+        <%= link_to ( image_tag(image_path_for('cabezalprincipal.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), polls_path, target: :_blank %>
       </div>
       <div class="item">
-        <%= link_to ( image_tag(image_path_for('banner_home_b.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), more_info_path %>
+        <%= link_to (image_tag(image_path_for('cabezalparquescaninos.jpg'), class: 'float-center', alt: t("layouts.header.logo"))), 'https://decide.montevideo.gub.uy/polls/13', target: :_blank %>
       </div>
       <div class="item">
-        <%= link_to ( image_tag(image_path_for('montevideo_del_manana.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), debates_path(search: 'Montevideo del mañana') %>
+        <%= link_to ( image_tag(image_path_for('cabezalhuertas.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), 'https://decide.montevideo.gub.uy/polls/12', target: :_blank %>
+      </div>
+      <div class="item">
+        <%= link_to ( image_tag(image_path_for('cabezalcastraciones.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), 'https://decide.montevideo.gub.uy/polls/11', target: :_blank %>
+      </div>
+      <div class="item">
+        <%= link_to ( image_tag(image_path_for('cabezalpeatonalMAM.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), 'https://decide.montevideo.gub.uy/polls/14', target: :_blank %>
       </div>
     </div>
   <% end %>
