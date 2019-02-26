@@ -389,9 +389,15 @@ describe Proposal do
       .to change { [proposal.reload.updated_at, proposal.author.updated_at] }
     end
 
-    it "expires cache when the author is erased" do
+    ## DEPRECATED
+    # it "expires cache when the author is erased" do
+    #   expect { proposal.author.erase }
+    #   .to change { [proposal.reload.updated_at, proposal.author.updated_at] }
+    # end
+
+    it "can not expires cache when the author is erased" do
       expect { proposal.author.erase }
-      .to change { [proposal.reload.updated_at, proposal.author.updated_at] }
+      .not_to change { [proposal.reload.updated_at, proposal.author.updated_at] }
     end
 
     it "expires cache when its author changes" do
@@ -422,17 +428,33 @@ describe Proposal do
       expect(proposal.voters).not_to include(voter3)
     end
 
-    it "does not return users that have been erased" do
+
+    ## DEPRECATED
+    # it "does not return users that have been erased" do
+    #   proposal = create(:proposal)
+    #   voter1 = create(:user, :level_two)
+    #   voter2 = create(:user, :level_two)
+    #
+    #   create(:vote, voter: voter1, votable: proposal)
+    #   create(:vote, voter: voter2, votable: proposal)
+    #   voter2.erase
+    #
+    #   expect(proposal.voters).to include(voter1)
+    #   expect(proposal.voters).not_to include(voter2)
+    # end
+
+    it "can not be erased" do
       proposal = create(:proposal)
       voter1 = create(:user, :level_two)
       voter2 = create(:user, :level_two)
 
       create(:vote, voter: voter1, votable: proposal)
       create(:vote, voter: voter2, votable: proposal)
+      voter1.erase
       voter2.erase
 
       expect(proposal.voters).to include(voter1)
-      expect(proposal.voters).not_to include(voter2)
+      expect(proposal.voters).to include(voter2)
     end
 
     it "does not return users that have been blocked" do
@@ -852,6 +874,15 @@ describe Proposal do
     let!(:new_proposal)      { create(:proposal) }
     let!(:archived_proposal) { create(:proposal, :archived) }
 
+    before(:each) do
+      start_date = Date.today - 1.month
+      end_date   = Date.today + 1.month
+      Setting['proposals_start_day']         = start_date.day
+      Setting['proposals_start_month']       = start_date.month
+      Setting['proposals_end_day']           = end_date.day
+      Setting['proposals_end_month']         = end_date.month
+    end
+
     it "archived? is true only for proposals created more than n (configured months) ago" do
       expect(new_proposal.archived?).to eq false
       expect(archived_proposal.archived?).to eq true
@@ -910,6 +941,15 @@ describe Proposal do
   describe "#recommendations" do
 
     let(:user)     { create(:user) }
+
+    before(:each) do
+      start_date = Date.today - 1.month
+      end_date   = Date.today + 1.month
+      Setting['proposals_start_day']         = start_date.day
+      Setting['proposals_start_month']       = start_date.month
+      Setting['proposals_end_day']           = end_date.day
+      Setting['proposals_end_month']         = end_date.month
+    end
 
     it "does not return any proposals when user has not interests" do
       create(:proposal)
