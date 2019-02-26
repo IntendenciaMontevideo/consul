@@ -1,5 +1,6 @@
 # coding: utf-8
 require 'rails_helper'
+require 'byebug'
 
 describe Proposal do
   let(:proposal) { build(:proposal) }
@@ -55,19 +56,19 @@ describe Proposal do
   end
 
   describe "#question" do
-    it "is not valid without a question" do
+    it "is valid without a question" do
       proposal.question = nil
-      expect(proposal).not_to be_valid
+      expect(proposal).to be_valid
     end
 
-    it "is not valid when very short" do
+    it "is valid when very short" do
       proposal.question = "abc"
-      expect(proposal).not_to be_valid
+      expect(proposal).to be_valid
     end
 
-    it "is not valid when very long" do
+    it "is valid when very long" do
       proposal.question = "a" * 141
-      expect(proposal).not_to be_valid
+      expect(proposal).to be_valid
     end
   end
 
@@ -163,7 +164,16 @@ describe Proposal do
   describe "#editable?" do
     let(:proposal) { create(:proposal) }
 
-    before {Setting["max_votes_for_proposal_edit"] = 5}
+    before(:each) do
+      start_date = Date.today - 1.month
+      end_date   = Date.today + 1.month
+      Setting["max_votes_for_proposal_edit"] = 5
+      Setting['proposals_start_day']         = start_date.day
+      Setting['proposals_start_month']       = start_date.month
+      Setting['proposals_end_day']           = end_date.day
+      Setting['proposals_end_month']         = end_date.month
+    end
+
     after {Setting["max_votes_for_proposal_edit"] = 1000}
 
     it "is true if proposal has no votes yet" do

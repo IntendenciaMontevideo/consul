@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514143103) do
+ActiveRecord::Schema.define(version: 20180816195531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -680,6 +680,10 @@ ActiveRecord::Schema.define(version: 20180514143103) do
     t.string "location"
   end
 
+  create_table "poll_groups", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "poll_officer_assignments", force: :cascade do |t|
     t.integer  "booth_assignment_id"
     t.integer  "officer_id"
@@ -750,6 +754,7 @@ ActiveRecord::Schema.define(version: 20180514143103) do
     t.datetime "updated_at"
     t.tsvector "tsv"
     t.string   "video_url"
+    t.integer  "order_number"
   end
 
   add_index "poll_questions", ["author_id"], name: "index_poll_questions_on_author_id", using: :btree
@@ -820,20 +825,23 @@ ActiveRecord::Schema.define(version: 20180514143103) do
     t.string   "name"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.boolean  "published",          default: false
-    t.boolean  "geozone_restricted", default: false
+    t.boolean  "published",            default: false
+    t.boolean  "geozone_restricted",   default: false
     t.text     "summary"
     t.text     "description"
-    t.integer  "comments_count",     default: 0
+    t.integer  "comments_count",       default: 0
     t.integer  "author_id"
     t.datetime "hidden_at"
-    t.boolean  "results_enabled",    default: false
-    t.boolean  "stats_enabled",      default: false
+    t.boolean  "results_enabled",      default: false
+    t.boolean  "stats_enabled",        default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "access_level",       default: 2
+    t.integer  "access_level",         default: 2
+    t.integer  "poll_group_id"
+    t.integer  "number_votes_allowed", default: 1
   end
 
+  add_index "polls", ["poll_group_id"], name: "index_polls_on_poll_group_id", using: :btree
   add_index "polls", ["starts_at", "ends_at"], name: "index_polls_on_starts_at_and_ends_at", using: :btree
 
   create_table "proposal_notifications", force: :cascade do |t|
