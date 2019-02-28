@@ -448,7 +448,8 @@ describe User do
   end
 
   describe "#erase" do
-    it "erases user information and marks him as erased" do
+
+    it "can not erases user information" do
       user = create(:user,
                      username: "manolo",
                      email: "a@a.com",
@@ -464,19 +465,19 @@ describe User do
       user.erase('a test')
       user.reload
 
-      expect(user.erase_reason).to eq('a test')
-      expect(user.erased_at).to    be
+      expect(user.erase_reason).not_to eq('a test')
+      expect(user.erased_at).not_to    be
 
-      expect(user.username).to be_nil
-      expect(user.email).to be_nil
-      expect(user.unconfirmed_email).to be_nil
-      expect(user.phone_number).to be_nil
-      expect(user.confirmed_phone).to be_nil
-      expect(user.unconfirmed_phone).to be_nil
-      expect(user.encrypted_password).to be_empty
-      expect(user.confirmation_token).to be_nil
-      expect(user.reset_password_token).to be_nil
-      expect(user.email_verification_token).to be_nil
+      expect(user.username).not_to be_nil
+      expect(user.email).not_to be_nil
+      expect(user.unconfirmed_email).not_to be_nil
+      expect(user.phone_number).not_to be_nil
+      expect(user.confirmed_phone).not_to be_nil
+      expect(user.unconfirmed_phone).not_to be_nil
+      expect(user.encrypted_password).not_to be_empty
+      expect(user.confirmation_token).not_to be_nil
+      expect(user.reset_password_token).not_to be_nil
+      expect(user.email_verification_token).not_to be_nil
     end
 
     it "maintains associated identification document" do
@@ -486,7 +487,7 @@ describe User do
       user.erase
       user.reload
 
-      expect(user.erased_at).to be
+      expect(user.erased_at).not_to be
       expect(user.document_number).to be
       expect(user.document_type).to be
     end
@@ -597,7 +598,7 @@ describe User do
       expect(Poll::Voter.where(user: user_2).count).to eq(0)
     end
 
-    it "takes votes from erased user with received document" do
+    it "can not takes votes from erased user with received document" do
       user_1 = create(:user, :level_two, document_number: "12345777", document_type: "1")
       user_2 = create(:user)
 
@@ -609,25 +610,25 @@ describe User do
 
       user_2.take_votes_if_erased_document("12345777", "1")
 
-      expect(user_1.votes.count).to eq(0)
-      expect(user_2.votes.count).to eq(1)
+      expect(user_1.votes.count).to eq(1)
+      expect(user_2.votes.count).to eq(0)
 
-      expect(Budget::Ballot.where(user: user_1).count).to eq(0)
-      expect(Budget::Ballot.where(user: user_2).count).to eq(1)
+      expect(Budget::Ballot.where(user: user_1).count).to eq(1)
+      expect(Budget::Ballot.where(user: user_2).count).to eq(0)
 
-      expect(Poll::Voter.where(user: user_1).count).to eq(0)
-      expect(Poll::Voter.where(user: user_2).count).to eq(1)
+      expect(Poll::Voter.where(user: user_1).count).to eq(1)
+      expect(Poll::Voter.where(user: user_2).count).to eq(0)
     end
 
-    it "removes document from erased user and logs info" do
+    it "can not removes document from erased user and logs info" do
       user_1 = create(:user, document_number: "12345777", document_type: "1")
       user_2 = create(:user)
       user_1.erase
 
       user_2.take_votes_if_erased_document("12345777", "1")
 
-      expect(user_2.reload.former_users_data_log).to include("id: #{user_1.id}")
-      expect(user_1.reload.document_number).to be_blank
+      expect(user_2.reload.former_users_data_log).not_to include("id: #{user_1.id}")
+      expect(user_1.reload.document_number).not_to be_blank
     end
 
   end
@@ -638,22 +639,21 @@ describe User do
       expect(create(:user, :hidden).email_required?).to eq(true)
     end
 
-    it "is false for erased users" do
+    it "is true for erased users" do
       user = create(:user)
       user.erase
       user.reload
 
-      expect(user.email_required?).to eq(false)
+      expect(user.email_required?).to eq(true)
     end
 
     it "is false for verified users with no email" do
-      user = create(:user,
+      user = build(:user,
                      username: "Lois",
                      email: "",
                      verified_at: Time.current)
 
-      expect(user).to be_valid
-      expect(user.email_required?).to eq(false)
+      expect(user).not_to be_valid
     end
   end
 

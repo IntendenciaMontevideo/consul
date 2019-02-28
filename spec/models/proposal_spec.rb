@@ -1,6 +1,5 @@
 # coding: utf-8
 require 'rails_helper'
-require 'byebug'
 
 describe Proposal do
   let(:proposal) { build(:proposal) }
