@@ -149,7 +149,7 @@ describe Abilities::Common do
 
     before { allow(own_proposal_non_editable).to receive(:editable?).and_return(false) }
 
-    it { should be_able_to(:edit, own_proposal)                  }
+    it { should_not be_able_to(:edit, own_proposal)                  }
     it { should_not be_able_to(:edit, proposal)                  } # Not his
     it { should_not be_able_to(:edit, own_proposal_non_editable) }
 
@@ -190,8 +190,8 @@ describe Abilities::Common do
       it { should_not be_able_to(:answer, expired_poll)  }
       it { should_not be_able_to(:answer, incoming_poll) }
 
-      it { should     be_able_to(:answer, poll_question_from_own_geozone)   }
-      it { should     be_able_to(:answer, poll_question_from_all_geozones)  }
+      it { should_not be_able_to(:answer, poll_question_from_own_geozone)   }
+      it { should_not be_able_to(:answer, poll_question_from_all_geozones)  }
       it { should_not be_able_to(:answer, poll_question_from_other_geozone) }
 
       it { should_not be_able_to(:answer, expired_poll_question_from_own_geozone)   }
@@ -206,7 +206,7 @@ describe Abilities::Common do
         before { user.geozone = nil }
 
         it { should_not be_able_to(:answer, poll_question_from_own_geozone)   }
-        it { should     be_able_to(:answer, poll_question_from_all_geozones)  }
+        it { should_not be_able_to(:answer, poll_question_from_all_geozones)  }
         it { should_not be_able_to(:answer, poll_question_from_other_geozone) }
 
         it { should_not be_able_to(:answer, expired_poll_question_from_own_geozone)   }
@@ -272,8 +272,8 @@ describe Abilities::Common do
     it { should_not be_able_to(:answer, expired_poll)  }
     it { should_not be_able_to(:answer, incoming_poll) }
 
-    it { should     be_able_to(:answer, poll_question_from_own_geozone)   }
-    it { should     be_able_to(:answer, poll_question_from_all_geozones)  }
+    it { should_not be_able_to(:answer, poll_question_from_own_geozone)   }
+    it { should_not be_able_to(:answer, poll_question_from_all_geozones)  }
     it { should_not be_able_to(:answer, poll_question_from_other_geozone) }
 
     it { should_not be_able_to(:answer, expired_poll_question_from_own_geozone)   }
@@ -287,7 +287,7 @@ describe Abilities::Common do
     context "without geozone" do
       before { user.geozone = nil }
       it { should_not be_able_to(:answer, poll_question_from_own_geozone)   }
-      it { should     be_able_to(:answer, poll_question_from_all_geozones)  }
+      it { should_not be_able_to(:answer, poll_question_from_all_geozones)  }
       it { should_not be_able_to(:answer, poll_question_from_other_geozone) }
 
       it { should_not be_able_to(:answer, expired_poll_question_from_own_geozone)   }
