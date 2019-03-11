@@ -25,7 +25,7 @@
   <% if Setting['enable_unique_image_banner'] == "true" %>
     <div class="carousel-inner">
       <div class="item active">
-        <%= link_to ( image_tag(image_path_for('cabezal_principal.png'), alt: t("layouts.header.logo"), class: 'float-center')), polls_path %>
+        <%= link_to ( image_tag(image_path_for('cabezal_unico.png'), alt: t("layouts.header.logo"), class: 'float-center')), page_path('como-funcionan-las-ideas') %>
       </div>
     </div>
   <% else %>
