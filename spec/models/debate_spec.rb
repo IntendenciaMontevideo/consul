@@ -364,9 +364,9 @@ describe Debate do
       .to change { [debate.reload.updated_at, debate.author.updated_at] }
     end
 
-    it "expires cache when the author is erased" do
+    it "can not expires cache when the author is erased" do
       expect { debate.author.erase }
-      .to change { [debate.reload.updated_at, debate.author.updated_at] }
+      .not_to change { [debate.reload.updated_at, debate.author.updated_at] }
     end
 
     it "expires cache when its author changes" do

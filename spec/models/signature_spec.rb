@@ -134,6 +134,10 @@ describe Signature do
 
       it "marks the vote as coming from a signature" do
         signature = create(:signature, document_number: "12345678Z")
+        user      = create(:user, :level_two, document_number: "12345678Z")
+        signature.user = user
+        signature.save!
+        signature.reload
 
         signature.verify
 
@@ -147,15 +151,19 @@ describe Signature do
       it "creates a user with that document number" do
         create(:geozone, census_code: "01")
         signature = create(:signature, document_number: "12345678Z")
-        proposal = signature.signable
+        proposal  = signature.signable
+        user      = create(:user, :level_two, document_number: "12345678Z")
+        signature.user = user
+        signature.save!
+        signature.reload
+
 
         signature.verify
 
-        user = User.last
         expect(user.document_number).to eq("12345678Z")
-        expect(user.created_from_signature).to eq(true)
-        expect(user.verified_at).to be
-        expect(user.erased_at).to be
+        expect(user.created_from_signature).to eq(false)
+        expect(user.verified_at).not_to be
+        expect(user.erased_at).to be_nil
         expect(user.geozone).to be
         expect(user.gender).to be
         expect(user.date_of_birth).to be
@@ -163,16 +171,23 @@ describe Signature do
 
       it "assign the vote to newly created user" do
         signature = create(:signature, document_number: "12345678Z")
-        proposal = signature.signable
+        user      = create(:user, :level_two, document_number: "12345678Z")
+        proposal  = signature.signable
 
+        signature.user = user
+        signature.save!
+        signature.reload
         signature.verify
 
-        user = signature.user
         expect(user.voted_for?(proposal)).to be
       end
 
       it "assigns signature to vote" do
         signature = create(:signature, document_number: "12345678Z")
+        user      = create(:user, :level_two, document_number: "12345678Z")
+        signature.user = user
+        signature.save!
+        signature.reload
 
         signature.verify
 
@@ -184,6 +199,10 @@ describe Signature do
 
       it "calls assign_vote_to_user" do
         signature = create(:signature, document_number: "12345678Z")
+        user      = create(:user, :level_two, document_number: "12345678Z")
+        signature.user = user
+        signature.save!
+        signature.reload
 
         allow(signature).to receive(:assign_vote_to_user)
         signature.verify
