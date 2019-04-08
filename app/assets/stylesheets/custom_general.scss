@@ -89,10 +89,8 @@ div #tag-cloud ul li a{
 }
 
 .bg-policy{
-  background-color: black;
+  background-color: #373739;
   color: #fff;
-  padding: 8px 0px;
-  margin-top: 8px;
 }
 
 .sidebar-title {
@@ -305,17 +303,18 @@ header {
 
 
 .footer-bg {
-  background-color: #929497;
-  min-height: 150px;
+  background-color: #252526;
+  min-height: 90px;
 }
 
 .gray-bg {
-  background-color: #929497;
+  background-color: #252526;
 }
 
 .base-bg {
-  background-color: #f9bd41;
   color: #fff;
+  width: 72%;
+  margin-left: 14%;
 }
 
 .color-base {
@@ -497,8 +496,10 @@ a.back, .icon-angle-left {
 }
 
 .footer-sections {
-  padding-top: 3% !important;
+  padding-top: 1% !important;
   color: #fff;
+  width: 89%;
+  margin-left: 5% !important;
 }
 
 .p-small {
@@ -523,6 +524,7 @@ a.back, .icon-angle-left {
 
 footer a {
   color: #fff;
+  text-decoration: none;
 }
 
 .icon-check{
@@ -1235,4 +1237,82 @@ td{
 
 .padding-top-30 {
   padding-top: 30px;
+}
+
+.color-f-green {
+  background-color: #51CF92;
+}
+
+.color-f-yellow {
+  background-color: #FABE41;
+}
+
+.color-f-pink {
+  background-color: #F890C1;
+}
+
+.color-f-blue {
+  background-color: #049AB2;
+}
+
+.height-div-f-color {
+  height: 13px;
+}
+
+.width-footer {
+  width: 75%
+}
+
+.width-policy-footer {
+  width: 78%;
+}
+
+.padding-left-0 {
+  padding-left: 0;
+}
+
+.font-size-policy {
+  font-size: 14px;
+  margin-top: 2%;
+  text-align: right;
+  padding-right: 0;
+}
+
+.color-img-1 {
+  background-color: #fabe41;
+  padding-top: 40px;
+  padding-bottom: 19px;
+}
+
+.color-img-2 {
+  background-color: #f99d1b;
+}
+
+.color-img-3 {
+  background-color: #cf8520;
+  padding-bottom: 22px;
+}
+
+.color-img-4 {
+  background-color: #a86d1c;
+}
+
+.margin-img-2 {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  margin-top: 17px;
+}
+
+.font-size-title-img {
+  font-size: 25px;
+  margin-bottom: 0;
+}
+
+.font-size-desc-img {
+  font-size: 15px;
+  line-height: unset;
+}
+
+.float-image {
+  float: left;
 }

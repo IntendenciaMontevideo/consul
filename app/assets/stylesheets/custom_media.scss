@@ -711,6 +711,41 @@
   .padding-top-30 {
     padding-top: 50px;
   }
+
+  .width-footer {
+    width: 84%;
+  }
+
+  .custom-medium {
+    font-size: 14px;
+    padding: 0;
+    text-align: center;
+  }
+
+  .footer-sections {
+    width: 98%;
+    margin-left: 0 !important;
+  }
+
+  .width-policy-footer {
+    width: 98%;
+  }
+
+  .float-image {
+    float: left;
+  }
+
+  .width-policy-footer {
+    width: 89%;
+  }
+
+  .medium-center {
+    margin-left: 0;
+  }
+
+  .font-size-policy {
+    font-size: 13px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 639px) {
@@ -889,6 +924,37 @@
     height: 30px;
   }
 
+  .without-padding-right {
+    padding-right: 0;
+  }
+
+  .width-footer {
+    width: 89%;
+  }
+
+  .custom-small {
+    margin-top: 0;
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .float-image {
+    float: none !important;
+  }
+
+  .without-marging-left {
+    margin-left: 0 !important;
+  }
+
+  .padding-small {
+    padding: 10px 0;
+  }
+
+  .font-size-policy {
+    font-size: 12px;
+    text-align: center;
+  }
+
 }
 
 @media (min-width: 100px) and (max-width: 375px) {
@@ -981,6 +1047,7 @@
     font-size: 14px;
     padding-bottom: 14px;
   }
+
 
 }
 
@@ -1201,7 +1268,8 @@
   }
 
   .footer-sections {
-    padding-top: 4% !important;
+    margin-left: 0 !important;
+    width: 100%;
   }
 
   .custom-large-5-mun {
@@ -1216,6 +1284,10 @@
 
   .without-padding-left {
     padding-left: 0;
+  }
+
+  .width-policy-footer {
+    width: 78%;
   }
 
 }
@@ -1250,5 +1322,10 @@
 @media (max-width: 325px) {
   div.custom-social-networks {
     margin-left: 65px;
+  }
+
+  .custom-small {
+    width: 61%;
+    margin-left: 21%;
   }
 }

@@ -1,51 +1,73 @@
-
 <footer>
   <div class="footer-bg">
-    <div class="row margin-top-20">
-        <div class="footer-bg">
-          <div class="small-8 medium-footer-img large-4 column">
-            <%= link_to (image_tag(image_path_for('logo_footer.png'), class: 'float-left medium-center', size: '300x160', alt: t("layouts.footer.logo"))), 'http://montevideo.gub.uy', target: :_blank %>
-            <div id="barra_vertical" class="hide-for-small-only hide-for-medium-only"></div>
-            <%= link_to t("footer.contact_form"), 'http://www.montevideo.gub.uy/node/42843', class: 'margin-left-form', target: :_blank %>
-          </div>
-          <div class="margin-left-sn footer-sections small-12 medium-footer-div large-8 column footer-links gray-bg">
-            <div class="small-12 medium-2 margin-top-20 column">
-              <%= link_to t("footer.participation_title"), more_info_faq_path, class: "title" %>
+    <div class="row without-padding-right margin-top-20 footer-bg width-footer">
+      <div class="row">
+        <div class="column height-div-f-color color-f-green small-3 medium-3"></div>
+        <div class="column height-div-f-color color-f-yellow small-3 medium-3"></div>
+        <div class="column height-div-f-color color-f-pink small-3 medium-3"></div>
+        <div class="column height-div-f-color color-f-blue small-3 medium-3"></div>
+      </div>
+      <div class="row footer-sections">
+        <div class="custom-medium hide-for-small-only medium-3 margin-top-20 columns">
+          <%= link_to t("footer.participation_title"), more_info_faq_path, class: "title" %>
+        </div>
+        <div class="custom-medium hide-for-small-only medium-3 margin-top-20 columns footer-links">
+          <%= link_to t("footer.transparency_title"), 'http://www.montevideo.gub.uy/institucional/transparencia', class: "title", target: :_blank, rel: "nofollow" %>
+        </div>
+        <div class="custom-medium hide-for-small-only medium-3 margin-top-20 columns float-left footer-links footer-last">
+          <%= link_to t("footer.open_data_title"), 'https://catalogodatos.gub.uy/organization/intendencia-montevideo', class: "title", target: :_blank, rel: "nofollow" %>
+        </div>
+
+        <div class="show-for-small-only small-12 margin-top-20 columns footer-links">
+          <%= link_to t("footer.transparency_title"), 'http://www.montevideo.gub.uy/institucional/transparencia', class: "title", target: :_blank, rel: "nofollow" %>
+        </div>
+        <div class="show-for-small-only small-12 margin-top-20 columns float-left footer-links">
+          <%= link_to t("footer.open_data_title"), 'https://catalogodatos.gub.uy/organization/intendencia-montevideo', class: "title", target: :_blank, rel: "nofollow" %>
+        </div>
+        <div class="show-for-small-only small-12 margin-top-20 columns footer-links footer-last">
+          <%= link_to t("footer.participation_title"), more_info_faq_path, class: "title" %>
+        </div>
+
+        <div class="custom-medium custom-small small-12 medium-3 margin-top-20 columns float-left footer-links footer-last">
+          <div class="row">
+            <div class="small-3 medium-3 large-3 column">
+              <%= link_to (image_tag(image_path_for('FB-ICO.png'), class: 'image-size medium-center', alt: t("FB-ICO.png"))), 'https://www.facebook.com/MontevideoDecide/?ref=aymt_homepage_panel', class: 'float-left', target: :_blank %>
             </div>
-              <div id="barra_vertical-r" class="hide-for-small-only"></div>
-            <div class="small-12 medium-2 margin-top-20 column footer-links">
-              <%= link_to t("footer.transparency_title"), 'http://www.montevideo.gub.uy/institucional/transparencia', class: "title", target: :_blank, rel: "nofollow" %>
+            <div class="small-3 medium-3 large-3 column">
+              <%= link_to (image_tag(image_path_for('IG-ICO.png'), class: 'image-size medium-center', alt: t("IG-ICO.png"))), 'https://www.instagram.com/montevideo_decide/?hl=es-la', class: 'float-left', target: :_blank %>
             </div>
-            <div id="barra_vertical-r" class="hide-for-small-only"></div>
-            <div class="small-12 medium-2 margin-top-20 column float-left footer-links footer-last">
-              <%= link_to t("footer.open_data_title"), 'https://catalogodatos.gub.uy/organization/intendencia-montevideo', class: "title", target: :_blank, rel: "nofollow" %>
+            <div class="small-3 medium-3 large-3 column">
+              <%= link_to (image_tag(image_path_for('TW-ICO.png'), class: 'image-size medium-center', alt: t("TW-ICO.png"))), 'https://twitter.com/MVDDecide', class: 'float-left', target: :_blank %>
             </div>
-            <div id="barra_vertical-r" class="hide-for-small-only"></div>
-            <div class="custom-social-networks small-12 medium-2 margin-top-20 column float-left footer-links footer-last">
-              <div class="row">
-                <div class="small-3 medium-3 large-3 column">
-                  <%= link_to (image_tag(image_path_for('FB-ICO.png'), class: 'image-size medium-center', alt: t("FB-ICO.png"))), 'https://www.facebook.com/MontevideoDecide/?ref=aymt_homepage_panel', class: 'float-left', target: :_blank %>
-                </div>
-                <div class="small-3 medium-3 large-3 column">
-                  <%= link_to (image_tag(image_path_for('IG-ICO.png'), class: 'image-size medium-center', alt: t("IG-ICO.png"))), 'https://www.instagram.com/montevideo_decide/?hl=es-la', class: 'float-left', target: :_blank %>
-                </div>
-                <div class="small-3 medium-3 large-3 column">
-                  <%= link_to (image_tag(image_path_for('TW-ICO.png'), class: 'image-size medium-center', alt: t("TW-ICO.png"))), 'https://twitter.com/MVDDecide', class: 'float-left', target: :_blank %>
-                </div>
-                <div class="small-3 medium-3 large-3 column">
-                  <%= link_to (image_tag(image_path_for('YT-ICO.png'), class: 'float-left', class: 'image-size medium-center', alt: t("YT-ICO.png"))), 'https://www.youtube.com/channel/UCueOZAcAuhZ3PbZazM-W1Tw', target: :_blank %>
-                </div>
-              </div>
+            <div class="small-3 medium-3 large-3 column">
+              <%= link_to (image_tag(image_path_for('YT-ICO.png'), class: 'float-left', class: 'image-size medium-center', alt: t("YT-ICO.png"))), 'https://www.youtube.com/channel/UCueOZAcAuhZ3PbZazM-W1Tw', target: :_blank %>
             </div>
           </div>
         </div>
+
+        <div class="show-for-small-only small-12 columns font-size-policy footer-links">
+          <%= link_to t("footer.policy"), privacy_path, class: "policy", rel: "nofollow" %>
+        </div>
+        <div class="show-for-small-only small-12 columns font-size-policy footer-links">
+          <%= link_to t("footer.conditions"), conditions_path, class: "policy", rel: "nofollow" %>
+        </div>
+        <div class="show-for-small-only small-12 columns font-size-policy footer-links footer-last">
+          <%= link_to t("footer.rules"), 'http://www.montevideo.gub.uy/sites/default/files/biblioteca/mvd-decide-reglamento.pdf', class: "policy", rel: "nofollow", target: :_blank %>
+        </div>
       </div>
-      <div class="bg-policy medium-12 text-center">
-        <%= link_to t("footer.policy"), privacy_path, class: "policy", rel: "nofollow" %>
-        <%= t("footer.and") %>
-        <%= link_to t("footer.conditions"), conditions_path, class: "policy", rel: "nofollow" %>
-        <%= t("footer.and") %>
-        <%= link_to t("footer.rules"), 'http://www.montevideo.gub.uy/sites/default/files/biblioteca/mvd-decide-reglamento.pdf', class: "policy", rel: "nofollow", target: :_blank %>
+    </div>
+    <div class="bg-policy medium-12 text-center">
+      <div class="row width-policy-footer">
+        <div class="padding-small column small-12 medium-4 large-4 padding-left-0 without-padding-right">
+          <%= link_to (image_tag(image_path_for('logo_footer.png'), class: 'without-marging-left float-image medium-center', size: '130x160', alt: t("layouts.footer.logo"))), 'http://montevideo.gub.uy', target: :_blank, class: 'float-image'%>
+        </div>
+        <div class="hide-for-small-only column medium-8 large-8 font-size-policy">
+          <%= link_to t("footer.policy"), privacy_path, class: "policy", rel: "nofollow" %>
+          <%= t("footer.and") %>
+          <%= link_to t("footer.conditions"), conditions_path, class: "policy", rel: "nofollow" %>
+          <%= t("footer.and") %>
+          <%= link_to t("footer.rules"), 'http://www.montevideo.gub.uy/sites/default/files/biblioteca/mvd-decide-reglamento.pdf', class: "policy", rel: "nofollow", target: :_blank %>
+        </div>
       </div>
     </div>
   </div>
