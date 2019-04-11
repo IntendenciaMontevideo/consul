@@ -1,125 +1,227 @@
-<% content_for :social_media_meta_tags do %>
-  <% render "/shared/social_media_meta_tags", social_title: t("devise_views.sessions.new.title"), social_description: t("layouts.header.open_city_slogan_html")  %>
-<% end %>
-<div class=" small-12 medium-8 large-4 float-left margin-top-20">
-  <% provide :title do %><%= t("devise_views.sessions.new.title") %><% end %>
-  <div class="column">
-    <div class="column">
-      <%= image_tag(image_path_for('picto_user_org.png'), class: 'margin-left-20', width: '70x70', alt: t("layouts.header.logo")) %>
+<div class="bg-color-idea-1 height-div-idea height-div-user-mob-1">
+  <div class="row padding-top-5p">
+    <div class="hide-for-small-only column large-1">
+      <%= image_tag(image_path_for('picto_user_org.png'), class: 'margin-left-40-user', width: '70x70', alt: t("layouts.header.logo")) %>
     </div>
-  </div>
-  <p class="column">
-  </p>
-  <% if params[:login_admin] %>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="row">
-        <div class="small-12 column">
-          <%= f.text_field :login, autofocus: true, placeholder: t("devise_views.sessions.new.login_label") %>
-        </div>
-
-        <div class="small-12 column">
-          <%= f.password_field :password, autocomplete: "off", placeholder: t("devise_views.sessions.new.password_label") %>
-          <%= link_to t("devise_views.shared.links.new_password"), new_password_path(resource_name), class: "float-right" %>
-        </div>
-
-        <% if devise_mapping.rememberable? -%>
-          <div class="small-12 column">
-            <%= f.label :remember_me do %>
-              <%= f.check_box :remember_me, title: t('devise_views.sessions.new.remember_me'), label: false %>
-              <span class="checkbox"><%= t("devise_views.sessions.new.remember_me") %></span>
-            <% end %>
-          </div>
-        <% end -%>
-
-        <div class="small-12 medium-6 small-centered">
-          <%= f.submit(t("devise_views.sessions.new.submit"), class: "button expanded") %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-<div class="column">
-  <div class="large-12">
-     <table class="iduru-color">
-       <tbody>
-         <tr>
-          <td class="text-left border-top-table-user padding-left-10" ><strong>NIVEL</strong></div></td>
-           <td class="padding-bot-0 border-top-table-user"><h3 class="float-center user-number w-200"><strong>1</strong></h3></td>
-           <td class="padding-bot-0 border-top-table-user"><h3 class="float-center user-number w-200"><strong>2</strong></h3></td>
-         </tr>
-         <tr class="tr-light-gray">
-           <td class="text-left border-left-table-user" ><strong>DEBATES</strong></td>
-           <td></td>
-           <td ></td>
-         </tr>
-         <tr class="tr-dark-gray">
-           <td class="text-left">Comentar los debates</td>
-           <td><span class="icon-check"></span></td>
-           <td><span class="icon-check"></span></td>
-         </tr>
-         <tr class="tr-light-gray">
-           <td class="text-left">Apoyar debates</td>
-           <td><span class="icon-check "></span></td>
-           <td><span class="icon-check "></span></td>
-         </tr>
-         <tr class="table-bar"><td></td><td></td><td></td></tr>
-          <tr class="tr-light-gray">
-           <td class="text-left border-left-table-user" ><strong>IDEAS</strong></td>
-           <td class="text-left" ><strong></strong></td>
-           <td class="text-left" ><strong></strong></td>
-         </tr>
-         <tr class="tr-dark-gray">
-           <td class="text-left">Proponer idea</td>
-           <td><span class="icon-check "></span></td>
-           <td><span class="icon-check "></span></td>
-         </tr>
-         <tr class="tr-light-gray">
-           <td class="text-left">Apoyar una idea</td>
-           <td><span class="icon-x "></span></td>
-           <td><span class="icon-check "></span></td>
-         </tr>
-         <tr class="tr-dark-gray">
-           <td class="text-left">Votar una idea</td>
-           <td><span class="icon-x "></span></td>
-           <td><span class="icon-check "></span></td>
-         </tr>
-         <tr class="table-bar"><td></td><td></td><td></td></tr>
-          <tr class="tr-light-gray">
-           <td class="text-left border-left-table-user" ><strong>CONSULTAS</strong></td>
-           <td class="text-left" ><strong></strong></td>
-           <td class="text-left" ><strong></strong></td>
-         </tr>
-         <tr class="tr-dark-gray">
-           <td class="text-left">Decide sobre consultas</td>
-           <td class="border-bot-table-user"><span class="icon-x "></span></td>
-           <td class="border-bot-table-user"><span class="icon-check "></span></td>
-         </tr>
-         <tr class="table-bar"><td class="tr-w"></td><td class="no-border"></td><td class="tr-w no-border-2"></td></tr>
-         <tr class="table-bar"><td class="tr-w"></td><td class="no-border bg-color-white"></td><td class="tr-w no-border-2"></td></tr>
-         <tr class="tr-w">
-           <td></td>
-           <td class="no-border-2 no-padding-top no-padding-bottom"><div class="bg-twitter"><% if feature? :twitter_login %> <%= link_to (image_tag(image_path_for('tw_home.png'), class: '', width: '30x30', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:twitter) %><% end %></div></td>
-           <td class="border-left-table-user bg-iduruguay"></td>
-         </tr>
-          <tr class="tr-w">
-           <td ></td>
-           <td class="no-border-2 no-padding-bottom"><div class="bg-facebook"><% if feature? :facebook_login %> <%= link_to (image_tag(image_path_for('fb_home.png'), class: '', width: '10x10', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:facebook) %><% end %></div></td>
-           <td class="border-left-table-user bg-iduruguay "> <% if feature? :saml_login %><h5 class="iduru text-align-center"><%= link_to t("omniauth.saml.name").html_safe, user_omniauth_authorize_path(:saml),
-                      title: t("omniauth.saml.sign_in"),
-                      class: "iduru-color" %></h5><% end %></td>
-         </tr>
-         <tr class="tr-w">
-           <td></td>
-           <td class="no-border-2 no-padding-bottom"><div class="bg-google"><% if feature? :google_login %><%= link_to (image_tag(image_path_for('g_home.png'), class: '', width: '30x30', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:google_oauth2) %><% end %></div></td>
-           <td class="border-left-table-user bg-iduruguay"></td>
-         </tr>
-       </tbody>
-     </table>
-  </div>
-  <div class="row container margin-top-20">
-    <div class="large-6 large-centered margin-top-20 columns">
-      <h4 class="column large-offset-3 margin-top-50 iduru-color title-video">Conocé tus niveles de usuario</h4>
-      <iframe class="iframe-size margin-top-50 large-centered" src="https://www.youtube.com/embed/Od-V2Cb4vko?controls=0&loop=1" allow="autoplay; encrypted-media" ></iframe>
+    <div class="column large-4 margin-text-login">
+      <p class="font-color-idea font-style-login">
+        Ingreso
+      </p>
+    </div>
+    <div class="show-for-small-only column small-8 border-text-ideas margin-text-user-div-2 padding-left-0">
+      <p class="p-ideas-div-2 font-size-user-div-2">
+        Características de cada nivel
+      </p>
     </div>
   </div>
 </div>
+<div class="row max-width-100 bg-color-idea-2 height-div-idea height-div-user-mob-2">
+  <div class="hide-for-small-only column small-3 large-2 border-text-ideas margin-text-user-div-2 padding-left-0">
+    <p class="p-ideas-div-2 font-size-user-div-2">
+      Características de cada nivel
+    </p>
+  </div>
+  <div class="column small-5 width-table-mob large-3 margin-left-70 margin-table-left-user">
+    <table class="iduru-color">
+      <tbody>
+        <tr class="tr-light-gray">
+          <td colspan="2" class="no-padding-top">
+            <div class='style-nivel-user font-color-idea'>
+              <p class="font-size-30">Usuario</p>
+              <p class="font-size-30">Nivel UNO</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="tr-light-gray">
+          <td></td>
+          <td class="">
+            <strong>
+              DEBATES
+            </strong>
+          </td>
+        </tr>
+        <tr class="tr-dark-gray">
+          <td>
+            <span class="checkmark">
+              <div class="checkmark_circle"></div>
+              <div class="checkmark_stem"></div>
+              <div class="checkmark_kick"></div>
+            </span>
+          </td>
+          <td class="text-left">Comentar los debates</td>
+        </tr>
+        <tr class="tr-light-gray">
+          <td>
+            <span class="checkmark">
+              <div class="checkmark_circle"></div>
+              <div class="checkmark_stem"></div>
+              <div class="checkmark_kick"></div>
+            </span>
+          </td>
+          <td class="text-left">Apoyar debates</td>
+        </tr>
+        <tr class="tr-dark-gray">
+          <td colspan="2" class="height-td-user-table"></td>
+        </tr>
+        <tr class="tr-light-gray">
+          <td></td>
+          <td>
+            <strong>IDEAS</strong>
+          </td>
+        </tr>
+        <tr class="tr-dark-gray">
+          <td>
+            <span class="checkmark">
+              <div class="checkmark_circle"></div>
+              <div class="checkmark_stem"></div>
+              <div class="checkmark_kick"></div>
+            </span>
+          </td>
+          <td class="text-left">Proponer idea</td>
+        </tr>
+        <tr class="tr-light-gray">
+          <td>
+            <div class="check-x"></div>
+          </td>
+          <td class="text-left">Apoyar una idea</td>
+        </tr>
+        <tr class="tr-dark-gray">
+          <td>
+            <div class="check-x"></div>
+          </td>
+          <td class="text-left">Votar una idea</td>
+        </tr>
+        <tr class="table-bar">
+          <td colspan="2" class="height-td-user-table height-td-user-table-mob"></td>
+        </tr>
+        <tr class="tr-light-gray">
+          <td></td>
+          <td class="" >
+            <strong>CONSULTAS</strong>
+          </td>
+        </tr>
+        <tr class="tr-dark-gray">
+          <td>
+            <div class="check-x"></div>
+          </td>
+          <td class="text-left">Decide sobre consultas</td>
+        </tr>
+        <tr class="table-bar">
+          <td colspan="2" class="height-td-user-table no-padding">
+            <div class="column large-6 bottom-left">
+
+            </div>
+            <div class="column large-6">
+
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="column small-5 width-table-mob large-3 margin-table-user margin-table-right-user">
+    <table class="iduru-color">
+      <tbody>
+        <tr class="tr-light-gray">
+          <td colspan="2" class="no-padding-top">
+            <div class='style-nivel-user font-color-idea'>
+              <p class="font-size-30">Usuario</p>
+              <p class="font-size-30">Nivel DOS</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="tr-light-gray">
+          <td></td>
+          <td class="">
+            <strong>
+              DEBATES
+            </strong>
+          </td>
+        </tr>
+        <tr class="tr-dark-gray">
+          <td>
+            <span class="checkmark">
+              <div class="checkmark_circle"></div>
+              <div class="checkmark_stem"></div>
+              <div class="checkmark_kick"></div>
+            </span>
+          </td>
+          <td class="text-left">Comentar los debates</td>
+        </tr>
+        <tr class="tr-light-gray">
+          <td>
+            <span class="checkmark">
+              <div class="checkmark_circle"></div>
+              <div class="checkmark_stem"></div>
+              <div class="checkmark_kick"></div>
+            </span>
+          </td>
+          <td class="text-left">Apoyar debates</td>
+        </tr>
+        <tr class="tr-dark-gray">
+          <td colspan="2" class="height-td-user-table"></td>
+        </tr>
+        <tr class="tr-light-gray">
+          <td></td>
+          <td class="" >
+            <strong>IDEAS</strong>
+          </td>
+        </tr>
+        <tr class="tr-dark-gray">
+          <td>
+            <span class="checkmark">
+              <div class="checkmark_circle"></div>
+              <div class="checkmark_stem"></div>
+              <div class="checkmark_kick"></div>
+            </span>
+          </td>
+          <td class="text-left">Proponer idea</td>
+        </tr>
+        <tr class="tr-light-gray">
+          <td>
+            <span class="checkmark">
+              <div class="checkmark_circle"></div>
+              <div class="checkmark_stem"></div>
+              <div class="checkmark_kick"></div>
+            </span>
+          </td>
+          <td class="text-left">Apoyar una idea</td>
+        </tr>
+        <tr class="tr-dark-gray">
+          <td>
+            <span class="checkmark">
+              <div class="checkmark_circle"></div>
+              <div class="checkmark_stem"></div>
+              <div class="checkmark_kick"></div>
+            </span>
+          </td>
+          <td class="text-left">Votar una idea</td>
+        </tr>
+        <tr class="table-bar">
+          <td colspan="2" class="height-td-user-table"></td>
+        </tr>
+        <tr class="tr-light-gray">
+          <td></td>
+          <td class="" >
+            <strong>CONSULTAS</strong>
+          </td>
+        </tr>
+        <tr class="tr-dark-gray">
+          <td>
+            <span class="checkmark">
+              <div class="checkmark_circle"></div>
+              <div class="checkmark_stem"></div>
+              <div class="checkmark_kick"></div>
+            </span>
+          </td>
+          <td class="text-left">Decide sobre consultas</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="height-div-idea-2">
+</div>
+<div class="height-div-idea">
+</div>
+

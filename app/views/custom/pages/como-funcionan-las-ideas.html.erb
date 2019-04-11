@@ -1,77 +1,106 @@
-<div class="jumbo light">
-  <div class="row">
-    <div class="column">
-      <br>
-      <h2>¿Cómo funcionan las ideas?</h2>
+<div class='position-div container-height'>
+  <%= image_tag(image_path_for('ciclo-de-ideas.png'), size: '436x406', class: 'image-ideas-cycle', alt: t("layouts.header.logo")) %>
+  <div class="bg-color-idea-1 height-div-idea">
+    <div class="row padding-ideas-div-1">
+      <div class="column small-1 large-1 padding-image-div-1">
+        <%= image_tag(image_path_for('tuerca.png'), class: 'float-left', size: '50x50', alt: t("layouts.header.logo")) %>
+      </div>
+      <div class="column small-3 large-4 font-color-idea">
+        <h2>¿Cómo funcionan las ideas?</h2>
+      </div>
+      <div class="column small-3 large-3 float-right margin-date-1">
+        <div class="row">
+          <div class="column large-10 no-padding">
+            <p class="font-style-dates-ideas font-color-idea">
+              30 abr. - 31 jul.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column large-10 no-padding">
+            <p class="font-style-text-dates-ideas">
+              Presentación de ideas y apoyos
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-<div id="more-info" class="more-info-content">
-  <div class="row">
-    <div class="row section-content">
-      <div class="column">
-        <div class="column">
-          <p>Si tenés una idea para mejorar Montevideo,
-          podrás plantearla para que la Intendencia la concrete</p>
-        </div>
-        <h3 class="text-center margin-bot-20">Ciclo 2019</h3>
-        <div class="medium-offset-2 small-12 medium-8 column">
-          <div class="small-8 medium-7 large-7 m-h column">
-            <div class="row margin-bot-20">
-              <div class="border-green float-left medium-8">
-                <h4 class="margin-left-20-lg">30° de abril <br>al 31° de julio</h4>
-              </div>
-              <div class="medium-3 small-4 float-right">
-                <div class="ball-green medium-10 small-10">.</div>
-              </div>
-            </div>
-            <div class="row margin-bot-20">
-              <div class="border-pink float-left medium-10">
-                <h4 class="margin-left-20-lg">1° de agosto <br>al 31° de agosto</h4>
-              </div>
-              <div class="medium-3 small-4 float-right">
-                <div class=" ball-pink medium-10 small-10">.</div>
-              </div>
-            </div>
-            <div class="row margin-bot-20">
-            <div class="border-red float-left medium-10 small-10">
-                <h4 class="margin-left-20-lg">1° de setiembre <br>al 30° de setiembre</h4>
-              </div>
-              <div class="medium-3 small-4 float-right">
-                <div class=" ball-red medium-10 small-10">.</div>
-              </div>
-            </div>
-             <div class="row margin-bot-20">
-              <div class="border-yellow float-left medium-10">
-                <h4 class="margin-left-20-lg padding-votes">1° de octubre</h4>
-              </div>
-              <div class="medium-3 small-4 float-right">
-                <div class=" ball-yellow medium-10 small-10">.</div>
-              </div>
-            </div>
-            <hr class="div-border float-right"></hr>
-          </div>
-          <div class="small-4 medium-4 large-4 column">
-            <div class="row margin-top-20 margin-bot-20 margin-left-20-lg float-left">
-              <h4>Presentación de ideas y <br> apoyos</h4>
-            </div>
-            <div class="row margin-top-25 margin-bot-20 margin-left-20-lg float-left">
-              <h4>Estudios de viabilidad y <br> preparación de votaciones</h4>
-            </div>
-            <div class="row margin-top-40 margin-bot-20 margin-vote-help margin-left-20-lg float-left column">
-              <h4>Votaciones</h4>
-            </div>
-            <div class="row margin-top-50 margin-bot-20 margin-left-20-lg float-left">
-              <h4>Presentación de ideas <br> ganadoras</h4>
-            </div>
+  <div class="bg-color-idea-2 height-div-idea">
+    <div class="row padding-top-2p">
+      <div class="column small-3 large-2 margin-offset-1 border-text-ideas">
+        <p class="p-ideas-div-2">
+          Si tenés una idea para mejorar Montevideo, podrás plantearla para que la Intendencia la concrete
+        </p>
+      </div>
+      <div class="column small-3 large-2 float-right margin-right-10p">
+        <div class="row">
+          <div class="column large-10 no-padding">
+            <p class="font-style-dates-ideas font-color-idea">
+              1 ago. - 31 ago.
+            </p>
           </div>
         </div>
-
-        <div class="column">
-          <p>Las ideas que consigan el apoyo requerido en la web
-          pasan a un estudio de viabilidad. Luego el proyecto es
-          sometido a votación ciudadana.</p>
+        <div class="row">
+          <div class="column large-10 no-padding">
+            <p class="font-style-text-dates-ideas font-size-text-2-ideas">
+              Estudios de viabilidad y preparación de votaciones
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="height-div-idea-2">
+    <div class="row">
+      <div class="column small-3 large-2 margin-large-offset-4 margin-top-32">
+        <div class="row">
+          <div class="column large-10 no-padding">
+            <p class="font-style-dates-ideas font-color-idea">
+              1 octubre
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column large-10 no-padding">
+            <p class="font-style-text-dates-ideas font-size-text-2-ideas">
+              Presentación de ideas ganadoras
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="height-div-idea">
+    <div class="row padding-top-2p">
+      <div class="column large-6 margin-offset-1">
+        <div class="row">
+          <div class="column large-3">
+            <%= image_tag(image_path_for('ojo.png'), class: 'float-left', size: '50x50', alt: t("layouts.header.logo")) %>
+          </div>
+        </div>
+        <div class="row padding-10">
+          <div class="column small-3 large-8 border-text-ideas">
+            <p class="p-ideas-div-2">
+              Las ideas que consigan el apoyo requerido en la web pasan a un estudio de viabilidad. Luego el proyecto es sometido a votación ciudadana.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column small-3 large-2 margin-left-15">
+        <div class="row">
+          <div class="column large-10 no-padding">
+            <p class="font-style-dates-ideas font-color-idea">
+              1 set. - 30 set.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column large-10 no-padding">
+            <p class="font-style-text-dates-ideas font-size-text-2-ideas">
+              Votaciones
+            </p>
+          </div>
         </div>
       </div>
     </div>
