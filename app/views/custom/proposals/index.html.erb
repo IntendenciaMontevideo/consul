@@ -16,10 +16,12 @@
   <div class="box">
      <%= image_tag(image_path_for('banner-ideas.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
     <div class="column box-text">
-        <p> <%= image_tag(image_path_for('hand-1.png'), class: ' float-left show-for-large-only', size: '70x70', alt: t("layouts.header.logo")) %> </p>
-        <p> <%= image_tag(image_path_for('hand-1.png'), class: ' float-left show-for-medium-only', size: '55x55', alt: t("layouts.header.logo")) %> </p>
-      <h2 class="banner-title"><%= t("ideas.title") %></h2>
-      <p class="banner-font medium-9 show-for-large-only"><%= t("ideas.content_banner") %></p>
+      <h2 class="banner-title inline-h-0">Ideas</h2>
+        <% if Proposal.can_create? %>
+          <div>
+            <%= link_to 'Proponé una idea', new_proposal_guide, class: 'banner-font' %>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>

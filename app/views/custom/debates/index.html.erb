@@ -14,10 +14,10 @@
   <div class="box ">
      <%= image_tag(image_path_for('banner-debates.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
       <div class="column box-text">
-        <p> <%= image_tag(image_path_for('hand-4.png'), class: ' float-left show-for-large-only', size: '70x70', alt: t("layouts.header.logo")) %> </p>
-        <p> <%= image_tag(image_path_for('hand-4.png'), class: ' float-left show-for-medium-only', size: '55x55', alt: t("layouts.header.logo")) %> </p>
-        <h2 class="banner-title inline-h-0"><%= t("welcome.debates.title") %></h2>
-        <p class="banner-font medium-9 show-for-large-only"> <%= t("debates.banner-text") %></p>
+        <h2 class="banner-title inline-h-0">Debates Ciudadanos</h2>
+        <div>
+          <%= link_to 'Empieza un debate', new_debate_path, class: 'banner-font' %>
+        </div>
       </div>
   </div>
 </div>
@@ -81,7 +81,6 @@
     <div class="small-12 medium-3 column">
 
       <aside class="margin-bottom">
-        <%= link_to t("debates.index.start_debate"), new_debate_path, class: 'button expanded' %>
         <%= render "shared/tag_cloud", taggable: 'debate' %>
       <% unless @search_terms || @advanced_search_terms || @tag_filter %>
         <div id="section_help" class="margin" data-magellan-target="section_help">

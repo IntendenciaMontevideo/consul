@@ -144,7 +144,7 @@
   }
 
   .box-text {
-    top: 57%;
+    top: 40%;
   }
 
   .inline-h-0{
@@ -166,7 +166,8 @@
 
   .banner-font{
     font-size: 13px;
-    line-height: 1.125rem;
+    line-height: 60px;
+    padding: 5px 25px;
   }
 
   p .banner-font {
@@ -332,6 +333,10 @@
     margin-top: 1px;
   }
 
+  #proposals-list .proposal .div-votes .proposal-approve{
+    min-height: 14.3rem;
+  }
+
   .w-div {
     display: none;
   }
@@ -349,7 +354,7 @@
   }
 
   .box-text {
-    top: 46%;
+    top: 15%;
   }
 
   .iframe-size{
@@ -483,7 +488,6 @@
     line-height: 1.325rem;
   }
   .box-text {
-    width: 80%;
     margin-left: 15px;
   }
   .top-bar .top-bar-right {
@@ -753,6 +757,14 @@
     font-size: 24px;
   }
 
+  #proposals-list .proposal .with-special{
+    width: 100%;
+  }
+
+  #proposals-list .proposal .div-votes .proposal-approve{
+    min-height: initial;
+  }
+
   .padding-all-modal-content{
     padding: 10px;
     padding-top: 30px;
@@ -785,7 +797,7 @@
 
   .box-text {
     width: 90%;
-    top: 30%;
+    top: -7%;
   }
 
   .margin-top-3{
@@ -823,12 +835,6 @@
 
   .margin-left-form {
     margin-left: 27%;
-  }
-
-
-  .box-text {
-    width: 80%;
-    margin-left: 35px;
   }
 
   .small-search{
@@ -1056,7 +1062,7 @@
   }
 
   .box-text {
-    top: 23%;
+    top: -15%;
     width: 95%;
     margin-left: 10px;
   }
@@ -1118,7 +1124,7 @@
   }
 
   .box-text {
-    top: 23%;
+    top: -15%;
     width: 95%;
     margin-left: 10px;
   }

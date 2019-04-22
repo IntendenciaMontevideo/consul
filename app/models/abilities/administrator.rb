@@ -83,6 +83,9 @@ module Abilities
       can [:create], Document
       can [:create, :destroy], DirectUpload
 
+      can :access, :ckeditor
+      can :manage, Ckeditor::Picture
+
       can [:deliver], Newsletter, hidden_at: nil
 
       can :manage, PollGroup

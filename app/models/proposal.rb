@@ -202,7 +202,7 @@ class Proposal < ActiveRecord::Base
   end
 
   def votes_pre_successful?
-    total_votes >= Setting['proposals_feasibility_threshold'].to_i
+    total_votes >= self.votes_for_success
   end
 
   def open?

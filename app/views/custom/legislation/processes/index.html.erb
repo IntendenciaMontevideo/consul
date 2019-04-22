@@ -1,12 +1,11 @@
 <div class="row-for-banners">
   <div class="box ">
-     <%= image_tag(image_path_for('banner-CC.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
-     <div class="column box-text">
-        <p> <%= image_tag(image_path_for('hand-2.png'), class: ' float-left show-for-large-only', size: '70x70', alt: t("layouts.header.logo")) %> </p>
-        <p> <%= image_tag(image_path_for('hand-2.png'), class: ' float-left show-for-medium-only', size: '55x55', alt: t("layouts.header.logo")) %> </p>
-        <h2 class="banner-title"><%= t("legislation.banner-text") %></h2>
-        <p class="banner-font show-for-large-only"><%= t("legislation.content_banner") %></p>
+    <%= image_tag(image_path_for('banner-CC.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+    <div class="column box-text">
+      <div class="column box-text">
+        <h2 class="banner-title inline-h-0">Consultas Ciudadanas</h2>
       </div>
+    </div>
   </div>
 </div>
 <% provide :title do %>

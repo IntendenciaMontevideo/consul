@@ -76,6 +76,14 @@ div #tag-cloud ul li a{
   color: #fff;
 }
 
+#tag-cloud{
+  border-top: 4px solid #f9bd41;
+}
+
+#section_help{
+  border-top: 4px solid #f9bd41;
+}
+
 .policy:hover{
   color: #fff;
 }
@@ -95,7 +103,7 @@ div #tag-cloud ul li a{
 
 .sidebar-title {
   color: #f9bd41;
-  border-top: 2px solid #f9bd41;
+  border-top: none;
 }
 
 .total-votes{
@@ -109,13 +117,28 @@ div #tag-cloud ul li a{
 }
 
 .featured-title-proposal {
-
   margin-bottom: 10px;
   padding: 0;
 }
 
+.featured-title-proposal h2{
+  margin: 30px 30px 0 30px;
+  border-bottom: 1px solid #000;
+}
+
+.proposal .supports .progress{
+  background: #fff;
+  border: 1px solid #f8bd41;
+  height: 0.975rem;
+}
+
+.proposal .supports .progress .meter{
+  background: #f0d49f;
+  height: 0.9rem;
+}
+
 .featured-proposals{
-  background-color: #fff;
+  background-color: #f8bd41;
 }
 
 .proposal-featured{
@@ -134,16 +157,47 @@ div #tag-cloud ul li a{
   color: #ffdc5c;
 }
 
+#proposals-list .proposal .without-image{
+  padding-top: 0px;
+}
+
+.proposal .total-supports abbr{
+  color: #000;
+}
+
+.proposal .supports .button-support, .proposal .supports .button-support:hover{
+  background: #FFF !important;
+  color: #f8bd41;
+  font-weight: 700;
+}
+
+.proposal .supports .supported{
+  color: #f8bd41;
+  background: #FFF !important;
+}
+
+#proposals-list .proposal .div-votes{
+  background-color: #f8bd41;
+}
+
+#proposals-list .proposal .with-special{
+  width: 24.5%;
+}
+
+#proposals-list .proposal .div-votes .proposal-approve{
+  min-height: 12.3rem;
+}
+
+.proposal .icon-successful{
+  z-index: 1;
+}
+
 .proposal .panel h3 a {
-  color: #f9bd41;
+  color: #000;
 }
 
 .featured-proposals h3 a:hover {
   color: #222;
-}
-
-.proposal .panel .row {
-  margin-bottom: 10px;
 }
 
 .help-proposal {
@@ -156,6 +210,8 @@ p.help-questions {
 
 .featured-proposals .proposal-featured {
   min-height: 7.25rem;
+  margin: 30px 30px 0 30px;
+  border-bottom: 1px solid #000;
 }
 
 .proposal-show h1{
@@ -164,6 +220,10 @@ p.help-questions {
 
 .help-proposal ul {
   margin-left: 30px;
+}
+
+.proposal-content h3{
+  border-top: 4px solid #f9bd41;
 }
 
 .documents .document-link, .proposal-show .video-link, .proposal-show .document-link, .proposal-document{
@@ -211,18 +271,24 @@ p.help-questions {
   }
 }
 
-
+.sidebar-divider{
+  border-top: none;
+}
 
 .tabs .tabs-title > a[aria-selected='true'], .tabs .tabs-title > a.is-active {
   color: #515151;
   border-bottom: 2px solid #f9bd41;
 }
 
+#debates .panel .row {
+  border-top: 4px solid #f9bd41;
+  margin: 0;
+}
+
 .debate .panel, .proposal .panel, .investment-project .panel, .budget-investment .panel, .legislation .panel, .communities-show .panel {
   background: #fff;
-  border: 0;
-  border-bottom: 3px solid;
-  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  border-bottom: 1px solid;
+  border-color: #707070;
   border-radius: 0;
   box-shadow: 0 0px 0px 0 #dee0e3;
   margin-bottom: 0.75rem;
@@ -372,11 +438,12 @@ p.base-color {
 
 .box-text {
   position:absolute;
-  top: 61%;
-  width: 90%;
+  top: 40%;
+  width: 100%;
   color: #fff;
   text-align: left;
   line-height: 0.6;
+  text-align: center;
 }
 
 .text-left{
@@ -639,10 +706,20 @@ footer a {
 h2 {
   clear: right;
 }
+
 .banner-font{
   font-size: 16px;
-  line-height: 1.625rem;
-  display: grid;
+  line-height: 60px;
+  color: #34b8cd;
+  background-color: #fff;
+  padding: 10px 25px;
+  font-family: Ciudadela Pro Regular !important;
+  font-weight: 500;
+}
+
+.banner-font:hover, .banner-font:active{
+  color: #34b8cd;
+  text-decoration: initial;
 }
 
 .banner-title{

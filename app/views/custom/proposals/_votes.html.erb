@@ -18,7 +18,7 @@
           <% elsif proposal.votes_pre_successful? %>
             Esta idea ha superado los <%= number_with_delimiter(Setting['proposals_feasibility_threshold'].to_i) %> apoyos y esta siendo evaluada su viabilidad.
           <% elsif proposal.open? %>
-            Esta idea debe alcanzar los <%= number_with_delimiter(Proposal.votes_needed_for_pre_success)%> apoyos para pasar a estudio de viabilidad.
+            Esta idea debe alcanzar los <%= number_with_delimiter(proposal.votes_for_success)%> apoyos para pasar a estudio de viabilidad.
           <% end %>
         </abbr>
       </span>

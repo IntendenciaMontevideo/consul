@@ -13,7 +13,7 @@
     </p>
   <% end %>
 <% elsif proposal.successful? %>
-  <div class="padding text-center">
+  <div class="padding text-center proposal-approve">
     <% if proposal.text_show_finished.blank? %>
       <p>
         <%= t("proposals.proposal.successful",

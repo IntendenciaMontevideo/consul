@@ -1,7 +1,7 @@
 <div id="<%= dom_id(proposal) %>"
      class="proposal clear <%= ("successful" if proposal.successful?) %>"
      data-type="proposal">
-  <div class="panel <%= ('with-image' if feature?(:allow_images) && proposal.image.present?) %>">
+  <div class="panel <%= (feature?(:allow_images) && proposal.image.present?) ? 'with-image' : 'without-image'%>">
     <div class="icon-successful"></div>
 
     <% if feature?(:allow_images) && proposal.image.present? %>
@@ -63,7 +63,7 @@
       </div>
 
       <div id="<%= dom_id(proposal) %>_votes"
-           class="small-12 medium-3 column supports-container"
+           class="small-12 medium-3 column supports-container div-votes <%='with-special' if feature?(:allow_images) && proposal.image.present? %>"
            <%= 'data-equalizer-watch' if feature?(:allow_images) && proposal.image.present? %>>
         <%= render 'proposals/message_options', proposal: proposal, show: false %>
       </div>
