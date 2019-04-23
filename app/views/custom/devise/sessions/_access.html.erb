@@ -21,17 +21,17 @@
   </div>
 </div>
 <div class="row max-width-100 bg-color-idea-2 height-div-idea height-div-user-mob-2">
-  <div class="hide-for-small-only column medium-2 large-3 without-padding-right margin-text-user-div-2 padding-left-0">
+  <div class="hide-for-small-only column medium-3 large-3 without-padding-right margin-text-user-div-2 padding-left-0">
     <div class="row">
-      <div class="column large-7 border-text-ideas margin-left-line-login-20"></div>
-      <div class="column large-6 padding-left-20 without-padding-left">
+      <div class="column medium-8 large-8 border-text-ideas margin-left-line-login-20"></div>
+      <div class="column medium-8 large-8 padding-left-20 without-padding-left">
         <p class="p-ideas-div-2 font-size-user-div-2">
           Características de cada nivel
         </p>
       </div>
     </div>
   </div>
-  <div class="column small-6 width-table-mob medium-3 large-3 margin-table-left-user">
+  <div class="column small-6 width-table-mob medium-3 large-3 margin-left-table-user-1 margin-table-left-user">
     <table class="iduru-color float-right">
       <tbody>
         <tr class="tr-light-gray">
@@ -314,7 +314,12 @@
               <div class="bg-agesic">
                 <div class="row">
                   <div class="column small-12 large-12 height-32">
-                    <p class="text-style-agesic">Ingresar con usuario AGESIC</p>
+                    <% if feature? :saml_login %>
+                      <P class="text-style-agesic">
+                        <%= link_to t("omniauth.saml.name").html_safe, user_omniauth_authorize_path(:saml),
+                              title: t("omniauth.saml.sign_in") %>
+                      </h5>
+                    <% end %>
                   </div>
                 </div>
               </div>

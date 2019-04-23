@@ -65,7 +65,7 @@ es:
       sign_in: Autenticarse
       sign_up: Entrar
       other_login: O ingresa con tu
-      name: Accedé con <br> Usuario ID Uruguay
+      name: Ingresar con usuario AGESIC
     facebook:
       sign_in: Entra con Facebook
       sign_up: Regístrate con Facebook
