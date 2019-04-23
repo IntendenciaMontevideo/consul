@@ -1155,22 +1155,25 @@ td{
 .bg-twitter{
   background-color: #cceffc !important;
   border-left: 10px solid #00adee;
-  padding: 8px;
-  width: 98%;
+  padding: 4px;
+  width: 100%;
+  height: 33px;
 }
 
 .bg-facebook{
   background-color: #d4d3e0 !important;
   border-left: 10px solid #262262;
-  padding: 8px;
-  width: 98%;
+  padding: 3px;
+  width: 100%;
+  height: 33px;
 }
 
 .bg-google{
   background-color: #fbd2d3 !important;
   border-left: 10px solid #ec1c24;
-  padding: 8px;
-  width: 98%;
+  padding: 4px;
+  width: 100%;
+  height: 33px;
 }
 
 .no-border{
@@ -1192,6 +1195,7 @@ td{
 
 .iduru-color{
   color: #58585a !important;
+  width: 80%;
 }
 
 .padding-bot-0{
@@ -1560,8 +1564,8 @@ td{
   width: 100%;
 }
 
-.margin-left-70 {
-  margin-left: 70px;
+.margin-left-90 {
+  margin-left: 90px;
 }
 
 .style-nivel-user {
@@ -1572,8 +1576,8 @@ td{
   margin: 0px 15px;
 }
 
-.font-size-30 {
-  font-size: 30px;
+.font-size-27 {
+  font-size: 27px;
 }
 
 .height-td-user-table {
@@ -1591,37 +1595,37 @@ td{
 
 .checkmark_circle {
   position: absolute;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   background-color: green;
-  border-radius: 11px;
+  border-radius: 10px;
   left: 0;
   top: 0;
 }
 
 .checkmark_stem {
   position: absolute;
-  width: 3px;
-  height: 9px;
+  width: 2px;
+  height: 8px;
   background-color: #fff;
   left: 11px;
-  top: 4px;
+  top: 5px;
 }
 
 .checkmark_kick {
   position: absolute;
   width: 6px;
-  height: 3px;
+  height: 2px;
   background-color: #fff;
-  left: 8px;
+  left: 7px;
   top: 12px;
 }
 
 .check-x {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   background-color: red;
-  border-radius: 11px;
+  border-radius: 10px;
   left: 0;
   top: 0;
   position: relative;
@@ -1632,7 +1636,7 @@ td{
   top: -44px;
   left: 0;
   right: 0;
-  font-size: 25px;
+  font-size: 20px;
   color: #FFF;
   line-height: 102px;
   text-align: center;
@@ -1640,4 +1644,100 @@ td{
 
 div.check-x:after {
   content: '\d7';
+}
+
+.border-last-tr {
+  border-left: 10px solid #eca423;
+  border-right: 10px solid #eca423;
+}
+
+.height-last-tr {
+  height: 45px;
+}
+
+.bottom-left-triangle {
+  border-style: solid;
+  border-width: 45px 0 0 109px;
+  border-color: transparent transparent transparent #f8bc41;
+}
+
+.bottom-right-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 45px 107px;
+  border-color: transparent transparent #f8bc41 transparent;
+}
+
+.bg-color-last-tr {
+  background-color: #f8bc41;
+}
+
+.padding-top-2p {
+  padding-top: 2%
+}
+
+.text-style-tw {
+  text-align: center;
+  font-size: 13px;
+  color: #00adee;
+  font-weight: bold;
+}
+
+.text-style-fb {
+  text-align: center;
+  font-size: 13px;
+  color: #262262;
+  font-weight: bold;
+}
+
+.text-style-agesic {
+  text-align: center;
+  font-size: 13px;
+  color: #eca423;
+  font-weight: bold;
+}
+
+.bg-agesic {
+  background-color: #fff;
+  border-left: 10px solid #eca423;
+  padding: 4px;
+  width: 100%;
+  height: 33px;
+}
+
+.height-32 {
+  height: 32px;
+}
+
+.padding-tw {
+  width: 19%;
+  padding-top: 2px;
+  padding-left: 7px;
+  padding-right: 11px;
+}
+
+.border-bottom-last-tr {
+  border-bottom: 10px solid #eca423;
+}
+
+.margin-bottom-4 {
+  margin-bottom: 4px;
+}
+
+.iduru-color tr td {
+  font-size: 14px;
+}
+
+.iduru-color tr {
+  height: 38px;
+}
+
+.width-row-triangle {
+  width: 225px;
+  padding-left: 15px;
+}
+
+.width-div-image-user {
+  width: 125px;
 }
