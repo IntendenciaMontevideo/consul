@@ -1541,6 +1541,11 @@ td{
   padding-left: 3%;
 }
 
+.margin-text-account {
+  margin-top: 17px;
+  margin-left: 20px;
+}
+
 .font-style-login {
   font-size: 40px;
   font-weight: bold;
@@ -1772,4 +1777,8 @@ footer a:hover, footer a:active:hover, footer a:focus:hover {
 
 .padding-top-40 {
   padding-top: 40px;
+}
+
+.my-account-img{
+  display: flex;
 }

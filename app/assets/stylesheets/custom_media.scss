@@ -675,6 +675,11 @@
     margin-top: 15px;
     padding-left: 35px;
   }
+
+  .margin-text-account {
+    margin-top: 15px;
+    margin-left: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -763,6 +768,11 @@
   }
 
   .margin-text-login {
+    margin-top: 15px;
+    padding-left: 10px;
+  }
+
+  .margin-text-account {
     margin-top: 15px;
     padding-left: 10px;
   }
@@ -1017,6 +1027,10 @@
     height: 171px;
   }
 
+  .account-div-user-mob-1 {
+    height: 110px;
+  }
+
   .font-size-user-div-2 {
     color: #fff;
     font-size: 16px;
@@ -1025,6 +1039,10 @@
   .margin-text-login {
     padding-left: 15px;
     margin-top: 32px;
+  }
+
+  .margin-text-account {
+    padding-left: 15px;
   }
 
   .margin-top-38 {

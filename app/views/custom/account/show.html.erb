@@ -1,9 +1,19 @@
-<div class="row account margin-top-20">
-  <div class="small-12 column">
-    <div class="small-12 column">
-      <span class="avatar-title" style="background: <%=  set_class %>" > <%=  @account.name[0].try(:upcase) %></span>
-        <h1 class="inline-block"><%= t("account.show.title") %></h1>
+<div class="bg-color-idea-1 height-div-signin account-div-user-mob-1">
+  <div class="row padding-top-5p my-account-img">
+    <div class="width-div-image-user column medium-2 large-2 without-padding-right">
+      <%= image_tag(image_path_for('picto_user_org.png'), class: 'margin-left-40-user', width: '70x70', alt: t("layouts.header.logo")) %>
     </div>
+    <div class="column medium-4 large-4 margin-text-account">
+      <p class="font-color-idea font-style-login">
+        Mi cuenta
+      </p>
+    </div>
+  </div>
+</div>
+<div class="row account margin-top-20">
+
+  <div class="small-12 column">
+
       <div class="large-12 float-left margin-bot-small">
 
         <%= render "shared/errors", resource: @account %>
