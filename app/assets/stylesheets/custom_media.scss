@@ -362,9 +362,9 @@
   }
 
   .iduru-color{
-    color: #58585a !important;
     font-size: 16px;
     padding-right: 10px;
+    width: 95%;
   }
 
   .iduru{
@@ -791,11 +791,6 @@
     margin-top: 50px;
     margin-left: 70px;
   }
-
-  .margin-left-table-user-1 {
-    margin-left: 70px;
-  }
-
 }
 
 @media (min-width: 100px) and (max-width: 639px) {
@@ -972,10 +967,6 @@
     margin-left: 86px;
   }
 
-  img.image-size {
-    height: 30px;
-  }
-
   .without-padding-right {
     padding-right: 0;
   }
@@ -1074,6 +1065,10 @@
 
   .bottom-left-triangle {
     border-width: 45px 0 0 109px;
+  }
+
+  .padding-square {
+    padding-left: 20px;
   }
 }
 

@@ -1518,6 +1518,17 @@ td{
   height: 100%;
 }
 
+.height-div-signin {
+  height: 166px;
+}
+
+.height-div-2-signin {
+  height: 130px;
+}
+
+.bg-square {
+  background: #f0f1f1;
+}
 
 
 
@@ -1553,11 +1564,6 @@ td{
 
 .font-size-user-div-2 {
   font-size:  20px;
-}
-
-.margin-text-user-div-2{
-  margin-top: 4%;
-  margin-left: 8%;
 }
 
 .width-100 {
@@ -1657,7 +1663,7 @@ div.check-x:after {
 
 .bottom-left-triangle {
   border-style: solid;
-  border-width: 45px 0 0 109px;
+  border-width: 45px 0 0 128px;
   border-color: transparent transparent transparent #f8bc41;
 }
 
@@ -1665,7 +1671,7 @@ div.check-x:after {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 0 45px 107px;
+  border-width: 0 0 45px 113px;
   border-color: transparent transparent #f8bc41 transparent;
 }
 
@@ -1734,10 +1740,36 @@ div.check-x:after {
 }
 
 .width-row-triangle {
-  width: 225px;
   padding-left: 15px;
 }
 
 .width-div-image-user {
   width: 125px;
+}
+
+.without-margin {
+  margin: 0;
+}
+
+.padding-text-div-2-signin {
+  padding-left: 130px;
+  padding-top: 50px;
+}
+
+.padding-text-div-3-signin {
+  padding-left: 115px;
+  padding-top: 50px;
+}
+
+.padding-square {
+  padding-left: 115px;
+  padding-top: 0;
+}
+
+footer a:hover, footer a:active:hover, footer a:focus:hover {
+  color: #fff;
+}
+
+.padding-top-40 {
+  padding-top: 40px;
 }
