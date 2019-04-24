@@ -14,10 +14,6 @@
   <% else %>
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-      <li data-target="#myCarousel" data-slide-to="4"></li>
     </ol>
   <% end %>
 
@@ -33,23 +29,13 @@
       <div class="item active">
         <%= image_tag(image_path_for('principal-img.jpg'), alt: t("layouts.header.logo"), class: 'float-center') %>
         <div class="column box-text">
-          <h2 class="banner-title inline-h-0">Tus ideas pueden cambiar la ciudad</h2>
-          <div>
-            <%= link_to 'Apoyar propuestas', proposals_path, class: 'banner-font' %>
-          </div>
+          <h2 class="banner-title inline-h-0">¿Tenés una idea para la ciudad?</h2>
+          <% if Proposal.can_create? %>
+            <div>
+              <%= link_to 'Creá una idea', new_proposal_guide, class: 'banner-font' %>
+            </div>
+          <% end %>
         </div>
-      </div>
-      <div class="item">
-        <%= link_to (image_tag(image_path_for('cabezalparquescaninos.jpg'), class: 'float-center', alt: t("layouts.header.logo"))), 'https://decide.montevideo.gub.uy/polls/13', target: :_blank %>
-      </div>
-      <div class="item">
-        <%= link_to ( image_tag(image_path_for('cabezalhuertas.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), 'https://decide.montevideo.gub.uy/polls/12', target: :_blank %>
-      </div>
-      <div class="item">
-        <%= link_to ( image_tag(image_path_for('cabezalcastraciones.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), 'https://decide.montevideo.gub.uy/polls/11', target: :_blank %>
-      </div>
-      <div class="item">
-        <%= link_to ( image_tag(image_path_for('cabezalpeatonalMAM.jpg'), alt: t("layouts.header.logo"), class: 'float-center')), 'https://decide.montevideo.gub.uy/polls/14', target: :_blank %>
       </div>
     </div>
   <% end %>
