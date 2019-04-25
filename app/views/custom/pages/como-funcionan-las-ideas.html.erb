@@ -2,13 +2,13 @@
   <%= image_tag(image_path_for('ciclo-de-ideas.png'), size: '436x406', class: 'image-ideas-cycle', alt: t("layouts.header.logo")) %>
   <div class="bg-color-idea-1 height-div-idea">
     <div class="row padding-ideas-div-1">
-      <div class="column small-1 large-1 padding-image-div-1">
+      <div class="column small-2 large-1 padding-image-div-1">
         <%= image_tag(image_path_for('tuerca.png'), class: 'float-left', size: '50x50', alt: t("layouts.header.logo")) %>
       </div>
-      <div class="column small-3 large-4 font-color-idea">
-        <h2>¿Cómo funcionan las ideas?</h2>
+      <div class="column small-9 large-4 font-color-idea">
+        <h2 class="font-size-d1">¿Cómo funcionan las ideas?</h2>
       </div>
-      <div class="column small-3 large-3 float-right margin-date-1">
+      <div class="hide-for-small-only column medium-3 large-3 float-right margin-date-1">
         <div class="row">
           <div class="column large-10 no-padding">
             <p class="font-style-dates-ideas font-color-idea">
@@ -26,25 +26,93 @@
       </div>
     </div>
   </div>
-  <div class="bg-color-idea-2 height-div-idea">
+  <div class="bg-color-idea-2 height-div-idea-mob height-div-idea">
     <div class="row padding-top-2p">
-      <div class="column small-3 large-2 margin-offset-1 border-text-ideas">
+      <div class="hide-for-small-only column small-3 large-2 margin-offset-1 border-text-ideas">
         <p class="p-ideas-div-2">
           Si tenés una idea para mejorar Montevideo, podrás plantearla para que la Intendencia la concrete
         </p>
       </div>
-      <div class="column small-3 large-2 float-right margin-right-10p">
+      <div class="hide-for-small-only column large-2 float-right margin-right-10p">
         <div class="row">
-          <div class="column large-10 no-padding">
+          <div class="column medium-10 large-10 no-padding">
             <p class="font-style-dates-ideas font-color-idea">
               1 ago. - 31 ago.
             </p>
           </div>
         </div>
         <div class="row">
-          <div class="column large-10 no-padding">
+          <div class="column medium-10 large-10 no-padding">
             <p class="font-style-text-dates-ideas font-size-text-2-ideas">
               Estudios de viabilidad y preparación de votaciones
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column show-for-small-only small-offset-5 small-6 margin-right-10p custom-margin-left">
+        <div class="row">
+          <div class="column small-8 no-padding">
+            <p class="font-style-dates-ideas font-color-idea">
+              30 abr. - 31 jul.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column small-9 no-padding">
+            <p class="font-style-text-dates-ideas">
+              Presentación de ideas y apoyos
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row margin-top-mobile">
+      <div class="show-for-small-only column small-5 float-right margin-right-10p margin-right-mob">
+        <div class="row">
+          <div class="column small-8 no-padding float-mobile-date">
+            <p class="font-style-dates-ideas font-color-idea">
+              1 ago. - 31 ago.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column small-8 no-padding float-mobile-text">
+            <p class="font-style-text-dates-ideas text-style-ag-mob font-size-text-2-ideas">
+              Estudios de viabilidad y preparación de votaciones
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column show-for-small-only small-5 style-octuber-mob">
+        <div class="row padding-left-11">
+          <div class="column small-6 no-padding">
+            <p class="font-style-dates-ideas font-color-idea">
+              1 octubre
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column small-8">
+            <p class="font-style-text-dates-ideas font-size-text-2-ideas padding-left-3">
+              Presentación de ideas ganadoras
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column show-for-small-only small-6 style-set-mob">
+        <div class="row padding-left-11">
+          <div class="column small-7 no-padding">
+            <p class="font-style-dates-ideas font-color-idea">
+              1 set. - 30 set.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column small-8">
+            <p class="font-style-text-dates-ideas font-size-text-2-ideas padding-left-3">
+              Votaciones
             </p>
           </div>
         </div>
@@ -53,7 +121,7 @@
   </div>
   <div class="height-div-idea-2">
     <div class="row">
-      <div class="column small-3 large-2 margin-large-offset-4 margin-top-32">
+      <div class="hide-for-small-only column large-2 margin-large-offset-4 margin-top-32">
         <div class="row">
           <div class="column large-10 no-padding">
             <p class="font-style-dates-ideas font-color-idea">
@@ -73,21 +141,21 @@
   </div>
   <div class="height-div-idea">
     <div class="row padding-top-2p">
-      <div class="column large-6 margin-offset-1">
+      <div class="column small-10 large-6 margin-offset-1">
         <div class="row">
-          <div class="column large-3">
+          <div class="column small-3 large-3">
             <%= image_tag(image_path_for('ojo.png'), class: 'float-left', size: '50x50', alt: t("layouts.header.logo")) %>
           </div>
         </div>
         <div class="row padding-10">
-          <div class="column small-3 large-8 border-text-ideas">
+          <div class="column small-10 large-8 border-text-ideas">
             <p class="p-ideas-div-2">
               Las ideas que consigan el apoyo requerido en la web pasan a un estudio de viabilidad. Luego el proyecto es sometido a votación ciudadana.
             </p>
           </div>
         </div>
       </div>
-      <div class="column small-3 large-2 margin-left-15">
+      <div class="hide-for-small-only column large-2 margin-left-15">
         <div class="row">
           <div class="column large-10 no-padding">
             <p class="font-style-dates-ideas font-color-idea">
