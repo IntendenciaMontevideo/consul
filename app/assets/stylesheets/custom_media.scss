@@ -808,6 +808,10 @@
     font-size: 24px;
   }
 
+  .text-start{
+    margin-top: 7px;
+  }
+
   #proposals-list .proposal .with-special{
     width: 100%;
   }
@@ -1096,7 +1100,9 @@
     position: absolute;
     margin-top: -40px;
   }
-
+  .text-start{
+    margin-top: 0;
+  }
   .ball-green{
     right: 16px;
   }

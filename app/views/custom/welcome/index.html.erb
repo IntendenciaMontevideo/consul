@@ -50,8 +50,8 @@
 
 <% cache [locale_and_user_status, @featured_debates, @featured_proposals, 'featured'] do %>
   <main>
-    <div class="jumbo margin padding">
-      <div class="row medium-11 large-10 small-10 small-centered margin padding" >
+    <div class="jumbo margin">
+      <div class="row medium-11 large-10 small-10 small-centered margin" >
         <div class="small-12 medium-6 column text-center size-resp">
           <h1 class="h1-wellcome"><%= t("layouts.header.open_city_title") %></h1>
           <p class="black-color p-wellcome text-left">
@@ -69,6 +69,40 @@
         </div>
       </div>
     </div>
+    <div class="jumbo margin">
+      <div class="row medium-12 large-12 small-12 small-centered margin" >
+        <div class="large-12 column div-feature">
+          <div class="small-2 medium-1 column">
+            <%= image_tag(image_path_for('destacados-estrella.png'), class: 'float-center',  alt: t("layouts.header.logo")) %>
+          </div>
+          <div class="small-10 medium-11 column text-start">
+            <h1 class="h1-wellcome">Destacados</h1>
+          </div>
+        </div>
+        <div class="large-4 medium-4 column">
+          <p class="margin-img-2">
+            <%= link_to 'http://www.montevideo.gub.uy/noticias/participacion-ciudadana/primer-ano-de-montevideo-decide', target: :blank do %>
+              <%= image_tag(image_path_for('destacado_1.jpg'), class: 'float-center',  alt: t("layouts.header.logo")) %>
+            <% end %>
+          </p>
+        </div>
+        <div class="large-4 medium-4 column">
+          <p class="margin-img-2">
+            <%= link_to 'https://decide.montevideo.gub.uy/como-funcionan-las-ideas', target: :blank do %>
+              <%= image_tag(image_path_for('destacado_2.jpg'), class: 'float-center', alt: t("layouts.header.logo")) %>
+            <% end %>
+          </p>
+        </div>
+        <div class="large-4 medium-4 column">
+          <p class="margin-img-2">
+            <%= link_to 'http://www.montevideo.gub.uy/noticias/participacion-ciudadana/montevideo-decidio', target: :blank do %>
+              <%= image_tag(image_path_for('destacado_3.png'), class: 'float-center', alt: t("layouts.header.logo")) %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+
      <div class="jumbo base-bg">
       <div class="row medium-12 large-12 small-centered">
         <div class="show-for-large-only large-3 column color-img-1 height-div-below">
