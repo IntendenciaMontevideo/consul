@@ -26,12 +26,6 @@
                                 accesskey: "l" %>
       </li>
     <% end %>
-    <li class="flex-4">
-      <%= layout_menu_link_to t("layouts.header.colaboration_space"),
-                              Link::COLABORATION_SPACES,
-                              controller_name == 'spending_proposals',
-                              accesskey: "s" %>
-    </li>
     <% if feature?(:polls) %>
       <li class="flex-1">
         <%= layout_menu_link_to t("layouts.header.poll_questions"),

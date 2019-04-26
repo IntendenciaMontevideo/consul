@@ -50,22 +50,16 @@
 
 <% cache [locale_and_user_status, @featured_debates, @featured_proposals, 'featured'] do %>
   <main>
-    <div class="jumbo margin">
-      <div class="row medium-11 large-10 small-10 small-centered margin" >
+    <div class="jumbo">
+      <div class="row medium-11 large-10 small-10 small-centered" >
         <div class="small-12 medium-6 column text-center size-resp">
           <h1 class="h1-wellcome"><%= t("layouts.header.open_city_title") %></h1>
           <p class="black-color p-wellcome text-left">
             <%= t("layouts.header.open_city_slogan_html") %>
           </p>
-          <div class="small-12 medium-8 large-7 text-left go-bot hide-for-small-only">
-            <%= link_to t("welcome.welcome_button"), more_info_path, class: "button btn-grey expanded large" %>
-          </div>
         </div>
         <div class="small-12 medium-6 column text-center">
         <p> <%= image_tag(image_path_for('Picto_convive_gde.png'), class: 'float-center', alt: t("welcome")) %> </p>
-        <div class="small-12 medium-8 large-7 text-left go-bot show-for-small-only">
-            <%= link_to t("welcome.welcome_button"), more_info_path, class: "button btn-grey expanded large" %>
-        </div>
         </div>
       </div>
     </div>
@@ -84,6 +78,7 @@
             <%= link_to 'http://www.montevideo.gub.uy/noticias/participacion-ciudadana/primer-ano-de-montevideo-decide', target: :blank do %>
               <%= image_tag(image_path_for('destacado_1.jpg'), class: 'float-center',  alt: t("layouts.header.logo")) %>
             <% end %>
+            <p class="text-feature-img">Primer año de Montevideo Decide</p>
           </p>
         </div>
         <div class="large-4 medium-4 column">
@@ -92,6 +87,7 @@
               <%= image_tag(image_path_for('destacado_2.jpg'), class: 'float-center', alt: t("layouts.header.logo")) %>
             <% end %>
           </p>
+          <p class="text-feature-img">¿Cómo funcionan las ideas?</p>
         </div>
         <div class="large-4 medium-4 column">
           <p class="margin-img-2">
@@ -99,6 +95,7 @@
               <%= image_tag(image_path_for('destacado_3.png'), class: 'float-center', alt: t("layouts.header.logo")) %>
             <% end %>
           </p>
+          <p class="text-feature-img">Ideas ganadoras ciclo 2018</p>
         </div>
       </div>
     </div>
