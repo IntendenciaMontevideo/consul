@@ -1632,6 +1632,106 @@
   .without-padding-left {
     padding-left: 0;
   }
+
+  .container-height {
+    height: 76%;
+  }
+
+  .padding-left-60-laptop-l {
+    padding-left: 60px;
+  }
+
+  .padding-left-176-laptop-l {
+    padding-left: 176px;
+  }
+
+  .width-tablet-l-45 {
+    width: 45%;
+  }
+
+  .bottom-left-triangle {
+    border-width: 45px 0 0 172px;
+  }
+
+  .bottom-right-triangle {
+    border-width: 0 0 45px 144px;
+  }
+
+  .style-tablet-set {
+    margin-top: -144px;
+  }
+
+
+}
+
+@media (min-width: 1441px) and (max-width: 2560px) {
+  .height-div-signin {
+    height: 265px;
+  }
+
+  .padding-left-60-laptop-l {
+    padding-left: 74%;
+  }
+
+  .padding-left-176-laptop-l {
+    padding-left: 86%;
+  }
+
+  .width-laptop-k {
+    width: 103%;
+  }
+
+  .max-width-laptop-k {
+    max-width: 107rem;
+  }
+
+  .iduru-color {
+    width: 47%;
+  }
+
+  .padding-right7-laptop-k {
+    padding-right: 7%;
+  }
+
+  .margin-top-video-laptopk {
+    margin-top: 20px;
+  }
+
+  .padding-ideas-div-1 {
+    padding-left: 0%;
+    padding-top: 3%;
+  }
+
+  .custom-width-1024 {
+    width: 36%;
+  }
+
+  .margin-date-1 {
+    margin-right: 5%;
+  }
+
+  .image-ideas-cycle {
+    margin-left: 41%;
+    margin-top: 6%;
+    width: 21%;
+  }
+
+  .margin-left25-laptopk {
+    margin-left: 25%;
+  }
+
+  .margin-left23-laptopk {
+    margin-left: 23%;
+  }
+
+  .height-div-idea {
+    height: 26%;
+  }
+
+  .style-tablet-set {
+    margin-top: -88px;
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 375px) {
