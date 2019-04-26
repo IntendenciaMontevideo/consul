@@ -1677,15 +1677,17 @@
     border-width: 45px 0 0 172px;
   }
 
-  .bottom-right-triangle {
-    border-width: 0 0 45px 144px;
-  }
-
   .style-tablet-set {
     margin-top: -144px;
   }
 
 
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .bottom-right-triangle {
+    border-width: 0 0 45px 143px;
+  }
 }
 
 @media (min-width: 1441px) and (max-width: 2560px) {
@@ -1755,6 +1757,10 @@
   .style-tablet-set {
     margin-top: -88px;
     margin-left: 0;
+  }
+
+  .bottom-right-triangle {
+    border-width: 0 0 45px 145px;
   }
 }
 
