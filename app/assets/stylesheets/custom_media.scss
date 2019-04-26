@@ -1172,7 +1172,7 @@
   }
 
   .height-div-idea-mob {
-    height: 360px;
+    height: 360px !important;
   }
 
   .height-div-idea-2 {
@@ -1198,6 +1198,14 @@
   .style-octuber-mob {
     margin-top: -29px;
     padding-left: 12px;
+  }
+
+  .height-div-idea {
+    height: 143px;
+  }
+
+  .container-height {
+    height: 751px;
   }
 }
 
@@ -1579,14 +1587,14 @@
   }
 
   .container-height {
-    height: 703px;
+    height: 729px;
   }
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
 
   .height-div-idea {
-    height: 31%;
+    height: 179px;
   }
 
   .text-align-768 {
@@ -1612,6 +1620,14 @@
   .iframe-size {
     width: 180px;
     height: 180px;
+  }
+
+  .height-div-idea-2 {
+    height: 131px;
+  }
+
+  .container-height {
+    height: 822px;
   }
 }
 
