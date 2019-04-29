@@ -702,6 +702,11 @@
   .bottom-right-triangle {
     border-width: 0 0 45px 113px;
   }
+
+  .padding-tw {
+    padding-right: 23px;
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -860,6 +865,11 @@
     padding-right: 10px;
     width: 95%;
   }
+
+  .padding-tw {
+    padding: 0;
+    margin-left: 4px;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 639px) {
@@ -968,6 +978,26 @@
   form .checkbox, form .radio {
     width: 80%;
   }
+}
+
+@media (min-width: 411px) and (max-width: 424px) {
+
+  .bottom-right-triangle {
+    border-width: 0px 0 45px 102px !important;
+  }
+
+  .text-style-tw {
+    font-size: 12px;
+  }
+
+  .text-style-fb {
+    font-size: 12px;
+  }
+
+  .padding-left-fb-3 {
+    padding-left: 4px;
+  }
+
 }
 
 @media (max-width: 425px) {
@@ -1132,8 +1162,7 @@
 
   .padding-tw {
     padding: 0;
-    width: 20px;
-    padding-top: 5px;
+    margin-left: 4px;
   }
 
   .height-div-user-mob-2 {
@@ -1898,7 +1927,7 @@
   }
 
   .padding-left-fb-3 {
-    padding-left: 3px;
+    padding-left: 0px;
   }
 
   .width-google-img {
@@ -1988,6 +2017,11 @@
 
   .iduru-color tr {
     height: 40px;
+  }
+
+  .padding-tw {
+    padding: 0;
+    margin-left: 0px;
   }
 
 }

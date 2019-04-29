@@ -161,7 +161,7 @@
                           <div class="column small-9 large-9 height-32">
                             <p class="text-style-tw">Ingresar con usuario</p>
                           </div>
-                          <div class="column small-2 large-2 padding-tw">
+                          <div class="column small-2 large-3 padding-tw">
                             <%= link_to (image_tag(image_path_for('icon-twitter.png'), class: 'float-right', width: '25x25', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:twitter) %>
                           </div>
                         </div>
@@ -201,7 +201,7 @@
                           <div class="column small-9 large-9 height-32">
                             <p class="text-style-fb">Ingresar con usuario</p>
                           </div>
-                          <div class="column small-3 large-3 width-google-img">
+                          <div class="column small-3 large-3 width-google-img padding-left-fb-3">
                             <%= link_to (image_tag(image_path_for('icon-google-plus.png'), class: '', width: '25x25', alt: t("layouts.header.logo"))), user_omniauth_authorize_path(:google_oauth2) %>
                           </div>
                         </div>
