@@ -674,6 +674,14 @@
   .bottom-right-triangle {
     border-width: 0 0 45px 143px;
   }
+
+  .iduru-color tr {
+    height: 37px;
+  }
+
+  .iduru-color {
+    width: 318px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -697,6 +705,10 @@
 }
 
 @media (max-width: 768px) {
+
+  .iduru-color tr {
+    height: 40px;
+  }
 
   .title-video {
     font-size: 16px !important;
@@ -792,7 +804,7 @@
   }
 
   .bottom-right-triangle {
-    border-width: 0 0 45px 90px;
+    border-width: 0 0 45px 91px;
   }
 
   .margin-left-40-user {
@@ -1109,7 +1121,7 @@
 
   .width-row-triangle {
     width: 150px;
-    padding-left: 10px;
+    padding-left: 9px;
   }
 
   .padding-tw {
@@ -1124,7 +1136,7 @@
   }
 
   .bottom-right-triangle {
-    border-width: 0 0 45px 107px;
+    border-width: 0 0 45px 109px;
   }
 
   .bottom-left-triangle {
@@ -1220,6 +1232,10 @@
 
   .container-height {
     height: 751px;
+  }
+
+  .iduru-color tr {
+    height: 39px;
   }
 }
 
@@ -1704,6 +1720,10 @@
   .padding-left-176-laptop-l {
     padding-left: 207px !important;
   }
+
+  .iduru-color tr {
+    height: 37px !important;
+  }
 }
 
 @media (min-width: 1601px) and (max-width: 1900px) {
@@ -1713,6 +1733,10 @@
 
   .padding-left-176-laptop-l {
     padding-left: 364px !important;
+  }
+
+  .iduru-color tr {
+    height: 37px;
   }
 }
 
@@ -1792,6 +1816,10 @@
   .iduru-color {
     width: 316px;
   }
+
+  .iduru-color tr {
+    height: 36px;
+  }
 }
 
 @media (min-width: 2560px){
@@ -1852,7 +1880,7 @@
   }
 
   .bottom-right-triangle {
-    border-width: 0 0 45px 71px;
+    border-width: 0 0 45px 72px;
   }
 
   .text-style-tw {
@@ -1882,7 +1910,7 @@
 
   .width-row-triangle {
     width: 172px;
-    padding-left: 10px;
+    padding-left: 9px;
   }
 
   .height-div-user-mob-2 {
@@ -1952,6 +1980,10 @@
     margin-top: 16px;
   }
 
+  .iduru-color tr {
+    height: 40px;
+  }
+
 }
 
 @media (max-width: 325px) {
@@ -1974,7 +2006,7 @@
 
   .width-row-triangle {
     width: 150px;
-    padding-left: 10px;
+    padding-left: 9px;
   }
 
   .bottom-left-triangle {
@@ -1982,7 +2014,7 @@
   }
 
   .bottom-right-triangle {
-    border-width: 0 0 45px 60px;
+    border-width: 0 0 45px 61px;
   }
 
   .image-ideas-cycle {

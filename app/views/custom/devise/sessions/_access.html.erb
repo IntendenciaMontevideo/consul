@@ -33,12 +33,6 @@
       </div>
     </div>
     <div class="row margin-left57-tablet padding-left-176-laptop-l height-div-2-signin padding-text-div-3-signin">
-      <div class="column medium-8 large-8 border-text-ideas margin-left-line-login-20"></div>
-      <div class="width-laptop-k column medium-8 large-8 padding-left-20 without-padding-left">
-        <p class="p-ideas-div-2 font-size-user-div-2">
-          Conocé tú nivel de usuario
-        </p>
-      </div>
     </div>
     <div class="row margin-top-video-laptopk margin-left57-tablet padding-left-176-laptop-l height-div-square padding-square">
       <div class="column medium-8 large-9 padding-left-0">
@@ -159,7 +153,7 @@
             </tr>
             <tr class="">
               <td colspan="2" class="height-td-user-table no-padding">
-                <div class="border-last-tr height-last-tr bg-color-last-tr padding-top-2p">
+                <div class="border-last-tr height-last-tr bg-color-last-tr">
                   <% if feature? :twitter_login %>
                     <%= link_to user_omniauth_authorize_path(:twitter), :action => 'go' do %>
                       <div class="bg-twitter">
@@ -179,7 +173,7 @@
             </tr>
             <tr class="">
               <td colspan="2" class="height-td-user-table no-padding">
-                <div class="border-last-tr height-last-tr bg-color-last-tr padding-top-2p">
+                <div class="border-last-tr height-last-tr bg-color-last-tr">
                   <% if feature? :facebook_login %>
                     <%= link_to user_omniauth_authorize_path(:facebook), :action => 'go' do %>
                       <div class="bg-facebook">
@@ -199,7 +193,7 @@
             </tr>
             <tr class="">
               <td colspan="2" class="height-td-user-table no-padding">
-                <div class="border-last-tr height-last-tr bg-color-last-tr padding-top-2p">
+                <div class="border-last-tr height-last-tr bg-color-last-tr">
                   <% if feature? :google_login %>
                     <%= link_to user_omniauth_authorize_path(:google_oauth2), :action => 'go' do %>
                       <div class="bg-google">
@@ -335,13 +329,13 @@
             </tr>
             <tr class="">
               <td colspan="2" class="height-td-user-table no-padding">
-                <div class="border-last-tr height-last-tr bg-color-last-tr padding-top-2p">
+                <div class="border-last-tr height-last-tr bg-color-last-tr">
                 </div>
               </td>
             </tr>
             <tr class="">
               <td colspan="2" class="height-td-user-table no-padding">
-                <div class="border-last-tr height-last-tr bg-color-last-tr padding-top-2p">
+                <div class="border-last-tr height-last-tr bg-color-last-tr">
                   <% if feature? :saml_login %>
                     <%= link_to user_omniauth_authorize_path(:saml), :action => 'go' do %>
                       <div class="bg-agesic">
@@ -360,7 +354,7 @@
             </tr>
             <tr class="">
               <td colspan="2" class="height-td-user-table no-padding">
-                <div class="border-last-tr border-bottom-last-tr height-last-tr bg-color-last-tr padding-top-2p">
+                <div class="border-last-tr border-bottom-last-tr height-last-tr bg-color-last-tr">
                 </div>
               </td>
             </tr>
@@ -397,19 +391,4 @@
     </div>
   </div>
 </div>
-<div class="show-for-small-only column small-12 without-margin no-padding padding-top-40">
-  <div class="row">
-    <div class="column small-6 border-text-ideas margin-left-line-login-20"></div>
-    <div class="column small-12 padding-left-20">
-      <p class="p-ideas-div-2">
-        Conocé tu nivel de usuario
-      </p>
-    </div>
-  </div>
-</div>
-<div class="show-for-small-only column small-8 without-margin no-padding">
-  <div class="row height-div-signin padding-square">
-    <div class="column medium-8 large-9 height-div-signin">
-    </div>
-  </div>
-</div>
+
