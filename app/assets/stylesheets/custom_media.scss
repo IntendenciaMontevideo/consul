@@ -680,6 +680,10 @@
     margin-top: 15px;
     margin-left: 20px;
   }
+
+  .bottom-right-triangle {
+    border-width: 0 0 45px 113px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1661,20 +1665,12 @@
     height: 906px;
   }
 
-  .padding-left-60-laptop-l {
-    padding-left: 60px;
-  }
-
   .padding-left-176-laptop-l {
     padding-left: 176px;
   }
 
   .width-tablet-l-45 {
     width: 45%;
-  }
-
-  .bottom-left-triangle {
-    border-width: 45px 0 0 172px;
   }
 
   .style-tablet-set {
@@ -1684,22 +1680,18 @@
 }
 
 @media (min-width: 1025px) and (max-width: 1440px) {
-  .bottom-right-triangle {
-    border-width: 0 0 45px 143px;
+  .padding-left-60-laptop-l {
+    padding-left: 60px;
   }
 }
 
 @media (min-width: 1441px) and (max-width: 2560px) {
   .height-div-signin {
-    height: 265px;
-  }
-
-  .padding-left-60-laptop-l {
-    padding-left: 74%;
+    height: 205px;
   }
 
   .padding-left-176-laptop-l {
-    padding-left: 86%;
+    padding-left: 734px
   }
 
   .width-laptop-k {
@@ -1723,8 +1715,8 @@
   }
 
   .padding-ideas-div-1 {
-    padding-left: 0%;
-    padding-top: 3%;
+    padding-left: 0px;
+    padding-top: 73px;
   }
 
   .custom-width-1024 {
@@ -1736,30 +1728,61 @@
   }
 
   .image-ideas-cycle {
-    margin-left: 41%;
-    margin-top: 6%;
-    width: 21%;
-  }
-
-  .margin-left25-laptopk {
-    margin-left: 25%;
-  }
-
-  .margin-left23-laptopk {
-    margin-left: 23%;
+    margin-top: 154px;
+    width: 538px;
   }
 
   .height-div-idea {
-    height: 26%;
+    height: 238px;
   }
 
   .style-tablet-set {
     margin-top: -88px;
-    margin-left: 0;
+    margin-left: 60px;
+  }
+
+  .margin-right-10p {
+    margin-right: 60px;
+  }
+
+  .padding-text-div-2-signin {
+    padding-left: 210px;
+  }
+}
+
+@media (min-width: 2560px){
+  .margin-left-290 {
+    margin-left: 290px;
+  }
+
+  .margin-right-10p {
+    margin-right: 130px;
+  }
+
+  .style-tablet-set {
+    margin-top: -88px;
+    margin-left: -40px;
+  }
+
+  .padding-left-60-laptop-l {
+    padding-left: 632px;
+  }
+
+  .height-div-square {
+    height: 22px;
   }
 
   .bottom-right-triangle {
     border-width: 0 0 45px 145px;
+  }
+
+  .height-div-signin {
+    height: 265px;
+  }
+
+  .padding-text-div-2-signin {
+    padding-left: 130px;
+    padding-top: 50px;
   }
 }
 
@@ -1919,4 +1942,14 @@
     margin-top: 0;
   }
 
+}
+
+@media (max-width: 1440px) {
+  .bottom-left-triangle {
+    border-width: 45px 0 0 165px;
+  }
+
+  .bottom-right-triangle {
+    border-width: 0 0 45px 143px;
+  }
 }

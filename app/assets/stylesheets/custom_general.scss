@@ -1412,7 +1412,7 @@ td{
 }
 
 .height-div-idea {
-  height: 25%;
+  height: 212px;
 }
 
 .height-div-idea-rest {
@@ -1493,7 +1493,7 @@ td{
 }
 
 .height-div-idea-2 {
-  height: 22%;
+  height: 220px;
 }
 
 .margin-date-1 {
@@ -1663,7 +1663,7 @@ div.check-x:after {
 
 .bottom-left-triangle {
   border-style: solid;
-  border-width: 45px 0 0 128px;
+  border-width: 45px 0 0 132px;
   border-color: transparent transparent transparent #f8bc41;
 }
 
@@ -1671,7 +1671,7 @@ div.check-x:after {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 0 45px 113px;
+  border-width: 0 0 45px 124px;
   border-color: transparent transparent #f8bc41 transparent;
 }
 
@@ -1795,4 +1795,8 @@ footer a:hover, footer a:active:hover, footer a:focus:hover {
   font-size: 27px;
   font-weight: 700;
   padding-right: 10px;
+}
+
+.height-div-square {
+  height: 100px;
 }
