@@ -666,6 +666,16 @@
   }
 }
 
+@media (max-width: 1440px) {
+  .bottom-left-triangle {
+    border-width: 45px 0 0 165px;
+  }
+
+  .bottom-right-triangle {
+    border-width: 0 0 45px 143px;
+  }
+}
+
 @media (max-width: 1024px) {
   .margin-left-40-user {
     margin-left: 65px;
@@ -1665,10 +1675,6 @@
     height: 906px;
   }
 
-  .padding-left-176-laptop-l {
-    padding-left: 176px;
-  }
-
   .width-tablet-l-45 {
     width: 45%;
   }
@@ -1683,6 +1689,31 @@
   .padding-left-60-laptop-l {
     padding-left: 60px;
   }
+
+  .padding-left-176-laptop-l {
+    padding-left: 176px;
+  }
+}
+
+@media (min-width: 1500px) and (max-width: 1600px) {
+
+  .padding-text-div-2-signin {
+    padding-left: 214px !important;
+  }
+
+  .padding-left-176-laptop-l {
+    padding-left: 207px !important;
+  }
+}
+
+@media (min-width: 1601px) and (max-width: 1900px) {
+  .padding-text-div-2-signin {
+    padding-left: 381px !important;
+  }
+
+  .padding-left-176-laptop-l {
+    padding-left: 364px !important;
+  }
 }
 
 @media (min-width: 1441px) and (max-width: 2560px) {
@@ -1690,20 +1721,13 @@
     height: 205px;
   }
 
-  .padding-left-176-laptop-l {
-    padding-left: 734px
-  }
-
   .width-laptop-k {
-    width: 103%;
+    width: 200px;
+    float: left !important;
   }
 
   .max-width-laptop-k {
     max-width: 107rem;
-  }
-
-  .iduru-color {
-    width: 47%;
   }
 
   .padding-right7-laptop-k {
@@ -1746,7 +1770,27 @@
   }
 
   .padding-text-div-2-signin {
-    padding-left: 210px;
+    padding-left: 174px;
+  }
+
+  .margin-left-40-user {
+    margin-left: 10px;
+  }
+
+  .padding-left-176-laptop-l {
+    padding-left: 161px;
+  }
+
+  .bottom-right-triangle {
+    border-width: 0 0 45px 140px;
+  }
+
+  .bottom-left-triangle {
+    border-width: 45px 0 0 156px;
+  }
+
+  .iduru-color {
+    width: 316px;
   }
 }
 
@@ -1765,7 +1809,7 @@
   }
 
   .padding-left-60-laptop-l {
-    padding-left: 632px;
+    padding-left: 609px;
   }
 
   .height-div-square {
@@ -1781,8 +1825,16 @@
   }
 
   .padding-text-div-2-signin {
-    padding-left: 130px;
+    padding-left: 130px !important;
     padding-top: 50px;
+  }
+
+  .padding-left-176-laptop-l {
+    padding-left: 724px !important;
+  }
+
+  .iduru-color {
+    width: 47%;
   }
 }
 
@@ -1942,14 +1994,4 @@
     margin-top: 0;
   }
 
-}
-
-@media (max-width: 1440px) {
-  .bottom-left-triangle {
-    border-width: 45px 0 0 165px;
-  }
-
-  .bottom-right-triangle {
-    border-width: 0 0 45px 143px;
-  }
 }
