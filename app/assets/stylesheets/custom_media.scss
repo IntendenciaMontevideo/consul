@@ -299,6 +299,12 @@
   }
 }
 
+@media (min-width: 860px) and (max-width: 1020px) {
+  .bottom-right-triangle {
+    border-width: 0px 0 45px 141px !important;
+  }
+}
+
 @media (min-width: 841px) and (max-width: 860px) {
 
   .title-login-options {
@@ -359,12 +365,6 @@
 
   .iframe-size{
     width: 90%;
-  }
-
-  .iduru-color{
-    font-size: 16px;
-    padding-right: 10px;
-    width: 95%;
   }
 
   .iduru{
@@ -853,6 +853,12 @@
   .style-768-ago {
     margin-right: 0;
     padding-left: 39px;
+  }
+
+  .iduru-color{
+    font-size: 16px;
+    padding-right: 10px;
+    width: 95%;
   }
 }
 
@@ -1818,7 +1824,7 @@
   }
 
   .iduru-color tr {
-    height: 36px;
+    height: 38px;
   }
 }
 
