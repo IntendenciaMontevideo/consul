@@ -13,4 +13,8 @@ module SettingsHelper
     value_show && (value_show == 'true' || value_show == 't')
   end
 
+  def setting_for_widget(widget)
+    Setting.where(key: 'feature.user.recommendations').first
+  end
+
 end

@@ -140,3 +140,7 @@ Setting['proposals_feasibility_threshold'] = 500
 #Enable participatory budget
 Setting['enable_participatory_budget'] = "false"
 Setting['enable_unique_image_banner'] = "false"
+
+Setting['feature.homepage.widgets.feeds.proposals'] = true
+Setting['feature.homepage.widgets.feeds.debates'] = true
+Setting['feature.homepage.widgets.feeds.processes'] = true

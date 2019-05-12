@@ -237,3 +237,23 @@ a.button-span-not-allowed-poll:hover {
 .text-left {
   text-align: left;
 }
+
+.admin .admin-content .hompage-cards {
+  min-height: 110px;
+}
+
+.admin .edit_widget_feed select {
+  padding-top: 5px;
+}
+
+.admin table .homepage-card .actions a ~ a {
+  margin-left: 0;
+}
+
+.admin .home-page-feed {
+  height: 230px;
+}
+
+.admin .home-page-feed .callout{
+  height: 200px;
+}

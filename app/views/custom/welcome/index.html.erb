@@ -7,38 +7,31 @@
 <% end %>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
-  <% if Setting['enable_unique_image_banner'] == "true" %>
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    </ol>
-  <% else %>
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    </ol>
-  <% end %>
+  <ol class="carousel-indicators">
+    <% @headers.each_with_index do |header, index| %>
+      <% if index == 0 %>
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <% else %>
+        <li data-target="#myCarousel" data-slide-to="<%= index %>"></li>
+      <% end %>
+    <% end %>
+  </ol>
 
   <!-- Wrapper for slides -->
-  <% if Setting['enable_unique_image_banner'] == "true" %>
     <div class="carousel-inner">
-      <div class="item active">
-        <%= link_to ( image_tag(image_path_for('cabezal_unico.png'), alt: t("layouts.header.logo"), class: 'float-center')), page_path('como-funcionan-las-ideas') %>
-      </div>
-    </div>
-  <% else %>
-    <div class="carousel-inner">
-      <div class="item active">
-        <%= image_tag(image_path_for('principal-img.jpg'), alt: t("layouts.header.logo"), class: 'float-center') %>
-        <div class="column box-text">
-          <h2 class="banner-title inline-h-0">¿Tenés una idea para la ciudad?</h2>
-          <% if Proposal.can_create? %>
+      <% @headers.each_with_index do |header, index| %>
+        <div class="item <%= 'active' if index == 0 %>">
+          <%= image_tag header.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
+
+          <div class="column box-text">
+            <h2 class="banner-title inline-h-0"><%= header.title%></h2>
             <div>
-              <%= link_to 'Creá una idea', new_proposal_guide, class: 'banner-font' %>
+              <%= link_to header.link_text, header.link_url, class: 'banner-font' %>
             </div>
-          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
 </div>
 
 <% if feature?("user.recommendations") && (@recommended_debates.present? || @recommended_proposals.present?) %>
@@ -73,30 +66,16 @@
             <h1 class="h1-wellcome">Destacados</h1>
           </div>
         </div>
-        <div class="large-4 medium-4 column">
-          <p class="margin-img-2">
-            <%= link_to 'http://www.montevideo.gub.uy/noticias/participacion-ciudadana/primer-ano-de-montevideo-decide', target: :blank do %>
-              <%= image_tag(image_path_for('destacado_1.jpg'), class: 'float-center',  alt: t("layouts.header.logo")) %>
-            <% end %>
-            <p class="text-feature-img">Primer año de Montevideo Decide</p>
-          </p>
-        </div>
-        <div class="large-4 medium-4 column">
-          <p class="margin-img-2">
-            <%= link_to 'https://decide.montevideo.gub.uy/como-funcionan-las-ideas', target: :blank do %>
-              <%= image_tag(image_path_for('destacado_2.jpg'), class: 'float-center', alt: t("layouts.header.logo")) %>
-            <% end %>
-          </p>
-          <p class="text-feature-img">¿Cómo funcionan las ideas?</p>
-        </div>
-        <div class="large-4 medium-4 column">
-          <p class="margin-img-2">
-            <%= link_to 'http://www.montevideo.gub.uy/noticias/participacion-ciudadana/montevideo-decidio', target: :blank do %>
-              <%= image_tag(image_path_for('destacado_3.png'), class: 'float-center', alt: t("layouts.header.logo")) %>
-            <% end %>
-          </p>
-          <p class="text-feature-img">Ideas ganadoras ciclo 2018</p>
-        </div>
+        <% @recommendations.each do |recommendation|%>
+          <div class="large-4 medium-4 column">
+            <p class="margin-img-2">
+              <%= link_to recommendation.link_url, target: :blank do %>
+                <%= image_tag(image_path_for('destacado_1.jpg'), class: 'float-center',  alt: t("layouts.header.logo")) %>
+              <% end %>
+              <p class="text-feature-img"><%= recommendation.link_text%></p>
+            </p>
+          </div>
+        <% end %>
       </div>
     </div>
 
