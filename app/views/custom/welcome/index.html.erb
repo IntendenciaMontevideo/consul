@@ -34,51 +34,92 @@
     </div>
 </div>
 
-<% if feature?("user.recommendations") && (@recommended_debates.present? || @recommended_proposals.present?) %>
-  <%= render "recommended",
-              recommended_debates: @recommended_debates,
-              recommended_proposals: @recommended_proposals %>
-  <hr>
-<% end %>
-
 <% cache [locale_and_user_status, @featured_debates, @featured_proposals, 'featured'] do %>
   <main>
-    <div class="jumbo">
-      <div class="row medium-11 large-10 small-10 small-centered" >
-        <div class="small-12 medium-6 column text-center size-resp">
-          <h1 class="h1-wellcome"><%= t("layouts.header.open_city_title") %></h1>
-          <p class="black-color p-wellcome text-left">
-            <%= t("layouts.header.open_city_slogan_html") %>
-          </p>
-        </div>
-        <div class="small-12 medium-6 column text-center">
-        <p> <%= image_tag(image_path_for('Picto_convive_gde.png'), class: 'float-center', alt: t("welcome")) %> </p>
-        </div>
-      </div>
-    </div>
-    <div class="jumbo margin">
-      <div class="row medium-12 large-12 small-12 small-centered margin" >
-        <div class="large-12 column div-feature">
-          <div class="small-2 medium-1 column">
-            <%= image_tag(image_path_for('destacados-estrella.png'), class: 'float-center',  alt: t("layouts.header.logo")) %>
-          </div>
-          <div class="small-10 medium-11 column text-start">
-            <h1 class="h1-wellcome">Destacados</h1>
-          </div>
-        </div>
-        <% @recommendations.each do |recommendation|%>
-          <div class="large-4 medium-4 column">
-            <p class="margin-img-2">
-              <%= link_to recommendation.link_url, target: :blank do %>
-                <%= image_tag(image_path_for('destacado_1.jpg'), class: 'float-center',  alt: t("layouts.header.logo")) %>
+    <% if @feed_proposal.active? || @feed_debate.active? %>
+      <div class="jumbo m-bottom-0 p-bottom-0">
+        <div class="row medium-11 large-10 small-10 small-centered" >
+          <% if @feed_proposal.active? %>
+            <div class="small-12 medium-6 column">
+              <h3>Propuestas mas activas</h3>
+              <% @feed_proposal.items.each do |proposal| %>
+                <div class="column p-left-0 border-bottom-feed">
+                  <div class="medium-3 column m-bottom-5 p-left-0">
+                    <%= image_tag(image_path_for('destacado_1.jpg'),  alt: t("layouts.header.logo")) %>
+                  </div>
+                  <div class="medium-9 column">
+                    <h5 class="m-bottom-0"><%= link_to proposal.title, namespaced_proposal_path(proposal), class: "color-title-feed" %></h5>
+                  </div>
+                  <div class="medium-9 column">
+                    <p class="text-left"><%= proposal.summary %></p>
+                    <div class="truncate"></div>
+                  </div>
+                </div>
               <% end %>
-              <p class="text-feature-img"><%= recommendation.link_text%></p>
-            </p>
-          </div>
-        <% end %>
+              <div class="column show-for-small-only border-top-all-home">
+                <%= link_to "ver todas las propuestas", proposals_path, class: "color-title-feed" %>
+              </div>
+            </div>
+          <% end %>
+          <% if @feed_debate.active? %>
+            <div class="small-12 medium-6 column">
+              <h3>Debates mas activas</h3>
+              <% @feed_debate.items.each do |debate| %>
+                <h5 class="m-bottom-0"><%= link_to debate.title, debate, class: "color-title-feed" %></h5>
+              <% end %>
+            </div>
+            <div class="column show-for-small-only">
+              <hr class="debate-hr-mobile"/>
+              <%= link_to "ver todos los debates", debates_path, class: "color-title-feed" %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
+      <div>
+        <div class="row medium-11 large-10 small-10 hide-for-small-only border-top-all-home" >
+          <% if @feed_proposal.active? %>
+            <div class="small-12 medium-6 column">
+              <div class="column p-left-0">
+                <%= link_to "ver todas las propuestas", proposals_path, class: "color-title-feed" %>
+              </div>
+            </div>
+          <% end %>
+          <% if @feed_debate.active? %>
+            <div class="small-12 medium-6 column">
+              <div class="column">
+                <hr class="debate-hr"/>
+                <%= link_to "ver todos los debates", debates_path, class: "color-title-feed" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
 
+    <div class="jumbo margin">
+      <% if @recommendation_is_active %>
+        <div class="row medium-12 large-12 small-12 small-centered margin" >
+          <div class="large-12 column div-feature">
+            <div class="small-2 medium-1 column">
+              <%= image_tag(image_path_for('destacados-estrella.png'), class: 'float-center',  alt: t("layouts.header.logo")) %>
+            </div>
+            <div class="small-10 medium-11 column text-start">
+              <h1 class="h1-wellcome">Destacados</h1>
+            </div>
+          </div>
+          <% @recommendations.each do |recommendation|%>
+            <div class="large-4 medium-4 column">
+              <p class="margin-img-2">
+                <%= link_to recommendation.link_url, target: :blank do %>
+                  <%= image_tag recommendation.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
+                <% end %>
+                <p class="text-feature-img"><%= recommendation.link_text%></p>
+              </p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
      <div class="jumbo base-bg">
       <div class="row medium-12 large-12 small-centered">
         <div class="show-for-large-only large-3 column color-img-1 height-div-below">
