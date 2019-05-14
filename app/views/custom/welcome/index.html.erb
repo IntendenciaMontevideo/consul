@@ -44,7 +44,7 @@
               <h3>Ideas más activas</h3>
               <% @feed_proposal.items.each do |proposal| %>
                 <div class="column p-left-0 border-bottom-feed">
-                  <% first_tag = proposal.tags.first%>
+                  <% first_tag = proposal.tags.category.first %>
                   <% if first_tag && first_tag.image %>
                     <div class="medium-3 column m-bottom-5 p-left-0">
                       <%= image_tag first_tag.image_url(:original), alt: t("layouts.header.logo")%>

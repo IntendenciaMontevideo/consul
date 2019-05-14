@@ -23,7 +23,7 @@ class Widget::Feed < ActiveRecord::Base
   end
 
   def proposals
-    Proposal.sort_by_hot_score.limit(limit)
+    Proposal.sort_by_hot_score.not_archived.limit(limit)
   end
 
   def debates
