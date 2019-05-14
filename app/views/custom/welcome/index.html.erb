@@ -41,7 +41,7 @@
         <div class="row medium-11 large-10 small-10 small-centered" >
           <% if @feed_proposal.active? %>
             <div class="small-12 medium-6 column">
-              <h3>Propuestas mas activas</h3>
+              <h3>Ideas más activas</h3>
               <% @feed_proposal.items.each do |proposal| %>
                 <div class="column p-left-0 border-bottom-feed">
                   <% first_tag = proposal.tags.first%>
@@ -60,20 +60,20 @@
                 </div>
               <% end %>
               <div class="column show-for-small-only border-top-all-home">
-                <%= link_to "ver todas las propuestas", proposals_path, class: "color-title-feed" %>
+                <%= link_to "Ver todas las ideas", proposals_path, class: "all-cards-home" %>
               </div>
             </div>
           <% end %>
           <% if @feed_debate.active? %>
             <div class="small-12 medium-6 column">
-              <h3>Debates mas activas</h3>
+              <h3>Debates más activos</h3>
               <% @feed_debate.items.each do |debate| %>
                 <h5 class="m-bottom-0"><%= link_to debate.title, debate, class: "color-title-feed" %></h5>
               <% end %>
             </div>
             <div class="column show-for-small-only">
               <hr class="debate-hr-mobile"/>
-              <%= link_to "ver todos los debates", debates_path, class: "color-title-feed" %>
+              <%= link_to "Ver todos los debates", debates_path, class: "all-cards-home" %>
             </div>
           <% end %>
         </div>
@@ -83,7 +83,7 @@
           <% if @feed_proposal.active? %>
             <div class="small-12 medium-6 column">
               <div class="column p-left-0">
-                <%= link_to "ver todas las propuestas", proposals_path, class: "color-title-feed" %>
+                <%= link_to "Ver todas las ideas", proposals_path, class: "all-cards-home" %>
               </div>
             </div>
           <% end %>
@@ -91,7 +91,7 @@
             <div class="small-12 medium-6 column">
               <div class="column">
                 <hr class="debate-hr"/>
-                <%= link_to "ver todos los debates", debates_path, class: "color-title-feed" %>
+                <%= link_to "Ver todos los debates", debates_path, class: "all-cards-home" %>
               </div>
             </div>
           <% end %>
