@@ -37,7 +37,7 @@
 <% cache [locale_and_user_status, @featured_debates, @featured_proposals, 'featured'] do %>
   <main>
     <% if @feed_proposal.active? || @feed_debate.active? %>
-      <div class="jumbo m-bottom-0 p-bottom-0">
+      <div class="jumbo m-bottom-0 p-bottom-0 proposals-home">
         <div class="row medium-11 large-10 small-10 small-centered" >
           <% if @feed_proposal.active? %>
             <div class="small-12 medium-6 column">
@@ -53,7 +53,7 @@
                   <div class="medium-9 column">
                     <h5 class="m-bottom-0"><%= link_to proposal.title, namespaced_proposal_path(proposal), class: "color-title-feed" %></h5>
                   </div>
-                  <div class="medium-9 column">
+                  <div class="medium-9 column proposal-description-home ">
                     <p class="text-left"><%= proposal.summary %></p>
                     <div class="truncate"></div>
                   </div>
