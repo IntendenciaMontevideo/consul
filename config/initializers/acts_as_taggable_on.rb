@@ -28,7 +28,7 @@ module ActsAsTaggableOn
   end
 
   Tag.class_eval do
-
+    include Imageable
     scope :category, -> { where(kind: "category") }
 
     def category?

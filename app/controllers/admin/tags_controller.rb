@@ -21,7 +21,7 @@ class Admin::TagsController < Admin::BaseController
   private
 
     def tag_params
-      params.require(:tag).permit(:name)
+      params.require(:tag).permit(:name, image_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy])
     end
 
     def find_tag

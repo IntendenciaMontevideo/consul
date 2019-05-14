@@ -44,9 +44,12 @@
               <h3>Propuestas mas activas</h3>
               <% @feed_proposal.items.each do |proposal| %>
                 <div class="column p-left-0 border-bottom-feed">
-                  <div class="medium-3 column m-bottom-5 p-left-0">
-                    <%= image_tag(image_path_for('destacado_1.jpg'),  alt: t("layouts.header.logo")) %>
-                  </div>
+                  <% first_tag = proposal.tags.first%>
+                  <% if first_tag && first_tag.image %>
+                    <div class="medium-3 column m-bottom-5 p-left-0">
+                      <%= image_tag first_tag.image_url(:original), alt: t("layouts.header.logo")%>
+                    </div>
+                  <% end %>
                   <div class="medium-9 column">
                     <h5 class="m-bottom-0"><%= link_to proposal.title, namespaced_proposal_path(proposal), class: "color-title-feed" %></h5>
                   </div>
