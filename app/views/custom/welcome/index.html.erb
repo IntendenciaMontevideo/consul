@@ -67,8 +67,13 @@
           <% if @feed_debate.active? %>
             <div class="small-12 medium-6 column">
               <h3>Debates más activos</h3>
-              <% @feed_debate.items.each do |debate| %>
-                <h5 class="m-bottom-0"><%= link_to debate.title, debate, class: "color-title-feed" %></h5>
+              <% count_debates = @feed_debate.items.count%>
+              <% @feed_debate.items.each_with_index do |debate, index| %>
+                <% if count_debates == (index + 1) %>
+                  <h5 class="m-bottom-0 bottom-feed-debate"><%= link_to debate.title, debate, class: "color-title-feed" %></h5>
+                <% else %>
+                  <h5 class="m-bottom-0 border-bottom-debate bottom-feed-debate"><%= link_to debate.title, debate, class: "color-title-feed" %></h5>
+                <% end %>
               <% end %>
             </div>
             <div class="column show-for-small-only">
