@@ -1,22 +1,16 @@
 <div>
-  <%= image_tag attachments['header_email.png'].url,  style: "width: 97%;" %>
-  <p style="padding-top:20px; font-size: 14px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal;">
-    ¡Bienvenido/a!
-  </p>
+  <%= image_tag attachments['header_email.png'].url%>
   <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
     <%= t("mailers.comment.title") %>
   </p>
   <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
-    <%= t("mailers.comment.hi") %> <strong><%= @commentable.author.name %></strong>,
+    <strong><%= @comment.author.name %></strong> ha comentado sobre tu idea/debate en Montevideo Decide. <%= link_to "Ver comentario", commentable_url(@commentable), style: "color: #2895F1; text-decoration:none;" %>
   </p>
 
-  <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
-    <%= t("mailers.comment.new_comment_by_html", commenter: @comment.author.name) %> <%= link_to @commentable.title, commentable_url(@commentable), style: "color: #2895F1; text-decoration:none;" %>
-  </p>
-
-  <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
+  <p style="font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; vertical-align: baseline; font-style: italic;font-weight: normal;line-height: 24px;margin-left: 20px;padding: 10px; border-left: 2px solid #DEE0E3;">
      <%= text_with_links @comment.body %>
    </p>
+   <br>
    <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 12px;font-weight: normal;line-height: 20px;">
     <%= t("mailers.config.manage_email_subscriptions") %> <%= link_to t("account.show.title"), account_url, style: "color: #2895F1; text-decoration:none;" %>
   </p>

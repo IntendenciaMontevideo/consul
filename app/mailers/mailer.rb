@@ -54,7 +54,7 @@ class Mailer < ApplicationMailer
     @direct_message = direct_message
     @receiver = @direct_message.receiver
     @email_to = @receiver.email
-
+    set_footer_img
     with_user(@receiver) do
       mail(to: @email_to, subject: t('mailers.direct_message_for_receiver.subject'))
     end
