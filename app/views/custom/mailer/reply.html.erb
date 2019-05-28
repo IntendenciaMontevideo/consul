@@ -1,21 +1,18 @@
 <div>
   <%= image_tag attachments['header_email.png'].url,  style: "width: 97%;" %>
-  <p style="padding-top:20px; font-size: 14px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal;">
-    ¡Bienvenido/a!
+  <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
+    <%= t("mailers.reply.title") %>
   </p>
   <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
-    <%= t("mailers.comment.title") %>
-  </p>
-  <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
-    <%= t("mailers.comment.hi") %> <strong><%= @commentable.author.name %></strong>,
+    <%= t("mailers.reply.hi") %> <strong><%= @recipient.name %></strong>,
   </p>
 
   <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
-    <%= t("mailers.comment.new_comment_by_html", commenter: @comment.author.name) %> <%= link_to @commentable.title, commentable_url(@commentable), style: "color: #2895F1; text-decoration:none;" %>
+    <%= t("mailers.reply.new_reply_by_html", commenter: @reply.author.name) %> <%= link_to @commentable.title, comment_url(@reply.id), style: "color: #2895F1; text-decoration:none;" %>
   </p>
 
   <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
-     <%= text_with_links @comment.body %>
+     <%= text_with_links @reply.body %>
    </p>
    <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 12px;font-weight: normal;line-height: 20px;">
     <%= t("mailers.config.manage_email_subscriptions") %> <%= link_to t("account.show.title"), account_url, style: "color: #2895F1; text-decoration:none;" %>

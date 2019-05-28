@@ -1,0 +1,21 @@
+<div>
+  <%= image_tag attachments['header_email.png'].url,  style: "width: 97%;" %>
+  <p style="padding-top:20px; font-size: 14px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal;">
+    <%= t('mailers.direct_message_for_sender.title_html',
+        receiver: @direct_message.receiver.name ) %>
+  </p>
+  <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
+    <%= @direct_message.title %>
+  </p>
+  <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
+    <%= simple_format text_with_links(@direct_message.body), {}, sanitize: false  %>
+  </p>
+
+  <%= image_tag attachments['signature_email.gif'].url %>
+  <pre style="font-size: 9px;">
+  Asesoría de Desarrollo
+  Municipal y Participación.
+  Tel. 1950 int. 3122
+  Piso 2. Puerta 2042.
+  </pre>
+</div>

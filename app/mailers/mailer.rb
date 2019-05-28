@@ -9,7 +9,7 @@ class Mailer < ApplicationMailer
     @comment = comment
     @commentable = comment.commentable
     @email_to = @commentable.author.email
-
+    set_footer_img
     with_user(@commentable.author) do
       subject = t('mailers.comment.subject', commentable: t("activerecord.models.#{@commentable.class.name.underscore}", count: 1).downcase)
       mail(to: @email_to, subject: subject) if @commentable.present? && @commentable.author.present?
@@ -22,7 +22,7 @@ class Mailer < ApplicationMailer
     parent = Comment.find(@reply.parent_id)
     @recipient = parent.author
     @email_to = @recipient.email
-
+    set_footer_img
     with_user(@recipient) do
       mail(to: @email_to, subject: t('mailers.reply.subject')) if @commentable.present? && @recipient.present?
     end
@@ -64,7 +64,7 @@ class Mailer < ApplicationMailer
     @direct_message = direct_message
     @sender = @direct_message.sender
     @email_to = @sender.email
-
+    set_footer_img
     with_user(@sender) do
       mail(to: @email_to, subject: t('mailers.direct_message_for_sender.subject'))
     end
@@ -137,14 +137,14 @@ class Mailer < ApplicationMailer
     @poll = poll
     @token = token
     @email_to = user.email
-    attachments.inline['signature_email.gif'] = File.read("#{Rails.root}/app/assets/images/custom/signature_email.gif")
+    set_footer_img
     mail(to: @email_to, subject: 'Constancia de Votación')
   end
 
   def welcome_email(user)
     @email_to = user.email
-    attachments.inline['header_welcome_email.png'] = File.read("#{Rails.root}/app/assets/images/custom/header_welcome_email.png")
-    attachments.inline['signature_email.gif'] = File.read("#{Rails.root}/app/assets/images/custom/signature_email.gif")
+    set_header_welcome_img
+    set_footer_img
     mail(to: @email_to, subject: 'Bienvenido')
   end
 
@@ -162,4 +162,15 @@ class Mailer < ApplicationMailer
     end
   end
 
+  def set_header_img
+    attachments.inline['header_email.gif'] = File.read("#{Rails.root}/app/assets/images/custom/header_email.png")
+  end
+
+  def set_header_welcome_img
+    attachments.inline['header_welcome_email.png'] = File.read("#{Rails.root}/app/assets/images/custom/header_welcome_email.png")
+  end
+
+  def set_footer_img
+    attachments.inline['signature_email.gif'] = File.read("#{Rails.root}/app/assets/images/custom/signature_email.gif")
+  end
 end

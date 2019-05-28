@@ -12,13 +12,9 @@
   <% if @account.email.present? %>
     <%= form_for @account, as: :account, url: account_path, html:  { class: 'bg-color-account-notification ' } do |f| %>
       <%= render "shared/errors", resource: @account %>
-
       <div class="row">
-        <div class="small-12 medium-7 column">
-
-
+        <div class="small-12 medium-7 column div-form-notification">
             <h2><%= t("account.show.notifications")%></h2>
-
             <div>
               <%= f.label :email_on_comment do %>
                 <%= f.check_box :email_on_comment, title: t('account.show.email_on_comment_label'), label: false %>
@@ -27,7 +23,6 @@
                 </span>
               <% end %>
             </div>
-
             <div>
               <%= f.label :email_on_comment_reply do %>
                 <%= f.check_box :email_on_comment_reply, title: t('account.show.email_on_comment_reply_label'), label: false %>
@@ -36,7 +31,6 @@
                 </span>
               <% end %>
             </div>
-
             <div>
               <%= f.label :email_digest do %>
                 <%= f.check_box :email_digest, title: t('account.show.email_digest_label'), label: false %>
@@ -45,7 +39,6 @@
                 </span>
               <% end %>
             </div>
-
             <div>
               <%= f.label :email_on_direct_message do %>
                 <%= f.check_box :email_on_direct_message, title: t('account.show.email_on_direct_message_label'), label: false %>
@@ -54,8 +47,6 @@
                 </span>
               <% end %>
             </div>
-
-
           <%= f.submit t("account.show.save_changes_submit"), class: "button margin-top" %>
         </div>
       </div>
