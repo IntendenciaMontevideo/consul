@@ -55,4 +55,8 @@ module ProposalsHelper
     end
   end
 
+  def is_proposal_class(string)
+    string == Proposal.to_s
+  end
+
 end
