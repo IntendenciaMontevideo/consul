@@ -1,4 +1,4 @@
-<div class="bg-color-idea-1 height-div-signin account-div-user-mob-1">
+<div class="bg-color-idea-1 account-div-user-mob-1">
   <div class="row padding-top-5p my-account-img">
     <div class="width-div-image-user column medium-2 large-2 without-padding-right">
       <%= image_tag(image_path_for('picto_user_org.png'), class: 'margin-left-40-user', width: '70x70', alt: t("layouts.header.logo")) %>
@@ -13,7 +13,7 @@
     <%= form_for @account, as: :account, url: account_path, html:  { class: 'bg-color-account-notification ' } do |f| %>
       <%= render "shared/errors", resource: @account %>
       <div class="row">
-        <div class="small-12 medium-7 column div-form-notification">
+        <div class="small-12 column div-form-notification">
             <h2><%= t("account.show.notifications")%></h2>
             <div>
               <%= f.label :email_on_comment do %>
