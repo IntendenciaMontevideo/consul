@@ -18,7 +18,7 @@ class UsersController < ApplicationController
                           budget_investments: (Setting['feature.budgets'] ? Budget::Investment.where(author_id: @user.id).count : 0),
                           comments: only_active_commentables.count,
                           follows: @user.follows.count,
-                          polls: Poll::Voter.where(document_number: current_user.document_number).count)
+                          polls: Poll::Voter.where(document_number: @user.document_number).count)
     end
 
     def load_filtered_activity

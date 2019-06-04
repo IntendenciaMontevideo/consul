@@ -1,4 +1,4 @@
-<% if !current_user.level_two_or_three_verified? %>
+<% if !user_signed_in? || !current_user.level_two_or_three_verified? %>
   <div class="participation-not-allowed" style='display:none' aria-hidden="false">
     <p>
       <%= t("users.show.no_private_messages_allowed") %>
