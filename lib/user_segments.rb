@@ -1,11 +1,11 @@
 class UserSegments
   SEGMENTS = %w(all_users
                 administrators
+                level_1
+                level_2
+                level_3
                 proposal_authors
-                investment_authors
-                feasible_and_undecided_investment_authors
-                selected_investment_authors
-                winner_investment_authors)
+                )
 
   def self.all_users
     User.active
@@ -13,6 +13,18 @@ class UserSegments
 
   def self.administrators
     all_users.administrators
+  end
+
+  def self.level_1
+    all_users.joins(:identities).where.not("identities.provider": "saml").distinct
+  end
+
+  def self.level_2
+    all_users.joins(:identities).where("identities.provider": "saml", verified_at: nil).distinct
+  end
+
+  def self.level_3
+    all_users.joins(:identities).where("identities.provider": "saml").where.not(verified_at: nil).distinct
   end
 
   def self.proposal_authors

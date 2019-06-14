@@ -19,10 +19,23 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.minute do
-  command "date > ~/cron-test.txt"
-end
+#every 1.minute do
+#  command "date > ~/cron-test.txt"
+#end
 
-every 1.day, at: '5:00 am' do
-  rake "-s sitemap:refresh"
+#every 1.day, at: '5:00 am' do
+#  rake "-s sitemap:refresh"
+#end
+
+#run whenever
+#whenever --update-crontab
+
+# Begin Whenever generated tasks for: /Users/gaston/workspace/consul/config/schedule.rb at: 2019-06-14 15:01:58 -0300
+#0 1,2,3,4,5,6 * * * /bin/bash -l -c 'cd /Users/gaston/workspace/consul && bundle exec bin/rails runner -e production '\''Newsletter.send_newsletter'\'''
+
+#10 15 * * * /bin/bash -l -c 'cd /Users/gaston/workspace/consul && bundle exec bin/rails runner -e development '\''Newsletter.send_newsletter'\'''
+
+# End Whenever generated tasks for: /Users/gaston/workspace/consul/config/schedule.rb at: 2019-06-14 15:01:58 -0300
+every 1.day, at: ['01:00 am', '02:00 am', '03:00 am', '04:00 am', '05:00 am', '06:00 am', '03:10 pm']  do
+  runner "Newsletter.send_newsletter"
 end

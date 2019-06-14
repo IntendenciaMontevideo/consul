@@ -1,0 +1,32 @@
+<h2 class="inline-block">Usuarios</h2>
+
+<% if newsletter_users.any? %>
+  <table id="newsletters">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Entregado</th>
+        <th>Fecha de entrega</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% newsletter_users.order(created_at: :asc).each do |newsletter_user| %>
+      <tr >
+        <td>
+          <%= newsletter_user.user.email %>
+        </td>
+        <td>
+          <%= newsletter_user.delivery %>
+        </td>
+        <td>
+          <%= newsletter_user.delivery_at %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div data-alert class="callout primary margin-top clear">
+    No hay usuarios asignados a este newsletter
+  </div>
+<% end %>

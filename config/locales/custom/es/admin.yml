@@ -90,3 +90,18 @@ es:
     emails_download:
       index:
         download_segment_help_text: Descarga en formato Excel
+    segment_recipient:
+      all_users: Todos los usuarios
+      administrators: Administradores
+      proposal_authors: Usuarios autores de propuestas
+      level_1: Nivel 1
+      level_2: Nivel 2
+      level_3: Nivel 3
+    newsletter:
+      status_name:
+        not_initialized: No iniciado
+        initializated: Iniciado
+        restarted: Re-Iniciado
+        paused: Pausado
+        canceled: Cancelado
+        finished: Finalizado

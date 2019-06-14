@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190509154658) do
+ActiveRecord::Schema.define(version: 20190614142823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -623,14 +623,28 @@ ActiveRecord::Schema.define(version: 20190509154658) do
 
   add_index "moderators", ["user_id"], name: "index_moderators_on_user_id", using: :btree
 
+  create_table "newsletter_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "newsletter_id"
+    t.boolean  "delivery",      default: false
+    t.datetime "delivery_at"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "newsletter_users", ["newsletter_id"], name: "index_newsletter_users_on_newsletter_id", using: :btree
+  add_index "newsletter_users", ["user_id"], name: "index_newsletter_users_on_user_id", using: :btree
+
   create_table "newsletters", force: :cascade do |t|
     t.string   "subject"
-    t.string   "segment_recipient", null: false
+    t.string   "segment_recipient",             null: false
     t.string   "from"
     t.text     "body"
     t.date     "sent_at"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "status",            default: 1
+    t.string   "test_email"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -1256,6 +1270,8 @@ ActiveRecord::Schema.define(version: 20190509154658) do
   add_foreign_key "locks", "users"
   add_foreign_key "managers", "users"
   add_foreign_key "moderators", "users"
+  add_foreign_key "newsletter_users", "newsletters"
+  add_foreign_key "newsletter_users", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "organizations", "users"
   add_foreign_key "poll_answers", "poll_questions", column: "question_id"

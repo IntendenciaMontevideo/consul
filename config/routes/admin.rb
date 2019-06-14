@@ -155,6 +155,9 @@ namespace :admin do
   resources :newsletters do
     member do
       post :deliver
+      post :cancel
+      post :pause
+      post :restart
     end
     get :users, on: :collection
   end

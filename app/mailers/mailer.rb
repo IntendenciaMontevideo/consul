@@ -129,7 +129,7 @@ class Mailer < ApplicationMailer
   def newsletter(newsletter, recipient_email)
     @newsletter = newsletter
     @email_to = recipient_email
-
+    set_footer_img
     mail(to: @email_to, from: @newsletter.from, subject: @newsletter.subject)
   end
 

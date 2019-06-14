@@ -1,0 +1,97 @@
+<%= back_link_to %>
+
+<h2><%= t("admin.newsletters.show.title") %></h2>
+
+<% recipients_count = @newsletter.users.count %>
+
+<div class="small-12 column">
+  <div class="callout highlight">
+    <div class="row">
+      <div class="small-12 medium-4 column">
+        <strong>Estado</strong><br>
+          <%= status_name(@newsletter.status) %>
+      </div>
+      <div class="small-12 medium-4 column">
+        <strong><%= t("admin.newsletters.show.from") %></strong><br>
+        <%= @newsletter.from %>
+      </div>
+      <div class="small-12 medium-4 column">
+        <strong><%= t("admin.newsletters.show.subject") %></strong><br>
+        <%= @newsletter.subject %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 column">
+        <strong><%= t("admin.newsletters.show.segment_recipient") %></strong><br>
+        <%= segment_name(@newsletter.segment_recipient) %>
+        <%= t("admin.newsletters.show.affected_users", n: recipients_count) %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 column">
+        <strong>Email de prueba</strong><br>
+        <%= @newsletter.test_email%>
+      </div>
+    </div>
+  </div>
+
+  <strong><%= t("admin.newsletters.show.body") %></strong>
+  <p class="help-text" id="phase-description-help-text">
+    <%= t("admin.newsletters.show.body_help_text") %>
+  </p>
+  <div class="newsletter-body-content">
+    <%= render file: "app/views/mailer/newsletter.html.erb" %>
+  </div>
+</div>
+<% if !@newsletter.canceled? && !@newsletter.finished?%>
+  <%= link_to "Enviar prueba",
+                deliver_admin_newsletter_path(@newsletter),
+                method: :post,
+                class: "button success" %>
+
+  <% if @newsletter.not_initialized? && @newsletter.valid_segment_recipient? %>
+    <%= link_to "Cancelar",
+                cancel_admin_newsletter_path(@newsletter),
+                "data-alert": "Seguro quiere cancelar este envio de email a los #{recipients_count} usuarios",
+                method: :post,
+                id: "js-cancel-newsletter-alert",
+                class: "button success" %>
+    <%= link_to "Pausar",
+                pause_admin_newsletter_path(@newsletter),
+                "data-alert": "Seguro quiere pausar este envio de email a los #{recipients_count} usuarios",
+                method: :post,
+                id: "js-pause-newsletter-alert",
+                class: "button success" %>
+  <% end %>
+
+  <% if (@newsletter.initializated? || @newsletter.restarted?)&& @newsletter.valid_segment_recipient? %>
+    <%= link_to "Cancelar",
+                cancel_admin_newsletter_path(@newsletter),
+                "data-alert": "Seguro quiere cancelar este envio de email a los #{recipients_count} usuarios",
+                method: :post,
+                id: "js-cancel-newsletter-alert",
+                class: "button success" %>
+    <%= link_to "Pausar",
+                pause_admin_newsletter_path(@newsletter),
+                "data-alert": "Seguro quiere pausar este envio de email a los #{recipients_count} usuarios",
+                method: :post,
+                id: "js-pause-newsletter-alert",
+                class: "button success" %>
+  <% end %>
+  <% if @newsletter.paused? && @newsletter.valid_segment_recipient? %>
+    <%= link_to "Cancelar",
+                cancel_admin_newsletter_path(@newsletter),
+                "data-alert": "Seguro quiere cancelar este envio de email a los #{recipients_count} usuarios",
+                method: :post,
+                id: "js-cancel-newsletter-alert",
+                class: "button success" %>
+    <%= link_to "Re iniciar",
+                restart_admin_newsletter_path(@newsletter),
+                "data-alert": "Seguro quiere re iniciar este envio de email a los #{recipients_count} usuarios",
+                method: :post,
+                id: "js-restart-newsletter-alert",
+                class: "button success" %>
+  <% end %>
+<% end %>
+<br>
+<%= render 'users', newsletter_users: @newsletter.newsletter_users %>

@@ -1,0 +1,15 @@
+<div>
+  <%= image_tag attachments['header_email.png'].url%>
+  <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
+    <%= safe_html_with_links @newsletter.body.html_safe %>
+  </p>
+
+  <%= image_tag attachments['signature_email.gif'].url %>
+  <pre style="font-size: 9px;">
+  Asesoría de Desarrollo
+  Municipal y Participación.
+  Tel. 1950 int. 3122
+  Piso 2. Puerta 2042.
+  </pre>
+</div>
+
