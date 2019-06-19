@@ -39,6 +39,14 @@
                 </span>
               <% end %>
             </div>
+            <div>
+              <%= f.label :email_on_newsletter do %>
+                <%= f.check_box :email_on_newsletter, title: "Recibir emails con noticias", label: false %>
+                <span class="checkbox">
+                  Recibir emails con noticias
+                </span>
+              <% end %>
+            </div>
           <%= f.submit t("account.show.save_changes_submit"), class: "button margin-top" %>
         </div>
       </div>

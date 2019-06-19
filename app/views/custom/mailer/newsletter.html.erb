@@ -3,7 +3,9 @@
   <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
     <%= safe_html_with_links @newsletter.body.html_safe %>
   </p>
-
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 12px;font-weight: normal;line-height: 20px;">
+    <%= t("mailers.config.manage_email_subscriptions") %> <%= link_to t("account.show.title"), account_url, style: "color: #2895F1; text-decoration:none;" %>
+  </p>
   <%= image_tag attachments['signature_email.gif'].url %>
   <pre style="font-size: 9px;">
   Asesoría de Desarrollo
