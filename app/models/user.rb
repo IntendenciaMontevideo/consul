@@ -72,6 +72,8 @@ class User < ActiveRecord::Base
     string = "%#{search_string}%"
     where("username ILIKE ? OR email ILIKE ? OR document_number ILIKE ?", string, string, string)
   end
+  scope :users_email_on_newsletter, -> { where(email_on_newsletter: true) }
+  scope :users_not_email_newsletter, -> { where(email_on_newsletter: false) }
 
   before_validation :clean_document_number
 

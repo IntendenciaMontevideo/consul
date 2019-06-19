@@ -27,7 +27,7 @@ class AccountController < ApplicationController
                       organization_attributes: [:name, :responsible_name]]
                    else
                      [:username, :public_activity, :public_interests, :email_on_comment,
-                      :email_on_comment_reply, :email_on_direct_message, :email_digest, :newsletter,
+                      :email_on_comment_reply, :email_on_direct_message, :email_on_newsletter, :email_digest, :newsletter,
                       :official_position_badge]
                    end
       params.require(:account).permit(*attributes)

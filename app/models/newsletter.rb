@@ -31,7 +31,7 @@ class Newsletter < ActiveRecord::Base
   end
 
   def mails_not_sended
-    newsletter_users.where(delivery: false).includes(:user)
+    newsletter_users.where(delivery: false).includes(:user).joins(:user).where("users.email_on_newsletter": true)
   end
 
   def draft?
