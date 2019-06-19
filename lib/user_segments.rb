@@ -5,6 +5,7 @@ class UserSegments
                 level_2
                 level_3
                 proposal_authors
+                active_proposal_authors
                 )
 
   def self.all_users
@@ -28,6 +29,10 @@ class UserSegments
   end
 
   def self.proposal_authors
+    author_ids(Proposal.not_retired.pluck(:author_id).uniq)
+  end
+
+  def self.active_proposal_authors
     author_ids(Proposal.not_archived.not_retired.pluck(:author_id).uniq)
   end
 
