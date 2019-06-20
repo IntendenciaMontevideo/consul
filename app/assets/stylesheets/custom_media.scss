@@ -870,6 +870,11 @@
     padding: 0;
     margin-left: 4px;
   }
+
+  .footer, .push {
+    clear: both;
+    min-height: 2rem;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 639px) {
@@ -909,11 +914,6 @@
   .modal-header{
     color: #fff;
     background: #f9bd41;
-  }
-
-  .iframe-size {
-    width: 240px;
-    height: 180px;
   }
 
   .margin-left-40{
@@ -1240,7 +1240,7 @@
     height: 6%;
   }
 
-  .footer, .push {
+  .push {
     min-height: 2rem;
   }
 
@@ -1272,6 +1272,13 @@
   .iduru-color tr {
     height: 39px;
   }
+
+  .iframe-size {
+    margin-left: 15px;
+    width: 395px;
+    height: 180px;
+  }
+
 }
 
 @media (min-width: 100px) and (max-width: 375px) {
@@ -1646,11 +1653,6 @@
     margin-left: 40px;
   }
 
-  .iframe-size {
-    width: 220px;
-    height: 220px;
-  }
-
   .container-height {
     height: 729px;
   }
@@ -1683,8 +1685,8 @@
   }
 
   .iframe-size {
-    width: 180px;
-    height: 180px;
+    width: 505px;
+    height: 250px;
   }
 
   .height-div-idea-2 {
@@ -2024,6 +2026,12 @@
     margin-left: 0px;
   }
 
+  .iframe-size {
+    margin-left: 17px;
+    width: 344px;
+    height: 180px;
+  }
+
 }
 
 @media (max-width: 325px) {
@@ -2064,6 +2072,12 @@
 
   .margin-right-mob {
     margin-top: 0;
+  }
+
+  .iframe-size {
+    margin-left: 9px;
+    width: 303px;
+    height: 180px;
   }
 
 }
