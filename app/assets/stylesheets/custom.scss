@@ -335,3 +335,7 @@ a.button-span-not-allowed-poll:hover {
   border-bottom: 1px solid #222;
   margin-bottom: 10px;
 }
+
+.pagination li {
+  display: inline-block !important;
+}
