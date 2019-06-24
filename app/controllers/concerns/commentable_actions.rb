@@ -40,6 +40,10 @@ module CommentableActions
   def suggest
     @limit = 5
     @resources = @search_terms.present? ? resource_relation.search(@search_terms) : nil
+    if @resources.present? && @resources.class == Proposal::ActiveRecord_Relation
+      @resources = @resources.not_archived
+    end
+    @resources
   end
 
   def create
