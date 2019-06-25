@@ -7,6 +7,7 @@
         <th>Email</th>
         <th>Entregado</th>
         <th>Fecha de entrega</th>
+        <th class="small-5 text-right">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,15 @@
         <td>
           <%= newsletter_user.delivery_at %>
         </td>
+         <td class="text-right">
+          <% unless newsletter_user.delivery %>
+            <%= link_to "Quitar",
+                        remove_email_admin_newsletter_url(@newsletter.id, newsletter_user: newsletter_user.id),
+                        method: :get,
+                        "data-alert": "Seguro quiere eliminar el email #{newsletter_user.user.email}",
+                        class: "button hollow js-delete-newsletter-alert" %>
+          <% end %>
+          </td>
       </tr>
     <% end %>
     </tbody>

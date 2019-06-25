@@ -82,6 +82,18 @@ class Admin::NewslettersController < Admin::BaseController
     redirect_to [:admin, @newsletter]
   end
 
+  def remove_email
+    @newsletter = Newsletter.find(params[:id])
+    newsletter_user = @newsletter.newsletter_users.where(id: params[:newsletter_user]).last
+    email = newsletter_user.user.email
+    if newsletter_user.destroy
+      flash[:notice] = "Se quito del newsletter el email #{email}"
+    else
+      flash[:error] = "Ocurrio un erro al quita el email #{email} del newsletter"
+    end
+    render :show
+  end
+
   private
 
     def newsletter_params

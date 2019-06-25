@@ -155,6 +155,7 @@ namespace :admin do
   resources :newsletters do
     member do
       post :deliver
+      get :remove_email
       post :cancel
       post :pause
       post :restart
