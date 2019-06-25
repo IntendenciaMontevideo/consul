@@ -1,5 +1,5 @@
 class Mailer < ApplicationMailer
-  after_action :prevent_delivery_to_users_without_email
+  after_action :prevent_delivery_to_users_without_email, except: [:newsletter]
 
   helper :text_with_links
   helper :mailer
@@ -128,9 +128,8 @@ class Mailer < ApplicationMailer
 
   def newsletter(newsletter, recipient_email)
     @newsletter = newsletter
-    @email_to = recipient_email
     set_footer_img
-    mail(to: @email_to, from: @newsletter.from, subject: @newsletter.subject)
+    mail(to: @newsletter.email_to, bcc: recipient_email, from: @newsletter.from, subject: @newsletter.subject)
   end
 
   def email_ticket_vote(poll, token, user)

@@ -69,7 +69,7 @@ class Admin::NewslettersController < Admin::BaseController
     unless @newsletter.test_email.blank?
       #@newsletter.initializate!
       #@newsletter.mails_not_sended.each do |newsletter_user|
-      Mailer.newsletter(@newsletter, @newsletter.test_email).deliver_later
+      Mailer.newsletter(@newsletter, [@newsletter.test_email]).deliver_later
        # newsletter_user.delivered!
       #end
 
@@ -85,6 +85,6 @@ class Admin::NewslettersController < Admin::BaseController
   private
 
     def newsletter_params
-      params.require(:newsletter).permit(:subject, :segment_recipient, :from, :body, :test_email)
+      params.require(:newsletter).permit(:subject, :segment_recipient, :from, :body, :test_email, :email_to)
     end
 end

@@ -10,6 +10,7 @@ class Newsletter < ActiveRecord::Base
   validates :from, presence: true
   validates :body, presence: true
   validates :test_email, presence: true
+  validates :email_to, presence: true
   validate :validate_segment_recipient
 
   STATUS = { not_initialized: 1, initializated: 2, restarted: 3, paused: 4, canceled: 5, finished: 6 }
@@ -90,17 +91,20 @@ class Newsletter < ActiveRecord::Base
 
   def self.send_newsletter
     count_emails = 0
-
     #newsletter initializated
     newsletters = Newsletter.where(status: STATUS[:initializated]).order(created_at: :asc)
     newsletters.each do |newsletter|
+      list_emails = []
+      list_newsletter_user_ids = []
       newsletter.mails_not_sended.limit(MAX_EMAILS_SENDED).each do |newsletter_user|
-        begin
-          Mailer.newsletter(newsletter, newsletter_user.user.email).deliver_later
-          newsletter_user.delivered!
-          count_emails = count_emails + 1
-        rescue
-        end
+        list_emails.push newsletter_user.user.email
+        list_newsletter_user_ids.push newsletter_user.id
+      end
+      begin
+        Mailer.newsletter(newsletter, list_emails).deliver_later
+        count_emails = count_emails + list_emails.count
+        NewsletterUser.where(id: list_newsletter_user_ids).update_all(delivery: true, delivery_at: Time.now)
+      rescue
       end
       if newsletter.mails_not_sended.count == 0
         newsletter.finish!
@@ -114,13 +118,17 @@ class Newsletter < ActiveRecord::Base
     if count_emails < MAX_EMAILS_SENDED
       newsletters = Newsletter.where(status: STATUS[:restarted]).order(created_at: :asc)
       newsletters.each do |newsletter|
+        list_emails = []
+        list_newsletter_user_ids = []
         newsletter.mails_not_sended.limit(MAX_EMAILS_SENDED - count_emails).each do |newsletter_user|
-          begin
-            Mailer.newsletter(newsletter, newsletter_user.user.email).deliver_later
-            newsletter_user.delivered!
-            count_emails = count_emails + 1
-          rescue
-          end
+          list_emails.push newsletter_user.user.email
+          list_newsletter_user_ids.push newsletter_user.id
+        end
+        begin
+          Mailer.newsletter(newsletter, list_emails).deliver_later
+          count_emails = count_emails + list_emails.count
+          NewsletterUser.where(id: list_newsletter_user_ids).update_all(delivery: true, delivery_at: Time.now)
+        rescue
         end
         if newsletter.mails_not_sended.count == 0
           newsletter.finish!
@@ -136,13 +144,17 @@ class Newsletter < ActiveRecord::Base
       newsletters = Newsletter.where(status: STATUS[:not_initialized]).order(created_at: :asc)
       newsletters.each do |newsletter|
         newsletter.initializate!
+        list_emails = []
+        list_newsletter_user_ids = []
         newsletter.mails_not_sended.limit(MAX_EMAILS_SENDED - count_emails).each do |newsletter_user|
-          begin
-            Mailer.newsletter(newsletter, newsletter_user.user.email).deliver_later
-            newsletter_user.delivered!
-            count_emails = count_emails + 1
-          rescue
-          end
+          list_emails.push newsletter_user.user.email
+          list_newsletter_user_ids.push newsletter_user.id
+        end
+        begin
+          Mailer.newsletter(newsletter, list_emails).deliver_later
+          count_emails = count_emails + list_emails.count
+          NewsletterUser.where(id: list_newsletter_user_ids).update_all(delivery: true, delivery_at: Time.now)
+        rescue
         end
         if newsletter.mails_not_sended.count == 0
           newsletter.finish!
