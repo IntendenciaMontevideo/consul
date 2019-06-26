@@ -15,7 +15,7 @@ class Newsletter < ActiveRecord::Base
 
   STATUS = { not_initialized: 1, initializated: 2, restarted: 3, paused: 4, canceled: 5, finished: 6 }
 
-  validates_format_of :from, :test_email, :with => /@/
+  validates_format_of :from, :test_email, :email_to, :with => /@/
 
   MAX_EMAILS_SENDED = 500
 
