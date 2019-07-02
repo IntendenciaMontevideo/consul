@@ -9,7 +9,7 @@ class UserSegments
                 )
 
   def self.all_users
-    User.active
+    User.enabled_to_send_by_mail
   end
 
   def self.administrators
