@@ -1,10 +1,5 @@
 <% poll_group.each do |poll| %>
   <div class="poll with-image">
-    <% if user_signed_in? && !current_user.unverified? && !poll.votable_by?(current_user) %>
-      <div class="icon-poll-answer already-answer" title="<%= t("polls.index.already_answer") %>">
-        <span class="show-for-sr"><%= t("polls.index.already_answer") %></span>
-      </div>
-    <% end %>
     <div class="row" data-equalizer data-equalize-on="medium">
       <div class="small-12 medium-3 column">
         <div class="image-container" data-equalizer-watch>
@@ -17,23 +12,30 @@
         <div class="dates"></div>
         <% if poll.questions.count == 1 %>
           <% poll.questions.each do |question| %>
-            <h4>
+            <h4 class="h4-border-poll">
               <% if poll.results_enabled? %>
                 <%= link_to question.title, results_poll_path(poll) %>
               <% elsif poll.stats_enabled? %>
                 <%= link_to question.title, stats_poll_path(poll) %>
               <% else %>
-                <%= link_to question.title, poll %>
+                <%= link_to poll.name, poll %>
               <% end %>
             </h4>
-            <%= poll_dates(poll) %>
           <% end %>
         <% else %>
-          <h4>
+          <h4 class="h4-border-poll">
             <%= link_to poll.name, poll %>
           </h4>
-          <%= poll_dates(poll) %>
         <% end %>
+        <p class="proposal-info">
+          <span class="icon-comments"></span>&nbsp;
+          <%= link_to t("proposals.proposal.comments", count: poll.comments_count), poll_path(poll, anchor: "comments") %>
+          <span class="bullet">&nbsp;&bull;&nbsp;</span>
+          <%= l poll.created_at.to_date %>
+        </p>
+        <p>
+          <%= poll.summary.blank? ? poll.description : poll.summary %>
+        </p>
         <% if poll.geozones.any? %>
           <p>
             <small><%= t("polls.index.geozone_info") %></small>
@@ -47,13 +49,24 @@
       </div>
       <div class="small-12 medium-3 column table" data-equalizer-watch>
         <div class="table-cell align-middle">
-          <%= link_to poll, class: "button hollow expanded" do %>
-            <% if poll.expired? %>
-              <%= t("polls.index.participate_button_expired") %>
-            <% elsif poll.incoming? %>
-              <%= t("polls.index.participate_button_incoming") %>
-            <% else %>
-              <%= t("polls.index.participate_button") %>
+          <% if user_signed_in? && !current_user.unverified? && !poll.votable_by?(current_user) %>
+            <div class="poll-question-answers">
+              <%= link_to poll  do %>
+                <span class="button answered width-100"
+                  title="<%=  t("polls.index.participate_button") %>">
+                  <%= t("polls.index.participate_button") %>
+                </span>
+              <% end %>
+            </div>
+          <% else %>
+            <%= link_to poll, class: "button hollow expanded" do %>
+              <% if poll.expired? %>
+                <%= t("polls.index.participate_button_expired") %>
+              <% elsif poll.incoming? %>
+                <%= t("polls.index.participate_button_incoming") %>
+              <% else %>
+                <%= t("polls.index.participate_button") %>
+              <% end %>
             <% end %>
           <% end %>
         </div>

@@ -2,18 +2,22 @@
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: polls_url %>
 <% end %>
-
-<div class="row-for-banners">
-  <div class="box ">
-    <%= image_tag(image_path_for('pages-header.jpg'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
-      <div class="column box-text">
-        <h2 class="banner-title inline-h-0">Votaciones</h2>
-      </div>
+<% if session[current_user.id.to_s].blank? %>
+  <div class="row-for-banners">
+    <div class="box ">
+      <%= image_tag(image_path_for('pages-header.jpg'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+        <div class="column box-text">
+          <h2 class="banner-title inline-h-0 font-size-poll-banner">Votá las ideas propuestas para tu ciudad</h2>
+        </div>
+    </div>
   </div>
-</div>
-
-<div class="row">
-  <div class="small-12 column">
+<% end %>
+<% if session[current_user.id.to_s].blank? %>
+  <div class="row">
+<% else %>
+  <div class="row padding-btn-banner-vote">
+<% end %>
+  <div class="proposals-list small-12 medium-9 column">
     <%= render 'shared/filter_subnav', i18n_namespace: "polls.index" %>
 
     <% polls_by_geozone_restriction = @polls.group_by(&:geozone_restricted) %>
@@ -34,6 +38,9 @@
 
     <%= paginate @polls %>
 
+  </div>
+
+  <div class="small-12 medium-3 column padding-top-30">
     <div id="section_help" class="margin" data-magellan-target="section_help">
       <p class="lead">
         <strong><%= t("polls.index.section_footer.title") %></strong>

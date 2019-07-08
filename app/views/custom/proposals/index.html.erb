@@ -12,19 +12,21 @@
   <%= render "shared/canonical", href: proposals_url %>
 <% end %>
 <%= render "/shared/registration_modal" %>
-<div class="row-for-banners">
-  <div class="box">
-     <%= image_tag(image_path_for('banner-Idea.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
-    <div class="column box-text">
-      <h2 class="banner-title inline-h-0">Ideas</h2>
-        <% if Proposal.can_create? %>
-          <div>
-            <%= link_to 'Creá una idea', new_proposal_guide, class: 'banner-font' %>
-          </div>
-        <% end %>
+<% if session[current_user.id.to_s].blank? %>
+  <div class="row-for-banners">
+    <div class="box">
+      <%= image_tag(image_path_for('banner-Idea.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+      <div class="column box-text">
+        <h2 class="banner-title inline-h-0">Ideas</h2>
+          <% if Proposal.can_create? %>
+            <div>
+              <%= link_to 'Creá una idea', new_proposal_guide, class: 'banner-font' %>
+            </div>
+          <% end %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <main>
   <% if @search_terms || @advanced_search_terms || @tag_filter || params[:retired].present? %>
@@ -53,7 +55,11 @@
     </div>
   <% end %>
 
-  <div class="row">
+  <% if session[current_user.id.to_s].blank? %>
+    <div class="row">
+  <% else %>
+    <div class="row padding-btn-banner-vote">
+  <% end %>
     <div id="proposals" class="proposals-list small-12 medium-9 column">
       <% if @featured_proposals.present? %>
         <div class="small-12 column featured-title-proposal">
@@ -62,7 +68,6 @@
           </h2>
         </div>
         <div id="featured-proposals" class="row featured-proposals">
-
           <% @featured_proposals.each do |featured_proposal| %>
             <%= render "featured_proposal", proposal: featured_proposal %>
           <% end %>

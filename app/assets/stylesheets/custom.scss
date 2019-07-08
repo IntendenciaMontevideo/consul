@@ -12,25 +12,25 @@
   background-color: #5ce0b2;
   text-align: center;
   min-width: 100%;
-  padding: 15px
+  padding: 15px;
+  min-height: 250px;
 }
 
 .link-vote-up {
-  color: white;
-  border: white;
-  border-style: solid;
-  padding: 2px 30px;
+  background-color: white;
+  color: #5ce0b2;
+  padding: 6px 10px;
   font-size: 14px;
   font-weight: 700;
 }
 
 a.link-vote-up:hover {
-  color: white;
+  color: #5ce0b2;
   text-decoration: unset;
 }
 
 a.link-vote-up:focus {
-  color: white;
+  color: #5ce0b2;
   text-decoration: unset;
 }
 
@@ -127,8 +127,8 @@ a.button-show-vote:focus {
   background: #5ce0b2 !important;
 }
 
-.padding-top-15 {
-  padding-top: 15px;
+.padding-top-20 {
+  padding-top: 20px;
 }
 
 .poll-question-answers .button.answered {

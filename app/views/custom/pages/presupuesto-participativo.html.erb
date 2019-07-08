@@ -2,13 +2,19 @@
   <% render "/shared/social_media_meta_tags", social_title: t("participatory_budget.title"), social_description: t("participatory_budget.content_banner")  %>
 <% end %>
 <div class="row-for-banners">
-  <div class="box ">
-     <%= image_tag(image_path_for('banner-PresP.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
-    <div class="column box-text">
-      <h2 class="banner-title inline-h-0">Presupuesto Participativo</h2>
+  <% if session[current_user.id.to_s].blank? %>
+    <div class="box ">
+      <%= image_tag(image_path_for('banner-PresP.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+      <div class="column box-text">
+        <h2 class="banner-title inline-h-0">Presupuesto Participativo</h2>
+      </div>
     </div>
-  </div>
-  <div class="medium-8 small-11 margin-left-40">
+  <% end %>
+  <% if session[current_user.id.to_s].blank? %>
+    <div class="medium-8 small-11 margin-left-40">
+  <% else %>
+    <div class="medium-8 small-11 margin-left-40 padding-btn-banner-vote">
+  <% end %>
     <p><%= t("participatory_budget.content_body") %></p>
     <p><%= t("participatory_budget.content_body_2") %></p>
 
