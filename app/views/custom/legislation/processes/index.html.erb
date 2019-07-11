@@ -1,4 +1,4 @@
-<% if session[current_user.id.to_s].blank? %>
+<% if ((current_user.blank?) || (!current_user.blank? && session[current_user.id.to_s].blank?)) %>
   <div class="row-for-banners">
     <div class="box ">
       <%= image_tag(image_path_for('banner-consulta-ciudadana.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
@@ -13,7 +13,7 @@
 <% provide :title do %>
   <%= t("layouts.header.collaborative_legislation") %> - <%= t("legislation.processes.index.filters.#{@current_filter}") %>
 <% end %>
-<% if session[current_user.id.to_s].blank? %>
+<% if ((current_user.blank?) || (!current_user.blank? && session[current_user.id.to_s].blank?)) %>
   <div class="row">
 <% else %>
   <div class="row padding-btn-banner-vote">

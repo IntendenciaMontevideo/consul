@@ -2,7 +2,7 @@
   <% render "/shared/social_media_meta_tags", social_title: t("participatory_budget.title"), social_description: t("participatory_budget.content_banner")  %>
 <% end %>
 <div class="row-for-banners">
-  <% if session[current_user.id.to_s].blank? %>
+  <% if ((current_user.blank?) || (!current_user.blank? && session[current_user.id.to_s].blank?)) %>
     <div class="box ">
       <%= image_tag(image_path_for('banner-PresP.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
       <div class="column box-text">
@@ -10,7 +10,7 @@
       </div>
     </div>
   <% end %>
-  <% if session[current_user.id.to_s].blank? %>
+  <% if ((current_user.blank?) || (!current_user.blank? && session[current_user.id.to_s].blank?)) %>
     <div class="medium-8 small-11 margin-left-40">
   <% else %>
     <div class="medium-8 small-11 margin-left-40 padding-btn-banner-vote">
