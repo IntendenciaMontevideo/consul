@@ -5,19 +5,20 @@
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: root_url %>
 <% end %>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <% @headers.each_with_index do |header, index| %>
-      <% if index == 0 %>
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <% else %>
-        <li data-target="#myCarousel" data-slide-to="<%= index %>"></li>
+<% if ((current_user.blank?) || (!current_user.blank? && session[current_user.id.to_s].blank?)) %>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <% @headers.each_with_index do |header, index| %>
+        <% if index == 0 %>
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <% else %>
+          <li data-target="#myCarousel" data-slide-to="<%= index %>"></li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ol>
+    </ol>
 
-  <!-- Wrapper for slides -->
+    <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <% @headers.each_with_index do |header, index| %>
         <div class="item <%= 'active' if index == 0 %>">
@@ -32,7 +33,8 @@
         </div>
       <% end %>
     </div>
-</div>
+  </div>
+<%end %>
 
 <% cache [locale_and_user_status, @featured_debates, @featured_proposals, 'featured'] do %>
   <main>
