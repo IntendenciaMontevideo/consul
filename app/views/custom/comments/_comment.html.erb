@@ -80,14 +80,17 @@
             <%= t("comments.comment.responses", count: 0) %>
           <% end %>
 
-          <% if user_signed_in? && !comments_closed_for_commentable?(comment.commentable) && !require_verified_resident_for_commentable?(comment.commentable, current_user) && !@proposal.archived? %>
-            <span class="divider">&nbsp;|&nbsp;</span>
-            <%= link_to(comment_link_text(comment), "",
-                        class: "js-add-comment-link", data: {'id': dom_id(comment)}) %>
+          <% if user_signed_in? && !comments_closed_for_commentable?(comment.commentable) && !require_verified_resident_for_commentable?(comment.commentable, current_user) %>
+            <% if ((comment.commentable_type == 'Proposal' && !comment.commentable.archived?) ||
+                   (comment.commentable_type == 'Poll' && !comment.commentable.expired?)) %>
+              <span class="divider">&nbsp;|&nbsp;</span>
+              <%= link_to(comment_link_text(comment), "",
+                          class: "js-add-comment-link", data: {'id': dom_id(comment)}) %>
 
-            <%= render 'comments/actions', comment: comment %>
+              <%= render 'comments/actions', comment: comment %>
 
-            <%= render 'comments/form', {commentable: comment.commentable, parent_id: comment.id, toggeable: true} %>
+              <%= render 'comments/form', {commentable: comment.commentable, parent_id: comment.id, toggeable: true} %>
+            <% end %>
           <% end %>
         </div>
       <% end %>
