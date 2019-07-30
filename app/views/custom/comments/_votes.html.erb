@@ -4,7 +4,7 @@
     &nbsp;|&nbsp;
 
     <span class="in_favor">
-      <% if can?(:vote, comment) %>
+      <% if can?(:vote, comment) && !@proposal.archived? %>
         <%= link_to vote_comment_path(comment, value: 'yes'),
             method: "post", remote: true, title: t('votes.agree') do %>
             <span class="icon-like">
@@ -12,17 +12,15 @@
             </span>
         <% end %>
       <% else %>
-        <%= link_to new_user_session_path do %>
-          <span class="icon-like">
-            <span class="show-for-sr"><%= t('votes.agree') %></span>
-          </span>
-        <% end %>
+        <span class="icon-like">
+          <span class="show-for-sr"><%= t('votes.agree') %></span>
+        </span>
       <% end %>
       <%= comment.total_likes %>
     </span>
 
     <span class="against">
-      <% if can?(:vote, comment) %>
+      <% if can?(:vote, comment) && !@proposal.archived? %>
         <%= link_to vote_comment_path(comment, value: 'no'),
             method: "post", remote: true, title: t('votes.disagree') do %>
             <span class="icon-unlike">
