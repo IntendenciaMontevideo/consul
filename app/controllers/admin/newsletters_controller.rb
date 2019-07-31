@@ -13,7 +13,7 @@ class Admin::NewslettersController < Admin::BaseController
   end
 
   def create
-    @newsletter = Newsletter.new(newsletter_params.merge(status: Newsletter::STATUS[:not_initialized]))
+    @newsletter = Newsletter.new(newsletter_params.merge(status: Newsletter::STATUS[:paused]))
     @newsletter.user_ids = @newsletter.list_of_recipient_emails.users_email_on_newsletter.ids
     if @newsletter.save
       notice = t("admin.newsletters.create_success")
