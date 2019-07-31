@@ -303,6 +303,16 @@ class Proposal < ActiveRecord::Base
     ActionView::Base.full_sanitizer.sanitize(self.description)
   end
 
+  def self.archived_proposal_without_500_votes
+    end_time = [Setting['proposals_end_day'], '/', Setting['proposals_end_month'], '/', Date.today.year].join.to_time
+    if Time.zone.now > end_time.end_of_day
+      Proposal.not_archived.where("cached_votes_up < 500").each do |proposal|
+        p "Proposal archived #{proposal.url}"
+        proposal.archived!
+      end
+    end
+  end
+
   protected
 
     def set_responsible_name
