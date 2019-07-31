@@ -36,6 +36,6 @@
 #10 15 * * * /bin/bash -l -c 'cd /Users/gaston/workspace/consul && bundle exec bin/rails runner -e development '\''Newsletter.send_newsletter'\'''
 
 # End Whenever generated tasks for: /Users/gaston/workspace/consul/config/schedule.rb at: 2019-06-14 15:01:58 -0300
-every 1.day, at: ['01:00 am', '02:00 am', '03:00 am', '04:00 am', '05:00 am', '06:00 am', '03:10 pm']  do
+every 30.minutes do
   runner "Newsletter.send_newsletter"
 end
