@@ -19,9 +19,21 @@
 .link-vote-up {
   background-color: white;
   color: #5ce0b2;
-  padding: 6px 10px;
+  padding: 6px 36px;
   font-size: 14px;
   font-weight: 700;
+  width: 200px;
+}
+
+.link-vote {
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+a.link-vote:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 a.link-vote-up:hover {
@@ -338,4 +350,9 @@ a.button-span-not-allowed-poll:hover {
 
 .pagination li {
   display: inline-block !important;
+}
+
+.margin-top-button-vote {
+  margin-top: 35px;
+  padding-left: 0;
 }
