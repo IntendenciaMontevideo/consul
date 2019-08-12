@@ -3,26 +3,13 @@ class PollsController < ApplicationController
 
   load_and_authorize_resource
 
-  has_filters %w{current expired}
+  has_filters %w{current expired incoming}
   has_orders %w{most_voted newest oldest}, only: [:show, :show_question]
 
   ::Poll::Answer # trigger autoload
 
   def index
     @polls = @polls.send(@current_filter).includes(:geozones).sort_for_list.page(params[:page])
-    if @valid_filters.include?("incoming")
-      if current_user.blank?
-        @valid_filters.delete("incoming")
-      else
-        if !(current_user.administrator? || current_user.moderator?)
-          @valid_filters.delete("incoming")
-        end
-      end
-    else
-      if !current_user.blank? && (current_user.administrator? || current_user.moderator?)
-        @valid_filters.push("incoming")
-      end
-    end
   end
 
   def show
