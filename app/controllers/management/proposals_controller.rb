@@ -58,7 +58,7 @@ class Management::ProposalsController < Management::BaseController
   end
 
   def approve
-    @proposal.success!(params[:text_show_finished])
+    @proposal.success!(params[:text_show_finished],params[:link_success])
     redirect_to management_proposal_path(@proposal), notice: 'Actualizado correctamente'
   end
 

@@ -256,8 +256,8 @@ class Proposal < ActiveRecord::Base
     update(state: STATES[:pre_success], votes_for_success: votes_for_success)
   end
 
-  def success!(text)
-    update(state: STATES[:success], text_show_finished: text)
+  def success!(text, link)
+    update(state: STATES[:success], text_show_finished: text, link_success: link)
   end
 
   def not_success!(link, text)

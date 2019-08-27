@@ -2,16 +2,23 @@
   <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>
   <p>El perido para apoyar esta idea a finalizado.</p>
 <% elsif proposal.not_successful? %>
-  <% if proposal.text_show_finished.blank? %>
-    <div class="padding text-center">
+  <div class="padding text-center">
+    <% if proposal.text_show_finished.blank? %>
       <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>
       <p>Esta propuesta no ha sido viable <%= resaon_not_success(proposal)%></p>
-    </div>
-  <% else %>
-    <p>
-      <%= proposal.text_show_finished%>
-    </p>
-  <% end %>
+    <% else %>
+      <p>
+        <%= proposal.text_show_finished%>
+      </p>
+      <% unless proposal.link_not_success.blank? %>
+        <%= link_to proposal.link_not_success,
+              class: "button button-support expanded #{ show ? 'view-document-show' : 'view-document-list'}",
+              title: "Ver documento", target: '_blank' do %>
+            Ver documento
+          <% end %>
+      <% end %>
+    <% end %>
+  </div>
 <% elsif proposal.successful? %>
   <div class="padding text-center proposal-approve">
     <% if proposal.text_show_finished.blank? %>
@@ -23,6 +30,13 @@
       <p>
         <%= proposal.text_show_finished%>
       </p>
+      <% unless proposal.link_success.blank? %>
+        <%= link_to proposal.link_success,
+              class: "button button-support expanded #{ show ? 'view-document-show' : 'view-document-list'}",
+              title: "Ver documento", target: '_blank' do %>
+            Ver documento
+          <% end %>
+      <% end %>
     <% end %>
   </div>
   <% if show %>

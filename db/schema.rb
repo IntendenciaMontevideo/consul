@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190625203941) do
+ActiveRecord::Schema.define(version: 20190823134133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -897,6 +897,7 @@ ActiveRecord::Schema.define(version: 20190625203941) do
     t.integer  "state",                          default: 1
     t.string   "link_not_success"
     t.string   "text_show_finished"
+    t.string   "link_success"
   end
 
   add_index "proposals", ["author_id", "hidden_at"], name: "index_proposals_on_author_id_and_hidden_at", using: :btree

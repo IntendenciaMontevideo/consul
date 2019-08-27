@@ -178,6 +178,7 @@ div #tag-cloud ul li a{
 
 #proposals-list .proposal .div-votes{
   background-color: #f8bd41;
+  min-height: 13.3rem;
 }
 
 #proposals-list .proposal .with-special{
@@ -1818,4 +1819,17 @@ h2.font-size-poll-banner {
 
 .padding-btn-banner-vote {
   padding-top: 1.5rem;
+}
+
+.view-document-list, .view-document-list:hover {
+  background: #FFF !important;
+  color: #f8bd41;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.view-document-show, .view-document-show:hover {
+  background: #ffa42d !important;
+  color: #222;
+  font-size: 0.875rem;
 }

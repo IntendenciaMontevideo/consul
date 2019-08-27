@@ -72,7 +72,6 @@
           </div>
         <% elsif proposal.successful? %>
           <div class="padding text-center">
-
             <p>
               <%= t("proposals.proposal.successful",
                   voting: link_to(t("proposals.proposal.voting"), polls_path)).html_safe %>
