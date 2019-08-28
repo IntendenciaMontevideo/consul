@@ -9,7 +9,13 @@ class PollsController < ApplicationController
   ::Poll::Answer # trigger autoload
 
   def index
-    @polls = @polls.send(@current_filter).includes(:geozones).sort_for_list.page(params[:page])
+    if @current_filter && @current_filter == "current"
+      @polls = @polls.public_consultation(false).send(@current_filter).includes(:geozones).sort_for_list.page(params[:page])
+      @public_consultations = Poll.public_consultation(true).send(@current_filter)
+    else
+      @polls = @polls.send(@current_filter).includes(:geozones).sort_for_list.page(params[:page])
+      @public_consultations = Poll.none
+    end
   end
 
   def show

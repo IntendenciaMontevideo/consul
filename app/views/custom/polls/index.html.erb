@@ -19,24 +19,20 @@
 <% end %>
   <div class="proposals-list small-12 medium-9 column">
     <%= render 'shared/filter_subnav', i18n_namespace: "polls.index" %>
-
-    <% polls_by_geozone_restriction = @polls.group_by(&:geozone_restricted) %>
-
-    <% if polls_by_geozone_restriction[false].present? %>
+    <% unless @public_consultations.empty? %>
       <h3 class="section-title-divider">
-        <span><%= t("polls.index.no_geozone_restricted") %></span>
+        <span>Consulta Ciudadana</span>
       </h3>
-      <%= render partial: 'poll_group', locals: {poll_group: polls_by_geozone_restriction[false]} %>
+      <%= render partial: 'poll_group', locals: {polls: @public_consultations} %>
     <% end %>
 
-    <% if polls_by_geozone_restriction[true].present? %>
+    <% unless @polls.empty? %>
       <h3 class="section-title-divider">
-        <span><%= t("polls.index.geozone_restricted") %></span>
+        <span>Ideas</span>
       </h3>
-      <%= render partial: 'poll_group', locals: {poll_group: polls_by_geozone_restriction[true]} %>
+      <%= render partial: 'poll_group', locals: {polls: @polls} %>
+      <%= paginate @polls %>
     <% end %>
-
-    <%= paginate @polls %>
 
   </div>
 

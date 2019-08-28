@@ -1,4 +1,11 @@
 <%= form_for [:admin, @poll] do |f| %>
+
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.check_box :public_consultation, label: false %>
+      <%= f.label :public_consultation, "Consulta Pública" %>
+    </div>
+  </div>
   <div class="row">
     <div class="small-12 medium-6 column">
       <%= f.text_field :name %>
