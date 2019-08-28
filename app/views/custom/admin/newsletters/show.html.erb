@@ -98,4 +98,7 @@
   <% end %>
 <% end %>
 <br>
-<%= render 'users', newsletter_users: @newsletter.newsletter_users %>
+<p>Emails envidaos: <%= @newsletter.mails_sended.count %><p>
+<% if @newsletter.finished? %>
+  <%= render 'users', users_not_sended: @newsletter.mails_not_sended %>
+<% end %>

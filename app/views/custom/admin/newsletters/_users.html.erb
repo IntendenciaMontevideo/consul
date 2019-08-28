@@ -1,6 +1,5 @@
-<h2 class="inline-block">Usuarios</h2>
-
-<% if newsletter_users.any? %>
+<% if users_not_sended.any? %>
+  <h2 class="inline-block">Usuarios que no se han podido enviar mail</h2>
   <table id="newsletters">
     <thead>
       <tr>
@@ -11,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-    <% newsletter_users.order(created_at: :asc).each do |newsletter_user| %>
+    <% users_not_sended.order(created_at: :asc).each do |newsletter_user| %>
       <tr >
         <td>
           <%= newsletter_user.user.email %>
@@ -35,8 +34,4 @@
     <% end %>
     </tbody>
   </table>
-<% else %>
-  <div data-alert class="callout primary margin-top clear">
-    No hay usuarios asignados a este newsletter
-  </div>
 <% end %>
