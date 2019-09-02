@@ -42,3 +42,6 @@ App.Polls =
         unless $(answer).hasClass('first')
           $(answer).insertAfter($(answer).next('div.answer'));
 
+    $(".close-modal-vote").on "click", (event) ->
+      $('#show-vote-modal').foundation('close');
+
