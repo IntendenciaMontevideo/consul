@@ -14,7 +14,7 @@ class Admin::NewslettersController < Admin::BaseController
 
   def create
     @newsletter = Newsletter.new(newsletter_params.merge(status: Newsletter::STATUS[:paused]))
-    @newsletter.user_ids = @newsletter.list_of_recipient_emails.users_email_on_newsletter.ids
+    @newsletter.user_ids = @newsletter.list_of_recipient_emails.users_email_on_newsletter.ids.uniq
     if @newsletter.save
       notice = t("admin.newsletters.create_success")
       redirect_to [:admin, @newsletter], notice: notice
@@ -47,7 +47,7 @@ class Admin::NewslettersController < Admin::BaseController
 
   def update
     @newsletter = Newsletter.find(params[:id])
-    @newsletter.user_ids = @newsletter.list_of_recipient_emails.users_email_on_newsletter.ids
+    @newsletter.user_ids = @newsletter.list_of_recipient_emails.users_email_on_newsletter.ids.uniq
 
     if @newsletter.update(newsletter_params)
       redirect_to [:admin, @newsletter], notice: t("admin.newsletters.update_success")
