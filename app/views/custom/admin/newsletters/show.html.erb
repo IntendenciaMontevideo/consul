@@ -66,6 +66,10 @@
                 method: :post,
                 id: "js-pause-newsletter-alert",
                 class: "button success" %>
+    <%= link_to t("admin.newsletters.index.edit"),
+                edit_admin_newsletter_path(@newsletter),
+                method: :get,
+                class: "button success" %>
   <% end %>
 
   <% if (@newsletter.initializated? || @newsletter.restarted?)&& @newsletter.valid_segment_recipient? %>
@@ -95,6 +99,11 @@
                 method: :post,
                 id: "js-restart-newsletter-alert",
                 class: "button success" %>
+    <%= link_to t("admin.newsletters.index.edit"),
+                edit_admin_newsletter_path(@newsletter),
+                method: :get,
+                class: "button success" %>
+
   <% end %>
 <% end %>
 <br>
