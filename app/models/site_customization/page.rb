@@ -11,6 +11,7 @@ class SiteCustomization::Page < ActiveRecord::Base
   scope :published, -> { where(status: 'published').order('id DESC') }
   scope :with_more_info_flag, -> { where(status: 'published', more_info_flag: true).order('id ASC') }
   scope :with_same_locale, -> { where(locale: I18n.locale).order('id ASC') }
+  scope :with_add_in_menu, -> { published.where(add_in_menu: true) }
 
   def url
     "/#{slug}"

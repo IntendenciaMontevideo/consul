@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190827122128) do
+ActiveRecord::Schema.define(version: 20191121141424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1002,6 +1002,7 @@ ActiveRecord::Schema.define(version: 20190827122128) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.string   "locale"
+    t.boolean  "add_in_menu",        default: false
   end
 
   create_table "spending_proposals", force: :cascade do |t|
