@@ -14,10 +14,10 @@
 <% if session_answers.count < poll.number_votes_allowed %>
   <% if is_create_session %>
     <button class="button float-center button-vote-modal" data-close aria-label="Close modal" type="button">
-      Seguir Seleccionando
+      Seguir seleccionando
     </button>
   <% else %>
-    <%= link_to 'Seguir Seleccionando',
+    <%= link_to 'Seguir seleccionando',
       poll_path(poll),
       class: "button float-center button-vote-modal"%>
   <% end %>
@@ -29,16 +29,22 @@
   <% end %>
   <% if is_create_session %>
     <button class="button float-center button-vote-modal" data-close aria-label="Close modal" type="button">
-      Cambiar Selección
+      Cambiar selección
+    </button>
+    <button class="button float-center button-vote-modal" data-close aria-label="Close modal" type="button">
+      Seguir seleccionando
     </button>
   <% else %>
-    <%= link_to 'Cambiar Selección',
+    <%= link_to 'Cambiar selección',
+      poll_path(poll),
+      class: "button float-center button-vote-modal"%>
+    <%= link_to 'Seguir seleccionando',
       poll_path(poll),
       class: "button float-center button-vote-modal"%>
   <% end %>
 <% end %>
 
-<%= link_to 'Confirmar Voto y Finalizar',
+<%= link_to 'Confirmar voto y finalizar',
   vote_poll_questions_path(poll_id: poll.id, token: token),
   method: :post,
   remote: true,
