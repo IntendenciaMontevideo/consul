@@ -25,7 +25,7 @@
   <% if Setting['enable_participatory_budget'] == "true" %>
     <p class="padding-top-5">Recuerda que puedes seleccionar hasta <%= poll.number_votes_allowed %> propuestas y votar en un sólo municipio. Cuando confirmes el voto ya no podrás cambiarlo.</p><br>
   <% else %>
-    <p class="padding-top-5">Ya has seleccionado todas las opciones posibles. Cuando confirmes el voto ya no podrás cambiarlo</p><br>
+    <p class="padding-top-5">Has seleccionado una opción de respuesta. Cuando confirmes el voto ya no podrás cambiarlo.</p><br>
   <% end %>
   <% if is_create_session %>
     <button class="button float-center button-vote-modal" data-close aria-label="Close modal" type="button">
