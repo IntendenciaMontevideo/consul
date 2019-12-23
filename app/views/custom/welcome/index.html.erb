@@ -122,14 +122,14 @@
           <% @recommendations.in_groups_of(3).each do |recommendations| %>
             <div class="row">
               <% recommendations.compact.each do |recommendation|%>
-                <div class="large-4 medium-4 column float-left">
-                  <p class="margin-img-2">
-                    <%= link_to recommendation.link_url, target: :blank do %>
+                <%= link_to recommendation.link_url, target: :blank do %>
+                  <div class="large-4 medium-4 column float-left">
+                    <p class="margin-img-2">
                       <%= image_tag recommendation.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
-                    <% end %>
-                    <p class="text-feature-img"><%= recommendation.link_text%></p>
-                  </p>
-                </div>
+                      <p class="text-feature-img"><%= recommendation.link_text%></p>
+                    </p>
+                  </div>
+                <% end %>
               <% end %>
             </div>
           <% end %>
@@ -145,14 +145,14 @@
           </div>
           <div class="row">
             <% @recommendations.limit(3).each do |recommendation| %>
-              <div class="large-4 medium-4 column float-left">
-                <p class="margin-img-2">
-                  <%= link_to recommendation.link_url, target: :blank do %>
+              <%= link_to recommendation.link_url, target: :blank do %>
+                <div class="medium-4 column float-left">
+                  <p class="margin-img-2">
                     <%= image_tag recommendation.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
-                  <% end %>
-                  <p class="text-feature-img float-center"><%= recommendation.link_text%></p>
-                </p>
-              </div>
+                    <p class="text-feature-img"><%= recommendation.link_text%></p>
+                  </p>
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>
