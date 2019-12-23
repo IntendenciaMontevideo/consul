@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
   layout "devise", only: [:welcome, :verification]
 
   def index
-    @recommendations = Widget::Card.body.limit(3)
+    @recommendations = Widget::Card.body
     @headers = Widget::Card.header
     @recommendation_is_active = recomendation_home?
     @feed_proposal = Widget::Feed.find_by_kind(Widget::Feed::KINDS[0])
