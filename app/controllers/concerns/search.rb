@@ -9,6 +9,8 @@ module Search
 
   def parse_search_terms
     @search_terms = params[:search] if params[:search].present?
+    @search_by_date = params[:date].to_date if params[:date].present?
+    @search_by_status = params[:status] if params[:status].present?
   end
 
   def parse_advanced_search_terms

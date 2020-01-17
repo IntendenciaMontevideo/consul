@@ -149,6 +149,12 @@ es:
       proposal: Idea
       budget_investment: "Consulta ciudadana"
   proposals:
+    status:
+      open: 'Pendiente'
+      pre_success: 'Pre-Aprobada'
+      success: 'Aprobada'
+      not_success: 'No Aprobada'
+      archived: 'Archivada'
     banner-text: "Montevideo necesita tu aporte para crecer. Por eso te invitamos a que te sumes a los debates sobre los temas que más te preocupan, propongas ideas para mejorar la calidad de vida de todos y todas, y decidamos en conjunto cuáles se llevan a cabo."
     create:
       form:
@@ -170,6 +176,15 @@ es:
       proposal_title: Título de la idea
       tags_instructions: "Etiqueta esta idea. Puedes elegir entre las categorías ideas o introducir las que desees"
     index:
+      search_results_html:
+        one: " que contiene <strong>'%{search_term}'</strong>"
+        other: " que contienen <strong>'%{search_term}'</strong>"
+      search_two_results_html:
+        one: " que contiene <strong>'%{search_first}'</strong> y <strong>'%{search_second}'</strong>"
+        other: " que contiene <strong>'%{search_first}'</strong> y <strong>'%{search_second}'</strong>"
+      search_three_results_html:
+        one: " que contiene <strong>'%{search_first}'</strong> y <strong>'%{search_second}'</strong> y <strong>'%{search_third}'</strong>"
+        other: " que contienen <strong>'%{search_first}'</strong> y <strong>'%{search_second}'</strong> y <strong>'%{search_third}'</strong>"
       recommendations:
         without_results: No existen ideas relacionadas con tus intereses
         without_interests: Sigue ideas para que podamos darte recomendaciones
@@ -325,3 +340,10 @@ es:
         polls:
           one: 1 Votación
           other: "%{count} Votaciones"
+  shared:
+    proposal_search:
+      placeholder: 'Buscar propuestas por título, código, descripción o pregunta'
+      date: 'Fecha de creación'
+      status: 'Estado'
+      general: 'Con el texto'
+
