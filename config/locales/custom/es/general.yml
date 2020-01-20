@@ -343,7 +343,8 @@ es:
   shared:
     proposal_search:
       placeholder: 'Buscar propuestas por título, código, descripción o pregunta'
-      date: 'Fecha de creación'
+      start_date: 'Fecha inicio'
+      end_date: 'Fecha fin'
       status: 'Estado'
       general: 'Con el texto'
 

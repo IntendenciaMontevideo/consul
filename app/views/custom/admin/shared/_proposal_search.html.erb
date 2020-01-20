@@ -7,9 +7,16 @@
       <%= text_field_tag "search", params[:search], placeholder: t("shared.proposal_search.placeholder") %>
     </div>
     <div class="small-12 medium-6 column">
-      <label for="js-advanced-search-date-min"><%= t("shared.proposal_search.date") %></label>
-      <%= text_field_tag 'date',
-          params[:date],
+      <label for="js-advanced-search-date-min"><%= t("shared.proposal_search.start_date") %></label>
+      <%= text_field_tag 'start_date',
+          params[:start_date],
+          autocomplete: "off",
+          class: 'js-calendar' %>
+    </div>
+    <div class="small-12 medium-6 column">
+      <label for="js-advanced-search-date-min"><%= t("shared.proposal_search.end_date") %></label>
+      <%= text_field_tag 'end_date',
+          params[:end_date],
           autocomplete: "off",
           class: 'js-calendar' %>
     </div>

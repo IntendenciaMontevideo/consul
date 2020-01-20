@@ -6,21 +6,21 @@
 
       <div class="filters">
         <div class="small-12 medium-12 float-left">
-          <% if @search_terms || @search_by_date || @search_by_status %>
+          <% if @search_terms || (@search_start_date && @search_end_date) || @search_by_status %>
             <h2>
               <%= page_entries_info @proposals %>
-              <% if @search_terms && @search_by_date && @search_by_status %>
-                <%= t("proposals.index.search_three_results_html", count: @proposals.size, search_first: @search_terms, search_second: @search_by_date.strftime("%d/%m/%Y"), search_third: t("proposals.status.#{Proposal::STATES.key(@search_by_status.to_i)}")) %>
-              <% elsif @search_terms && @search_by_date %>
-                <%= t("proposals.index.search_two_results_html", count: @proposals.size, search_first: @search_terms, search_second: @search_by_date.strftime("%d/%m/%Y")) %>
+              <% if @search_terms && @search_start_date && @search_end_date && @search_by_status %>
+                <%= t("proposals.index.search_three_results_html", count: @proposals.size, search_first: @search_terms, search_second: "#{@search_start_date.strftime("%d/%m/%Y")} - #{@search_end_date.strftime("%d/%m/%Y")}", search_third: t("proposals.status.#{Proposal::STATES.key(@search_by_status.to_i)}")) %>
+              <% elsif @search_terms && @search_start_date && @search_end_date %>
+                <%= t("proposals.index.search_two_results_html", count: @proposals.size, search_first: @search_terms, search_second: "#{@search_start_date.strftime("%d/%m/%Y")} - #{@search_end_date.strftime("%d/%m/%Y")}") %>
               <% elsif @search_terms && @search_by_status %>
                 <%= t("proposals.index.search_two_results_html", count: @proposals.size, search_first: @search_terms, search_second: t("proposals.status.#{Proposal::STATES.key(@search_by_status.to_i)}")) %>
-              <% elsif @search_by_date && @search_by_status %>
-                <%= t("proposals.index.search_two_results_html", count: @proposals.size, search_first: @search_by_date.strftime("%d/%m/%Y"), search_second: t("proposals.status.#{Proposal::STATES.key(@search_by_status.to_i)}")) %>
+              <% elsif @search_start_date && @search_end_date && @search_by_status %>
+                <%= t("proposals.index.search_two_results_html", count: @proposals.size, search_first: "#{@search_start_date.strftime("%d/%m/%Y")} - #{@search_end_date.strftime("%d/%m/%Y")}", search_second: t("proposals.status.#{Proposal::STATES.key(@search_by_status.to_i)}")) %>
               <% elsif @search_terms %>
                 <%= t("proposals.index.search_results_html", count: @proposals.size, search_term: @search_terms) %>
-              <% elsif @search_by_date %>
-                <%= t("proposals.index.search_results_html", count: @proposals.size, search_term: @search_by_date.strftime("%d/%m/%Y")) %>
+              <% elsif @search_start_date && @search_end_date %>
+                <%= t("proposals.index.search_results_html", count: @proposals.size, search_term: "#{@search_start_date.strftime("%d/%m/%Y")} - #{@search_end_date.strftime("%d/%m/%Y")}") %>
               <% elsif @search_by_status %>
                 <%= t("proposals.index.search_results_html", count: @proposals.size, search_term: t("proposals.status.#{Proposal::STATES.key(@search_by_status.to_i)}")) %>
               <% end %>
