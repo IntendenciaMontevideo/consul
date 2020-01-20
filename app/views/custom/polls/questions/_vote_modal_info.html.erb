@@ -27,17 +27,20 @@
   <% else %>
     <p class="padding-top-5">Has seleccionado una opción de respuesta. Cuando confirmes el voto ya no podrás cambiarlo.</p><br>
   <% end %>
+
+  <% unless @id_answer_selected.nil? &&  @id_question_answer.nil? %>
+    <%= link_to 'Cambiar selección',
+      change_selection_poll_questions_path(poll_id: poll.id, answer_id: @id_answer_selected, id: @id_question_answer.to_i),
+      method: :post,
+      remote: true,
+      class: "button float-center button-vote-modal" %>
+  <% end %>
+
   <% if is_create_session %>
-    <button class="button float-center button-vote-modal" data-close aria-label="Close modal" type="button">
-      Cambiar selección
-    </button>
     <button class="button float-center button-vote-modal" data-close aria-label="Close modal" type="button">
       Seguir seleccionando
     </button>
   <% else %>
-    <%= link_to 'Cambiar selección',
-      poll_path(poll),
-      class: "button float-center button-vote-modal"%>
     <%= link_to 'Seguir seleccionando',
       poll_path(poll),
       class: "button float-center button-vote-modal"%>

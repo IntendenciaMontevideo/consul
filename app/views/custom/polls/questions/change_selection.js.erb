@@ -1,0 +1,12 @@
+<% token = poll_voter_token(@poll, current_user) %>
+if (document.getElementById("questions-poll-<%= @poll.id %>") != null) {
+  $("#questions-poll-<%= @poll.id %>").html('<%= j render("/polls/questions/questions", questions: @questions, token: token, session_answers: @session_answers) %>');
+}
+<% if !current_user.blank? && !session[current_user.id.to_s].blank? %>
+  $(".button-vote-c").html('<%= j render("/layouts/button_vote") %>');
+<% else %>
+  $(".button-vote-c").html('');
+<% end %>
+$(".js-question-answer").removeClass("disabled");
+jQuery('#vote-modal').foundation('close');
+window.location.reload();

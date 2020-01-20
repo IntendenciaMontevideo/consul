@@ -11,6 +11,7 @@ resources :polls, only: [:show, :index] do
       post :vote
       post :show_modal_vote
       post :clean_session_same_group
+      post :change_selection
     end
   end
 end

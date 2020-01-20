@@ -25,6 +25,8 @@ class Polls::QuestionsController < ApplicationController
         if session[current_user.id.to_s][@poll.id.to_s].count <= @poll.number_votes_allowed
           session[current_user.id.to_s][@poll.id.to_s][@question.id.to_s] = params[:answer_id]
         end
+        @id_answer_selected = params[:answer_id]
+        @id_question_answer = @question.id.to_s
         @is_select_answer = true
       end
     end
@@ -91,5 +93,16 @@ class Polls::QuestionsController < ApplicationController
       end
       @clean_own_poll = false
     end
+  end
+
+  def change_selection
+    @poll = Poll.find(params[:poll_id].to_i)
+    session[current_user.id.to_s][@poll.id.to_s].delete(@question.id.to_s)
+    if session[current_user.id.to_s][@poll.id.to_s].blank?
+      session[current_user.id.to_s].delete(@poll.id.to_s)
+    end
+    @session_answers = session[current_user.id.to_s][@poll.id.to_s].blank? ? {} : session[current_user.id.to_s][@poll.id.to_s]
+    @questions = @poll.questions.for_render.sort_by_order_number
+    @can_vote = validate_can_vote(current_user, @poll)
   end
 end
