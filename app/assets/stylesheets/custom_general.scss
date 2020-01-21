@@ -1797,6 +1797,7 @@ footer a:hover, footer a:active:hover, footer a:focus:hover {
   font-size: 27px;
   font-weight: 700;
   padding-right: 10px;
+  text-align: center;
 }
 
 .height-div-square {
@@ -1832,4 +1833,8 @@ h2.font-size-poll-banner {
   background: #ffa42d !important;
   color: #222;
   font-size: 0.875rem;
+}
+
+.height-status-search {
+  height: 50px;
 }

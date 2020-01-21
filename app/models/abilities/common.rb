@@ -94,6 +94,9 @@ module Abilities
         can :clean_session_same_group, Poll::Question do |question|
           question.answerable_by?(user)
         end
+        can :change_selection, Poll::Question do |question|
+          question.answerable_by?(user)
+        end
       end
 
       can [:create, :show], ProposalNotification, proposal: { author_id: user.id }

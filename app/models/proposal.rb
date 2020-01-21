@@ -37,18 +37,15 @@ class Proposal < ActiveRecord::Base
   validates :summary, presence: true
   validates :author, presence: true
   validates :responsible_name, presence: true
-
   validates :title, length: { in: 4..Proposal.title_max_length }
   validates :description, length: { maximum: Proposal.description_max_length }
   validates :responsible_name, length: { in: 6..Proposal.responsible_name_max_length }
   validates :retired_reason, inclusion: { in: RETIRE_OPTIONS, allow_nil: true }
-
   validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
 
   validate :valid_video_url?
 
   before_validation :set_responsible_name
-
   before_save :calculate_hot_score, :calculate_confidence_score
   before_create :set_votes_for_success
 
@@ -73,6 +70,9 @@ class Proposal < ActiveRecord::Base
   scope :public_for_api,           -> { all }
   scope :not_supported_by_user,    ->(user) { where.not(id: user.find_voted_items(votable_type: "Proposal").compact.map(&:id)) }
   scope :not_not_success,          -> { where.not("state = ?", Proposal::STATES[:not_success]) }
+  scope :search_between_dates, -> (start_date, end_date) { where('created_at >= ? AND created_at <= ?', start_date.beginning_of_day, end_date.beginning_of_day) }
+  scope :search_by_status, -> (status) { where(state: status) }
+
   def url
     proposal_path(self)
   end
@@ -193,7 +193,7 @@ class Proposal < ActiveRecord::Base
     Setting['votes_for_proposal_success'].to_i
   end
 
-   def self.votes_needed_for_pre_success
+  def self.votes_needed_for_pre_success
     Setting['proposals_feasibility_threshold'].to_i
   end
 

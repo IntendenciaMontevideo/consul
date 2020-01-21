@@ -5,12 +5,12 @@ module CommentableActions
 
   def index
     @resources = resource_model.all
-
     @resources = @current_order == "recommendations" && current_user.present? ? @resources.recommendations(current_user) : @resources.for_render
     @resources = @resources.search(@search_terms) if @search_terms.present?
+    @resources = @resources.search_between_dates(@search_start_date, @search_end_date) if (@search_start_date.present? && @search_end_date.present?)
+    @resources = @resources.search_by_status(@search_by_status) if @search_by_status.present?
     @resources = @advanced_search_terms.present? ? @resources.filter(@advanced_search_terms) : @resources
     @resources = @resources.tagged_with(@tag_filter) if @tag_filter
-
     @resources = @resources.page(params[:page]).send("sort_by_#{@current_order}")
 
     index_customization if index_customization.present?

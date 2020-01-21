@@ -32,6 +32,10 @@ module ProposalsHelper
     Proposal::RETIRE_OPTIONS.collect { |option| [ t("proposals.retire_options.#{option}"), option ] }
   end
 
+  def options_status_proposal_search
+    Proposal::STATES.collect { |option| [ t("proposals.status.#{option[0]}"), option[1] ] }
+  end
+
   def empty_recommended_proposals_message_text(user)
     if user.interests.any?
       t('proposals.index.recommendations.without_results')
