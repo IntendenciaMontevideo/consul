@@ -33,7 +33,7 @@
           <%= newsletter.mails_sended.count %>
         </td>
         <td class="text-right">
-          <% if newsletter.not_initialized? %>
+          <% if newsletter.not_initialized? || newsletter.paused? %>
             <%= link_to t("admin.newsletters.index.edit"), edit_admin_newsletter_path(newsletter),
                                                            method: :get, class: "button hollow" %>
 

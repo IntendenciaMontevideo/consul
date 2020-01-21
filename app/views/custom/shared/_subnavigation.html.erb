@@ -43,7 +43,6 @@
                                   accesskey: "s" %>
       </li>
     <% end %>
-
     <li class="flex-4">
       <%= layout_menu_link_to t("layouts.header.budgets"),
                                 Setting['enable_participatory_budget'] == "false" || Setting['enable_participatory_budget'].blank? ? presupuesto_participativo_path : polls_path,
@@ -51,8 +50,19 @@
                                 accesskey: "4",
                                 title: t("shared.go_to_page") + t("layouts.header.budgets") %>
     </li>
-     <li class="float-right show-for-large-only">
+    <% pages = SiteCustomization::Page.with_add_in_menu %>
+    <% if pages.size > 0 %>
+      <% pages.each do |page| %>
+        <li class="flex-1">
+          <%= layout_menu_link_to page.title,
+                                  page.slug,
+                                  false,
+                                  title:  page.title %>
+        </li>
+      <% end %>
+    <% end %>
+    <li class="float-right show-for-large-only">
       <%= yield :header_addon %>
-     </li>
+    </li>
   </ul>
 </div>

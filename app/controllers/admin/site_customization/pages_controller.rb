@@ -41,6 +41,7 @@ class Admin::SiteCustomization::PagesController < Admin::SiteCustomization::Base
         :content,
         :more_info_flag,
         :print_content_flag,
+        :add_in_menu,
         :status,
         :locale
       )
