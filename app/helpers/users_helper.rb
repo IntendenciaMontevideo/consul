@@ -79,4 +79,10 @@ module UsersHelper
    true
  end
 
+ def set_specific_name_is_moderator(user)
+    if user && user.moderator?
+      user.username = "Moderador"
+    end
+    user
+ end
 end
