@@ -106,3 +106,10 @@ es:
         paused: Pausado
         canceled: Cancelado
         finished: Finalizado
+    widget:
+      cards:
+        init_datetime: Fecha y Hora Inicio
+        end_datetime: Fecha y Hora Fin
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"

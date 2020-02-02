@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191121141424) do
+ActiveRecord::Schema.define(version: 20200202125505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -637,13 +637,13 @@ ActiveRecord::Schema.define(version: 20191121141424) do
 
   create_table "newsletters", force: :cascade do |t|
     t.string   "subject"
-    t.string   "segment_recipient",             null: false
+    t.string   "segment_recipient", null: false
     t.string   "from"
     t.text     "body"
     t.date     "sent_at"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.integer  "status",            default: 1
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "status"
     t.string   "test_email"
     t.string   "email_to"
   end
@@ -1245,9 +1245,11 @@ ActiveRecord::Schema.define(version: 20191121141424) do
     t.string   "link_text"
     t.string   "link_url"
     t.string   "label"
-    t.boolean  "header",      default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "header",        default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.datetime "init_datetime"
+    t.datetime "end_datetime"
   end
 
   create_table "widget_feeds", force: :cascade do |t|

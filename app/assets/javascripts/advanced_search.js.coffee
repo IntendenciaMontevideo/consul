@@ -26,6 +26,16 @@ App.AdvancedSearch =
     $('.js-calendar-full').datepicker
       regional: locale
 
+    $('#widget_card_init_datetime').datetimepicker
+      step:5,
+      format:'d/m/Y H:i',
+      lang: 'es'
+
+    $('#widget_card_end_datetime').datetimepicker
+      step:5,
+      format:'d/m/Y H:i',
+      lang: 'es'
+
   initialize: ->
     App.AdvancedSearch.init_calendar()
 
