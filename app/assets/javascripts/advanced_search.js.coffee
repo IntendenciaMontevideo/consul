@@ -1,5 +1,4 @@
 App.AdvancedSearch =
-
   advanced_search_terms: ->
     $('#js-advanced-search').data('advanced-search-terms')
 
@@ -28,13 +27,11 @@ App.AdvancedSearch =
 
     $('#widget_card_init_datetime').datetimepicker
       step:5,
-      format:'d/m/Y H:i',
-      lang: 'es'
+      format:'d/m/Y H:i'
 
     $('#widget_card_end_datetime').datetimepicker
       step:5,
-      format:'d/m/Y H:i',
-      lang: 'es'
+      format:'d/m/Y H:i'
 
   initialize: ->
     App.AdvancedSearch.init_calendar()

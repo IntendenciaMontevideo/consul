@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200202125505) do
+ActiveRecord::Schema.define(version: 20200205201430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1250,6 +1250,7 @@ ActiveRecord::Schema.define(version: 20200202125505) do
     t.datetime "updated_at",                    null: false
     t.datetime "init_datetime"
     t.datetime "end_datetime"
+    t.integer  "order_number"
   end
 
   create_table "widget_feeds", force: :cascade do |t|
