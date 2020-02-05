@@ -6,8 +6,6 @@ class Admin::Widget::CardsController < Admin::BaseController
 
   def create
     @card = ::Widget::Card.new(card_params)
-    @card.init_datetime = card_params[:init_datetime].blank? ? nil : Time.parse(card_params[:init_datetime].to_datetime.strftime('%Y-%m-%d %H:%M'))
-    @card.end_datetime = card_params[:end_datetime].blank? ? nil : Time.parse(card_params[:end_datetime].to_datetime.strftime('%Y-%m-%d %H:%M'))
     if @card.save
       notice = "Success"
       redirect_to admin_homepage_url, notice: notice
@@ -22,9 +20,7 @@ class Admin::Widget::CardsController < Admin::BaseController
 
   def update
     @card = ::Widget::Card.find(params[:id])
-    init_datetime = card_params[:init_datetime].blank? ? nil : Time.parse(card_params[:init_datetime].to_datetime.strftime('%Y-%m-%d %H:%M'))
-    end_datetime = card_params[:end_datetime].blank? ? nil : Time.parse(card_params[:end_datetime].to_datetime.strftime('%Y-%m-%d %H:%M'))
-    if @card.update(card_params.except(:init_datetime, :end_datetime).merge(init_datetime: init_datetime, end_datetime: end_datetime))
+    if @card.update(card_params)
       notice = "Updated"
       redirect_to admin_homepage_url, notice: notice
     else

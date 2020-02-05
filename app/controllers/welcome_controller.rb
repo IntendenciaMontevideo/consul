@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
 
   def index
     @recommendations = Widget::Card.body
-    @headers = load_widget_cards
+    @headers = load_widget_cards.sort_by { |obj| obj.order_number }
     @recommendation_is_active = recomendation_home?
     @feed_proposal = Widget::Feed.find_by_kind(Widget::Feed::KINDS[0])
     @feed_debate = Widget::Feed.find_by_kind(Widget::Feed::KINDS[1])
@@ -33,8 +33,7 @@ class WelcomeController < ApplicationController
 
   def load_widget_cards
     cards = Widget::Card.header
-    result = cards.without_init_end_datetime + cards.only_with_init_datetime + cards.only_with_end_datetime + cards.with_init_end_datetime
-    result
+    cards.without_init_end_datetime + cards.only_with_init_datetime + cards.only_with_end_datetime + cards.with_init_end_datetime
   end
 
 end

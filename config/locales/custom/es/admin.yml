@@ -110,6 +110,7 @@ es:
       cards:
         init_datetime: Fecha y Hora Inicio
         end_datetime: Fecha y Hora Fin
+        order_number: Orden
   time:
     formats:
       default: "%d/%m/%Y %H:%M"
