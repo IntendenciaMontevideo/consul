@@ -10,7 +10,7 @@ GIT
       rubyzip (>= 1.2.1)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.10)
@@ -600,4 +600,4 @@ DEPENDENCIES
   whenever (~> 0.10.0)
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
