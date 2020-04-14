@@ -55,7 +55,15 @@
         <%= f.cktext_area :content, label: false, cols: 80, rows: 10, ckeditor: { language: I18n.locale } %>
       </div>
 
-      <div class="small-12 medium-6 large-4">
+      <div class="margin-top">
+        <%= f.label :categories %>
+        <%= f.text_field :categories, id: "site-categories-input", label: false, size: 80, maxlength: 80 %>
+        <div class="small" id="used-categories-container">
+          <%= t('admin.site_customization.pages.page.used_categories') %>: <%= format_categories %>
+        </div>
+      </div>
+
+      <div class="small-12 medium-6 large-4 margin-top">
         <%= f.submit class: "button success expanded" %>
       </div>
     </div>

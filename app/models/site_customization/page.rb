@@ -16,4 +16,9 @@ class SiteCustomization::Page < ActiveRecord::Base
   def url
     "/#{slug}"
   end
+
+  def self.get_categories
+    categories = SiteCustomization::Page.where.not(categories: [nil, ""]).pluck('categories').join(',')
+    categories.split(',').uniq.join(', ')
+  end
 end
