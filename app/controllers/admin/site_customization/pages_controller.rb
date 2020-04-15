@@ -44,6 +44,8 @@ class Admin::SiteCustomization::PagesController < Admin::SiteCustomization::Base
         :add_in_menu,
         :status,
         :categories,
+        :summary,
+        :related_pages_count,
         :locale
       )
     end

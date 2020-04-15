@@ -185,6 +185,8 @@ es:
         slug: Slug
         status: Estado
         categories: Categorías
+        summary: Resumen
+        related_pages_count: Cantidad de páginas relacionadas
         title: Título
         updated_at: última actualización
         more_info_flag: Mostrar en la página de ayuda
