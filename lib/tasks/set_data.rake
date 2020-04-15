@@ -11,7 +11,7 @@ namespace :set_data do
   desc "Disable modules"
   task features: :environment do
     Setting['feature.debates'] = true
-    Setting['feature.polls'] = false
+    Setting['feature.polls'] = true
     Setting['feature.public_stats'] = false
     Setting['feature.budgets'] = false
     Setting['feature.legislation'] = true

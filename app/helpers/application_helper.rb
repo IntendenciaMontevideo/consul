@@ -50,7 +50,7 @@ module ApplicationHelper
   end
 
   def image_path_for(filename)
-    SiteCustomization::Image.image_path_for(filename) || filename
+    SiteCustomization::ImageSite.image_path_for(filename) || filename
   end
 
   def content_block(name, locale)

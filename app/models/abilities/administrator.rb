@@ -71,7 +71,7 @@ module Abilities
       can :destroy, Poll::Question # , comments_count: 0, votes_up: 0
 
       can :manage, SiteCustomization::Page
-      can :manage, SiteCustomization::Image
+      can :manage, SiteCustomization::ImageSite
       can :manage, SiteCustomization::ContentBlock
 
       can [:manage], ::Legislation::Process
