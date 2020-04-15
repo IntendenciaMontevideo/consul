@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200414134437) do
+ActiveRecord::Schema.define(version: 20200415160410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -977,7 +977,7 @@ ActiveRecord::Schema.define(version: 20200414134437) do
 
   add_index "site_customization_content_blocks", ["name", "locale"], name: "index_site_customization_content_blocks_on_name_and_locale", unique: true, using: :btree
 
-  create_table "site_customization_images", force: :cascade do |t|
+  create_table "site_customization_image_sites", force: :cascade do |t|
     t.string   "name",               null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -987,7 +987,7 @@ ActiveRecord::Schema.define(version: 20200414134437) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "site_customization_images", ["name"], name: "index_site_customization_images_on_name", unique: true, using: :btree
+  add_index "site_customization_image_sites", ["name"], name: "index_site_customization_image_sites_on_name", unique: true, using: :btree
 
   create_table "site_customization_pages", force: :cascade do |t|
     t.string   "slug",                                 null: false

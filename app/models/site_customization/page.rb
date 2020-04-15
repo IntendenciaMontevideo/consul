@@ -1,4 +1,5 @@
 class SiteCustomization::Page < ActiveRecord::Base
+  include Imageable
   VALID_STATUSES = %w(draft published)
 
   before_save :strip_categories
