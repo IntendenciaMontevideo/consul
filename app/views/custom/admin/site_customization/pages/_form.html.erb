@@ -63,6 +63,12 @@
         </div>
       </div>
 
+      <div class="image-form">
+        <div class="image small-12 column">
+          <%= render 'images/nested_image', imageable: @page, f: f %>
+        </div>
+      </div>
+
       <div class="small-12 medium-6 large-4 margin-top">
         <%= f.submit class: "button success expanded" %>
       </div>
