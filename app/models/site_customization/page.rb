@@ -1,6 +1,8 @@
 class SiteCustomization::Page < ActiveRecord::Base
   VALID_STATUSES = %w(draft published)
 
+  before_save :strip_categories
+
   validates :slug, presence: true,
                    uniqueness: { case_sensitive: false },
                    format: { with: /\A[0-9a-zA-Z\-_]*\Z/, message: :slug_format }
@@ -15,5 +17,14 @@ class SiteCustomization::Page < ActiveRecord::Base
 
   def url
     "/#{slug}"
+  end
+
+  def self.get_categories
+    categories = SiteCustomization::Page.where.not(categories: [nil, ""]).pluck('categories').join(',')
+    categories.split(',').uniq.join(', ')
+  end
+
+  def strip_categories
+    self.categories = categories.split(',').map!(&:strip).join(',')
   end
 end

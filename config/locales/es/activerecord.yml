@@ -184,6 +184,7 @@ es:
         subtitle: Subtítulo
         slug: Slug
         status: Estado
+        categories: Categorías
         title: Título
         updated_at: última actualización
         more_info_flag: Mostrar en la página de ayuda

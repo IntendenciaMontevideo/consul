@@ -43,6 +43,7 @@ class Admin::SiteCustomization::PagesController < Admin::SiteCustomization::Base
         :print_content_flag,
         :add_in_menu,
         :status,
+        :categories,
         :locale
       )
     end
