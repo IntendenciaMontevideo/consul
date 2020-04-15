@@ -44,8 +44,10 @@ class Admin::SiteCustomization::PagesController < Admin::SiteCustomization::Base
         :add_in_menu,
         :status,
         :categories,
+        :summary,
+        :related_pages_count,
         :locale,
-        image_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy]
+        image_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
       )
     end
 end
