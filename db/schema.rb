@@ -990,18 +990,20 @@ ActiveRecord::Schema.define(version: 20200415160410) do
   add_index "site_customization_image_sites", ["name"], name: "index_site_customization_image_sites_on_name", unique: true, using: :btree
 
   create_table "site_customization_pages", force: :cascade do |t|
-    t.string   "slug",                                 null: false
-    t.string   "title",                                null: false
+    t.string   "slug",                                  null: false
+    t.string   "title",                                 null: false
     t.string   "subtitle"
     t.text     "content"
     t.boolean  "more_info_flag"
     t.boolean  "print_content_flag"
-    t.string   "status",             default: "draft"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.string   "status",              default: "draft"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "locale"
-    t.boolean  "add_in_menu",        default: false
+    t.boolean  "add_in_menu",         default: false
     t.string   "categories"
+    t.integer  "related_pages_count"
+    t.text     "summary"
   end
 
   create_table "spending_proposals", force: :cascade do |t|

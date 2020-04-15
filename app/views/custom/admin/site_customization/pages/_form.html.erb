@@ -56,6 +56,16 @@
       </div>
 
       <div class="margin-top">
+        <%= f.label :summary %>
+        <%= f.text_area :summary, label: false %>
+      </div>
+
+      <div class="margin-top">
+        <%= f.label :related_pages_count %>
+        <%= f.number_field :related_pages_count, min: 1, label: false %>
+      </div>
+
+      <div class="margin-top">
         <%= f.label :categories %>
         <%= f.text_field :categories, id: "site-categories-input", label: false, size: 80, maxlength: 80 %>
         <div class="small" id="used-categories-container">

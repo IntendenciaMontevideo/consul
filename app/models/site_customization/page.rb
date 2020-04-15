@@ -10,6 +10,8 @@ class SiteCustomization::Page < ActiveRecord::Base
   validates :title, presence: true
   validates :status, presence: true, inclusion: { in: VALID_STATUSES }
   validates :locale, presence: true
+  validates :summary, presence: true
+  validates :related_pages_count, presence: true, numericality: { greater_than: 0 }
 
   scope :published, -> { where(status: 'published').order('id DESC') }
   scope :with_more_info_flag, -> { where(status: 'published', more_info_flag: true).order('id ASC') }
@@ -26,6 +28,6 @@ class SiteCustomization::Page < ActiveRecord::Base
   end
 
   def strip_categories
-    self.categories = categories.split(',').map!(&:strip).join(',')
+    self.categories = categories.split(',').map!(&:strip).map!(&:downcase).join(',')
   end
 end
