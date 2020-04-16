@@ -364,3 +364,36 @@ a.button-span-not-allowed-poll:hover {
 #used-categories-container {
   color: grey;
 }
+
+.categories-badges {
+  border-top: solid #f9bd41; 
+  border-bottom: solid #f9bd41;
+}
+
+.category-tag {
+  color:white !important;
+  font-weight: bold; 
+  border-radius: 0 !important;
+  background:#808080b5 !important;
+}
+
+.category-tag:hover {
+  background:grey !important;
+}
+
+.image-link {
+  text-decoration: none !important;
+}
+
+.image-text {
+  bottom: 5px;
+  position: absolute;;
+  color:white;
+  font-family:Ciudadela Pro Regular !important;
+  padding-left:10px;
+  font-weight: bold;
+}
+
+.image-text-container {
+  position: relative;
+}

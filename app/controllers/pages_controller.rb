@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     @custom_page = SiteCustomization::Page.published.find_by(slug: params[:id])
 
     if @custom_page.present?
+      @related_pages = @custom_page.get_related_pages
       render action: :custom_page
     else
       if params[:id] == 'associate'
