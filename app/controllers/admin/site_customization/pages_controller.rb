@@ -46,7 +46,8 @@ class Admin::SiteCustomization::PagesController < Admin::SiteCustomization::Base
         :categories,
         :summary,
         :related_pages_count,
-        :locale
+        :locale,
+        image_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
       )
     end
 end
