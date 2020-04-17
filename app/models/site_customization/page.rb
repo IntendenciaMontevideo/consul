@@ -11,7 +11,8 @@ class SiteCustomization::Page < ActiveRecord::Base
   validates :status, presence: true, inclusion: { in: VALID_STATUSES }
   validates :locale, presence: true
   validates :summary, presence: true
-  validates :related_pages_count, presence: true, numericality: { greater_than: 0 }
+  validates :image, presence: true
+  validates :related_pages_count, presence: true, numericality: { greater_or_equal_than: 0 }
 
   scope :published, -> { where(status: 'published').order('id DESC') }
   scope :with_more_info_flag, -> { where(status: 'published', more_info_flag: true).order('id ASC') }
@@ -24,7 +25,26 @@ class SiteCustomization::Page < ActiveRecord::Base
 
   def self.get_categories
     categories = SiteCustomization::Page.where.not(categories: [nil, ""]).pluck('categories').join(',')
-    categories.split(',').uniq.join(', ')
+    categories.split(',').uniq
+  end
+
+  def get_related_pages
+    if !self.categories.blank? && self.related_pages_count > 0
+      pages = SiteCustomization::Page.where("id != #{self.id}").published
+      query = ''
+      pages_categories = self.categories.split(',').uniq
+      categories_limit = pages_categories.count - 1
+      pages_categories.each_with_index do |category, index|
+        if index == categories_limit
+          query += "categories ILIKE '%#{category}%'"
+        else
+          query += "categories ILIKE '%#{category}%' OR "
+        end
+      end
+      pages.where(query).order(updated_at: :desc).limit(self.related_pages_count)
+    else
+      []
+    end
   end
 
   def strip_categories

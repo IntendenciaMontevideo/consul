@@ -14,7 +14,7 @@
                             partial: "images/image_fields",
                             id: "new_image_link",
                             class: "button hollow
-                                    #{"hide" if image_fields == :image && imageable.image.present?}",
+                                    #{"hide" if image_fields == :image && imageable.image.present? && !imageable.errors.key?(:image)}",
                             render_options: {
                               locals: { imageable: imageable }
                             },

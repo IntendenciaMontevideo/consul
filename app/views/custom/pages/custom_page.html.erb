@@ -1,14 +1,17 @@
 <% provide :title do %><%= @custom_page.title %><% end %>
-
 <div class="row margin-top">
 
-  <div class="small-12 medium-9 column">
+  <div class="small-12 medium-9 column article-container">
     <h1><%= @custom_page.title %></h1>
     <% if @custom_page.subtitle.present? %>
       <h2><%= @custom_page.subtitle%></h2>
     <% end %>
-
-    <%=  @custom_page.content.html_safe %>
+    
+    <div class="margin-bottom">
+      <%= @custom_page.updated_at.strftime("%d/%m/%Y") %>
+    </div>
+    
+    <%= @custom_page.content.html_safe %>
   </div>
 
   <% if @custom_page.print_content_flag %>
@@ -16,4 +19,33 @@
       <%= render '/shared/print' %>
     </div>
   <% end %>
+
+  <div class="small-12 medium-3 column margin-top">
+    <section class="tag-cloud-section margin-bottom categories-badges">
+      <h3 class="tag-cloud-title margin-top">CATEGORÍAS</h3>
+      <div class="tag-cloud margin-bottom">
+        <% format_categories(true).each do |cat| %>
+          <a href="#" class="tag-cloud-individual-tag category-tag">
+            <%= cat %>
+          </a>
+        <% end %>
+      </div>
+    </section>
+    <div>
+      <% if @related_pages.any? %>
+        <h3> MÁS NOTICIAS </h3>
+        <% @related_pages.each do |site| %>
+          <%= link_to page_path(site.slug), { class: "image-link" } do %>
+            <div class="image-text-container margin-bottom">
+              <%= image_tag site.image_url(:large), alt: site.title %>
+              <div class="image-text"> 
+                <%= site.title %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
 </div>

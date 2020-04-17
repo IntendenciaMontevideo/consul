@@ -1004,7 +1004,7 @@ ActiveRecord::Schema.define(version: 20200415160410) do
     t.string   "locale"
     t.boolean  "add_in_menu",         default: false
     t.string   "categories"
-    t.integer  "related_pages_count"
+    t.integer  "related_pages_count", default: 0
     t.text     "summary"
   end
 
