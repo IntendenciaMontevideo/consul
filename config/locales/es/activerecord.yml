@@ -260,6 +260,8 @@ es:
             attachment:
               min_image_width: "La imagen debe tener al menos %{required_min_width}px de largo"
               min_image_height: "La imagen debe tener al menos %{required_min_height}px de alto"
+              exact_image_height: "La imagen debe tener exactamente %{required_height}px de alto"
+              exact_image_width: "La imagen debe tener exactamente %{required_width}px de largo"
         newsletter:
           attributes:
             segment_recipient:
