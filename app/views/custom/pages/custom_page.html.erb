@@ -1,7 +1,7 @@
 <% provide :title do %><%= @custom_page.title %><% end %>
 <div class="row margin-top">
 
-  <div class="small-12 medium-9 column">
+  <div class="small-12 medium-9 column article-container">
     <h1><%= @custom_page.title %></h1>
     <% if @custom_page.subtitle.present? %>
       <h2><%= @custom_page.subtitle%></h2>
@@ -32,7 +32,7 @@
       </div>
     </section>
     <div>
-      <% if @related_pages && @related_pages.any? %>
+      <% if @related_pages.any? %>
         <h3> MÁS NOTICIAS </h3>
         <% @related_pages.each do |site| %>
           <%= link_to page_path(site.slug), { class: "image-link" } do %>

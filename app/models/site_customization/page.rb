@@ -29,19 +29,21 @@ class SiteCustomization::Page < ActiveRecord::Base
   end
 
   def get_related_pages
-    if !self.categories.blank?
+    if !self.categories.blank? && self.related_pages_count > 0
+      pages = SiteCustomization::Page.where("id != #{self.id}").published
       query = ''
       pages_categories = self.categories.split(',').uniq
-      pages_categories.each do |category|
-        query += "(" if category == pages_categories.first
-        if category == pages_categories.last
-          query += "categories LIKE '%#{category}%') AND "
+      categories_limit = pages_categories.count - 1
+      pages_categories.each_with_index do |category, index|
+        if index == categories_limit
+          query += "categories ILIKE '%#{category}%'"
         else
-          query += "categories LIKE '%#{category}%' OR "
+          query += "categories ILIKE '%#{category}%' OR "
         end
       end
-      query += "id != #{self.id}"
-      SiteCustomization::Page.published.where(query).limit(self.related_pages_count).order('updated_at DESC')
+      pages.where(query).order(updated_at: :desc).limit(self.related_pages_count)
+    else
+      []
     end
   end
 

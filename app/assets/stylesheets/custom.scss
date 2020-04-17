@@ -389,11 +389,15 @@ a.button-span-not-allowed-poll:hover {
   bottom: 5px;
   position: absolute;;
   color:white;
-  font-family:Ciudadela Pro Regular !important;
-  padding-left:10px;
+  font-family: Ciudadela Pro Regular !important;
+  padding-left: 10px;
   font-weight: bold;
 }
 
 .image-text-container {
   position: relative;
+}
+
+.article-container img {
+  height: auto !important;
 }
