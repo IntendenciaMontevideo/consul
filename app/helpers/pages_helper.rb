@@ -8,4 +8,12 @@ module PagesHelper
     end
   end
 
+  def format_articles_header(category)
+    if category.blank?
+      'Noticias'
+    else
+      "Noticias de  #{category}"
+    end
+  end
+
 end

@@ -2,7 +2,7 @@
   <div class="box">
      <%= image_tag(image_path_for('banner-Idea.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
     <div class="column box-text">
-      <h2 class="banner-title inline-h-0">Noticias</h2>
+      <h2 class="banner-title inline-h-0"><%= format_articles_header(@category) %></h2>
     </div>
   </div>
 </div>

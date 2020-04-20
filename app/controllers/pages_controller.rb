@@ -25,6 +25,11 @@ class PagesController < ApplicationController
   end
 
   def index
-    @pages = SiteCustomization::Page.unordered_published.order(updated_at: :desc).page(params[:page]).per(20)
+    @category = params[:category]
+    if @category
+      @pages = SiteCustomization::Page.for_category(@category).page(params[:page]).per(20)
+    else
+      @pages = SiteCustomization::Page.unordered_published.order(updated_at: :desc).page(params[:page]).per(20)
+    end
   end
 end
