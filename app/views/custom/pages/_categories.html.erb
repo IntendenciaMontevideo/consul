@@ -2,9 +2,7 @@
   <h3 class="tag-cloud-title margin-top">CATEGORÍAS</h3>
   <div class="tag-cloud margin-bottom">
     <% format_categories(true).each do |cat| %>
-      <a href="#" class="tag-cloud-individual-tag category-tag">
-        <%= cat %>
-      </a>
+      <%= link_to cat, articles_path(cat), class:"tag-cloud-individual-tag category-tag" %>
     <% end %>
   </div>
 </section>
