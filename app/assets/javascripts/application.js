@@ -17,6 +17,7 @@
 //= require jquery-ui/widgets/autocomplete
 //= require jquery-ui/widgets/sortable
 //= require jquery-fileupload/basic
+//= require jquery.datetimepicker
 //= require foundation
 //= require turbolinks
 //= require ckeditor/loader

@@ -10,7 +10,7 @@ class Admin::HomepageController < Admin::BaseController
   private
 
   def load_header
-    @header = ::Widget::Card.header
+    @header = ::Widget::Card.header.order(order_number: :asc)
   end
 
   def load_recommendations

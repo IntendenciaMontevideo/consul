@@ -1,20 +1,32 @@
 <tr id="<%= dom_id(card) %>" class="homepage-card">
   <td>
+    <%= card.order_number %>
+  </td>
+  <td>
     <%= card.label %><br>
     <%= card.title %>
   </td>
-  <td><%= card.description %></td>
+  <td>
+    <%= card.description %>
+  </td>
   <td>
     <%= card.link_text %><br>
     <%= card.link_url %>
   </td>
-
   <!-- remove conditional once specs have image validations -->
   <td>
     <% if card.image.present? %>
       <%= link_to t("admin.shared.show_image"), card.image_url(:large),
                   title: card.image.title, target: "_blank" %>
     <% end %>
+  </td>
+  <td>
+    <% init_datetime = card.init_datetime.present? ? I18n.l(card.init_datetime, format: :default) : "" %>
+    <%= init_datetime %>
+  </td>
+  <td>
+    <% end_datetime = card.end_datetime.present? ? I18n.l(card.end_datetime, format: :default) : "" %>
+    <%= end_datetime %>
   </td>
   <td class='actions'>
     <%= link_to t("admin.actions.edit"),
