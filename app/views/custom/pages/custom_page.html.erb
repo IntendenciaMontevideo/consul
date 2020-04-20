@@ -21,16 +21,7 @@
   <% end %>
 
   <div class="small-12 medium-3 column margin-top">
-    <section class="tag-cloud-section margin-bottom categories-badges">
-      <h3 class="tag-cloud-title margin-top">CATEGORÍAS</h3>
-      <div class="tag-cloud margin-bottom">
-        <% format_categories(true).each do |cat| %>
-          <a href="#" class="tag-cloud-individual-tag category-tag">
-            <%= cat %>
-          </a>
-        <% end %>
-      </div>
-    </section>
+    <%= render "categories" %>
     <div>
       <% if @related_pages.any? %>
         <h3> MÁS NOTICIAS </h3>
