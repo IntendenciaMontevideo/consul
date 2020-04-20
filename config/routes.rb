@@ -56,6 +56,7 @@ Rails.application.routes.draw do
   get '/condiciones-de-uso',                          to: 'pages#show', id: 'conditions',                     as: 'conditions'
   get '/politicas-de-privacidad',                     to: 'pages#show', id: 'privacy',                        as: 'privacy'
   get '/municipios',                                  to: 'pages#show', id: 'municipios',                     as: 'municipios'
+  get '/noticias',                                    to: 'pages#index',                                      as: 'all_articles'
 
   # Static pages
   get '/blog' => redirect("http://blog.consul/")

@@ -23,4 +23,8 @@ class PagesController < ApplicationController
   rescue ActionView::MissingTemplate
     head 404
   end
+
+  def index
+    @pages = SiteCustomization::Page.unordered_published.order(updated_at: :desc).page(params[:page]).per(20)
+  end
 end

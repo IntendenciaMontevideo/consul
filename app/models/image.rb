@@ -4,6 +4,8 @@ class Image < ActiveRecord::Base
 
   TITLE_LEGHT_RANGE = 4..80
   MIN_SIZE = 475
+  ARTICLE_WIDTH = 340
+  ARTICLE_HEIGHT = 226
   MAX_IMAGE_SIZE = 1.megabyte
   ACCEPTED_CONTENT_TYPE = %w(image/jpeg image/jpg).freeze
 
@@ -68,11 +70,19 @@ class Image < ActiveRecord::Base
 
     def validate_image_dimensions
       if attachment_of_valid_content_type?
+        
         return true if imageable_class == Widget::Card
+        
+        if imageable_class == SiteCustomization::Page
+          dimensions = Paperclip::Geometry.from_file(attachment.queued_for_write[:original].path)
+          errors.add(:attachment, :exact_image_width, required_width: ARTICLE_WIDTH) if dimensions.width != ARTICLE_WIDTH
+          errors.add(:attachment, :exact_image_height, required_height: ARTICLE_HEIGHT) if dimensions.height != ARTICLE_HEIGHT
+        else
+          dimensions = Paperclip::Geometry.from_file(attachment.queued_for_write[:original].path)
+          errors.add(:attachment, :min_image_width, required_min_width: MIN_SIZE) if dimensions.width < MIN_SIZE
+          errors.add(:attachment, :min_image_height, required_min_height: MIN_SIZE) if dimensions.height < MIN_SIZE
+        end
 
-        dimensions = Paperclip::Geometry.from_file(attachment.queued_for_write[:original].path)
-        errors.add(:attachment, :min_image_width, required_min_width: MIN_SIZE) if dimensions.width < MIN_SIZE
-        errors.add(:attachment, :min_image_height, required_min_height: MIN_SIZE) if dimensions.height < MIN_SIZE
       end
     end
 

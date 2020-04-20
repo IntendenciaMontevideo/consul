@@ -14,7 +14,8 @@ class SiteCustomization::Page < ActiveRecord::Base
   validates :image, presence: true
   validates :related_pages_count, presence: true, numericality: { greater_or_equal_than: 0 }
 
-  scope :published, -> { where(status: 'published').order('id DESC') }
+  scope :unordered_published, -> { where(status: 'published') }
+  scope :published, -> { unordered_published.order('id DESC') }
   scope :with_more_info_flag, -> { where(status: 'published', more_info_flag: true).order('id ASC') }
   scope :with_same_locale, -> { where(locale: I18n.locale).order('id ASC') }
   scope :with_add_in_menu, -> { published.where(add_in_menu: true) }
@@ -30,7 +31,7 @@ class SiteCustomization::Page < ActiveRecord::Base
 
   def get_related_pages
     if !self.categories.blank? && self.related_pages_count > 0
-      pages = SiteCustomization::Page.where("id != #{self.id}").published
+      pages = SiteCustomization::Page.where("id != #{self.id}").unordered_published
       query = ''
       pages_categories = self.categories.split(',').uniq
       categories_limit = pages_categories.count - 1
