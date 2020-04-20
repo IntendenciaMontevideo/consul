@@ -1,3 +1,8 @@
+<% content_for :header_addon do %>
+  <%= render "shared/search_form",
+             search_path: articles_path(page: 1),
+             i18n_namespace: "pages.custom_page.search_form" %>
+<% end %>
 <div class="row-for-banners">
   <div class="box">
      <%= image_tag(image_path_for('banner-Idea.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
@@ -8,6 +13,19 @@
 </div>
 
 <main>
+  <% if @search_terms  %>
+    <div class="highlight no-margin-top padding margin-bottom">
+      <div class="row">
+        <div class="small-12 column">
+          <h2><%= t("shared.search_results") %></h2>
+          <p>
+            <%= page_entries_info @pages %>
+            <%= t("pages.index.search_results_html", count: @pages.size, search_term: @search_terms) %>
+          <p>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <div class="row proposals-summary">
     <div id="proposals" class="proposals-list small-12 medium-9 column">
 

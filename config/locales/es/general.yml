@@ -679,6 +679,14 @@ es:
         zero: Sin apoyos
         one: 1 apoyo
         other: "%{count} apoyos"
+  pages:
+    index:
+      search_results_html:
+        one: " que contiene <strong>'%{search_term}'</strong>"
+        other: " que contienen <strong>'%{search_term}'</strong>"
+    custom_page:
+      search_form:
+        placeholder: Buscar artículos...
   stats:
     index:
       visits: Visitas
