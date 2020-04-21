@@ -1,27 +1,66 @@
 <%= form_for [:admin, @card] do |f| %>
-  <div class="small-12 medium-6">
-    <%= f.text_field :label %>
+
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :label %>
+    </div>
   </div>
-
-  <%= f.text_field :title %>
-
-  <%= f.text_area :description, rows: 5 %>
-
-  <div class="small-12 medium-6">
-    <%= f.text_field :link_text %>
+  <div class="row">
+    <div class="small-12 medium-12 column">
+      <%= f.text_field :title %>
+    </div>
   </div>
-
-  <div class="small-12 medium-6">
-    <%= f.text_field :link_url %>
+  <div class="row">
+    <div class="small-12 medium-12 column">
+      <%= f.text_area :description, rows: 5 %>
+    </div>
   </div>
-
-  <%= f.hidden_field :header, value: @card.header? %>
-
-  <div class="image-form">
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :link_text %>
+    </div>
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :link_url %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-12 column">
+      <%= f.hidden_field :header, value: @card.header? %>
+    </div>
+  </div>
+  <div class="row image-form">
     <div class="image small-12 column">
       <%= render 'images/nested_image', imageable: @card, f: f %>
     </div>
   </div>
-
-  <%= f.submit(t("admin.homepage.#{action_name}.#{@card.header? ? 'submit_header' : 'submit_card'}"), class: "button success") %>
+  <div class="row padding-top-30">
+    <div class="small-12 medium-6 large-6 column">
+      <%= f.label :init_datetime, t("admin.widget.cards.init_datetime") %>
+      <% init_datetime = @card.init_datetime.present? ? I18n.l(@card.init_datetime, format: :default) : "" %>
+      <%= f.text_field :init_datetime,
+                        label: false,
+                        autocomplete: 'off',
+                        placeholder: t("admin.widget.cards.init_datetime"),
+                        value: init_datetime %>
+    </div>
+    <div class="small-12 medium-6 large-6 column">
+      <% end_datetime = @card.end_datetime.present? ? I18n.l(@card.end_datetime, format: :default) : "" %>
+      <%= f.label :end_datetime, t("admin.widget.cards.end_datetime") %>
+      <%= f.text_field :end_datetime,
+                        label: false,
+                        autocomplete: 'off',
+                        placeholder: t("admin.widget.cards.end_datetime"),
+                        value: end_datetime %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.number_field :order_number, label: t("admin.polls.new.order_number") %>
+    </div>
+  </div>
+  <div class="row padding-10">
+    <div class="actions small-12 medium-3 column">
+      <%= f.submit(t("admin.homepage.#{action_name}.#{@card.header? ? 'submit_header' : 'submit_card'}"), class: "button success") %>
+    </div>
+  </div>
 <% end %>

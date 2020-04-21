@@ -218,6 +218,7 @@ GEM
       railties (>= 3.1, < 6.0)
     invisible_captcha (0.10.0)
       rails (>= 3.2.0)
+    jquery-datetimepicker-rails (2.4.1.0)
     jquery-fileupload-rails (0.4.7)
       actionpack (>= 3.1)
       railties (>= 3.1)
@@ -552,6 +553,7 @@ DEPENDENCIES
   i18n-tasks (~> 0.9.20)
   initialjs-rails (~> 0.2.0.5)
   invisible_captcha (~> 0.10.0)
+  jquery-datetimepicker-rails
   jquery-fileupload-rails
   jquery-rails (~> 4.3.1)
   jquery-ui-rails (~> 6.0.1)
