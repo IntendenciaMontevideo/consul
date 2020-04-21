@@ -59,8 +59,8 @@ es:
         one: "Propuesta de inversión"
         other: "Propuestas de inversión"
       site_customization/page:
-        one: Noticia
-        other: Noticias
+        one: Página
+        other: Páginas
       site_customization/image:
         one: Imagen
         other: Imágenes

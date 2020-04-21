@@ -19,8 +19,8 @@ class SiteCustomization::Page < ActiveRecord::Base
   scope :with_more_info_flag, -> { where(status: 'published', more_info_flag: true).order('id ASC') }
   scope :with_same_locale, -> { where(locale: I18n.locale).order('id ASC') }
   scope :with_add_in_menu, -> { published.where(add_in_menu: true) }
-  scope :for_category, ->(category) { unordered_published.where("categories ILIKE '%#{category}%'").order(updated_at: :desc) }
-  scope :for_title_or_summary, ->(search) { unordered_published.where("title ILIKE '%#{search}%' OR summary ILIKE '%#{search}%'").order(updated_at: :desc) }
+  scope :for_category, ->(category) { unordered_published.where("categories ILIKE :category", category: "%#{category}%").order(updated_at: :desc) }
+  scope :for_title_or_summary, ->(search) { unordered_published.where("title ILIKE :search OR summary ILIKE :search", search: "%#{search}%").order(updated_at: :desc) }
 
   def url
     "/#{slug}"

@@ -12,6 +12,9 @@ es:
         link_url: URL del enlace
       widget/feed:
         limit: Número de elementos
+      site_customization/page:
+        one: Noticia
+        other: Noticias
     attributes:
       poll:
         level_access: "Nivel de acceso"
