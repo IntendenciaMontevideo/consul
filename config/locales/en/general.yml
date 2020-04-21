@@ -680,14 +680,6 @@ en:
         one: 1 support
         other: "%{count} supports"
         zero: No supports
-  pages:
-    index:
-      search_results_html:
-        one: " containing the term <strong>'%{search_term}'</strong>"
-        other: " containing the term <strong>'%{search_term}'</strong>"
-    custom_page:
-      search_form:
-        placeholder: Search articles...
   stats:
     index:
       visits: Visits
