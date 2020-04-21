@@ -15,8 +15,6 @@ ActiveRecord::Schema.define(version: 20200415160410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "unaccent"
-  enable_extension "pg_trgm"
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -1248,9 +1246,12 @@ ActiveRecord::Schema.define(version: 20200415160410) do
     t.string   "link_text"
     t.string   "link_url"
     t.string   "label"
-    t.boolean  "header",      default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "header",        default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.datetime "init_datetime"
+    t.datetime "end_datetime"
+    t.integer  "order_number"
   end
 
   create_table "widget_feeds", force: :cascade do |t|
