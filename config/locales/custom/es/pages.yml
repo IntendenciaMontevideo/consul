@@ -16,3 +16,10 @@ es:
           faq_3_description_1: "1. Entra en la sección de Registro"
           faq_3_description_3: "2. Accedé a través de tus cuentas de Facebook, Twitter, Google+ o Usuario gub.uy"
           footer: "¡Desde este momento ya puedes estar al día sobre todos los procesos participativos de tu ciudad, puedes crear iniciativas ciudadanas y realizar  comentarios sobre las existentes!"
+    index:
+      search_results_html:
+        one: " que contiene <strong>'%{search_term}'</strong>"
+        other: " que contienen <strong>'%{search_term}'</strong>"
+    custom_page:
+      search_form:
+        placeholder: Buscar noticias...
