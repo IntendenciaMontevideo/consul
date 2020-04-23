@@ -1,12 +1,10 @@
-<div class="sidebar-divider"></div>
-<h2 class="sidebar-title"><%= t("shared.tags_cloud.categories") %></h2>
-<br>
-
-<ul id="categories" class="no-bullet categories">
-  <% @categories.each do |category| %>
-    <li class="inline-block">
-      <% css_class = { class: 'active' } if params[:search] == category.name %>
-      <%= link_to category.name, proposals_path(search: category.name), css_class || {} %>
-    </li>
-  <% end %>
-</ul>
+<div id="tag-cloud">
+  <section class="tag-cloud-section margin-bottom">
+    <h5 class="tag-cloud-title margin-top"><%= t("shared.tags_cloud.categories").upcase %></h5>
+    <div class="tag-cloud margin-bottom">
+      <% @categories.each do |category| %>
+        <%= link_to category.name, proposals_path(search: category.name), class:"tag-cloud-individual-tag category-tag" %>
+      <% end %>
+    </div>
+  </section>
+</div>
