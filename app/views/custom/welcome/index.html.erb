@@ -25,9 +25,8 @@
           <%= image_tag header.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
 
           <div class="column box-text">
-            <h2 class="banner-title inline-h-0"><%= header.title%></h2>
-            <div>
-              <%= link_to header.link_text, header.link_url, class: 'banner-font' %>
+            <div class="row">
+              <h2 class="banner-title small-12 medium-12 column home-banner-text inline-h-0"><%= header.title%></h2>
             </div>
           </div>
         </div>
