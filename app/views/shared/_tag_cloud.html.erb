@@ -1,14 +1,10 @@
-<div id="tag-cloud">
-  <div class="sidebar-divider"></div>
-  <h2 class="sidebar-title"><%= t("shared.tags_cloud.tags") %></h2>
-  <br>
-  <ul class="no-bullet tag-cloud">
-    <% @tag_cloud.tags.each do |tag| %>
-      <li class="inline-block">
-        <%= link_to taggables_path(taggable, tag.name) do %>
-          <span class="tag"><%= tag.name %></span>
-        <% end %>
-      </li>
+<section class="tag-cloud-section margin-bottom categories-badges">
+  <h5 class="tag-cloud-title margin-top"><%= t("shared.tags_cloud.tags").upcase %></h5>
+  <div class="tag-cloud margin-bottom">
+    <% Proposal.first.tags.each do |tag| %>
+      <%= link_to taggables_path(taggable, tag.name), class:"tag-cloud-individual-tag category-tag" do %>
+        <span><%= tag.name %></span>
+      <% end %>
     <% end %>
-  </ul>
-</div>
+  </div>
+</section>

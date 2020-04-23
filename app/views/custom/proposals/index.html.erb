@@ -15,14 +15,11 @@
 <% if ((current_user.blank?) || (!current_user.blank? && session[current_user.id.to_s].blank?)) %>
   <div class="row-for-banners">
     <div class="box">
-      <%= image_tag(image_path_for('banner-Idea.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
-      <div class="column box-text">
-        <h2 class="banner-title inline-h-0">Mujeres con calle</h2>
-          <% if Proposal.can_create? %>
-            <div>
-              <%= link_to '¡Participá!', new_proposal_guide, class: 'banner-font' %>
-            </div>
-          <% end %>
+      <%= image_tag(image_path_for('banner-proposals.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+      <div class="box-text proposals-box-text">
+        <div class="row">
+          <h2 class="banner-title proposals-banner-title column small-12 inline-h-0" style="text-align: left;">Ideas</h2>
+        </div>
       </div>
     </div>
   </div>
@@ -61,6 +58,20 @@
     <div class="row padding-btn-banner-vote">
   <% end %>
     <div id="proposals" class="proposals-list small-12 medium-9 column">
+      
+      <% if @proposals.any? %>
+        <div class="show-for-small-only">
+          <% if Proposal.can_create? %>
+            <%= link_to t("proposals.index.start_proposal"),
+                    new_proposal_guide,
+                    class: 'button expanded green-regular' %>
+          <% end %>
+          <%= link_to '¿Cómo funcionan las ideas?',
+                  '/como-funcionan-las-ideas',
+                  class: 'button expanded green-inverted' %>
+        </div>
+      <% end %>
+      
       <% if @featured_proposals.present? %>
         <div class="small-12 column featured-title-proposal">
           <h2>
@@ -77,20 +88,6 @@
       <%= render("shared/advanced_search", search_path: proposals_path(page: 1)) unless params[:retired].present? %>
 
       <%= render 'shared/order_links', i18n_namespace: "proposals.index" %>
-
-      <% if @proposals.any? %>
-        <div class="show-for-small-only">
-          <%= link_to '¿Cómo funcionan las ideas?',
-                  '/como-funcionan-las-ideas',
-                  class: 'button expanded' %>
-          <% if Proposal.can_create? %>
-            <%= link_to t("proposals.index.start_proposal"),
-                    new_proposal_guide,
-                    class: 'button expanded' %>
-          <% end %>
-        </div>
-      <% end %>
-
       <div id="proposals-list">
         <% if @proposals.any? || current_user.blank? %>
           <%= render partial: 'proposals/proposal', collection: @proposals %>
@@ -98,32 +95,29 @@
           <%= empty_recommended_proposals_message_text(current_user) %>
         <% end %>
         <%= paginate @proposals %>
-
-        <% unless @search_terms || @advanced_search_terms || @tag_filter %>
-          <div id="section_help" class="margin help-proposal" data-magellan-target="section_help">
-            <p class="lead">
-              <strong><%= t("proposals.index.section_footer.title") %></strong>
-            </p>
-            <%= render '/pages/ideas_help'%>
-          </div>
-        <% end %>
       </div>
     </div>
 
     <div class="small-12 medium-3 column">
       <aside class="margin-bottom">
-        <%= link_to '¿Cómo funcionan las ideas?',
-                    '/como-funcionan-las-ideas',
-                    class: 'button expanded' %>
-        <% if Proposal.can_create? %>
-          <%= link_to t("proposals.index.start_proposal"),
-                    new_proposal_guide,
-                    class: 'button expanded' %>
-        <% end %>
+        <div class="proposal-icon-text-container margin-bottom margin-top">
+          <%= image_tag(image_path_for('bulb.png'), class:"proposals-icon", alt: "ideas") %>
+          <div class="proposals-text"><h3 class="proposals-header">IDEAS</h3></div>
+        </div>
+        <div>
+          <% if Proposal.can_create? %>
+            <%= link_to t("proposals.index.start_proposal"),
+                      new_proposal_guide,
+                      class: 'button expanded green-regular' %>
+          <% end %>
+          <%= link_to '¿Cómo funcionan las ideas?',
+                      '/como-funcionan-las-ideas',
+                      class: 'button expanded green-inverted' %>
+        </div>
         <% if params[:retired].blank? %>
           <%= render 'categories' %>
           <%= render "shared/tag_cloud", taggable: 'proposal' %>
-          <%= render 'geozones' %>
+          <%= render 'proposals_help' %>
         <% end %>
       </aside>
     </div>
