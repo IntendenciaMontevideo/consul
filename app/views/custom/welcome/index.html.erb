@@ -6,25 +6,26 @@
   <%= render "shared/canonical", href: root_url %>
 <% end %>
 <% if ((current_user.blank?) || (!current_user.blank? && session[current_user.id.to_s].blank?)) %>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide <%='carusel-custom' unless @headers.size > 1%>" data-ride="carousel">
     <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <% @headers.each_with_index do |header, index| %>
-        <% if index == 0 %>
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <% else %>
-          <li data-target="#myCarousel" data-slide-to="<%= index %>"></li>
+    <% if @headers.size > 1 %>
+      <ol class="carousel-indicators">
+        <% @headers.each_with_index do |header, index| %>
+          <% if index == 0 %>
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <% else %>
+            <li data-target="#myCarousel" data-slide-to="<%= index %>"></li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ol>
-
+      </ol>
+    <% end %>
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <% @headers.each_with_index do |header, index| %>
         <div class="item <%= 'active' if index == 0 %>">
           <%= image_tag header.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
 
-          <div class="column box-text">
+          <div class="column box-text banner-box-text">
             <div class="row">
               <h2 class="banner-title small-12 medium-12 column home-banner-text inline-h-0"><%= header.title%></h2>
             </div>
@@ -119,7 +120,7 @@
             </div>
           </div>
           <% @recommendations.in_groups_of(3).each do |recommendations| %>
-            <div class="row">
+            <div>
               <% recommendations.compact.each do |recommendation|%>
                 <%= link_to recommendation.link_url, target: :blank do %>
                   <div class="large-4 medium-4 column float-left">
@@ -142,7 +143,7 @@
               <h1 class="h1-wellcome">Destacados</h1>
             </div>
           </div>
-          <div class="row">
+          <div>
             <% @recommendations.limit(3).each do |recommendation| %>
               <%= link_to recommendation.link_url, target: :blank do %>
                 <div class="medium-4 column float-left">

@@ -477,13 +477,27 @@ a.button-span-not-allowed-poll:hover {
   width: 87%;
 }
 
-@media (max-width: 840px) and (min-width: 100px){
+.carusel-custom {
+  padding-bottom: 30px !important;
+}
+
+@media (max-width: 320px) and (min-width: 100px) {
+  .home-banner-text {
+    font-size: 16px !important;
+  }
+
+  .banner-box-text {
+    top: -39% !important;
+  }
+}
+
+@media (max-width: 375px) and (min-width: 100px) {
   .proposals-banner-title {
-    margin-top: 3% !important;
+    margin-top: 9% !important;
   }
 
   .home-banner-text {
-    font-size: 28px !important;
+    font-size: 18px !important;
   }
 }
 
@@ -493,7 +507,11 @@ a.button-span-not-allowed-poll:hover {
   }
 
   .home-banner-text {
-    font-size: 17px !important;
+    font-size: 21px !important;
+  }
+
+  .banner-box-text {
+    top: -37% !important;
   }
 
   .proposals-header {
@@ -501,12 +519,42 @@ a.button-span-not-allowed-poll:hover {
   }
 }
 
-@media (max-width: 374px) and (min-width: 100px) {
+@media (max-width: 840px) and (min-width: 100px){
   .proposals-banner-title {
-    margin-top: 9% !important;
+    margin-top: 3% !important;
   }
 
   .home-banner-text {
-    font-size: 14px !important;
+    font-size: 40px !important;
+  }
+
+  .banner-box-text {
+    top: -21% !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .proposals-home {
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 841px) {
+  .banner-box-text {
+    top: 26% !important;
+  }
+
+  .home-banner-text {
+    font-size: 50px !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner-box-text {
+    top: 33% !important;
+  }
+
+  .home-banner-text {
+    font-size: 60px !important;
   }
 }
