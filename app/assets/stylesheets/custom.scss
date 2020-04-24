@@ -491,9 +491,13 @@ a.button-span-not-allowed-poll:hover {
   }
 }
 
-@media (max-width: 375px) and (min-width: 100px) {
+@media (max-width: 375px) and (min-width: 321px) {
   .proposals-banner-title {
     margin-top: 9% !important;
+  }
+
+  .banner-box-text {
+    top: -37% !important;
   }
 
   .home-banner-text {
@@ -501,7 +505,7 @@ a.button-span-not-allowed-poll:hover {
   }
 }
 
-@media (max-width: 640px) and (min-width: 100px) {
+@media (max-width: 640px) and (min-width: 376px) {
   .proposals-banner-title {
     margin-top: 7% !important;
   }
@@ -519,7 +523,7 @@ a.button-span-not-allowed-poll:hover {
   }
 }
 
-@media (max-width: 840px) and (min-width: 100px){
+@media (max-width: 840px) and (min-width: 641px){
   .proposals-banner-title {
     margin-top: 3% !important;
   }
