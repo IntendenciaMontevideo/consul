@@ -477,27 +477,17 @@ a.button-span-not-allowed-poll:hover {
   width: 87%;
 }
 
-.carusel-custom {
-  padding-bottom: 30px !important;
-}
+@media (max-width: 840px) and (min-width: 100px) {
+  .proposals-banner-title {
+    margin-top: 3% !important;
+  }
 
-@media (max-width: 320px) and (min-width: 100px) {
   .home-banner-text {
-    font-size: 16px !important;
+    font-size: 40px !important;
   }
 
   .banner-box-text {
-    top: -39% !important;
-  }
-}
-
-@media (max-width: 375px) and (min-width: 100px) {
-  .proposals-banner-title {
-    margin-top: 9% !important;
-  }
-
-  .home-banner-text {
-    font-size: 18px !important;
+    top: -21% !important;
   }
 }
 
@@ -519,23 +509,33 @@ a.button-span-not-allowed-poll:hover {
   }
 }
 
-@media (max-width: 840px) and (min-width: 100px){
+@media (max-width: 375px) and (min-width: 100px) {
   .proposals-banner-title {
-    margin-top: 3% !important;
+    margin-top: 9% !important;
   }
 
   .home-banner-text {
-    font-size: 40px !important;
-  }
-
-  .banner-box-text {
-    top: -21% !important;
+    font-size: 18px !important;
   }
 }
 
-@media (max-width: 1023px) {
-  .proposals-home {
-    padding-top: 0 !important;
+@media (max-width: 320px) and (min-width: 100px) {
+  .home-banner-text {
+    font-size: 16px !important;
+  }
+
+  .banner-box-text {
+    top: -39% !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner-box-text {
+    top: 33% !important;
+  }
+
+  .home-banner-text {
+    font-size: 60px !important;
   }
 }
 
@@ -549,12 +549,12 @@ a.button-span-not-allowed-poll:hover {
   }
 }
 
-@media (min-width: 1440px) {
-  .banner-box-text {
-    top: 33% !important;
+@media (max-width: 1023px) {
+  .proposals-home {
+    padding-top: 0 !important;
   }
+}
 
-  .home-banner-text {
-    font-size: 60px !important;
-  }
+.carusel-custom {
+  padding-bottom: 30px !important;
 }
