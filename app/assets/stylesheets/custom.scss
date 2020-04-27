@@ -483,7 +483,7 @@ a.button-span-not-allowed-poll:hover {
 
 .search-text-input {
   background:white !important; 
-  border: solid grey !important;
+  border: solid #cdcdcd !important;
   border-width: 1px 0 1px 1px !important;
   padding-top: 9px !important;
   height: 36px !important;
@@ -491,19 +491,40 @@ a.button-span-not-allowed-poll:hover {
 
 .search-text-input:hover {
   transition: none !important;
-  border: solid grey !important;
+  border: solid #cdcdcd !important;
   border-width: 1px 0 1px 1px !important;
 }
 
+.search-text-input:focus {
+  transition: none !important;
+  border: solid #cdcdcd !important;
+  border-width: 1px 0 1px 1px !important;
+  box-shadow: none;
+}
+
 .search-image-container {
-  border: solid grey !important;
+  border: solid #cdcdcd !important;
   border-width: 1px 1px 1px 0 !important;
   height: 36px;
+  width: 36px;
   padding: 9px;
+  margin-right: 10px !important;
 }
 
 #search_text {
   padding: 9px !important;
+}
+
+.search-column {
+  margin-left: 4px;
+}
+
+#assigned-resources-tabs {
+  background: white !important;
+}
+
+#subnavigation-expanded {
+  background: white !important
 }
 
 @media (max-width: 320px) and (min-width: 100px) {
@@ -514,11 +535,15 @@ a.button-span-not-allowed-poll:hover {
   .banner-box-text {
     top: -39% !important;
   }
+
+  .proposals-banner-title {
+    margin-top: 8% !important;
+  }
 }
 
 @media (max-width: 375px) and (min-width: 321px) {
   .proposals-banner-title {
-    margin-top: 9% !important;
+    margin-top: 7% !important;
   }
 
   .banner-box-text {
@@ -527,6 +552,10 @@ a.button-span-not-allowed-poll:hover {
 
   .home-banner-text {
     font-size: 18px !important;
+  }
+
+  .search-column {
+    width: 89.5vw !important;
   }
 }
 
@@ -546,6 +575,10 @@ a.button-span-not-allowed-poll:hover {
   .proposals-header {
     top: 30px;
   }
+
+  .search-column {
+    width: 91vw !important;
+  }
 }
 
 @media (max-width: 840px) and (min-width: 641px){
@@ -562,6 +595,16 @@ a.button-span-not-allowed-poll:hover {
   }
 }
 
+@media (max-width: 840px) and (min-width: 100px){
+  .banner-box {
+    padding-bottom: 0 !important;
+  }
+
+  .banner-image {
+    margin-bottom: 0 !important;
+  }
+}
+
 @media (max-width: 1023px) {
   .proposals-home {
     padding-top: 0 !important;
@@ -575,6 +618,16 @@ a.button-span-not-allowed-poll:hover {
 
   .home-banner-text {
     font-size: 50px !important;
+  }
+
+  .search-column {
+    width: 95vw !important;
+  }
+}
+
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .large-search-bar-container {
+    margin-right: 14px;
   }
 }
 
