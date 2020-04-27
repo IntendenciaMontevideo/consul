@@ -481,6 +481,31 @@ a.button-span-not-allowed-poll:hover {
   padding-bottom: 30px !important;
 }
 
+.search-text-input {
+  background:white !important; 
+  border: solid grey !important;
+  border-width: 1px 0 1px 1px !important;
+  padding-top: 9px !important;
+  height: 36px !important;
+}
+
+.search-text-input:hover {
+  transition: none !important;
+  border: solid grey !important;
+  border-width: 1px 0 1px 1px !important;
+}
+
+.search-image-container {
+  border: solid grey !important;
+  border-width: 1px 1px 1px 0 !important;
+  height: 36px;
+  padding: 9px;
+}
+
+#search_text {
+  padding: 9px !important;
+}
+
 @media (max-width: 320px) and (min-width: 100px) {
   .home-banner-text {
     font-size: 16px !important;
