@@ -4,11 +4,13 @@
 <% end %>
 <% if ((current_user.blank?) || (!current_user.blank? && session[current_user.id.to_s].blank?)) %>
   <div class="row-for-banners">
-    <div class="box ">
-      <%= image_tag(image_path_for('pages-header.jpg'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
-        <div class="column box-text">
-          <h2 class="banner-title inline-h-0 font-size-poll-banner">Votaciones</h2>
+    <div class="box banner-box">
+      <%= image_tag(image_path_for('banner-general.png'), class: 'banner-image float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+      <div class="box-text general-box-text">
+        <div class="row">
+          <h2 class="banner-title general-banner-title column small-12 inline-h-0">Votaciones</h2>
         </div>
+      </div>
     </div>
   </div>
 <% end %>
