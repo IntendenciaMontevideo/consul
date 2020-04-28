@@ -68,6 +68,13 @@
         </li>
       <% end %>
     <% end %>
+    <li class="flex-1 nav-menu-item">
+        <%= layout_menu_link_to t("layouts.header.articles"),
+                                  articles_path,
+                                  current_page?(articles_path),
+                                  accesskey: "5",
+                                  class: "nav-menu-link" %>
+      </li>
     <li class="float-right show-for-large-only">
       <%= yield :header_addon %>
     </li>

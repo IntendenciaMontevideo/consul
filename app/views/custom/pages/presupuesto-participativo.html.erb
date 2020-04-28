@@ -3,10 +3,12 @@
 <% end %>
 <div class="row-for-banners">
   <% if ((current_user.blank?) || (!current_user.blank? && session[current_user.id.to_s].blank?)) %>
-    <div class="box ">
-      <%= image_tag(image_path_for('banner-PresP.png'), class: 'float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
-      <div class="column box-text">
-        <h2 class="banner-title inline-h-0">Presupuesto Participativo</h2>
+    <div class="box banner-box">
+      <%= image_tag(image_path_for('banner-general.png'), class: 'banner-image float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+      <div class="box-text general-box-text">
+        <div class="row">
+          <h2 class="banner-title general-banner-title-long column small-12 inline-h-0">Presupuesto Participativo</h2>
+        </div>
       </div>
     </div>
   <% end %>

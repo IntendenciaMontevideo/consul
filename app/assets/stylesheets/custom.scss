@@ -467,7 +467,7 @@ a.button-span-not-allowed-poll:hover {
   align-items: center;
 }
 
-.proposals-box-text {
+.general-box-text {
   margin-left:0 !important;
 }
 
@@ -527,6 +527,14 @@ header .subnavigation {
   background: white !important;
 }
 
+.general-banner-title {
+  text-align: left;
+}
+
+.general-banner-title-long {
+  text-align: left;
+}
+
 @media (max-width: 320px) and (min-width: 100px) {
   .home-banner-text {
     font-size: 16px !important;
@@ -536,8 +544,14 @@ header .subnavigation {
     top: -39% !important;
   }
 
-  .proposals-banner-title {
-    margin-top: 8% !important;
+  .general-banner-title {
+    margin-top: 7% !important;
+    font-size: 16px !important;
+  }
+
+  .general-banner-title-long {
+    margin-top: 7% !important;
+    font-size: 15px !important;
   }
 
   .small-subnavigation-items {
@@ -546,8 +560,13 @@ header .subnavigation {
 }
 
 @media (max-width: 375px) and (min-width: 321px) {
-  .proposals-banner-title {
+  .general-banner-title {
     margin-top: 7% !important;
+  }
+
+  .general-banner-title-long {
+    margin-top: 7% !important;
+    font-size: 17px !important;
   }
 
   .banner-box-text {
@@ -568,8 +587,14 @@ header .subnavigation {
 }
 
 @media (max-width: 640px) and (min-width: 376px) {
-  .proposals-banner-title {
-    margin-top: 7% !important;
+  .general-banner-title {
+    margin-top: 6% !important;
+    font-size: 21px !important;
+  }
+
+  .general-banner-title-long {
+    margin-top: 6% !important;
+    font-size: 20px !important;
   }
 
   .home-banner-text {
@@ -598,8 +623,14 @@ header .subnavigation {
 }
 
 @media (max-width: 840px) and (min-width: 641px){
-  .proposals-banner-title {
-    margin-top: 3% !important;
+  .general-banner-title {
+    margin-top: 2% !important;
+    font-size: 40px !important;
+  }
+
+  .general-banner-title-long {
+    margin-top: 2% !important;
+    font-size: 37px !important;
   }
 
   .home-banner-text {
@@ -621,6 +652,10 @@ header .subnavigation {
 
   .banner-image {
     margin-bottom: 0 !important;
+  }
+
+  .no-margin-top-small {
+    margin-top: 0 !important;
   }
 }
 
@@ -674,11 +709,35 @@ header .subnavigation {
   .search-column {
     width: 95vw !important;
   }
+
+  .general-banner-title,
+  .general-banner-title-long{
+    font-size: 50px !important;
+    margin-top: -1.5% !important;
+  }
+  
 }
 
 @media (max-width: 1439px) and (min-width: 1024px) {
   .large-search-bar-container {
     margin-right: 14px;
+  }
+}
+
+@media (min-width: 1025px) { 
+  .home-banner-text {
+    font-size: 50px !important;
+    margin-top: -3% !important;
+  }
+
+  .general-banner-title,
+  .general-banner-title-long {
+    font-size: 50px !important;
+  }
+
+  .general-banner-title,
+  .general-banner-title-long {
+    margin-top: -1% !important;
   }
 }
 
@@ -693,7 +752,16 @@ header .subnavigation {
     top: 33% !important;
   }
 
-  .home-banner-text {
+  .home-banner-text,
+  .general-banner-title,
+  .general-banner-title-long {
     font-size: 60px !important;
+    margin-top: 0 !important;
   }
+
+  .general-banner-title,
+  .general-banner-title-long {
+    margin-top: -1% !important;
+  }
+
 }

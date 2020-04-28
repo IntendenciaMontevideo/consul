@@ -17,10 +17,10 @@
 <% if ((current_user.blank?) || (!current_user.blank? && session[current_user.id.to_s].blank?)) %>
   <div class="row-for-banners">
     <div class="box banner-box">
-      <%= image_tag(image_path_for('banner-proposals.png'), class: 'banner-image float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
-      <div class="box-text proposals-box-text">
+      <%= image_tag(image_path_for('banner-general.png'), class: 'banner-image float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
+      <div class="box-text general-box-text">
         <div class="row">
-          <h2 class="banner-title proposals-banner-title column small-12 inline-h-0" style="text-align: left;">Ideas</h2>
+          <h2 class="banner-title general-banner-title column small-12 inline-h-0">Ideas</h2>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
 
 <main>
   <% if @search_terms || @advanced_search_terms || @tag_filter || params[:retired].present? %>
-    <div class="highlight no-margin-top padding margin-bottom">
+    <div class="highlight no-margin-top no-margin-top-small margin-bottom">
       <div class="row">
         <div class="small-12 column">
           <% if @search_terms || @advanced_search_terms %>
