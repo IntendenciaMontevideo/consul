@@ -109,11 +109,11 @@
 
     <div class="small-12 medium-3 column">
       <aside class="margin-bottom">
-        <div class="proposal-icon-text-container margin-bottom margin-top">
+        <div class="proposal-icon-text-container margin-bottom margin-top hide-for-small-only">
           <%= image_tag(image_path_for('bulb.png'), class:"proposals-icon", alt: "ideas") %>
           <div class="proposals-text"><h3 class="proposals-header">IDEAS</h3></div>
         </div>
-        <div>
+        <div class="margin-top">
           <% if Proposal.can_create? %>
             <%= link_to t("proposals.index.start_proposal"),
                       new_proposal_guide,

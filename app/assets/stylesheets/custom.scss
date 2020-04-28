@@ -523,8 +523,8 @@ a.button-span-not-allowed-poll:hover {
   background: white !important;
 }
 
-#subnavigation-expanded {
-  background: white !important
+header .subnavigation {
+  background: white !important;
 }
 
 @media (max-width: 320px) and (min-width: 100px) {
@@ -538,6 +538,10 @@ a.button-span-not-allowed-poll:hover {
 
   .proposals-banner-title {
     margin-top: 8% !important;
+  }
+
+  .small-subnavigation-items {
+    width: 106%;
   }
 }
 
@@ -556,6 +560,10 @@ a.button-span-not-allowed-poll:hover {
 
   .search-column {
     width: 89.5vw !important;
+  }
+
+  .small-subnavigation-items {
+    width: 105%;
   }
 }
 
@@ -579,6 +587,14 @@ a.button-span-not-allowed-poll:hover {
   .search-column {
     width: 91vw !important;
   }
+
+  .small-subnavigation-items {
+    width: 104.5%;
+  }
+}
+
+.no-padding-right {
+  padding-right: 0 !important;
 }
 
 @media (max-width: 840px) and (min-width: 641px){
@@ -593,6 +609,9 @@ a.button-span-not-allowed-poll:hover {
   .banner-box-text {
     top: -21% !important;
   }
+  .small-subnavigation-items {
+    width: 103%;
+  }
 }
 
 @media (max-width: 840px) and (min-width: 100px){
@@ -602,6 +621,38 @@ a.button-span-not-allowed-poll:hover {
 
   .banner-image {
     margin-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 860px) and (min-width: 100px){
+  #nav-bar-flex {
+    background: white !important;
+  }
+  .nav-menu-link {
+    text-decoration: none !important;
+  }
+
+  .nav-menu-link:hover {
+    border-left: solid 4px #f9bd41;
+  }
+  .nav-menu-link:active {
+    text-decoration: none !important;
+  }
+
+  .nav-menu-item:not(:last-child){
+    border-bottom: 1px solid #cdcdcd;
+  }
+  
+  .nav-menu-item .active {
+    border-bottom: none !important;
+    text-decoration: none;
+    border-left: solid 4px #f9bd41;
+    color: black !important;
+    padding-left: 4px;
+  }
+
+  .nav-menu-item {
+    margin-right: 0 !important;
   }
 }
 
@@ -628,6 +679,12 @@ a.button-span-not-allowed-poll:hover {
 @media (max-width: 1439px) and (min-width: 1024px) {
   .large-search-bar-container {
     margin-right: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .no-margin-bottom-big {
+    margin-bottom: 0 !important;
   }
 }
 
