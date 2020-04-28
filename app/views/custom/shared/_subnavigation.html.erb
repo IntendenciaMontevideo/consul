@@ -1,63 +1,70 @@
-<div class="small-12 medium-12 column">
-  <ul id="nav-bar-flex">
+<div class="small-12 medium-12 column no-padding-right margin-bottom no-margin-bottom-big">
+  <ul id="nav-bar-flex" class="no-padding-right">
     <% if feature?(:debates) %>
-      <li class="flex-1">
+      <li class="flex-1 nav-menu-item">
         <%= layout_menu_link_to t("layouts.header.debates"),
                                 debates_path,
                                 controller_name == 'debates',
                                 accesskey: "1",
-                                title: t("shared.go_to_page") + t("layouts.header.debates") %>
+                                title: t("shared.go_to_page") + t("layouts.header.debates"),
+                                class: "nav-menu-link" %>
       </li>
     <% end %>
     <% if feature?(:proposals) %>
-      <li class="flex-1">
+      <li class="flex-1 nav-menu-item">
         <%= layout_menu_link_to t("layouts.header.ideas"),
                                 proposals_path,
-                                controller_name == 'proposals' && !controller.class.parent == Legislation,
+                                controller_name == 'proposals',
                                 accesskey: "2",
-                                title: t("shared.go_to_page") + t("layouts.header.ideas") %>
+                                title: t("shared.go_to_page") + t("layouts.header.ideas"),
+                                class: "nav-menu-link" %>
       </li>
     <% end %>
     <% if feature?(:legislation) %>
-      <li class="flex-3">
+      <li class="flex-3 nav-menu-item">
         <%= layout_menu_link_to t("layouts.header.collaborative_legislation"),
                                 consultas_ciudadanas_path,
                                 controller.class.parent == Legislation,
-                                accesskey: "l" %>
+                                accesskey: "l",
+                                class: "nav-menu-link" %>
       </li>
     <% end %>
     <% if feature?(:polls) %>
-      <li class="flex-1">
+      <li class="flex-1 nav-menu-item">
         <%= layout_menu_link_to t("layouts.header.poll_questions"),
                                   polls_path,
                                   controller_name == "polls" || (controller_name == "questions" && controller.class.parent == Polls),
                                   accesskey: "3",
-                                  title: t("shared.go_to_page") + t("layouts.header.poll_questions") %>
+                                  title: t("shared.go_to_page") + t("layouts.header.poll_questions"),
+                                  class: "nav-menu-link" %>
       </li>
     <% end %>
     <% if feature?(:spending_proposals) %>
-      <li class="flex-1">
+      <li class="flex-1 nav-menu-item">
         <%= layout_menu_link_to t("layouts.header.spending_proposals"),
                                   spending_proposals_path,
                                   controller_name == 'spending_proposals',
-                                  accesskey: "s" %>
+                                  accesskey: "s",
+                                  class: "nav-menu-link" %>
       </li>
     <% end %>
-    <li class="flex-4">
+    <li class="flex-4 nav-menu-item">
       <%= layout_menu_link_to t("layouts.header.budgets"),
                                 Setting['enable_participatory_budget'] == "false" || Setting['enable_participatory_budget'].blank? ? presupuesto_participativo_path : polls_path,
-                                controller_name == "budgets" || controller_name == "investments",
+                                current_page?(presupuesto_participativo_path),
                                 accesskey: "4",
-                                title: t("shared.go_to_page") + t("layouts.header.budgets") %>
+                                title: t("shared.go_to_page") + t("layouts.header.budgets"),
+                                class: "nav-menu-link" %>
     </li>
     <% pages = SiteCustomization::Page.with_add_in_menu %>
     <% if pages.size > 0 %>
       <% pages.each do |page| %>
-        <li class="flex-1">
+        <li class="flex-1 nav-menu-item">
           <%= layout_menu_link_to page.title,
                                   page.slug,
-                                  false,
-                                  title:  page.title %>
+                                  current_page?("/#{page.slug}"),
+                                  title:  page.title,
+                                  class: "nav-menu-link" %>
         </li>
       <% end %>
     <% end %>
