@@ -162,7 +162,7 @@ class Mailer < ApplicationMailer
   end
 
   def set_header_img
-    attachments.inline['header_email.gif'] = File.read("#{Rails.root}/app/assets/images/custom/header_email.png")
+    attachments.inline['header_email.gif'] = File.read("#{Rails.root}/app/assets/images/custom/banner-mailing.png")
   end
 
   def set_header_welcome_img

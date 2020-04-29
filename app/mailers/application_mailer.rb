@@ -8,6 +8,6 @@ class ApplicationMailer < ActionMailer::Base
 
   private
   def add_inline_attachments!
-    attachments.inline['header_email.png'] = File.read("#{Rails.root}/app/assets/images/custom/header_email.png")
+    attachments.inline['banner-mailing.png'] = File.read("#{Rails.root}/app/assets/images/custom/banner-mailing.png")
   end
 end
