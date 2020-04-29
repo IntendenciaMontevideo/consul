@@ -5,3 +5,8 @@ es:
     can_send_private_message: Permitir enviar mensajes privados
     enable_participatory_budget: Habilitar PP
     enable_unique_image_banner: Habilitar Única Imagen Banner
+    home_show_buttons: Mostrar botones del Home
+    home_statistics: Estadísticas desde Home
+    home_winning_proposals: Ideas ganadoras desde Home
+    home_next_cycle: Próximo ciclo desde Home
+    home_memory: Memoria desde Home

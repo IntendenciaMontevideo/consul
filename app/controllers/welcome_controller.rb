@@ -10,6 +10,7 @@ class WelcomeController < ApplicationController
     @recommendation_is_active = recomendation_home?
     @feed_proposal = Widget::Feed.find_by_kind(Widget::Feed::KINDS[0])
     @feed_debate = Widget::Feed.find_by_kind(Widget::Feed::KINDS[1])
+    load_home_links
   end
 
   def welcome
@@ -34,6 +35,14 @@ class WelcomeController < ApplicationController
   def load_widget_cards
     cards = Widget::Card.header
     cards.without_init_end_datetime + cards.only_with_init_datetime + cards.only_with_end_datetime + cards.with_init_end_datetime
+  end
+
+  def load_home_links
+    @show_buttons = Setting['home_show_buttons']
+    @statitics_link = Setting['home_statistics']
+    @proposals_link = Setting['home_winning_proposals']
+    @cycle_link = Setting['home_next_cycle']
+    @memory_link = Setting['home_memory']
   end
 
 end
