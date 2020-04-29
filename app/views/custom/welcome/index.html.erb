@@ -36,6 +36,31 @@
   </div>
 <%end %>
 
+<% if @show_buttons == 'true' %>
+  <div class="row margin-bottom home-buttons-container">
+    <div class="small-6 medium-3 column odd-home-button home-button" >
+      <%= link_to @statitics_link, target: '_blank' do %>
+        <%= image_tag(image_path_for('statistics.png'), alt: "estadisticas") %>
+      <% end %>
+    </div>
+    <div class="small-6 medium-3 column even-home-button home-button" >
+      <%= link_to @proposals_link, target: '_blank' do %>
+        <%= image_tag(image_path_for('proposalsW.png'), alt: "ideas") %>
+      <% end %>
+    </div>
+    <div class="small-6 medium-3 column odd-home-button home-button" >
+      <%= link_to @cycle_link, target: '_blank' do %>
+        <%= image_tag(image_path_for('cycle.png'), alt: "ciclo") %>
+      <% end %>
+    </div>
+    <div class="small-6 medium-3 column even-home-button home-button" >
+      <%= link_to @memory_link, target: '_blank' do %>
+        <%= image_tag(image_path_for('memory.png'), alt: "memoria") %>
+      <% end %>
+    </div> 
+  </div>
+<% end %>
+
 <% cache [locale_and_user_status, @featured_debates, @featured_proposals, 'featured'] do %>
   <main>
     <% if @feed_proposal.active? || @feed_debate.active? %>

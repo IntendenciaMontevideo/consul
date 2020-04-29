@@ -586,6 +586,31 @@ header .subnavigation {
   }
 }
 
+@media (max-width: 639px) and (min-width: 100px) { 
+  .odd-home-button {
+    padding-right: 0 !important;
+  }
+
+  .even-home-button {
+    padding-left: 0 !important;
+  }
+
+  .home-buttons-container {
+    width: 83%;
+  }
+}
+
+@media (min-width: 640px) { 
+  .home-button {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .home-buttons-container {
+    width: 94%;
+  }
+}
+
 @media (max-width: 640px) and (min-width: 376px) {
   .general-banner-title {
     margin-top: 6% !important;
