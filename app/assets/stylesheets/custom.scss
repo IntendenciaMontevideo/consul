@@ -535,6 +535,15 @@ header .subnavigation {
   text-align: left;
 }
 
+.home-recomendations {
+  border-bottom: solid 24px #f9bd41;
+}
+
+.home-text-feature {
+  text-align: left; 
+  color: white;
+}
+
 @media (max-width: 320px) and (min-width: 100px) {
   .home-banner-text {
     font-size: 16px !important;
