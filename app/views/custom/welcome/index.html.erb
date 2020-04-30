@@ -150,8 +150,12 @@
                 <%= link_to recommendation.link_url, target: :blank do %>
                   <div class="large-4 medium-4 column float-left">
                     <p class="margin-img-2">
-                      <%= image_tag recommendation.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
-                      <p class="text-feature-img"><%= recommendation.link_text%></p>
+                      <div class="image-text-container home-recomendations">
+                        <%= image_tag recommendation.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
+                        <div class="image-text"> 
+                          <p class="text-feature-img home-text-feature"><%= recommendation.link_text %></p>
+                        </div>
+                      </div>
                     </p>
                   </div>
                 <% end %>
@@ -173,8 +177,12 @@
               <%= link_to recommendation.link_url, target: :blank do %>
                 <div class="medium-4 column float-left">
                   <p class="margin-img-2">
-                    <%= image_tag recommendation.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
-                    <p class="text-feature-img"><%= recommendation.link_text%></p>
+                   <div class="image-text-container home-recomendations">
+                      <%= image_tag recommendation.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
+                      <div class="image-text"> 
+                        <p class="text-feature-img home-text-feature"><%= recommendation.link_text %></p>
+                      </div>
+                    </div>
                   </p>
                 </div>
               <% end %>
