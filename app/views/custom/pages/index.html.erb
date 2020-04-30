@@ -10,7 +10,7 @@
     <%= image_tag(image_path_for('banner-general.png'), class: 'banner-image float-center margin-bottom banner-img', width: '100%', alt: t("layouts.header.logo")) %>
     <div class="box-text general-box-text">
       <div class="row">
-        <h2 class="banner-title general-banner-title column small-12 inline-h-0"><%= format_articles_header(@category) %></h2>
+        <h2 class="banner-title general-banner-title column small-12 inline-h-0">Noticias</h2>
       </div>
     </div>
   </div>
@@ -23,14 +23,15 @@
     </div>
   </div>
 <main>
-  <% if @search_terms  %>
+  <% if @search_terms || @category  %>
+    <% query_term = @search_terms || @category %>
     <div class="highlight no-margin-top no-margin-top-small margin-bottom">
       <div class="row">
         <div class="small-12 column">
           <h2><%= t("shared.search_results") %></h2>
           <p>
             <%= page_entries_info @pages %>
-            <%= t("pages.index.search_results_html", count: @pages.size, search_term: @search_terms) %>
+            <%= t("pages.index.search_results_html", count: @pages.size, search_term: query_term) %>
           <p>
         </div>
       </div>
