@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200415160410) do
+ActiveRecord::Schema.define(version: 20200430181146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -991,6 +991,18 @@ ActiveRecord::Schema.define(version: 20200415160410) do
 
   add_index "site_customization_image_sites", ["name"], name: "index_site_customization_image_sites_on_name", unique: true, using: :btree
 
+  create_table "site_customization_images", force: :cascade do |t|
+    t.string   "name",               null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "site_customization_images", ["name"], name: "index_site_customization_images_on_name", unique: true, using: :btree
+
   create_table "site_customization_pages", force: :cascade do |t|
     t.string   "slug",                                  null: false
     t.string   "title",                                 null: false
@@ -1254,6 +1266,7 @@ ActiveRecord::Schema.define(version: 20200415160410) do
     t.datetime "init_datetime"
     t.datetime "end_datetime"
     t.integer  "order_number"
+    t.string   "subtitle"
   end
 
   create_table "widget_feeds", force: :cascade do |t|
@@ -1265,11 +1278,13 @@ ActiveRecord::Schema.define(version: 20200415160410) do
 
   add_foreign_key "administrators", "users"
   add_foreign_key "annotations", "legacy_legislations"
+  add_foreign_key "annotations", "legacy_legislations"
   add_foreign_key "annotations", "users"
   add_foreign_key "budget_investments", "communities"
   add_foreign_key "documents", "users"
   add_foreign_key "failed_census_calls", "poll_officers"
   add_foreign_key "failed_census_calls", "users"
+  add_foreign_key "flags", "users"
   add_foreign_key "flags", "users"
   add_foreign_key "follows", "users"
   add_foreign_key "geozones_polls", "geozones"
@@ -1293,6 +1308,7 @@ ActiveRecord::Schema.define(version: 20200415160410) do
   add_foreign_key "poll_partial_results", "poll_questions", column: "question_id"
   add_foreign_key "poll_partial_results", "users", column: "author_id"
   add_foreign_key "poll_question_answer_videos", "poll_question_answers", column: "answer_id"
+  add_foreign_key "poll_question_answers", "poll_questions", column: "question_id"
   add_foreign_key "poll_question_answers", "poll_questions", column: "question_id"
   add_foreign_key "poll_questions", "polls"
   add_foreign_key "poll_questions", "proposals"
