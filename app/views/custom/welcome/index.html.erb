@@ -160,8 +160,8 @@
 
     <div class="jumbo margin">
       <% if @recommendation_is_active %>
-        <div class="row medium-12 large-12 show-for-large margin ">
-          <div class="large-12 column div-feature">
+        <div class="row medium-12 large-12 show-for-large margin recommendations-container">
+          <div class="large-12 column div-feature feature-border">
             <div class="small-2 medium-1 column">
               <%= image_tag(image_path_for('destacados-estrella.png'), class: 'float-center',  alt: t("layouts.header.logo")) %>
             </div>
@@ -188,8 +188,8 @@
             </div>
           <% end %>
         </div>
-        <div class="row medium-12 hide-for-large margin">
-          <div class="column div-feature">
+        <div class="row medium-12 hide-for-large margin recommendations-container" >
+          <div class="column div-feature feature-border">
             <div class="small-2 medium-1 column">
               <%= image_tag(image_path_for('destacados-estrella.png'), class: 'float-center',  alt: t("layouts.header.logo")) %>
             </div>

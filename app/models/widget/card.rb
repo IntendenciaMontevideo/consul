@@ -13,7 +13,7 @@ class Widget::Card < ActiveRecord::Base
   end
 
   def self.body
-    where(header: false).order(:created_at)
+    where(header: false).order(created_at: :desc)
   end
 
 end
