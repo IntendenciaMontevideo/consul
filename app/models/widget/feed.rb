@@ -23,7 +23,7 @@ class Widget::Feed < ActiveRecord::Base
   end
 
   def proposals
-    Proposal.sort_by_hot_score.not_archived.limit(limit)
+    Proposal.by_featured[0..limit-1]
   end
 
   def debates
@@ -31,7 +31,7 @@ class Widget::Feed < ActiveRecord::Base
   end
 
   def polls
-    Poll.all.limit(limit)
+    Poll.by_featured[0..limit-1]
   end
 
   def processes

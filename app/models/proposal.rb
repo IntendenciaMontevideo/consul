@@ -72,6 +72,7 @@ class Proposal < ActiveRecord::Base
   scope :not_not_success,          -> { where.not("state = ?", Proposal::STATES[:not_success]) }
   scope :search_between_dates, -> (start_date, end_date) { where('created_at >= ? AND created_at <= ?', start_date.beginning_of_day, end_date.beginning_of_day) }
   scope :search_by_status, -> (status) { where(state: status) }
+  scope :by_featured, -> { where(featured: true).shuffle }
 
   def url
     proposal_path(self)

@@ -95,20 +95,29 @@
             </div>
           <% end %>
           <% if @feed_poll.active? %>
-            <div class="small-12 medium-6 column">
+           <div class="small-12 medium-6 column">
               <h3>Votaciones más activas</h3>
-              <% count_debates = @feed_poll.items.count%>
-              <% @feed_poll.items.each_with_index do |poll, index| %>
-                <% if count_debates == (index + 1) %>
-                  <h5 class="m-bottom-0 bottom-feed-debate"><%= link_to poll.title, poll, class: "color-title-feed" %></h5>
-                <% else %>
-                  <h5 class="m-bottom-0 border-bottom-debate bottom-feed-debate"><%= link_to poll.title, poll, class: "color-title-feed" %></h5>
-                <% end %>
+              <% @feed_poll.items.each do |poll| %>
+                <div class="column p-left-0 border-bottom-feed">
+                  <div class="hide-for-small-only">
+                    <% if poll.image %>
+                      <div class="medium-3 column m-bottom-5 p-left-0">
+                        <%= image_tag poll.image_url(:original), alt: t("layouts.header.logo")%>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class="medium-9 column">
+                    <h5 class="m-bottom-0"><%= link_to poll.title, poll_path(poll), class: "color-title-feed" %></h5>
+                  </div>
+                  <div class="medium-9 column proposal-description-home ">
+                    <p class="text-left"><%= poll.summary %></p>
+                    <div class="truncate"></div>
+                  </div>
+                </div>
               <% end %>
-            </div>
-            <div class="column show-for-small-only">
-              <hr class="debate-hr-mobile"/>
-              <%= link_to "Ver todas las votaciones", polls_path, class: "all-cards-home" %>
+              <div class="column show-for-small-only border-top-all-home">
+                <%= link_to "Ver todas las votaciones", polls_path, class: "all-cards-home" %>
+              </div>
             </div>
           <% end %>
           <% if @feed_debate.active? %>

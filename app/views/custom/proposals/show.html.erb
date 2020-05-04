@@ -122,7 +122,7 @@
             <% end %>
 
             <% if current_administrator? %>
-              <%= link_to new_proposal_notification_path(proposal_id: @proposal.id),
+              <%= link_to proposal_path(id: @proposal.id, proposal: { featured: !@proposal.featured }), :method => :patch,
                           class: 'button hollow expanded' do %>
                           <%= mark_as_featured_text(@proposal) %>
               <% end %>
