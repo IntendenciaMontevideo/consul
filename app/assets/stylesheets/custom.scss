@@ -544,6 +544,14 @@ header .subnavigation {
   color: white;
 }
 
+.recommendations-container {
+  background: #cdcdcd;
+}
+
+.feature-border {
+  border-top: 0;
+}
+
 @media (max-width: 320px) and (min-width: 100px) {
   .home-banner-text {
     font-size: 14px !important;
