@@ -10,6 +10,7 @@ class WelcomeController < ApplicationController
     @recommendation_is_active = recomendation_home?
     @feed_proposal = Widget::Feed.find_by_kind(Widget::Feed::KINDS[0])
     @feed_debate = Widget::Feed.find_by_kind(Widget::Feed::KINDS[1])
+    @feed_poll = Widget::Feed.find_by_kind(Widget::Feed::KINDS[3])
     load_home_links
   end
 

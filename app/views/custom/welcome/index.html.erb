@@ -67,7 +67,7 @@
     <% if @feed_proposal.active? || @feed_debate.active? %>
       <div class="jumbo m-bottom-0 p-bottom-0 proposals-home">
         <div class="row medium-11 large-10 small-10 small-centered" >
-          <% if @feed_proposal.active? %>
+          <% if @feed_proposal.active? && !@feed_poll.active? %>
             <div class="small-12 medium-6 column">
               <h3>Ideas más activas</h3>
               <% @feed_proposal.items.each do |proposal| %>
@@ -94,6 +94,23 @@
               </div>
             </div>
           <% end %>
+          <% if @feed_poll.active? %>
+            <div class="small-12 medium-6 column">
+              <h3>Votaciones más activas</h3>
+              <% count_debates = @feed_poll.items.count%>
+              <% @feed_poll.items.each_with_index do |poll, index| %>
+                <% if count_debates == (index + 1) %>
+                  <h5 class="m-bottom-0 bottom-feed-debate"><%= link_to poll.title, poll, class: "color-title-feed" %></h5>
+                <% else %>
+                  <h5 class="m-bottom-0 border-bottom-debate bottom-feed-debate"><%= link_to poll.title, poll, class: "color-title-feed" %></h5>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="column show-for-small-only">
+              <hr class="debate-hr-mobile"/>
+              <%= link_to "Ver todas las votaciones", polls_path, class: "all-cards-home" %>
+            </div>
+          <% end %>
           <% if @feed_debate.active? %>
             <div class="small-12 medium-6 column">
               <h3>Debates más activos</h3>
@@ -115,10 +132,17 @@
       </div>
       <div>
         <div class="row medium-11 large-10 small-10 hide-for-small-only border-top-all-home" >
-          <% if @feed_proposal.active? %>
+          <% if @feed_proposal.active? && !@feed_poll.active? %>
             <div class="small-12 medium-6 column">
               <div class="column p-left-0">
                 <%= link_to "Ver todas las ideas", proposals_path, class: "all-cards-home" %>
+              </div>
+            </div>
+          <% end %>
+          <% if @feed_poll.active? %>
+            <div class="small-12 medium-6 column">
+              <div class="column p-left-0">
+                <%= link_to "Ver todas las votaciones", polls_path, class: "all-cards-home" %>
               </div>
             </div>
           <% end %>

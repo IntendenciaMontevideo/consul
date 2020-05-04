@@ -121,6 +121,13 @@
               <% end %>
             <% end %>
 
+            <% if current_administrator? %>
+              <%= link_to new_proposal_notification_path(proposal_id: @proposal.id),
+                          class: 'button hollow expanded' do %>
+                          <%= mark_as_featured_text(@proposal) %>
+              <% end %>
+            <% end %>
+
             <% if author_of_proposal?(@proposal) && can_destroy_image?(@proposal) %>
               <%= link_to image_path(@proposal.image, from: request.url),
                           method: :delete,

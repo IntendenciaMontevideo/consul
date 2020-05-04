@@ -75,6 +75,7 @@ es:
         proposals: Propuestas
         debates: Debates
         processes: Procesos
+        polls: Votaciones
       new:
         header_title: Nuevo encabezado
         submit_header: Crear encabezado
