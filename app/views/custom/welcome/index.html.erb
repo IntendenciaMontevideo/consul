@@ -135,8 +135,9 @@
     <% end %>
 
     <div class="jumbo margin">
+    <div class="recommendations-container">
       <% if @recommendation_is_active %>
-        <div class="row medium-12 large-12 show-for-large margin recommendations-container">
+        <div class="row medium-12 large-12 show-for-large margin ">
           <div class="large-12 column div-feature feature-border">
             <div class="small-2 medium-1 column">
               <%= image_tag(image_path_for('destacados-estrella.png'), class: 'float-center',  alt: t("layouts.header.logo")) %>
@@ -191,6 +192,7 @@
           </div>
         </div>
       <% end %>
+      </div>
     </div>
      <div class="jumbo base-bg">
       <div class="row medium-12 large-12 small-centered">
