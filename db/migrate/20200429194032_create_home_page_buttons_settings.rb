@@ -1,6 +1,6 @@
 class CreateHomePageButtonsSettings < ActiveRecord::Migration
   def self.up
-    Setting.create(key: 'home_show_buttons', value: true)
+    Setting.create(key: 'home_show_buttons', value: 'true')
     Setting.create(key: 'home_statistics', value: '')
     Setting.create(key: 'home_winning_proposals', value: '')
     Setting.create(key: 'home_next_cycle', value: '')
