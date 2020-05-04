@@ -27,7 +27,7 @@ class PagesController < ApplicationController
   def index
     @search_terms = params[:search]
     if @search_terms
-      @pages = SiteCustomization::Page.for_title_or_summary(@search_terms).page(params[:page]).per(20)
+      @pages = SiteCustomization::Page.for_title_summary_or_category(@search_terms).page(params[:page]).per(20)
     else
       @category = params[:category]
       if @category
