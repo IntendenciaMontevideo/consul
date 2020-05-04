@@ -135,24 +135,51 @@
     <% end %>
 
     <div class="jumbo margin">
-    <div class="recommendations-container">
-      <% if @recommendation_is_active %>
-        <div class="row medium-12 large-12 show-for-large margin ">
-          <div class="large-12 column div-feature feature-border">
-            <div class="small-2 medium-1 column">
-              <%= image_tag(image_path_for('destacados-estrella.png'), class: 'float-center',  alt: t("layouts.header.logo")) %>
+      <div class="recommendations-container">
+        <% if @recommendation_is_active %>
+          <div class="row medium-12 large-12 show-for-large margin ">
+            <div class="large-12 column div-feature feature-border">
+              <div class="small-2 medium-1 column">
+                <%= image_tag(image_path_for('destacados-estrella.png'), class: 'float-center',  alt: t("layouts.header.logo")) %>
+              </div>
+              <div class="small-10 medium-11 column text-start">
+                <h1 class="h1-wellcome">Novedades</h1>
+              </div>
             </div>
-            <div class="small-10 medium-11 column text-start">
-              <h1 class="h1-wellcome">Novedades</h1>
-            </div>
+            <% @recommendations.in_groups_of(3).each do |recommendations| %>
+              <div>
+                <% recommendations.compact.each do |recommendation|%>
+                  <%= link_to recommendation.link_url, target: :blank do %>
+                    <div class="large-4 medium-4 column float-left">
+                      <p class="margin-img-2">
+                        <div class="image-text-container home-recomendations">
+                          <%= image_tag recommendation.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
+                          <div class="image-text"> 
+                            <p class="text-feature-img home-text-feature"><%= recommendation.link_text %></p>
+                          </div>
+                        </div>
+                      </p>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
-          <% @recommendations.in_groups_of(3).each do |recommendations| %>
+          <div class="row medium-12 hide-for-large margin recommendations-container" >
+            <div class="column div-feature feature-border">
+              <div class="small-2 medium-1 column">
+                <%= image_tag(image_path_for('destacados-estrella.png'), class: 'float-center',  alt: t("layouts.header.logo")) %>
+              </div>
+              <div class="small-10 medium-11 column text-start">
+                <h1 class="h1-wellcome">Destacados</h1>
+              </div>
+            </div>
             <div>
-              <% recommendations.compact.each do |recommendation|%>
+              <% @recommendations.limit(3).each do |recommendation| %>
                 <%= link_to recommendation.link_url, target: :blank do %>
-                  <div class="large-4 medium-4 column float-left">
+                  <div class="medium-4 column float-left">
                     <p class="margin-img-2">
-                      <div class="image-text-container home-recomendations">
+                    <div class="image-text-container home-recomendations">
                         <%= image_tag recommendation.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
                         <div class="image-text"> 
                           <p class="text-feature-img home-text-feature"><%= recommendation.link_text %></p>
@@ -163,37 +190,10 @@
                 <% end %>
               <% end %>
             </div>
-          <% end %>
-        </div>
-        <div class="row medium-12 hide-for-large margin recommendations-container" >
-          <div class="column div-feature feature-border">
-            <div class="small-2 medium-1 column">
-              <%= image_tag(image_path_for('destacados-estrella.png'), class: 'float-center',  alt: t("layouts.header.logo")) %>
-            </div>
-            <div class="small-10 medium-11 column text-start">
-              <h1 class="h1-wellcome">Destacados</h1>
-            </div>
           </div>
-          <div>
-            <% @recommendations.limit(3).each do |recommendation| %>
-              <%= link_to recommendation.link_url, target: :blank do %>
-                <div class="medium-4 column float-left">
-                  <p class="margin-img-2">
-                   <div class="image-text-container home-recomendations">
-                      <%= image_tag recommendation.image_url(:original), alt: t("layouts.header.logo"), class: 'float-center' %>
-                      <div class="image-text"> 
-                        <p class="text-feature-img home-text-feature"><%= recommendation.link_text %></p>
-                      </div>
-                    </div>
-                  </p>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
+        <% end %>
         </div>
-      <% end %>
       </div>
-    </div>
      <div class="jumbo base-bg">
       <div class="row medium-12 large-12 small-centered">
         <div class="show-for-large-only large-3 column color-img-1 height-div-below">
