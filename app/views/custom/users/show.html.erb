@@ -16,8 +16,14 @@
         <% end %>
       </div>
       <h2 class="inline-block">
+      <% if @user.moderator? %>
+        <%= image_tag("logo_icono_32x32_color.jpg", class: "width-52 avatar float-left") %>
+        <span class="user-name padding-left-10" >Montevideo Decide</span>
+
+      <% else %>
        <span class="bg-avatar-1" style="background: <%=  set_class %>"> <%=  @user.name[0].try(:upcase) %></span>
         <%= @user.name %>
+       <% end %>
         <% if current_administrator? %>
           <small><%= @user.email %></small>
         <% end %>

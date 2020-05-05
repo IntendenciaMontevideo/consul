@@ -18,8 +18,10 @@
             <span class="icon-deleted user-deleted"></span>
           <% elsif comment.user.organization? %>
             <%= image_tag("avatar_collective.png", size: 32, class: "avatar float-left") %>
-          <% else %>
-            <%= avatar_image(set_specific_name_is_moderator(comment.user), seed: comment.user_id, size: 32, class: "float-left") %>
+          <% elsif comment.user.moderator?%>
+              <%= image_tag("logo_icono_32x32_color.jpg", size: 32, class: "avatar float-left") %>
+            <% else %>
+              <%= avatar_image(comment.user, seed: comment.user_id, size: 32, class: "float-left") %>
           <% end %>
         <% end %>
 
@@ -34,7 +36,11 @@
             <% if comment.user.hidden? || comment.user.erased? %>
               <span class="user-name"><%= t("comments.comment.user_deleted") %></span>
             <% else %>
-              <span class="user-name"><%= link_to comment.user.name, user_path(comment.user) %></span>
+              <% if comment.user.moderator? %>
+                <span class="user-name"><%= link_to 'Montevideo Decide', user_path(comment.user) %></span>
+              <% else %>
+                <span class="user-name"><%= link_to comment.user.name, user_path(comment.user) %></span>
+              <% end %>
               <% if comment.user.display_official_position_badge? %>
                 &nbsp;&bull;&nbsp;
                 <span class="label round level-<%= comment.user.official_level %>">
