@@ -121,19 +121,19 @@
               <% end %>
             <% end %>
 
-            <% if current_administrator? %>
-              <%= link_to proposal_path(id: @proposal.id, proposal: { featured: !@proposal.featured }), :method => :patch,
-                          class: 'button hollow expanded' do %>
-                          <%= mark_as_featured_text(@proposal) %>
-              <% end %>
-            <% end %>
-
             <% if author_of_proposal?(@proposal) && can_destroy_image?(@proposal) %>
               <%= link_to image_path(@proposal.image, from: request.url),
                           method: :delete,
                           class: 'button hollow alert expanded',
                           data: { confirm: t('images.actions.destroy.confirm') } do %>
                           <%= t("images.remove_image") %>
+              <% end %>
+            <% end %>
+
+            <% if current_administrator? %>
+              <%= link_to proposal_path(id: @proposal.id, proposal: { featured: !@proposal.featured }), :method => :patch,
+                          class: 'button hollow expanded' do %>
+                          <%= mark_as_featured_text(@proposal) %>
               <% end %>
             <% end %>
 
