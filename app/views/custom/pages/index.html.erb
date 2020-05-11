@@ -54,7 +54,7 @@
                       <h3 class="article-title"><%= link_to page.title, page_path(page.slug) %></h3>
 
                       <p class="proposal-info">
-                        <span>Fecha de actualización: <%= page.updated_at.strftime("%d/%m/%Y") %></span>
+                        <span><%= page.updated_at.strftime("%d/%m/%Y") %></span>
                       </p>
 
                       <div class="proposal-description">

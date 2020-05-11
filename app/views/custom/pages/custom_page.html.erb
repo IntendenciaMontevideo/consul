@@ -13,7 +13,7 @@
     <% end %>
     
     <div class="margin-bottom">
-      <%= @custom_page.updated_at.strftime("%d/%m/%Y") %>
+      última actualización: <%= @custom_page.updated_at.strftime("%d/%m/%Y") %>
     </div>
     
     <%= @custom_page.content.html_safe %>
