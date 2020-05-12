@@ -366,13 +366,13 @@ a.button-span-not-allowed-poll:hover {
 }
 
 .categories-badges {
-  border-top: solid 4px #f9bd41; 
+  border-top: solid 4px #f9bd41;
   border-bottom: solid 4px #f9bd41;
 }
 
 .category-tag {
   color:white !important;
-  font-weight: bold; 
+  font-weight: bold;
   border-radius: 0 !important;
   background:#808080b5 !important;
 }
@@ -482,7 +482,7 @@ a.button-span-not-allowed-poll:hover {
 }
 
 .search-text-input {
-  background:white !important; 
+  background:white !important;
   border: solid #cdcdcd !important;
   border-width: 1px 0 1px 1px !important;
   padding-top: 9px !important;
@@ -540,7 +540,7 @@ header .subnavigation {
 }
 
 .home-text-feature {
-  text-align: left; 
+  text-align: left;
   color: white;
 }
 
@@ -550,6 +550,10 @@ header .subnavigation {
 
 .feature-border {
   border-top: 0;
+}
+
+.z-index-up {
+  z-index: 1;
 }
 
 @media (max-width: 320px) and (min-width: 100px) {
@@ -611,7 +615,7 @@ header .subnavigation {
   }
 }
 
-@media (max-width: 639px) and (min-width: 100px) { 
+@media (max-width: 639px) and (min-width: 100px) {
   .odd-home-button {
     padding-right: 0 !important;
   }
@@ -625,7 +629,7 @@ header .subnavigation {
   }
 }
 
-@media (min-width: 640px) { 
+@media (min-width: 640px) {
   .home-button {
     padding-right: 0 !important;
     padding-left: 0 !important;
@@ -736,7 +740,7 @@ header .subnavigation {
   .nav-menu-item:not(:last-child){
     border-bottom: 1px solid #cdcdcd;
   }
-  
+
   .nav-menu-item .active {
     border-bottom: none !important;
     text-decoration: none;
@@ -774,7 +778,7 @@ header .subnavigation {
     font-size: 50px !important;
     margin-top: -1.5% !important;
   }
-  
+
 }
 
 @media (max-width: 1439px) and (min-width: 1024px) {
@@ -783,7 +787,7 @@ header .subnavigation {
   }
 }
 
-@media (max-width: 1439px) and (min-width: 1025px) { 
+@media (max-width: 1439px) and (min-width: 1025px) {
   .home-banner-text {
     font-size: 55px !important;
     margin-top: -3% !important;
