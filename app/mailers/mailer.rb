@@ -143,6 +143,7 @@ class Mailer < ApplicationMailer
   def welcome_email(user)
     @email_to = user.email
     set_header_welcome_img
+    attachments.inline['ideas.png'] = File.read("#{Rails.root}/app/assets/images/custom/ideas.png")
     set_footer_img
     mail(to: @email_to, subject: 'Bienvenido')
   end

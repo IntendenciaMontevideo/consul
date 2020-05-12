@@ -1,15 +1,22 @@
 <div>
   <%= image_tag attachments['header_welcome_email.png'].url,  style: "width: 97%;" %>
   <p style="padding-top:20px; font-size: 14px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal;">
-    ¡Bienvenido/a!
+    ¡Hola!
   </p>
   <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
-    Gracias por registrarte en Montevideo Decide.<br>
-    Te ofrecemos un espacio de participación ciudadana donde podrás proponer y apoyar ideas, participar en debates y decidir sobre temas que te interesen sobre la ciudad.
+    Gracias por registrarte en Montevideo Decide, la primera plataforma de participación ciudadana.<br><br>
+    Actualmente nos encontramos en el Ciclo Ideas 2020, un ciclo especial para un Montevideo diferente.<br><br>
+    Así funciona el Ciclo 2020:
+  </p>
+  <%= image_tag attachments['ideas.png'].url,  style: "width: 80%;" %>
+  <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
+    Este Ciclo apunta a dos ejes temáticos: <strong>Construcción Colectiva y Nuevos Hábitos.</strong>
   </p>
   <p style="padding-top:5px; font-size: 13px; font-family: Arial; color: #000000; font-weight: 400; font-style: normal; vertical-align: baseline;">
-    Entre todos y todas construyendo la ciudad que queremos.
+    Por más información consultá las bases en:
+    <%= link_to "https://decide.montevideo.gub.uy/bases_2020", "https://decide.montevideo.gub.uy/bases_2020"%>
   </p>
+
   <%= image_tag attachments['signature_email.gif'].url %>
   <pre style="font-size: 9px;">
   Asesoría de Desarrollo
