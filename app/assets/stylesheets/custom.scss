@@ -556,6 +556,10 @@ header .subnavigation {
   z-index: 1;
 }
 
+.overflow-x {
+  overflow-x: auto;
+}
+
 @media (max-width: 320px) and (min-width: 100px) {
   .home-banner-text {
     font-size: 14px !important;

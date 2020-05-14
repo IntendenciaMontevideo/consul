@@ -55,17 +55,20 @@
       </div>
     </div>
   <% end %>
-  <div class="relative show-for-small-only margin-help-link">
-    <%= link_to t("debates.index.help_link"), "#section_help", class: "advanced-search small" %>
-  </div>
-
   <% if ((current_user.blank?) || (!current_user.blank? && session[current_user.id.to_s].blank?)) %>
     <div class="row">
   <% else %>
     <div class="row padding-btn-banner-vote">
   <% end %>
     <div id="debates" class="debates-list small-12 medium-9 column">
-
+      <div class="show-for-small-only">
+      <%= link_to "Crear un Debate",
+        new_debate_path,
+        class: 'button expanded green-regular' %>
+      </div>
+      <div class="relative show-for-small-only margin-help-link">
+        <%= link_to t("debates.index.help_link"), "#section_help", class: "advanced-search small" %>
+      </div>
       <% if has_banners? %>
         <%= render "shared/banner" %>
       <% end %>
@@ -93,11 +96,19 @@
     </div>
 
     <div class="small-12 medium-3 column">
-
       <aside class="margin-bottom">
-        <%= render "shared/tag_cloud", taggable: 'debate' %>
+        <div class="proposal-icon-text-container margin-bottom margin-top hide-for-small-only">
+          <%= image_tag(image_path_for('mano_debate.png'), class:"proposals-icon", alt: "debates") %>
+          <div class="proposals-text"><h3 class="proposals-header">DEBATES</h3></div>
+        </div>
+        <div class="margin-top">
+          <%= link_to "Crear un Debate",
+              new_debate_path,
+              class: 'button expanded green-regular' %>
+        </div>
+      <%= render "shared/tag_cloud", taggable: 'debate' %>
       <% unless @search_terms || @advanced_search_terms || @tag_filter %>
-        <div id="section_help" class="margin" data-magellan-target="section_help">
+        <div class="margin" data-magellan-target="section_help">
           <p class="lead">
             <strong><%= t("debates.index.section_footer.title") %></strong>
           </p>
