@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200430181146) do
+ActiveRecord::Schema.define(version: 20200504140442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -855,6 +855,7 @@ ActiveRecord::Schema.define(version: 20200430181146) do
     t.integer  "poll_group_id"
     t.integer  "number_votes_allowed", default: 1
     t.boolean  "public_consultation",  default: false
+    t.boolean  "featured",             default: false
   end
 
   add_index "polls", ["poll_group_id"], name: "index_polls_on_poll_group_id", using: :btree
@@ -883,8 +884,8 @@ ActiveRecord::Schema.define(version: 20200430181146) do
     t.datetime "confirmed_hide_at"
     t.integer  "hot_score",           limit: 8,  default: 0
     t.integer  "confidence_score",               default: 0
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.string   "responsible_name",    limit: 60
     t.text     "summary"
     t.string   "video_url"
@@ -899,6 +900,7 @@ ActiveRecord::Schema.define(version: 20200430181146) do
     t.string   "link_not_success"
     t.string   "text_show_finished"
     t.string   "link_success"
+    t.boolean  "featured",                       default: false
   end
 
   add_index "proposals", ["author_id", "hidden_at"], name: "index_proposals_on_author_id_and_hidden_at", using: :btree

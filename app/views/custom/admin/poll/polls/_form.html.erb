@@ -40,6 +40,12 @@
     </div>
   </div>
 
+  <div class="small-12 medium-6 column">
+    <%= f.select :featured,
+                  [[t("admin.polls.new.featured"), true], [t("admin.polls.new.not_featured"), false]],
+                  :include_blank => false %>
+  </div>
+
   <div class="row">
     <div class="small-12 column">
       <%= render 'images/admin_image', imageable: @poll, f: f %>

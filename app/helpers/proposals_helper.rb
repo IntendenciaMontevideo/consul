@@ -63,4 +63,8 @@ module ProposalsHelper
     string == Proposal.to_s
   end
 
+  def mark_as_featured_text(proposal)
+    proposal.featured ? "No Destacar" : "Destacar"
+  end
+
 end

@@ -1,7 +1,7 @@
 class Widget::Feed < ActiveRecord::Base
   self.table_name = "widget_feeds"
 
-  KINDS = %w(proposals debates processes)
+  KINDS = %w(proposals debates processes polls)
 
   def active?
     setting.value.present?
@@ -23,11 +23,15 @@ class Widget::Feed < ActiveRecord::Base
   end
 
   def proposals
-    Proposal.sort_by_hot_score.not_archived.limit(limit)
+    Proposal.by_featured[0..limit-1]
   end
 
   def debates
     Debate.sort_by_hot_score.limit(limit)
+  end
+
+  def polls
+    Poll.by_featured[0..limit-1]
   end
 
   def processes

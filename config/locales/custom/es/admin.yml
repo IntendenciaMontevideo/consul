@@ -42,6 +42,8 @@ es:
         access_level: Nivel de acceso
         number_votes_allowed: Cantidad de votos permitidos
         order_number: Orden
+        featured: Destacada
+        not_featured: No Destacada
     poll_groups:
       index:
         title: Listado de grupo de votaciones
@@ -75,6 +77,7 @@ es:
         proposals: Propuestas
         debates: Debates
         processes: Procesos
+        polls: Votaciones
       new:
         header_title: Nuevo encabezado
         submit_header: Crear encabezado

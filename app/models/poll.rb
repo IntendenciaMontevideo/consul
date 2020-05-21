@@ -35,6 +35,7 @@ class Poll < ActiveRecord::Base
   scope :sort_for_list, -> { order(:geozone_restricted, :starts_at, :name) }
   scope :find_same_group_poll, -> (poll) { where('poll_group_id = ? and id <> ?', poll.poll_group_id, poll.id) }
   scope :public_consultation, -> (is_public_consultation) { where(public_consultation: is_public_consultation) }
+  scope :by_featured, -> { current.where(featured: true).shuffle }
 
   def title
     name
