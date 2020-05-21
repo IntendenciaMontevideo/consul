@@ -6,7 +6,7 @@ class DirectMessage < ActiveRecord::Base
   validates :body,     presence: true
   validates :sender,   presence: true
   validates :receiver, presence: true
-  validate  :max_per_day
+  validate  :max_per_day, if: -> { !sender.moderator? && !sender.administrator? }
 
   scope :today, lambda { where('DATE(created_at) = DATE(?)', Time.current) }
 
