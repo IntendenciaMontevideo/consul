@@ -28,6 +28,8 @@ module Abilities
 
       can :confirm_hide, Proposal
       cannot :confirm_hide, Proposal, hidden_at: nil
+      
+      can :toggle_featured, Proposal
 
       can :confirm_hide, Legislation::Proposal
       cannot :confirm_hide, Legislation::Proposal, hidden_at: nil
