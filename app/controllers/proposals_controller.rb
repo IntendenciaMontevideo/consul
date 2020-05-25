@@ -9,7 +9,6 @@ class ProposalsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :map, :summary]
   before_action :destroy_map_location_association, only: :update
   before_action :can_create_proposal, only: [:new, :create]
-
   feature_flag :proposals
 
   feature_flag :proposals
@@ -19,7 +18,7 @@ class ProposalsController < ApplicationController
   has_orders ->(c) { Proposal.proposals_orders(c.current_user) }, only: :index
   has_orders %w{most_voted newest oldest}, only: :show
 
-  before_action :find_proposal, :only => :show
+  before_action :find_proposal, only: [:show, :toggle_featured]
   load_and_authorize_resource
   before_action :can_edit_proposal, only: [:edit, :update]
 
@@ -81,6 +80,15 @@ class ProposalsController < ApplicationController
   def summary
     @proposals = Proposal.for_summary
     @tag_cloud = tag_cloud
+  end
+
+  def toggle_featured
+    if @proposal.toggle!(:featured)
+      flash[:success] = 'Se ha acualizado correctamente'
+    else
+      flash[:error] = 'Ha ocurrido un error'
+    end
+    redirect_to @proposal
   end
 
   private

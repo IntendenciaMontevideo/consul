@@ -7,6 +7,7 @@ resources :proposals do
     get :retire_form
     get :share
     patch :retire
+    get :toggle_featured
   end
 
   collection do
