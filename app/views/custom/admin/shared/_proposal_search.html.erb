@@ -27,6 +27,10 @@
                      include_blank: 'selecciona el estado',
                      class: 'height-status-search' } %>
     </div>
+    <div class="small-12 medium-6 column">
+      <label for="js-advanced-search-date-min"><%= t("shared.proposal_search.votes") %></label>
+      <%= number_field_tag "votes", params[:votes], min: 0 %>
+    </div>
 
     <div class="small-12 medium-3 column end clear">
       <%= submit_tag t("shared.advanced_search.search"), class: 'button expanded', data: { loading: 'Filtrar'} %>

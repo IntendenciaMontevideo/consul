@@ -29,6 +29,8 @@ namespace :management do
     post :archived, on: :member
   end
 
+  post '/archive_proposals', to: 'proposals#archive_all', as: :proposals_archive_all
+
   resources :spending_proposals, only: [:index, :new, :create, :show] do
     post :vote, on: :member
     get :print, on: :collection

@@ -151,6 +151,9 @@ es:
       proposal: Idea
       budget_investment: "Consulta ciudadana"
   proposals:
+    votes:
+      one:  menos de %{count} voto
+      other:  menos de %{count} votos
     status:
       open: 'Pendiente'
       pre_success: 'Pre-Aprobada'
@@ -185,8 +188,11 @@ es:
         one: " que contiene <strong>'%{search_first}'</strong> y <strong>'%{search_second}'</strong>"
         other: " que contiene <strong>'%{search_first}'</strong> y <strong>'%{search_second}'</strong>"
       search_three_results_html:
-        one: " que contiene <strong>'%{search_first}'</strong> y <strong>'%{search_second}'</strong> y <strong>'%{search_third}'</strong>"
-        other: " que contienen <strong>'%{search_first}'</strong> y <strong>'%{search_second}'</strong> y <strong>'%{search_third}'</strong>"
+        one: " que contiene <strong>'%{search_first}'</strong>, <strong>'%{search_second}'</strong> y <strong>'%{search_third}'</strong>"
+        other: " que contienen <strong>'%{search_first}'</strong>, <strong>'%{search_second}'</strong> y <strong>'%{search_third}'</strong>"
+      search_four_results_html:
+        one: " que contiene <strong>'%{search_first}'</strong>, <strong>'%{search_second}'</strong>, <strong>'%{search_third}'</strong> y <strong>'%{search_fourth}'</strong>"
+        other: " que contienen <strong>'%{search_first}'</strong>, <strong>'%{search_second}'</strong>, <strong>'%{search_third}'</strong> y <strong>'%{search_fourth}'</strong>"
       recommendations:
         without_results: No existen ideas relacionadas con tus intereses
         without_interests: Sigue ideas para que podamos darte recomendaciones
@@ -349,4 +355,7 @@ es:
       end_date: 'Fecha fin'
       status: 'Estado'
       general: 'Con el texto'
+      votes: 'Menos votos que'
+      archive: 'Archivar Resultados'
+      archive_placeholder: 'Texto que aparecerá al los usuarios al acceder a la propuesta(no obligatorio)'
 

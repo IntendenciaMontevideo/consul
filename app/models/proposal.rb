@@ -73,6 +73,7 @@ class Proposal < ActiveRecord::Base
   scope :search_between_dates, -> (start_date, end_date) { where('created_at >= ? AND created_at <= ?', start_date.beginning_of_day, end_date.beginning_of_day) }
   scope :search_by_status, -> (status) { where(state: status) }
   scope :by_featured, -> { not_archived.where(featured: true).shuffle }
+  scope :by_less_than_vote_count, -> (vote_count) { where("cached_votes_up < ?", vote_count) }
 
   def url
     proposal_path(self)
@@ -89,6 +90,10 @@ class Proposal < ActiveRecord::Base
 
   def self.not_followed_by_user(user)
     where.not(id: followed_by_user(user).pluck(:id))
+  end
+
+  def self.minimum_votes(votes)
+    Proposal.all.includes(:votes_for).reject { |p| p.votes_for.size >= votes }
   end
 
   def to_param
