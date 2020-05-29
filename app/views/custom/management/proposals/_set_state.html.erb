@@ -74,5 +74,8 @@
   <% unless proposal.text_show_finished.blank? %>
     <p>Texto que aparecerá al los usuarios al acceder a la propuesta: <%= proposal.text_show_finished.to_s %></pr>
   <% end %>
+  <% if proposal.archived? && !proposal.text_show_archived.blank? %>
+    <p>Texto de archivado: <%= proposal.text_show_archived.to_s %></pr>
+  <% end %>
 
 </div>

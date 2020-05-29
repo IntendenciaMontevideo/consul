@@ -357,5 +357,5 @@ es:
       general: 'Con el texto'
       votes: 'Menos votos que'
       archive: 'Archivar Resultados'
-      archive_placeholder: 'Texto que aparecerá al los usuarios al acceder a la propuesta(no obligatorio)'
+      archive_placeholder: 'Texto que se mostrará al archivar propuestas'
 

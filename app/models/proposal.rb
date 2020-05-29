@@ -134,6 +134,11 @@ class Proposal < ActiveRecord::Base
     summary
   end
 
+  def self.bulk_archive(ids, archived_text)
+    Proposal.where(id: ids).update_all(state: Proposal::STATES[:archived],
+      text_show_archived: archived_text)
+  end
+
   def total_votes
     cached_votes_up
   end

@@ -29,13 +29,14 @@
     </div>
   </div>
   <% if @search_values.any? && @proposals.any? %>
-    <%= form_for(Proposal.new, url: management_proposals_archive_all_path(proposals_ids: @proposals.pluck('id').uniq), as: :proposal, method: :post) do |f| %>
+    <%= form_tag(management_proposals_archive_all_path, method: :post) do |f| %>
+      <%= hidden_field_tag :proposals_ids, @proposals.pluck('id').uniq %>
       <div class="row">
         <div class="small-12 medium-6 large-12 column">
           <label>
             <%= t("shared.proposal_search.archive") %>
           </label>
-          <%= text_field_tag "text_show_finished", params[:text_show_finished], placeholder: t("shared.proposal_search.archive_placeholder") %>
+          <%= text_field_tag "text_show_archived", params[:text_show_archived], placeholder: t("shared.proposal_search.archive_placeholder"), required: true %>
         </div>
         <div class="small-12 medium-3 column">
           <%= submit_tag "Archivar", class: 'button expanded', data: { loading: 'Archivar'} %>

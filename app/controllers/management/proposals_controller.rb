@@ -63,8 +63,9 @@ class Management::ProposalsController < Management::BaseController
   end
 
   def archive_all
-    ids = params[:proposals_ids]
-    Proposal.where(id: ids).update_all(state: 5, text_show_finished: params[:text_show_finished])
+    ids = params[:proposals_ids].split(' ')
+    archived_text = params[:text_show_archived]
+    Proposal.bulk_archive(ids, archived_text)
     redirect_to management_proposals_path, notice: 'Se han archivado las ideas'
   end
 
