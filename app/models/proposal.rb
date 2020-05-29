@@ -92,10 +92,6 @@ class Proposal < ActiveRecord::Base
     where.not(id: followed_by_user(user).pluck(:id))
   end
 
-  def self.minimum_votes(votes)
-    Proposal.all.includes(:votes_for).reject { |p| p.votes_for.size >= votes }
-  end
-
   def to_param
     "#{id}-#{title}".parameterize
   end
