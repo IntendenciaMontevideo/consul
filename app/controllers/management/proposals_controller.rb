@@ -2,7 +2,7 @@ class Management::ProposalsController < Management::BaseController
   include HasOrders
   include CommentableActions
 
-  before_action :only_verified_users, except: [:print, :index, :show, :not_approve, :approve_threshold, :approve, :pending, :archived]
+  before_action :only_verified_users, except: [:print, :index, :show, :not_approve, :approve_threshold, :approve, :pending, :archived, :archive_all]
   before_action :set_proposal, only: [:vote, :show, :not_approve, :approve_threshold, :approve, :pending, :archived]
   before_action :parse_search_terms, only: :index
   before_action :load_categories, only: [:new, :edit]
@@ -60,6 +60,13 @@ class Management::ProposalsController < Management::BaseController
   def approve
     @proposal.success!(params[:text_show_finished],params[:link_success])
     redirect_to management_proposal_path(@proposal), notice: 'Actualizado correctamente'
+  end
+
+  def archive_all
+    ids = params[:proposals_ids].split(' ')
+    archived_text = params[:text_show_archived]
+    Proposal.bulk_archive(ids, archived_text)
+    redirect_to management_proposals_path, notice: 'Se han archivado las ideas'
   end
 
   private

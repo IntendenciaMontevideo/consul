@@ -8,10 +8,28 @@ module Search
   end
 
   def parse_search_terms
-    @search_terms = params[:search] if params[:search].present?
-    @search_start_date = params[:start_date].to_date if params[:start_date].present?
-    @search_end_date = params[:end_date].to_date if params[:end_date].present?
-    @search_by_status = params[:status] if params[:status].present?
+    @search_values = []
+    if params[:search].present?
+      @search_terms = params[:search] 
+      @search_values << @search_terms
+    end
+    if params[:start_date].present? && params[:end_date].present?
+      @search_start_date = params[:start_date].to_date 
+      @search_end_date = params[:end_date].to_date 
+      @search_values <<  "#{@search_start_date.strftime("%d/%m/%Y")} - #{@search_end_date.strftime("%d/%m/%Y")}"
+    end
+    if params[:status].present?
+      @search_by_status = params[:status]
+      @search_values << t("proposals.status.#{Proposal::STATES.key(@search_by_status.to_i)}")
+    end
+    if params[:votes].present?
+      @search_by_votes = params[:votes]
+      if @search_by_votes.to_i == 1
+        @search_values << t("proposals.votes.one", count: @search_by_votes)
+      else
+        @search_values << t("proposals.votes.other", count: @search_by_votes)
+      end
+    end
   end
 
   def parse_advanced_search_terms

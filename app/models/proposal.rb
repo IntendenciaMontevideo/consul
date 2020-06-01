@@ -73,6 +73,7 @@ class Proposal < ActiveRecord::Base
   scope :search_between_dates, -> (start_date, end_date) { where('created_at >= ? AND created_at <= ?', start_date.beginning_of_day, end_date.beginning_of_day) }
   scope :search_by_status, -> (status) { where(state: status) }
   scope :by_featured, -> { not_archived.where(featured: true).shuffle }
+  scope :by_less_than_vote_count, -> (vote_count) { where("cached_votes_up < ?", vote_count) }
 
   def url
     proposal_path(self)
@@ -131,6 +132,11 @@ class Proposal < ActiveRecord::Base
       summary[group] = search(group).last_week.sort_by_confidence_score.limit(3)
     end
     summary
+  end
+
+  def self.bulk_archive(ids, archived_text)
+    Proposal.where(id: ids).update_all(state: Proposal::STATES[:archived],
+      text_show_archived: archived_text)
   end
 
   def total_votes

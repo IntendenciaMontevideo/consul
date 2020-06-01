@@ -6,23 +6,19 @@
 
       <div class="filters">
         <div class="small-12 medium-12 float-left">
-          <% if @search_terms || (@search_start_date && @search_end_date) || @search_by_status %>
+          <% if @search_values.any? %>
             <h2>
               <%= page_entries_info @proposals %>
-              <% if @search_terms && @search_start_date && @search_end_date && @search_by_status %>
-                <%= t("proposals.index.search_three_results_html", count: @proposals.size, search_first: @search_terms, search_second: "#{@search_start_date.strftime("%d/%m/%Y")} - #{@search_end_date.strftime("%d/%m/%Y")}", search_third: t("proposals.status.#{Proposal::STATES.key(@search_by_status.to_i)}")) %>
-              <% elsif @search_terms && @search_start_date && @search_end_date %>
-                <%= t("proposals.index.search_two_results_html", count: @proposals.size, search_first: @search_terms, search_second: "#{@search_start_date.strftime("%d/%m/%Y")} - #{@search_end_date.strftime("%d/%m/%Y")}") %>
-              <% elsif @search_terms && @search_by_status %>
-                <%= t("proposals.index.search_two_results_html", count: @proposals.size, search_first: @search_terms, search_second: t("proposals.status.#{Proposal::STATES.key(@search_by_status.to_i)}")) %>
-              <% elsif @search_start_date && @search_end_date && @search_by_status %>
-                <%= t("proposals.index.search_two_results_html", count: @proposals.size, search_first: "#{@search_start_date.strftime("%d/%m/%Y")} - #{@search_end_date.strftime("%d/%m/%Y")}", search_second: t("proposals.status.#{Proposal::STATES.key(@search_by_status.to_i)}")) %>
-              <% elsif @search_terms %>
-                <%= t("proposals.index.search_results_html", count: @proposals.size, search_term: @search_terms) %>
-              <% elsif @search_start_date && @search_end_date %>
-                <%= t("proposals.index.search_results_html", count: @proposals.size, search_term: "#{@search_start_date.strftime("%d/%m/%Y")} - #{@search_end_date.strftime("%d/%m/%Y")}") %>
-              <% elsif @search_by_status %>
-                <%= t("proposals.index.search_results_html", count: @proposals.size, search_term: t("proposals.status.#{Proposal::STATES.key(@search_by_status.to_i)}")) %>
+              
+              <% search_values_size = @search_values.size %>
+              <% if search_values_size == 4 %>
+                <%= t("proposals.index.search_four_results_html", count: @proposals.size, search_first: @search_values.first, search_second: @search_values.second, search_third: @search_values.third, search_fourth: @search_values.fourth) %>
+              <% elsif search_values_size == 3 %>
+                <%= t("proposals.index.search_three_results_html", count: @proposals.size, search_first: @search_values.first, search_second: @search_values.second, search_third: @search_values.third) %>
+              <% elsif search_values_size == 2 %>
+                <%= t("proposals.index.search_two_results_html", count: @proposals.size, search_first: @search_values.first, search_second: @search_values.second) %>
+              <% elsif search_values_size == 1 %>
+                <%= t("proposals.index.search_results_html", count: @proposals.size, search_term: @search_values.first) %>
               <% end %>
             </h2>
           <% end %>
@@ -32,4 +28,20 @@
       </div>
     </div>
   </div>
+  <% if @search_values.any? && @proposals.any? %>
+    <%= form_tag(management_proposals_archive_all_path, method: :post) do |f| %>
+      <%= hidden_field_tag :proposals_ids, @proposals.pluck('id').uniq %>
+      <div class="row">
+        <div class="small-12 medium-6 large-12 column">
+          <label>
+            <%= t("shared.proposal_search.archive") %>
+          </label>
+          <%= text_field_tag "text_show_archived", params[:text_show_archived], placeholder: t("shared.proposal_search.archive_placeholder"), required: true %>
+        </div>
+        <div class="small-12 medium-3 column">
+          <%= submit_tag "Archivar", class: 'button expanded', data: { loading: 'Archivar'} %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </main>
