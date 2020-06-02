@@ -67,4 +67,14 @@ module ProposalsHelper
     proposal.featured ? "No Destacar" : "Destacar"
   end
 
+  def format_archived_text(proposal)
+    if proposal.text_show_finished.blank? && proposal.text_show_archived.blank?
+      "Esta idea ha sido archivada y ya no puede recoger apoyos."
+    elsif proposal.text_show_finished.blank?
+      proposal.text_show_archived
+    else
+      proposal.text_show_finished
+    end
+  end
+
 end
