@@ -68,12 +68,6 @@
     <p>
       <%= format_archived_text(proposal) %>
     </p>
-    <% unless proposal.link_success.blank? %>
-      <%= link_to proposal.link_success,
-            class: "button button-support expanded #{ show ? 'view-document-show' : 'view-document-list'}",
-            title: "Ver documento", target: '_blank' do %>
-          Ver documento
-      <% end %>
-    <% end %>
+    <%= document_link(proposal, show, "Ver Documento") %>
   </div>
 <% end %>

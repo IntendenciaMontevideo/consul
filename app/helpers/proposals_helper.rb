@@ -77,4 +77,20 @@ module ProposalsHelper
     end
   end
 
+  def document_link(proposal, show, text)
+    if proposal.link_success
+      link_to proposal.link_success,
+            class: "button button-support expanded #{ show ? 'view-document-show' : 'view-document-list'}",
+            title: "Ver documento", target: '_blank' do 
+                text
+      end
+    elsif proposal.link_not_success
+      link_to proposal.link_not_success,
+          class: "button button-support expanded #{ show ? 'view-document-show' : 'view-document-list'}",
+          title: "Ver documento", target: '_blank' do
+        text
+      end 
+    end
+  end
+
 end
