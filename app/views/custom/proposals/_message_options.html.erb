@@ -1,7 +1,4 @@
-<% if !proposal.can_vote? %>
-  <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>
-  <p>El período para apoyar esta idea ha finalizado.</p>
-<% elsif proposal.not_successful? %>
+<% if proposal.not_successful? %>
   <div class="padding text-center">
     <% if proposal.text_show_finished.blank? %>
       <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>
@@ -50,13 +47,27 @@
                   class: "button hollow" %>
     </p>
   <% end %>
+<% elsif proposal.open?%>
+  <% if proposal.archived? || !proposal.can_vote? %>
+    <div class="padding text-center">
+      <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>
+      <% if proposal.archived? %>
+        <p>Esta idea ha sido archivada y ya no puede recoger apoyos.</p>
+      <% else %>
+        <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>
+        <p>El período para apoyar esta idea ha finalizado.</p>
+      <% end %>
+    </div>
+  <% else %>
+    <%= render 'votes',
+            { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes') } %>
+  <% end %>
 <% elsif proposal.archived? %>
   <div class="padding text-center">
     <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>
-    <p><%= t("proposals.proposal.archived") %></p>
+    <p>
+      <%= format_archived_text(proposal) %>
+    </p>
+    <%= document_link(proposal, show, "Ver Documento") %>
   </div>
-<% else %>
-  <%= render 'votes',
-            { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes') } %>
 <% end %>
-

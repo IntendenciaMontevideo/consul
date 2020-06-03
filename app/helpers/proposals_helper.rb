@@ -67,4 +67,30 @@ module ProposalsHelper
     proposal.featured ? "No Destacar" : "Destacar"
   end
 
+  def format_archived_text(proposal)
+    if proposal.text_show_finished.blank? && proposal.text_show_archived.blank?
+      "Esta idea ha sido archivada y ya no puede recoger apoyos."
+    elsif proposal.text_show_finished.blank?
+      proposal.text_show_archived
+    else
+      proposal.text_show_finished
+    end
+  end
+
+  def document_link(proposal, show, text)
+    if proposal.link_success
+      link_to proposal.link_success,
+            class: "button button-support expanded #{ show ? 'view-document-show' : 'view-document-list'}",
+            title: "Ver documento", target: '_blank' do 
+                text
+      end
+    elsif proposal.link_not_success
+      link_to proposal.link_not_success,
+          class: "button button-support expanded #{ show ? 'view-document-show' : 'view-document-list'}",
+          title: "Ver documento", target: '_blank' do
+        text
+      end 
+    end
+  end
+
 end
