@@ -70,7 +70,7 @@ class Proposal < ActiveRecord::Base
   scope :public_for_api,           -> { all }
   scope :not_supported_by_user,    ->(user) { where.not(id: user.find_voted_items(votable_type: "Proposal").compact.map(&:id)) }
   scope :not_not_success,          -> { where.not("state = ?", Proposal::STATES[:not_success]) }
-  scope :search_between_dates, -> (start_date, end_date) { where('created_at >= ? AND created_at <= ?', start_date.beginning_of_day, end_date.beginning_of_day) }
+  scope :search_between_dates, -> (start_date, end_date) { where('proposals.created_at >= ? AND proposals.created_at <= ?', start_date.beginning_of_day, end_date.beginning_of_day) }
   scope :search_by_status, -> (status) { where(state: status) }
   scope :by_featured, -> { not_archived.where(featured: true).shuffle }
   scope :by_less_than_vote_count, -> (vote_count) { where("cached_votes_up < ?", vote_count) }
