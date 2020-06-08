@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
 
   def index
     @recommendations = Widget::Card.body
-    @headers = load_widget_cards.sort_by { |obj| obj.order_number }
+    @headers = load_widget_cards.sort_by { |obj| obj.order_number || 999 }
     @recommendation_is_active = recomendation_home?
     @feed_proposal = Widget::Feed.find_by_kind(Widget::Feed::KINDS[0])
     @feed_debate = Widget::Feed.find_by_kind(Widget::Feed::KINDS[1])
