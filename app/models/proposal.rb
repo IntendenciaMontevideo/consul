@@ -136,7 +136,7 @@ class Proposal < ActiveRecord::Base
 
   def self.bulk_archive(ids, archived_text)
     Proposal.where(id: ids).update_all(state: Proposal::STATES[:archived],
-      text_show_archived: archived_text)
+      text_show_archived: archived_text, archived_at: Date.today)
   end
 
   def total_votes
@@ -276,7 +276,7 @@ class Proposal < ActiveRecord::Base
   end
 
   def archived!
-    update(state: STATES[:archived])
+    update(state: STATES[:archived], archived_at: Date.today)
   end
 
   def state_text

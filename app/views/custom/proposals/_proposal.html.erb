@@ -22,11 +22,14 @@
           <% cache [locale_and_user_status(proposal), 'index', proposal, proposal.author] do %>
             <h3><%= link_to proposal.title, namespaced_proposal_path(proposal) %></h3>
             <p class="proposal-info">
+              <%= format_archived_at_text(proposal, "archived-info-index") %>
               <span class="icon-comments"></span>&nbsp;
               <%= link_to t("proposals.proposal.comments", count: proposal.comments_count), namespaced_proposal_path(proposal, anchor: "comments") %>
 
-              <span class="bullet">&nbsp;&bull;&nbsp;</span>
-              <%= l proposal.created_at.to_date %>
+              <% unless proposal.archived_at %>
+                <span class="bullet">&nbsp;&bull;&nbsp;</span>
+                <%= l proposal.created_at.to_date %>
+              <% end %>
 
               <% if proposal.author.hidden? || proposal.author.erased? %>
                 <span class="bullet">&nbsp;&bull;&nbsp;</span>

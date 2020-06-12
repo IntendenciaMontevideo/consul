@@ -560,6 +560,19 @@ header .subnavigation {
   overflow-x: auto;
 }
 
+.archived-info {
+  font-size: 1.5rem;
+  color: black;
+  margin: 0;
+}
+
+.archived-info-index {
+  font-size: 18px;
+  color: black;
+  margin: 0;
+  margin-top: 15px;
+}
+
 @media (max-width: 320px) and (min-width: 100px) {
   .home-banner-text {
     font-size: 14px !important;
