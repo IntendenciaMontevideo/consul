@@ -97,7 +97,7 @@ module ProposalsHelper
     if proposal.archived?
       text = t('proposals.archived')
       text += " - #{proposal.archived_at.strftime('%d/%m/%Y')}" if proposal.archived_at
-      content_tag(:h2, text, class: class_name)
+      content_tag(:p, text, class: class_name)
     end
   end
 

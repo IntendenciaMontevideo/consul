@@ -561,16 +561,17 @@ header .subnavigation {
 }
 
 .archived-info {
-  font-size: 1.5rem;
+  font-size: 1.0625rem !important;
   color: black;
   margin: 0;
+  font-weight: bold;
 }
 
 .archived-info-index {
-  font-size: 18px;
   color: black;
   margin: 0;
   margin-top: 15px;
+  font-weight: bold;
 }
 
 @media (max-width: 320px) and (min-width: 100px) {
