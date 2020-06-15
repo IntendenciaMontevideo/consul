@@ -29,11 +29,14 @@
         <% end %>
 
         <div class="proposal-info">
+          <%= format_archived_at_text(@proposal, "archived-info") %>
           <span class="icon-comments"></span>&nbsp;
           <%= link_to t("proposals.show.comments", count: @proposal.comments_count), "#comments" %>
           <span class="bullet">&nbsp;&bull;&nbsp;</span>
-          <%= l @proposal.created_at.to_date %>
-          <span class="bullet">&nbsp;&bull;&nbsp;</span>
+          <% unless @proposal.archived_at %>
+            <%= l @proposal.created_at.to_date %>
+            <span class="bullet">&nbsp;&bull;&nbsp;</span>
+          <% end %>
           <%= render '/shared/author_info', resource: @proposal %>
 
           <% if current_user %>

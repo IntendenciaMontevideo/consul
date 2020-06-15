@@ -160,6 +160,7 @@ es:
       success: 'Aprobada'
       not_success: 'No Aprobada'
       archived: 'Archivada'
+    archived: 'Idea Archivada'
     banner-text: "Montevideo necesita tu aporte para crecer. Por eso te invitamos a que te sumes a los debates sobre los temas que más te preocupan, propongas ideas para mejorar la calidad de vida de todos y todas, y decidamos en conjunto cuáles se llevan a cabo."
     create:
       form:

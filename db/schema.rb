@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200529181012) do
+ActiveRecord::Schema.define(version: 20200612124542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -902,6 +902,7 @@ ActiveRecord::Schema.define(version: 20200529181012) do
     t.string   "link_success"
     t.boolean  "featured",                       default: false
     t.string   "text_show_archived"
+    t.date     "archived_at"
   end
 
   add_index "proposals", ["author_id", "hidden_at"], name: "index_proposals_on_author_id_and_hidden_at", using: :btree
