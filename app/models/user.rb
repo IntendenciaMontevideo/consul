@@ -185,11 +185,14 @@ class User < ActiveRecord::Base
     if (oauth_user.uid.include?('uy-ci') || oauth_user.uid.include?('uy-dni')) && (oauth_user.user_certified || oauth_user.user_verified) && oauth_user.verified_at.blank?
       oauth_user.verified_at = Date.today
     end
-
-    if oauth_user.user_certified || oauth_user.user_verified
-      oauth_user.level_login = LEVEL_LOGIN[:level_3]
+    if oauth_user.uid.include?('uy-ci') || oauth_user.uid.include?('uy-dni')
+      if oauth_user.user_certified || oauth_user.user_verified
+        oauth_user.level_login = LEVEL_LOGIN[:level_3]
+      else
+        oauth_user.level_login = LEVEL_LOGIN[:level_2]
+      end
     else
-      oauth_user.level_login = LEVEL_LOGIN[:level_2]
+      oauth_user.level_login = LEVEL_LOGIN[:level_1]
     end
 
     oauth_user
