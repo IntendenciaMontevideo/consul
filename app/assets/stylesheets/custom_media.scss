@@ -1509,7 +1509,10 @@
     width: 250%;
     margin-left: -150px;
   }
-
+  .participation-not-allowed {
+    line-height: 1.2rem;
+    font-size: 0.8rem
+  }
   .ball-green{
     right: 10px;
     width: 100%;
@@ -1559,6 +1562,11 @@
   .featured-proposals .participation-not-allowed {
     width: 190%;
     margin-left: -130px;
+  }
+
+  .participation-not-allowed {
+    line-height: 1.2rem;
+    font-size: 0.8rem
   }
 
   .custom-social-networks {
@@ -1701,6 +1709,10 @@
 @media (min-width: 1024px) and (max-width: 1280px) {
   .collaboration-spaces h3 {
     font-size: 18px;
+  }
+  .participation-not-allowed {
+    line-height: 1.3rem;
+    font-size: 1rem
   }
 }
 
