@@ -1279,6 +1279,12 @@
     height: 180px;
   }
 
+  .height-div-signin .text-style-agesic,
+  .height-div-signin .text-style-tw,
+  .height-div-signin .text-style-fb, {
+    font-size: 10px;
+  }
+
 }
 
 @media (min-width: 100px) and (max-width: 375px) {
@@ -1371,6 +1377,12 @@
   .margin-left-20-lg h4{
     font-size: 14px;
     padding-bottom: 14px;
+  }
+
+  .height-div-signin .text-style-agesic,
+  .height-div-signin .text-style-tw,
+  .height-div-signin .text-style-fb, {
+    font-size: 8px;
   }
 
 
@@ -1703,6 +1715,11 @@
 
   .container-height {
     height: 822px;
+  }
+  .height-div-signin .text-style-agesic,
+  .height-div-signin .text-style-tw,
+  .height-div-signin .text-style-fb, {
+    font-size: 10px;
   }
 }
 
