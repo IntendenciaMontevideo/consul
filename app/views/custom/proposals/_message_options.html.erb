@@ -36,10 +36,6 @@
       <% end %>
     <% end %>
   </div>
-  <% if show %>
-    <%= render 'votes',
-      { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes') } %>
-  <% end %>
   <% if show && can?(:create, Poll::Question) %>
     <p class="text-center">
       <%= link_to t('poll_questions.create_question'),
