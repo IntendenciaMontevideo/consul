@@ -333,7 +333,7 @@ class Proposal < ActiveRecord::Base
     end
 
     def set_votes_for_success
-      self.votes_for_success = Setting['proposals_feasibility_threshold']
+      self.votes_for_success = Setting['proposals_feasibility_threshold'].to_i
     end
 
 end
