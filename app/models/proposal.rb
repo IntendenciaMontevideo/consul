@@ -209,7 +209,11 @@ class Proposal < ActiveRecord::Base
   end
 
   def votes_pre_successful?
-    total_votes >= self.votes_for_success
+    self.votes_for_success != 0 && total_votes >= self.votes_for_success
+  end
+
+  def not_required_feasibility_threshold?
+    self.votes_for_success == 0
   end
 
   def open?
