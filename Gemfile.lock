@@ -269,7 +269,7 @@ GEM
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
     mini_mime (1.0.0)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     minitest (5.11.1)
     mixlib-cli (1.7.0)
     mixlib-config (2.2.4)
@@ -280,8 +280,8 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (4.2.0)
     newrelic_rpm (4.1.0.333)
-    nokogiri (1.8.2)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.10.10)
+      mini_portile2 (~> 2.4.0)
     nori (2.6.0)
     oauth (0.5.3)
     oauth2 (1.4.0)
@@ -337,7 +337,7 @@ GEM
     public_suffix (3.0.1)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
-    rack (1.6.8)
+    rack (1.6.13)
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-attack (5.0.1)
@@ -410,7 +410,7 @@ GEM
     rubocop-rspec (1.22.1)
       rubocop (>= 0.52.1)
     ruby-progressbar (1.9.0)
-    ruby-saml (1.7.2)
+    ruby-saml (1.11.0)
       nokogiri (>= 1.5.10)
     rubyzip (1.2.1)
     rvm1-capistrano3 (1.4.0)
@@ -602,4 +602,4 @@ DEPENDENCIES
   whenever (~> 0.10.0)
 
 BUNDLED WITH
-   1.16.2
+   1.16.6
